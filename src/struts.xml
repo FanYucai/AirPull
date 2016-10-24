@@ -16,7 +16,6 @@
 <struts>
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
-	<constant name="struts.i18n.encoding" value="UTF-8"/>
 	<package name="qwq" extends="struts-default" namespace="/"
 		strict-method-invocation="false">
 		<!-- <global-results>
@@ -30,14 +29,6 @@
 			<result name="error">/WEB-INF/content/error.jsp</result>
 			<result name="success">/WEB-INF/content/welcome.jsp</result>
 		</action> -->
-		<action name="AddNewAuthor" class="qwq.AddNewAuthor">
-			<result name="success">/WEB-INF/content/addNewBook.jsp</result>
-			<result name="error">/WEB-INF/content/addNewBookFailure.jsp</result>
-		</action>		
-
-		<action name="ListAndUpdateBook" class="qwq.ListAndUpdateBook">
-			<result name="success">/WEB-INF/content/listAndUpdateBook.jsp</result>
-		</action>	
 		
 		<action name="*">
 			<result>/WEB-INF/content/{1}.jsp</result>
