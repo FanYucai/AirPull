@@ -10,6 +10,8 @@
 5. 方法名：动词开头；判断的方法是if开头
 6. 变量名：需要有意义，规范和方法名一样，不能用动词和if开头
 7. 尽量多commit和push
+8. 包名：com.a1rdr0p.SEproject.xxx
+9. model包放对象，service包放工具
 
 ---
 ##样例网站##
