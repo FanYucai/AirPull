@@ -17,7 +17,7 @@
 	</filter-mapping>
 
 	<welcome-file-list>
-		<welcome-file>/WEB-INF/content/index.html</welcome-file>
+		<welcome-file>/WEB-INF/content/home.jsp</welcome-file>
 		<!-- <welcome-file>/WEB-INF/content/register.html</welcome-file> -->
 	</welcome-file-list>
 

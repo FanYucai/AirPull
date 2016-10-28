@@ -29,6 +29,7 @@
 			<result name="error">/WEB-INF/content/error.jsp</result>
 			<result name="success">/WEB-INF/content/welcome.jsp</result>
 		</action> -->
+				
 		
 		<action name="*">
 			<result>/WEB-INF/content/{1}.jsp</result>
