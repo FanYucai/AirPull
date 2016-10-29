@@ -147,42 +147,41 @@
 				<h1 id="services"  class="text-center title">Worthy Services</h1>
 				<div class="space"></div>
 				<div class="row">
-					<div class="space visible-xs"></div>
 					<div class="col-sm-6">
 						<div class="media">
-							<div class="media-left">
-								<i class="fa fa-leaf"></i>
+							<div class="media-body text-right">
+								<h4 class="media-heading">Step 1</h4>
+								<p>打开冰箱</p>
 							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Service 5</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
-							</div>
-						</div>
-						<div class="media">
-							<div class="media-left">
-								<i class="fa fa-area-chart"></i>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Service 6</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
+							<div class="media-right">
+								<i class="fa fa-cog"></i>
 							</div>
 						</div>
 						<div class="media">
-							<div class="media-left">
-								<i class="fa fa-child"></i>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Service 7</h4>
+							<div class="media-body text-right">
+								<h4 class="media-heading">Step 2</h4>
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
+							</div>
+							<div class="media-right">
+								<i class="fa fa-check"></i>
 							</div>
 						</div>
 						<div class="media">
-							<div class="media-left">
-								<i class="fa fa-codepen"></i>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Service 8</h4>
+							<div class="media-body text-right">
+								<h4 class="media-heading">Service 3</h4>
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
+							</div>
+							<div class="media-right">
+								<i class="fa fa-desktop"></i>
+							</div>
+						</div>
+						<div class="media">
+							<div class="media-body text-right">
+								<h4 class="media-heading">Service 4</h4>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
+							</div>
+							<div class="media-right">
+								<i class="fa fa-users"></i>
 							</div>
 						</div>
 					</div>
@@ -290,8 +289,8 @@
 												<h3>Project Description</h3>
 												<div class="row">
 													<div class="col-md-6">
-														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque sed, quidem quis praesentium, ut unde. Quae sed, incidunt laudantium nesciunt, optio corporis quod earum pariatur omnis illo saepe numquam suscipit, nemo placeat dignissimos eius mollitia et quas officia doloremque ipsum labore rem deserunt vero! Magnam totam delectus accusantium voluptas et, tempora quos atque, fugiat, obcaecati voluptatibus commodi illo voluptates dolore nemo quo soluta quis.</p>
-														<p>Molestiae sed enim laboriosam atque delectus voluptates rerum nostrum sapiente obcaecati molestias quasi optio exercitationem, voluptate quis consequatur libero incidunt, in, quod. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos nobis officiis, autem earum tenetur quidem. Quae non dicta earum. Ipsum autem eaque cum dolor placeat corporis quisquam dolorum at nesciunt.</p>
+														<p>来看一看这里的宝贝把qwq dolor sit amet, consectetur adipisicing elit. Atque sed, quidem quis praesentium, ut unde. Quae sed, incidunt laudantium nesciunt, optio corporis quod earum pariatur omnis illo saepe numquam suscipit, nemo placeat dignissimos eius mollitia et quas officia doloremque ipsum labore rem deserunt vero! Magnam totam delectus accusantium voluptas et, tempora quos atque, fugiat, obcaecati voluptatibus commodi illo voluptates dolore nemo quo soluta quis.</p>
+														
 													</div>
 													<div class="col-md-6">
 														<img src="images/taobao1.jpg" alt="">
@@ -299,7 +298,7 @@
 												</div>
 											</div>
 											<div class="modal-footer">
-												<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+												<a href=afterPull><button type="button" class="btn btn-sm btn-default">AirPull it</button></a>
 											</div>
 										</div>
 									</div>
