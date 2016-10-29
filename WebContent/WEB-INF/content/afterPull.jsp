@@ -55,12 +55,12 @@
 
 							<!-- logo -->
 							<div class="logo smooth-scroll">
-								<a href="#banner"><img id="logo" src="images/adlogo.png" alt="Worthy"></a>
+								<a href=homeLogged><img id="logo" src="images/adlogo.png" alt="Worthy"></a>
 							</div>
 
 							<!-- name-and-slogan -->
 							<div class="site-name-and-slogan smooth-scroll">
-								<div class="site-name"><a href="#banner">AirPull</a></div>
+								<div class="site-name"><a href="homeLogged">AirPull</a></div>
 								<div class="site-slogan">Free Web Extract Tool by <a target="_blank" href="http://htmlcoder.me">AirDrop</a></div>
 							</div>
 
