@@ -335,7 +335,7 @@
 
 		<!-- section start -->
 		<!-- ================ -->
-		<div class="section translucent-bg bg-image-1 blue">
+		<div class="section translucent-bg bg-image-1 black">
 			<div class="container object-non-visible" data-animation-effect="fadeIn">
 				<h1 id="services"  class="text-center title">How to use AirPull</h1>
 				<div class="space"></div>

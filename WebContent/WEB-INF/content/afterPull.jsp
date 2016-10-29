@@ -96,7 +96,7 @@
 										<!-- Collect the nav links, forms, and other content for toggling -->
 										<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
 											<ul class="nav navbar-nav navbar-right">
-												<li><a href=homeLogged>Home</a></li>
+												<li><a href=homeLogged>Back</a></li>
 												<li><a href="#export">Export</a></li>
 											</ul>
 										</div>

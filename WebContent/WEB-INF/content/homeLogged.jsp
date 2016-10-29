@@ -100,6 +100,7 @@
 												<li><a href="#services">How to use</a></li>
 												<li><a href="#portfolio">AirPull</a></li>
 												<li><a href="#clients">Clients</a></li>
+												<li><a href=profile>Profile</a></li>
 											</ul>
 										</div>
 
@@ -119,69 +120,62 @@
 		</header>
 		<!-- header end -->
 
-		<!-- banner start -->
+		<!-- section start -->
 		<!-- ================ -->
-		<div id="banner" class="banner">
-			<div class="banner-image"></div><div class="banner-caption">
-			
-				<div class="container">
-					<div class="row">
-						<div class="col-md-8 col-md-offset-2 object-non-visible" data-animation-effect="fadeIn">
-							<h1 class="text-center">Hello, <span>daShaBi!</span></h1>
-							
-							<p class="lead text-center">这里是用户个人信息</p> 
-							<img src="images/owlogo1.png"></img>
-						</div>
+		<div class="default-bg space black">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<h1 class="text-center">&nbsp;</h1>
 					</div>
 				</div>
-			
-				
 			</div>
 		</div>
-		<!-- banner end -->
+		<!-- section end -->
 
 		<!-- section start -->
 		<!-- ================ -->
-		<div class="section translucent-bg bg-image-1 blue">
+		<div class="section translucent-bg bg-image-1 black">
 			<div class="container object-non-visible" data-animation-effect="fadeIn">
-				<h1 id="services"  class="text-center title">Worthy Services</h1>
+				<h1 id="services"  class="text-center title">How to use AirPull</h1>
 				<div class="space"></div>
 				<div class="row">
+					<div class="space visible-xs"></div>
 					<div class="col-sm-6">
 						<div class="media">
-							<div class="media-body text-right">
+							<div class="media-left">
+								<i class="fa fa-leaf"></i>
+							</div>
+							<div class="media-body">
 								<h4 class="media-heading">Step 1</h4>
-								<p>打开冰箱</p>
-							</div>
-							<div class="media-right">
-								<i class="fa fa-cog"></i>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
 							</div>
 						</div>
 						<div class="media">
-							<div class="media-body text-right">
-								<h4 class="media-heading">Step 2</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
+							<div class="media-left">
+								<i class="fa fa-area-chart"></i>
 							</div>
-							<div class="media-right">
-								<i class="fa fa-check"></i>
+							<div class="media-body">
+								<h4 class="media-heading">Step2</h4>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
 							</div>
 						</div>
 						<div class="media">
-							<div class="media-body text-right">
-								<h4 class="media-heading">Service 3</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
+							<div class="media-left">
+								<i class="fa fa-child"></i>
 							</div>
-							<div class="media-right">
-								<i class="fa fa-desktop"></i>
+							<div class="media-body">
+								<h4 class="media-heading">Step 3</h4>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
 							</div>
 						</div>
 						<div class="media">
-							<div class="media-body text-right">
-								<h4 class="media-heading">Service 4</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
+							<div class="media-left">
+								<i class="fa fa-codepen"></i>
 							</div>
-							<div class="media-right">
-								<i class="fa fa-users"></i>
+							<div class="media-body">
+								<h4 class="media-heading">Step 4</h4>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
 							</div>
 						</div>
 					</div>
@@ -228,6 +222,7 @@
 			</div>
 		</div>
 		<!-- section end -->
+
 
 		<!-- section start -->
 		<!-- ================ -->
