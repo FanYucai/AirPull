@@ -97,12 +97,9 @@
 										<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
 											<ul class="nav navbar-nav navbar-right">
 												<li class="active"><a href="#banner">Home</a></li>
-												<li><a href="#about">About</a></li>
-												<li><a href="#services">Services</a></li>
-												<li><a href="#portfolio">Portfolio</a></li>
+												<li><a href="#services">How to use</a></li>
+												<li><a href="#portfolio">AirPull</a></li>
 												<li><a href="#clients">Clients</a></li>
-												<li><a href=login>Log In</a></li>
-												<li><a href=signup>Sign Up</a></li>
 											</ul>
 										</div>
 
@@ -125,26 +122,19 @@
 		<!-- banner start -->
 		<!-- ================ -->
 		<div id="banner" class="banner">
-			<div class="banner-image"></div>
-			<div class="banner-caption">
+			<div class="banner-image"></div><div class="banner-caption">
+			
 				<div class="container">
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 object-non-visible" data-animation-effect="fadeIn">
-							<h1 class="text-center">Welcome to <span>AirPull</span></h1>
+							<h1 class="text-center">Hello, <span>daShaBi!</span></h1>
 							
-							<p class="lead text-center">Simple & Concise & Convenient</p> 
-
+							<p class="lead text-center">这里是用户个人信息</p> 
+							<img src="images/owlogo1.png"></img>
 						</div>
 					</div>
 				</div>
-				
-				<div class="col-md-8 col-md-offset-4">
-					<ul class="nav nav-pills">
-						<li class="active"><a href=signup>Create an account</a></li>
-						<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-						<li class="active"><a href=login>please let me log in</a></li>
-					</ul>
-				</div>
+			
 				
 			</div>
 		</div>
@@ -152,103 +142,9 @@
 
 		<!-- section start -->
 		<!-- ================ -->
-		<div class="section clearfix object-non-visible" data-animation-effect="fadeIn">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<h1 id="about" class="title text-center">About <span>AirPull</span></h1>
-						<p class="lead text-center">这是一个免费的网页表格数据抽取的工具。</p>
-						<div class="space"></div>
-						<div class="row">
-							<div class="col-md-6">
-								<img src="images/section-image-2.png" alt="">
-								<div class="space"></div>
-							</div>
-							<div class="col-md-6">
-								<p>当您想要从那些没有提供API的网站上把冗杂的表格数据导出到本地，自己进行管理，AirPull可以帮助您。</p>
-								<br/><br/>
-								<ul class="list-unstyled">
-									<li><i class="fa fa-caret-right pr-10 text-colored"></i> 您可以选择某一个网站，并向我们提供你的账号信息</li>
-									<li><i class="fa fa-caret-right pr-10 text-colored"></i> 我们会自动将网站的表格数据抽取出来，向您展示</li>
-									<li><i class="fa fa-caret-right pr-10 text-colored"></i> 您可以对您自己的数据表格进行管理，增加删除一些数据</li>
-									<li><i class="fa fa-caret-right pr-10 text-colored"></i> 同时您还可以将表格导出</li>
-									<li><i class="fa fa-caret-right pr-10 text-colored"></i> 这一定会给您带来便利</li>
-								</ul>
-							</div>
-						</div>
-						<div class="space"></div>
-						<h2>我们会提供一些基本的网站，比如</h2>
-						<br/>
-						<div class="row">
-							<div class="col-md-6">
-								<p> 淘宝网不提供API，所以当您想要将您淘宝网站上的各种表格数据进行导出时，不免遭遇各种麻烦。你可以通过AirPull将数据抽取到您自己的仓库当中，您可以自己管理这一批数据。比如，您可以删除某一项你不想看到的购物记录，或者可以新增一列您想补充的信息。最后，您还可以将这些数据以Excel的形式导出。</p><br/>
-								<p> 教务处网站不提供成绩单导出功能，每当您想要自己导出您的成绩单时还必须提交申请，还被学校收取一部分费用。这时，AirPull又可以帮你轻松地导出这个表格。</p><br/>
-								<p> 游戏战绩想必是一个非常能够体现您游戏水平的数据是吧？当您想把你高水平的游戏战绩展示给他人看时，您需要反复地登录游戏网站进行查询。这太麻烦了，通过AirPull一次导出，您可以随时随地将这数据展示给任何人。</p>
-							</div>
-							<div class="col-md-6">
-								<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-									<div class="panel panel-default">
-										<div class="panel-heading" role="tab" id="headingOne">
-											<h4 class="panel-title">
-												<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-													淘宝网数据抽取 #1
-												</a>
-											</h4>
-										</div>
-										<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-											<div class="panel-body">
-												购物记录<br/>
-												收藏宝贝<br/>
-												订单查询<br/>
-												……
-											</div>
-										</div>
-									</div>
-									<div class="panel panel-default">
-										<div class="panel-heading" role="tab" id="headingTwo">
-											<h4 class="panel-title">
-												<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-													教务处网站数据抽取 #2
-												</a>
-											</h4>
-										</div>
-										<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-											<div class="panel-body">
-												课表导出<br/>
-												成绩单导出<br/>
-												培养方案执行进度<br/>
-												……
-											</div>
-										</div>
-									</div>
-									<div class="panel panel-default">
-										<div class="panel-heading" role="tab" id="headingThree">
-											<h4 class="panel-title">
-												<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-													游戏数据 #3
-												</a>
-											</h4>
-										</div>
-										<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-											<div class="panel-body">
-												战绩 战绩 战绩……
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- section end -->
-
-		<!-- section start -->
-		<!-- ================ -->
 		<div class="section translucent-bg bg-image-1 blue">
 			<div class="container object-non-visible" data-animation-effect="fadeIn">
-				<h1 id="services"  class="text-center title">How to use AirPull</h1>
+				<h1 id="services"  class="text-center title">Worthy Services</h1>
 				<div class="space"></div>
 				<div class="row">
 					<div class="space visible-xs"></div>
@@ -258,7 +154,7 @@
 								<i class="fa fa-leaf"></i>
 							</div>
 							<div class="media-body">
-								<h4 class="media-heading">Step 1</h4>
+								<h4 class="media-heading">Service 5</h4>
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
 							</div>
 						</div>
@@ -267,7 +163,7 @@
 								<i class="fa fa-area-chart"></i>
 							</div>
 							<div class="media-body">
-								<h4 class="media-heading">Step2</h4>
+								<h4 class="media-heading">Service 6</h4>
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
 							</div>
 						</div>
@@ -276,7 +172,7 @@
 								<i class="fa fa-child"></i>
 							</div>
 							<div class="media-body">
-								<h4 class="media-heading">Step 3</h4>
+								<h4 class="media-heading">Service 7</h4>
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
 							</div>
 						</div>
@@ -285,7 +181,7 @@
 								<i class="fa fa-codepen"></i>
 							</div>
 							<div class="media-body">
-								<h4 class="media-heading">Step 4</h4>
+								<h4 class="media-heading">Service 8</h4>
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
 							</div>
 						</div>
@@ -340,7 +236,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
-						<h1 class="text-center">Let's Begin!</h1>
+						<h1 class="text-center">Let's Work Together!</h1>
 					</div>
 				</div>
 			</div>
@@ -353,7 +249,7 @@
 			<div class="container">
 				<h1 class="text-center title" id="portfolio">操作列表</h1>
 				<div class="separator"></div>
-				<p class="lead text-center">点击图片可以查看详细信息<br> qwq！</p>
+				<p class="lead text-center">Lorem ipsum dolor sit amet laudantium molestias similique.<br> Quisquam incidunt ut laboriosam.</p>
 				<br>			
 				<div class="row object-non-visible" data-animation-effect="fadeIn">
 					<div class="col-md-12">

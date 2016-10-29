@@ -98,8 +98,8 @@
 										<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
 											<ul class="nav navbar-nav navbar-right">
 												<li><a href=home>Home</a></li>
-												<li class="active"><a href=goToLogin>Log In</a></li>
-												<li><a href=goToSignup>Sign Up</a></li>
+												<li class="active"><a href=login>Log In</a></li>
+												<li><a href=signup>Sign Up</a></li>
 												<!-- <li><a href="#contact">Contact</a></li> -->
 											</ul>
 										</div>
@@ -129,7 +129,13 @@
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 object-non-visible" data-animation-effect="fadeIn">
 							<h1 class="text-center">Log In, <span>SB!</span></h1>
-								
+										
+								<div class="col-md-8 col-md-offset-5">
+									<ul class="nav nav-pills">
+										<li class="active"><a href=homeLogged>Submit</a></li>
+									</ul>
+								</div>
+														
 								<div class="overlay-container">
 									<a class="overlay" data-toggle="modal" data-target="#project-1">
 										<i class="fa fa-search-plus"></i>

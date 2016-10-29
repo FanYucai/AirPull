@@ -98,8 +98,8 @@
 										<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
 											<ul class="nav navbar-nav navbar-right">
 												<li><a href=home>Home</a></li>
-												<li><a href=goToLogin>Log In</a></li>
-												<li class="active"><a href=goToSignup>Sign Up</a></li>
+												<li><a href=login>Log In</a></li>
+												<li class="active"><a href=signup>Sign Up</a></li>
 												<!-- <li><a href="#contact">Contact</a></li> -->
 											</ul>
 										</div>
