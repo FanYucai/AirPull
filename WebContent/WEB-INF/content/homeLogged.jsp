@@ -55,12 +55,12 @@
 
 							<!-- logo -->
 							<div class="logo smooth-scroll">
-								<a href="#banner"><img id="logo" src="images/adlogo.png" alt="Worthy"></a>
+								<a href="#services"><img id="logo" src="images/adlogo.png" alt="Worthy"></a>
 							</div>
 
 							<!-- name-and-slogan -->
 							<div class="site-name-and-slogan smooth-scroll">
-								<div class="site-name"><a href="#banner">AirPull</a></div>
+								<div class="site-name"><a href="#services">AirPull</a></div>
 								<div class="site-slogan">Free Web Extract Tool by <a target="_blank" href="http://htmlcoder.me">AirDrop</a></div>
 							</div>
 
@@ -95,9 +95,8 @@
 
 										<!-- Collect the nav links, forms, and other content for toggling -->
 										<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
-											<ul class="nav navbar-nav navbar-right">
-												<li class="active"><a href="#banner">Home</a></li>
-												<li><a href="#services">How to use</a></li>
+											<ul class="nav navbar-nav navbar-right">	
+												<li class="active"><a href="#services">How to use</a></li>
 												<li><a href="#portfolio">AirPull</a></li>
 												<li><a href="#clients">Clients</a></li>
 												<li><a href=profile>Profile</a></li>
