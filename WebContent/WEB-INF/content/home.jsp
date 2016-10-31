@@ -162,7 +162,7 @@
 									</div>
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-sm btn-default">Login</button>
+									<a href="login"><button type="button" class="btn btn-sm btn-default">Login</button></a>
 								</div>
 							</div>
 						</div>

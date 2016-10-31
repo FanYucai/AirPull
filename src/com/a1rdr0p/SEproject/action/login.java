@@ -11,7 +11,7 @@ public class login implements Action {
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		return null;
+		return SUCCESS;
 	}
 
 }
