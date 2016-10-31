@@ -10,7 +10,7 @@
 		<title>AirPull | Free Extract Tool by AirDrop</title>
 		<meta name="description" content="Worthy a Bootstrap-based, Responsive HTML5 Template">
 		<meta name="author" content="htmlcoder.me">
-
+	
 		<!-- Mobile Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -137,6 +137,12 @@
 				<h1 class="text-center title" id="portfolio">抓取的结果</h1>
 				<div class="separator"></div>
 				<p class="lead text-center">讲道理这里应该有个excel表格<br> qwq！</p>
+				
+				<s:iterator value="tabledata" status="status">
+				<p class="lead text-center"></p>
+				attrName is : <s:property value="tabledata[#status.index]"/> 
+				</s:iterator>
+				
 				<br>			
 			</div>
 		</div>

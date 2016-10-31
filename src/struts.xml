@@ -30,6 +30,10 @@
 			<result name="success">/WEB-INF/content/welcome.jsp</result>
 		</action> -->
 		<!-- Login Action -->
+		<action name="airpullIteye" class="com.a1rdr0p.SEproject.action.airpullIteye">
+			<result name="success">/WEB-INF/content/afterPull.jsp</result>
+		</action>		
+
 		<action name="login" class="com.a1rdr0p.SEproject.action.login">
 			<result name="success">/WEB-INF/content/homeLogged.jsp</result>
 			<result name="wrong"></result>
