@@ -201,7 +201,7 @@
 									</div>
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Submit</button>
+									<a href="signUp"><button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Submit</button></a>
 								</div>
 							</div>
 						</div>
