@@ -17,14 +17,14 @@ import org.jsoup.select.Elements;
 import com.opensymphony.xwork2.Action;
 
 public class airpullIteye implements Action {
-	ArrayList tableData = new ArrayList();
+	ArrayList tabledata = new ArrayList();
 
-	public ArrayList getTableData() {
-		return tableData;
+	public ArrayList getTabledata() {
+		return tabledata;
 	}
 	
-	public void setTableArray(ArrayList tableArray) {
-		this.tableData = tableData;
+	public void setTabledata(ArrayList tabledata) {
+		this.tabledata = tabledata;
 	}
 	
 	@Override
@@ -86,7 +86,7 @@ public class airpullIteye implements Action {
 		Elements elements = doc.getElementsByTag("a");
 		for (Element element : elements) {
 //			System.out.println(element.html());
-			tableData.add(element.html());
+			tabledata.add(element.html());
 		}
 		
 		

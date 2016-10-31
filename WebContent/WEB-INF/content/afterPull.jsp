@@ -136,10 +136,10 @@
 			<div class="container">
 				<h1 class="text-center title" id="portfolio">抓取的结果</h1>
 				<div class="separator"></div>
-				<p class="lead text-center">讲道理这里应该有个excel表格<br> qwq！</p>
+				<p class="lead text-center">讲道理这里应该有个excel表格<br></p>
 				
 				<s:iterator value="tabledata" status="status">
-				<p class="lead text-center"></p>
+				<p class="lead text-center">qwqwqqwqq</p>
 				attrName is : <s:property value="tabledata[#status.index]"/> 
 				</s:iterator>
 				
