@@ -10,7 +10,6 @@ package com.a1rdr0p.SEproject.model;
 public class User {
 	private String name;
 	private String password;
-	private String userID;
 	public String getName() {
 		return name;
 	}
@@ -22,11 +21,5 @@ public class User {
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	public String getUserID() {
-		return userID;
-	}
-	public void setUserID(String userID) {
-		this.userID = userID;
 	}
 }
