@@ -101,8 +101,8 @@
 												<li><a href="#services">Services</a></li>
 												<li><a href="#portfolio">Portfolio</a></li>
 												<li><a href="#clients">Clients</a></li>
-												<li><a href=login>Log In</a></li>
-												<li><a href=signup>Sign Up</a></li>
+												<li><a data-toggle="modal" data-target="#project-5">Log In</a></li>
+												<li><a data-toggle="modal" data-target="#project-7">Sign Up</a></li>
 											</ul>
 										</div>
 
@@ -137,102 +137,78 @@
 						</div>
 					</div>
 				</div>
-				
-				<div class="col-md-8 col-md-offset-4">
-					<ul class="nav nav-pills">
-						<li class="active"><a href=signup>Create an account</a></li>
-						<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
-						<li class="active"><a href=login>please let me log in</a></li>
-					</ul>
+
+				<!-- login -->
+				<div class="col-sm-6 col-md-1 col-md-offset-4 isotope-item app-development">
+					
+					<!-- Modal -->
+					<div class="modal fade" id="project-5" tabindex="-1" role="dialog" aria-labelledby="project-5-label" aria-hidden="true">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+									<h4 class="modal-title" id="project-5-label">Project Title</h4>
+								</div>
+								<div class="modal-body">
+									<h3>Project Description</h3>
+									<div class="row">
+										<div class="col-md-6">
+											<p><input data-placeholder="用户名" name="userName" type="text" placeholder="用户名" tabindex="1" spellcheck="false"></input></p>
+											<p><input data-placeholder="密码" name=""type="text" placeholder="密码" tabindex="1" spellcheck="false"></input></p>
+										</div>
+										<div class="col-md-6">
+											<img src="images/portfolio-5.jpg" alt="">
+										</div>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-sm btn-default">Login</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Modal end -->
 				</div>
-							
-							<!-- login -->
-							<div class="col-sm-6 col-md-1 col-md-offset-4 isotope-item app-development">
-								<div class="image-box">
-									<div class="overlay-container">
-										<a class="overlay" data-toggle="modal" data-target="#project-5">
-											<i class="fa fa-search-plus"></i>
-											<span>App Development</span>
-										</a>
-									</div>
-									<a class="btn btn-default btn-block" data-toggle="modal" data-target="#project-5">Login</a>
+				<!-- login end --> 
+				
+				<!-- sign up -->
+				<div class="col-sm-6 col-md-1 col-md-offset-1 isotope-item app-development">
+					
+					<!-- Modal -->
+					<div class="modal fade" id="project-7" tabindex="-1" role="dialog" aria-labelledby="project-7-label" aria-hidden="true">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+									<h4 class="modal-title" id="project-5-label">Sign up</h4>
 								</div>
-								<!-- Modal -->
-								<div class="modal fade" id="project-5" tabindex="-1" role="dialog" aria-labelledby="project-5-label" aria-hidden="true">
-									<div class="modal-dialog modal-lg">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-												<h4 class="modal-title" id="project-5-label">Project Title</h4>
-											</div>
-											<div class="modal-body">
-												<h3>Project Description</h3>
-												<div class="row">
-													<div class="col-md-6">
-														<p>用户名：<input type="text"></input></p>
-														<p>密码：<input type="text"></input></p>
-													</div>
-													<div class="col-md-6">
-														<img src="images/portfolio-5.jpg" alt="">
-													</div>
-												</div>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Login</button>
-											</div>
+								<div class="modal-body">
+									<h3>Project Description</h3>
+									<div class="row">
+										<div class="col-md-6">
+											<form>
+												<p>用户名：<input type="text"></input></p>
+												<p>用户名：<input type="text"></input></p>
+												<p>用户名：<input type="text"></input></p>
+												<p>用户名：<input type="text"></input></p>
+												<p>用户名：<input type="text"></input></p>
+												
+												</form>
+										</div>
+										<div class="col-md-6">
+											<img src="images/portfolio-7.jpg" alt="">
 										</div>
 									</div>
 								</div>
-								<!-- Modal end -->
-							</div>
-							<!-- login end -->
-							
-							<!-- sign up -->
-							<div class="col-sm-6 col-md-1 col-md-offset-1 isotope-item app-development">
-								<div class="image-box">
-									<div class="overlay-container">
-										<a class="overlay" data-toggle="modal" data-target="#project-7">
-											<i class="fa fa-search-plus"></i>
-											<span>App Development</span>
-										</a>
-									</div>
-									<a class="btn btn-default btn-block" data-toggle="modal" data-target="#project-7">Sign Up</a>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Submit</button>
 								</div>
-								<!-- Modal -->
-								<div class="modal fade" id="project-7" tabindex="-1" role="dialog" aria-labelledby="project-7-label" aria-hidden="true">
-									<div class="modal-dialog modal-lg">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-												<h4 class="modal-title" id="project-5-label">Sign up</h4>
-											</div>
-											<div class="modal-body">
-												<h3>Project Description</h3>
-												<div class="row">
-													<div class="col-md-6">
-														<form>
-															<p>用户名：<input type="text"></input></p>
-															<p>用户名：<input type="text"></input></p>
-															<p>用户名：<input type="text"></input></p>
-															<p>用户名：<input type="text"></input></p>
-															<p>用户名：<input type="text"></input></p>
-															
-															</form>
-													</div>
-													<div class="col-md-6">
-														<img src="images/portfolio-7.jpg" alt="">
-													</div>
-												</div>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Submit</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- Modal end -->
 							</div>
-							<!-- sign up end -->
+						</div>
+					</div>
+					<!-- Modal end -->
+				</div>
+				<!-- sign up end -->
 				
 				
 			</div>
@@ -1092,9 +1068,6 @@
 			
 		</div>
 		<!-- section end -->
- 
- 
- 
 
 		<!-- section start
 		================
@@ -1109,8 +1082,6 @@
 		</div>
 		section end -->
 
- 
- 
 		<!-- footer start -->
 		<!-- ================ -->
 		
