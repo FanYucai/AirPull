@@ -8,12 +8,17 @@
  */
 import com.a1rdr0p.SEproject.service.*;
 import com.a1rdr0p.SEproject.model.*;
-
+import com.a1rdr0p.SEproject.security.*;
 public class testMail {
 
 	/**
 	 * @param args
 	 */
+	public static void main(String[] args) {
+		String ps = MD5.convertMD5("123fasdf");
+		System.out.println(ps);
+	}
+	
 /*	public static void main(String[] args) {
 		Mail mail = new Mail();
 		mail.setHost("smtp.163.com"); // 设置邮件服务器

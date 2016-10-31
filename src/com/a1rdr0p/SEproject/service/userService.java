@@ -77,7 +77,7 @@ public class userService {
     	if (userName.length()>20) 
     		return false;
     	boolean checkName ;
-    	checkName = userName.matches("[a-z]+");
+    	checkName = userName.matches("[a-zA-Z0-9]+");
     	if (checkName == false ) return false;
     	return true;
     }
