@@ -150,7 +150,7 @@
 		<!-- ================ -->
 		<div class="section translucent-bg bg-image-2 pb-clear">
 			<div class="container object-non-visible" data-animation-effect="fadeIn">
-				<h1 id="export" class="title text-center">我要导出！</h1>
+				<h1 id="export" class="title text-center"><a href="exportExcel.action">我要导出！</a></h1>
 				<div class="space"></div>
 		
 			</div>

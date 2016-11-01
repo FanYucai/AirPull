@@ -16,6 +16,7 @@
 <struts>
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	
 	<package name="qwq" extends="struts-default" namespace="/"
 		strict-method-invocation="false">
 		<!-- <global-results>
@@ -49,6 +50,16 @@
 		<action name="*">
 			<result>/WEB-INF/content/{1}.jsp</result>
 		</action>
+		
+	    <action name="exportExcel" class="com.a1rdr0p.SEproject.action.exportExcel">         
+	        <!-- 导出excel -->
+	        <result name="excel" type="stream">
+	            <param name="contentType">application/vnd.ms-excel</param>    <!-- 注意这里的ContentType -->
+	            <param name="inputName">excelStream</param>                   <!-- 这里需要和Action里的变量名一致 -->
+	            <param name="contentDisposition">filename="download.xls"</param> <!-- 下载文件的名字 -->
+	            <param name="bufferSize">10240</param>  <!-- 下载文件的大小 10485760=10M -->
+	        </result>
+	    </action>
 
 	</package>
 
