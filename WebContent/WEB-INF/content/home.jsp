@@ -99,8 +99,7 @@
 												<li class="active"><a href="#banner">Home</a></li>
 												<li><a href="#about">About</a></li>
 												<li><a href="#services">Services</a></li>
-												<li><a href="#portfolio">Portfolio</a></li>
-												<li><a href="#clients">Clients</a></li>
+												
 												<li><a data-toggle="modal" data-target="#project-5">Log In</a></li>
 												<li><a data-toggle="modal" data-target="#project-7">Sign Up</a></li>
 											</ul>
@@ -412,7 +411,7 @@
 		</div>
 		<!-- section end -->
 
-		<!-- section start -->
+	<%-- 	<!-- section start -->
 		<!-- ================ -->
 		<div class="section">
 			<div class="container">
@@ -1023,7 +1022,7 @@
 				</div>
 			</div>
 
-
+ --%>
 			<!-- section start
 			================
 			<div class="translucent-bg blue">

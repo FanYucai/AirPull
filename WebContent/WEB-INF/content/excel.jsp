@@ -398,7 +398,7 @@ return retstr.replace(/^,+/,'').replace(/\.$/,'');
 <h3>表格数据获取结果</h3>    
 <table  border="0" cellpadding="0" cellspacing="0" id="tabProduct">  
     <tr>    
-      <td align="center" bgcolor="#FFFFFF"><input type="checkbox" name="checkbox22" value="checkbox" /></td>    
+      <td/></td>    
       <td  bgcolor="#FFFFFF"><input type="checkbox" name="checkbox22" value="checkbox" /></td> 
       <td  bgcolor="#FFFFFF"><input type="checkbox" name="checkbox22" value="checkbox" /></td> 
       <td  bgcolor="#FFFFFF"><input type="checkbox" name="checkbox22" value="checkbox" /></td> 
