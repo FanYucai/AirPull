@@ -17,13 +17,17 @@ public class exportExcel implements Action {
     } 
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-	    StringBuffer excelBuf = new StringBuffer();
-	    excelBuf.append("运单号").append("\t").append("始发站").append("\t").append("目的站").append("\n");
-	    excelBuf.append("112-00100100").append("\t").append("PEK").append("\t").append("SHA").append("\n");
-	    excelBuf.append("112-00100111").append("\t").append("PVG").append("\t").append("XIY").append("\n");
-	    excelBuf.append("112-00100122").append("\t").append("SHA").append("\t").append("HHY").append("\n");
-	    String excelString = excelBuf.toString();
-	    excelStream = new ByteArrayInputStream(excelString.getBytes(), 0, excelString.getBytes().length);
+        StringBuffer sb = new StringBuffer();               
+        //\t表示下一列，\n表示下一行   
+        sb.append("title1").append("\t").append("title2").append("\n");  
+        //导入的数据进行迭代，拼成字符串  
+        for(int i=0; i<3; i++){   
+            sb.append("篓子").append("\t").append("qwq").append("\n");   
+        }   
+        //将字符串放入流中  
+        excelStream = new ByteArrayInputStream(sb.toString().getBytes("GBK"), 
+        		0, sb.toString().getBytes("GBK").length); 
+
 	    return "excel";
 	}
 
