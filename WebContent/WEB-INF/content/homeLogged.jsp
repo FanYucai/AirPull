@@ -283,14 +283,22 @@
 												<h3>Project Description</h3>
 												<div class="row">
 													<div class="col-md-6">
-														<p>来看一看这里的宝贝把qwq dolor sit amet, consectetur adipisicing elit. Atque sed, quidem quis praesentium, ut unde. Quae sed, incidunt laudantium nesciunt, optio corporis quod earum pariatur omnis illo saepe numquam suscipit, nemo placeat dignissimos eius mollitia et quas officia doloremque ipsum labore rem deserunt vero! Magnam totam delectus accusantium voluptas et, tempora quos atque, fugiat, obcaecati voluptatibus commodi illo voluptates dolore nemo quo soluta quis.</p>
-														
+														<p>qwq dolor sit amet, consectetur adipisicing elit. Atque sed, quidem quis praesentium, ut unde. Quae sed, incidunt laudantium nesciunt, optio corporis quod earum pariatur omnis illo saepe numquam suscipit, nemo placeat dignissimos eius mollitia et quas officia doloremque ipsum labore rem deserunt vero! Magnam totam delectus accusantium voluptas et, tempora quos atque, fugiat, obcaecati voluptatibus commodi illo voluptates dolore nemo quo soluta quis.</p>
+														<form action="" method="post">  
+															<input type="file"/>
+															 
+															<a href=""><input type="submit" class="btn btn-sm btn-default" value="上传文件"/></a>  
+														</form> 														
 													</div>
+																									
 													<div class="col-md-6">
 														<img src="images/taobao1.jpg" alt="">
 													</div>
+													
+												
 												</div>
 											</div>
+											
 											<div class="modal-footer">
 												<a href="airpullIteye.action"><button type="button" class="btn btn-sm btn-default">AirPull it</button></a>
 											</div>
