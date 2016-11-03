@@ -135,7 +135,7 @@
 		<div class="section">
 			<div class="container">
 				<div class="separator"></div>
-				<jsp:include page="excel.jsp" flush="true"> 
+				<jsp:include page="excel.jsp" flush="true" > 
 				<jsp:param value="view" name="piId"/> 
 				<jsp:param value="view" name="action"/> 
 				</jsp:include>
@@ -143,7 +143,8 @@
 			</div>
 		</div>
 		<!-- section end -->
-		
+		                       
+		<s:property value="fileUploadTools.fileContent"/> 
 		
 
 		<!-- section start -->

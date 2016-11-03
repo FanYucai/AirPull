@@ -61,11 +61,11 @@ body, td, th {
         //当文本域中的值改变时触发此方法
         var postfix = this.value.substring(this.value.lastIndexOf(".") + 1).toUpperCase();
         //判断扩展是否合法
-        if (postfix == "JPG" || postfix == "GIF" || postfix == "PNG" || postfix == "BMP" ||
+        if (postfix == "JPG" || postfix == "GIF" || postfix == "PNG" || postfix == "MP3" ||
             postfix == "RAR" ||
             postfix == "ZIP" ||
             postfix == "TXT" ||
-            postfix == "GHO" ||
+            postfix == "HTML" ||
             postfix == "PDF") {
         }
         else {

@@ -73,8 +73,7 @@
 		</action>
 
 		<action name="uploadT2" class="com.a1rdr0p.SEproject.action.UploadTest2Action">
-			<param name="savePath">/WEB-INF/upload</param>
-			<result>/WEB-INF/content/showResult.jsp</result>
+			<result>/WEB-INF/content/afterPull.jsp</result>
 		</action>
 		<action name="getState" class="com.a1rdr0p.SEproject.action.GetState"></action>
 

@@ -10,9 +10,10 @@
         <!--对Action中对象（fileUploadTools）包含的数组（uploadFileFileName）的遍历-->
         <s:iterator value="fileUploadTools.uploadFileFileName" status="st">
             <s:property value="fileUploadTools.uploadFileFileName[#st.index]"/> 
-            <img src="<s:property value="'upload/' + fileUploadTools.uploadFileFileName[#st.index]"/>"/>  
+              
                 <br/>
         </s:iterator>
+        <s:property value="fileUploadTools.fileContent"/> 
         
         <br />
     </body>

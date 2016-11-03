@@ -4,12 +4,16 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
 public class FileUploadTools {
-    private String username;
+    private String username="qwqdefault";
+    private String fileContent;
     private File uploadFile[];// 上传的文件是数组类型
     private String uploadFileFileName[];// 文件名是数组类型
     private String uploadFileContentType[];
@@ -40,6 +44,13 @@ public class FileUploadTools {
     public void setUploadFileFileName(String[] uploadFileFileName) {
         this.uploadFileFileName = uploadFileFileName;
     }
+    
+    public String getFileContent() {
+        return fileContent;
+    }
+    public void setFileContent(String fileContent) {
+        this.fileContent = fileContent;
+    }
 
     public String beginUpload() throws IOException {
         System.out.println("用户名：" + username);
@@ -47,17 +58,20 @@ public class FileUploadTools {
         String targetDirectory="/WEB-INF/upload";  
     //根据相对部署路径计算完整路径  
         targetDirectory=ServletActionContext.getServletContext().getRealPath(targetDirectory);  
-        
-//        String targetDirectory = ServletActionContext.getServletContext().getRealPath("/upload");
-        
+
         System.out.println("targetDirectory is :" + targetDirectory);
-        for (int i = 0; i < uploadFile.length; i++) {
-            File target = new File(targetDirectory, new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss")
-                    .format(new Date()).toString() + System.nanoTime() + uploadFileFileName[i]);
-
-            FileUtils.copyFile(uploadFile[i], target);
-        }
-
+        File target = uploadFile[0];
+        
+//        for (int i = 0; i < uploadFile.length; i++) {
+//            target = new File(targetDirectory, new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss")
+//                    .format(new Date()).toString() + System.nanoTime() + uploadFileFileName[i]);
+//            //fileContent = (target.toString());
+//            FileUtils.copyFile(uploadFile[i], target);
+//        }
+        
+        Document doc = Jsoup.parse(target, "UTF-8", ""); 
+//        System.out.println(doc.html());
+        fileContent = doc.html();
         return "success";
     }
 }
