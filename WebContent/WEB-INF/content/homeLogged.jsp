@@ -41,6 +41,27 @@
 <!-- Custom css -->
 <link href="css/custom.css" rel="stylesheet">
 </head>
+<%-- <script>
+$(document).ready(function()
+		{
+		    var isShow=false;
+		    $("#logoutqwq").hide();
+		    $("#profileqwq").mouseover(function(){
+		        $("#logoutqwq").show();
+		    });
+		    $("#logoutqwq").mouseover(function(){
+		        isShow=true;   
+		        $(this).show(); 
+		    });
+		    $("#logoutqwq").mouseout(function(){
+		        if(isShow)
+		        {
+		            $(this).hide(); 
+		            isShow=false;
+		        }   
+		    });
+		})
+</script> --%>
 
 <body class="no-trans">
 	<!-- scrollToTop -->
@@ -113,8 +134,8 @@
 									<li class="active"><a href="#services">How to use</a></li>
 									<li><a href="#portfolio">AirPull</a></li>
 									<li><a href="#clients">Clients</a></li>
-									<li><a href=profile>Profile</a></li>
-									<li><a href=home>Log Out</a></li>
+									<li><a href=profile id="profileqwq">Profile</a></li>
+									<li><a href=home id="logoutqwq">Log Out</a></li>
 								</ul>
 							</div>
 
@@ -1319,30 +1340,40 @@
 				</div>
 			</div>
 		</div>
+	</div>
 
-
-	
-
-	<!-- footer start -->
-	<!-- ================ -->
-
-	<footer id="footer"> <!-- .footer start --> <!-- ================ -->
-	
-	<div class="subfooter">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<p class="text-center">
-						Copyright © 2016 AirPull by <a target="_blank"
-							href="http://htmlcoder.me">AirDrop Group</a>.
-					</p>
+		<!-- section start -->
+		<!-- ================ -->
+		<div class="default-bg space blue">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<h1 class="text-center">Let's Begin!</h1>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- .subfooter end --> </footer>
-	<!-- footer end -->
+		<!-- section end -->
 
+		
+		<footer id="footer">
+			<!-- .subfooter start -->
+			<!-- ================ -->
+			<div class="subfooter">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<p class="text-center">Copyright © 2016 AirPull by <a target="_blank" href="http://htmlcoder.me">AirDrop Group</a>.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- .subfooter end -->
+
+		</footer>
+		<!-- footer end -->
+		
+		
 	<!-- JavaScript files placed at the end of the document so the pages load faster
 		================================================== -->
 	<!-- Jquery and Bootstap core js files -->
