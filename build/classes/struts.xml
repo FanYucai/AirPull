@@ -2,8 +2,8 @@
 <!DOCTYPE struts PUBLIC
 	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
 	"http://struts.apache.org/dtds/struts-2.5.dtd">
-	
-	
+
+
 <!-- package里元素必须按照一定的顺序排列 -->
 <!-- result-types -->
 <!-- interceptors -->
@@ -16,30 +16,38 @@
 <struts>
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
-	
+	<!--demo12，struts2文件上传与下载 -->
+	<constant name="struts.multipart.handler" value="MyJakartaMultiPartRequestRef" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<!-- 指定允许上传的文件最大字节数。默认值是2097152(2M) -->
+	<constant name="struts.multipart.maxSize" value="10701096" />
+	<!-- 设置上传文件的临时文件夹,默认使用javax.servlet.context.tempdir -->
+	<constant name="struts.multipart.saveDir " value="/WEB-INF/upload" />
+
+	<!--demo12，struts2文件上传与下载 -->
+	<bean type="org.apache.struts2.dispatcher.multipart.MultiPartRequest"
+		name="MyJakartaMultiPartRequestRef" class="com.a1rdr0p.SEproject.action.MyJakartaMultiPartRequest"
+		scope="default" />
+
 	<package name="qwq" extends="struts-default" namespace="/"
 		strict-method-invocation="false">
-		<!-- <global-results>
-			<result name="error">/WEB-INF/content/error.jsp</result>
-		</global-results>
-		<global-allowed-methods>login,logout,initAdd,clear,all,list,upload</global-allowed-methods> -->
+		<!-- <global-results> <result name="error">/WEB-INF/content/error.jsp</result> 
+			</global-results> <global-allowed-methods>login,logout,initAdd,clear,all,list,upload</global-allowed-methods> -->
 
 
-<!-- 		<action name="login" class="com.test.action.LoginAction"
-			method="execute">
-			<result name="error">/WEB-INF/content/error.jsp</result>
-			<result name="success">/WEB-INF/content/welcome.jsp</result>
-		</action> -->
+		<!-- <action name="login" class="com.test.action.LoginAction" method="execute"> 
+			<result name="error">/WEB-INF/content/error.jsp</result> <result name="success">/WEB-INF/content/welcome.jsp</result> 
+			</action> -->
 		<!-- Login Action -->
 		<action name="airpullIteye" class="com.a1rdr0p.SEproject.action.airpullIteye">
 			<result name="success">/WEB-INF/content/afterPull.jsp</result>
-		</action>		
+		</action>
 
 		<action name="login" class="com.a1rdr0p.SEproject.action.login">
 			<result name="success">/WEB-INF/content/homeLogged.jsp</result>
 			<result name="wrong"></result>
 		</action>
-		
+
 		<!-- Sign Up Action -->
 		<action name="signUp" class="com.a1rdr0p.SEproject.action.signUp">
 			<!-- If sign up successfully and then login the system -->
@@ -49,20 +57,26 @@
 			<result name="passwordIllegal"></result>
 			<result name="error"></result>
 		</action>
-		
+
 		<action name="*">
 			<result>/WEB-INF/content/{1}.jsp</result>
 		</action>
-		
-	    <action name="exportExcel" class="com.a1rdr0p.SEproject.action.exportExcel">         
-	        <!-- 导出excel -->
-	        <result name="excel" type="stream">
-	            <param name="contentType">application/vnd.ms-excel</param>    <!-- 注意这里的ContentType -->
-	            <param name="inputName">excelStream</param>                   <!-- 这里需要和Action里的变量名一致 -->
-	            <param name="contentDisposition">filename="download.xls"</param> <!-- 下载文件的名字 -->
-	            <param name="bufferSize">10240</param>  <!-- 下载文件的大小 10485760=10M -->
-	        </result>
-	    </action>
+
+		<action name="exportExcel" class="com.a1rdr0p.SEproject.action.exportExcel">
+			<!-- 导出excel -->
+			<result name="excel" type="stream">
+				<param name="contentType">application/vnd.ms-excel</param>    <!-- 注意这里的ContentType -->
+				<param name="inputName">excelStream</param>                   <!-- 这里需要和Action里的变量名一致 -->
+				<param name="contentDisposition">filename="download.xls"</param> <!-- 下载文件的名字 -->
+				<param name="bufferSize">10240</param>  <!-- 下载文件的大小 10485760=10M -->
+			</result>
+		</action>
+
+		<action name="uploadT2" class="com.a1rdr0p.SEproject.action.UploadTest2Action">
+			<param name="savePath">/WEB-INF/upload</param>
+			<result>/WEB-INF/content/showResult.jsp</result>
+		</action>
+		<action name="getState" class="com.a1rdr0p.SEproject.action.GetState"></action>
 
 	</package>
 
