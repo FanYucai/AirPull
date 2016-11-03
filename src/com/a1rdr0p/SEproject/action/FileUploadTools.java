@@ -43,8 +43,14 @@ public class FileUploadTools {
 
     public String beginUpload() throws IOException {
         System.out.println("用户名：" + username);
-
-        String targetDirectory = ServletActionContext.getServletContext().getRealPath("/upload");
+        //将文件放于项目部署路径下的upload文件夹下  
+        String targetDirectory="/WEB-INF/upload";  
+    //根据相对部署路径计算完整路径  
+        targetDirectory=ServletActionContext.getServletContext().getRealPath(targetDirectory);  
+        
+//        String targetDirectory = ServletActionContext.getServletContext().getRealPath("/upload");
+        
+        System.out.println("targetDirectory is :" + targetDirectory);
         for (int i = 0; i < uploadFile.length; i++) {
             File target = new File(targetDirectory, new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss")
                     .format(new Date()).toString() + System.nanoTime() + uploadFileFileName[i]);
