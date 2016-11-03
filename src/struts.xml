@@ -14,13 +14,6 @@
 <!-- global-exception-mappings -->
 <!-- action*(就是所有的action放到最后) -->
 <struts>
-	<!--demo12，struts2文件上传与下载 -->  
-	<bean type="org.apache.struts2.dispatcher.multipart.MultiPartRequest"  
-	    name="parser" class="com.a1rdr0p.SEproject.service.MyJakartaMultiPartRequest"  
-	    scope="default" />  
-	  
-	<!--demo12，struts2文件上传与下载 -->  
-	<constant name="struts.multipart.parser" value="parser" />  
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
 	
