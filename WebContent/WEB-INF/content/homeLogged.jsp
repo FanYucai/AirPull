@@ -114,6 +114,7 @@
 									<li><a href="#portfolio">AirPull</a></li>
 									<li><a href="#clients">Clients</a></li>
 									<li><a href=profile>Profile</a></li>
+									<li><a href=home>Log Out</a></li>
 								</ul>
 							</div>
 
@@ -372,16 +373,11 @@
         //当文本域中的值改变时触发此方法
         var postfix = this.value.substring(this.value.lastIndexOf(".") + 1).toUpperCase();
         //判断扩展是否合法
-        if (postfix == "JPG" || postfix == "GIF" || postfix == "PNG" || postfix == "MP3" ||
-            postfix == "RAR" ||
-            postfix == "ZIP" ||
-            postfix == "TXT" ||
-            postfix == "HTML" ||
-            postfix == "PDF") {
+        if (postfix == "HTML") {
         }
         else {
             //如果不合法就删除相应的File表单及br标签
-            alert("您上传的文件类型不被支持，本系统只支持JPG,GIF,PNG,BMP,RAR,ZIP,TXT文件！");
+            alert("您上传的文件类型不被支持，本系统只支持html文件！");
             var testtest = $(this).attr('id');
             testtest = '#' + testtest;
             var sub_file = $(testtest);
