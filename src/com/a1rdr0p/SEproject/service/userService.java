@@ -21,9 +21,9 @@ import com.a1rdr0p.SEproject.security.MD5;
 public class userService {
     public static Connection getConn() {
         String driver = "com.mysql.jdbc.Driver";
-        String url = "jdbc:mysql://localhost:3306/Users";
+        String url = "jdbc:mysql://localhost:3306/users";
         String username = "root";
-        String password = "11111111";
+        String password = "louyujing127";
         Connection conn = null;
         try {
             Class.forName(driver);
@@ -37,7 +37,7 @@ public class userService {
     }
     public static User findUser(String userName) {
         Connection conn = userService.getConn();
-        String sql = "select * from Users";
+        String sql = "select * from user";
         PreparedStatement pstmt;
         try {
             pstmt = (PreparedStatement)conn.prepareStatement(sql);
@@ -45,11 +45,11 @@ public class userService {
             
             User tmp = null;
             while(rs.next()){
-                if(rs.getString("userName").equals(userName))
+                if(rs.getString("name").equals(userName))
                 {
                 	tmp = new User();
                 	tmp.setName(rs.getString("name"));
-                	tmp.setPassword(rs.getString("Password"));
+                	tmp.setPassword(rs.getString("password"));
                 	//ServletActionContext.getRequest().setAttribute("display", User);
                 }
             }
@@ -93,7 +93,7 @@ public class userService {
     	String MD5PW= MD5.convertMD5(Password);
     	
     	Connection conn = userService.getConn();
-        String sql = "insert into Users values(?,?)";
+        String sql = "insert into users values(?,?)";
         PreparedStatement pstmt;
         try {
             pstmt = (PreparedStatement)conn.prepareStatement(sql);

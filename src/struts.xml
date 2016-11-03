@@ -44,6 +44,9 @@
 		<action name="signUp" class="com.a1rdr0p.SEproject.action.signUp">
 			<!-- If sign up successfully and then login the system -->
 			<result name="success">/WEB-INF/content/homeLogged.jsp</result>
+			<result name="exist"></result>
+			<result name="nameIllegal"></result>
+			<result name="passwordIllegal"></result>
 			<result name="error"></result>
 		</action>
 		
