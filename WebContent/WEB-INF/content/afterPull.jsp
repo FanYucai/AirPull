@@ -144,7 +144,7 @@
 		</div>
 		<!-- section end -->
 		                       
-		<s:property value="fileUploadTools.fileContent"/> 
+		
 		
 
 		<!-- section start -->
