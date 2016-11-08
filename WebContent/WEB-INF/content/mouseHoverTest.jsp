@@ -5,12 +5,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
+<!--<![endif]-->
 	<head>
 		<meta charset="utf-8">
 		<title>AirPull | Free Extract Tool by AirDrop</title>
 		<meta name="description" content="Worthy a Bootstrap-based, Responsive HTML5 Template">
 		<meta name="author" content="htmlcoder.me">
-	
+
 		<!-- Mobile Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -55,12 +56,12 @@
 
 							<!-- logo -->
 							<div class="logo smooth-scroll">
-								<a href=homeLogged><img id="logo" src="images/adlogo.png" alt="Worthy"></a>
+								<a href="#banner"><img id="logo" src="images/adlogo.png" alt="Worthy"></a>
 							</div>
 
 							<!-- name-and-slogan -->
 							<div class="site-name-and-slogan smooth-scroll">
-								<div class="site-name"><a href="homeLogged">AirPull</a></div>
+								<div class="site-name"><a href="#banner">AirPull</a></div>
 								<div class="site-slogan">Free Web Extract Tool by <a target="_blank" href="http://htmlcoder.me">AirDrop</a></div>
 							</div>
 
@@ -96,8 +97,10 @@
 										<!-- Collect the nav links, forms, and other content for toggling -->
 										<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
 											<ul class="nav navbar-nav navbar-right">
-												<li><a href=homeLogged>Back</a></li>
-												<!-- <li><a href="#export">Export</a></li> -->
+												<li><a href=home>Home</a></li>
+												<li class="active"><a href=login>Log In</a></li>
+												<li><a href=signup>Sign Up</a></li>
+												<!-- <li><a href="#contact">Contact</a></li> -->
 											</ul>
 										</div>
 
@@ -116,104 +119,98 @@
 			</div>
 		</header>
 		<!-- header end -->
-		
-		<!-- section start -->
-		<!-- ================ -->
-		<div class="default-bg space black">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-						<h1 class="text-center">&nbsp;</h1>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- section end -->
 
-		<!-- section start -->
+		<!-- banner start -->
 		<!-- ================ -->
-		<div class="section translucent-bg bg-image-1 black">
-			<div class="container object-non-visible" data-animation-effect="fadeIn">
-				<h1 id="services"  class="text-center title">How to use AirPull</h1>
-				<div class="space"></div>
-				<div class="row">
-					<div class="space visible-xs"></div>
+		<div id="banner" class="banner">
+			<div class="banner-image"></div>
+			<div class="banner-caption">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 object-non-visible" data-animation-effect="fadeIn">
+							<h1 class="text-center">Log In, <span>SB!</span></h1>
+										
+								<div class="col-md-8 col-md-offset-5">
+									<ul class="nav nav-pills">
+										<li class="active"><a href=homeLogged>Submit</a></li>
+									</ul>
+								</div>
+														
+								<div class="overlay-container">
+									<a class="overlay" data-toggle="modal" data-target="#project-1">
+										<i class="fa fa-search-plus"></i>
+									</a>
+								</div>
+								<!--
+								<a class="btn btn-default btn-block" data-toggle="modal" data-target="#project-1">ç»å½</a>
 						
-					<div class="col-sm-6">
-						<div class="media-left">
-							<i class="fa fa-leaf"></i>
-						</div>
-						<div class="media-body">
-							<h4 class="media-heading">Name</h4>
-							<p>lanxuan</p>
-						</div>
-					</div>			
-								
-					<div class="space visible-xs"></div>
-					
-					<div class="col-sm-6">
-						<div class="media">
-							<div class="media-left">
-								<i class="fa fa-leaf"></i>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Service 5</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
-							</div>
-						</div>
-						<div class="media">
-							<div class="media-left">
-								<i class="fa fa-area-chart"></i>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Service 6</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
-							</div>
-						</div>
-						<div class="media">
-							<div class="media-left">
-								<i class="fa fa-child"></i>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Service 7</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
-							</div>
-						</div>
-						<div class="media">
-							<div class="media-left">
-								<i class="fa fa-codepen"></i>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Service 8</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
-							</div>
+								<div class="overlay-container">
+									<a class="overlay" data-toggle="modal" data-target="#project-1">
+										<i class="fa fa-search-plus"></i>
+									</a>
+								</div>
+								<a class="btn btn-default btn-block" data-toggle="modal" data-target="#project-1">æ³¨å</a>
+								-->
+							
+							<p class="lead text-center">
+								Simple & Concise & Convenient
+							</p>
+
 						</div>
 					</div>
 				</div>
+	
 			</div>
 		</div>
-		<!-- section end -->
 
  
-		<!-- footer start -->
-		<!-- ================ -->
-		
-		<footer id="footer">
+ 
+<script type="text/javascript">
+$(document).ready(function()
+		{
+		    var isShow=false;
+		    $("#hidden_menu").hide();
+		    $("#categort").mouseover(function(){
+		        $("#hidden_menu").show();
+		    });
+		    $("#hidden_menu").mouseover(function(){
+		        isShow=true;   
+		        $(this).show(); 
+		    });
+		    $("#hidden_menu").mouseout(function(){
+		        if(isShow)
+		        {
+		            $(this).hide(); 
+		            isShow=false;
+		        }   
+		    });
+		})
+</script>
+
+
+<div id="category"><a href="#">category</a></div>
+<div id="hidden_menu">
+	<div class="round_corner_left"></div>
+	<div class="round_corner_reeat"><a>这里历遍数据库得到的各种分类名称</a></div>
+	<div class="round_corner_right"></div>
+</div>
+
+
 			<!-- .subfooter start -->
 			<!-- ================ -->
 			<div class="subfooter">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<p class="text-center">Copyright © 2016 AirPull by <a target="_blank" href="http://htmlcoder.me">AirDrop Group</a>.</p>
+							<p class="text-center">Copyright® 2016 AirPull by <a target="_blank" href="http://htmlcoder.me">AirDrop Group</a>.</p>
 						</div>
 					</div>
 				</div>
 			</div>
 			<!-- .subfooter end -->
+
 		</footer>
 		<!-- footer end -->
-
 
 		<!-- JavaScript files placed at the end of the document so the pages load faster
 		================================================== -->
