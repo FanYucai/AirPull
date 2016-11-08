@@ -26,6 +26,9 @@ public class signUp implements Action {
 		String ret = "";
 		
 		int verify = us.newUser(user.getName(), user.getPassword());
+//		System.out.println(user.getName());
+//		System.out.println(user.getPassword());
+//		System.out.println(verify);
 		if (verify == 1) {
 			ret = SUCCESS;
 		}

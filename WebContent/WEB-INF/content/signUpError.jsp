@@ -8,7 +8,7 @@
 <!--<![endif]-->
 	<head>
 		<meta charset="utf-8">
-		<title>AirPull | Free Extract Tool by AirDrop</title>
+		<title>AirPull | Error</title>
 		<meta name="description" content="Worthy a Bootstrap-based, Responsive HTML5 Template">
 		<meta name="author" content="htmlcoder.me">
 
@@ -39,6 +39,14 @@
 	</head>
 
 	<body class="no-trans">
+	
+		<%
+			//request.setCharacterEncoding("UTF-8");
+			String type = request.getParameter("type");
+			//String book=request.getParameter("Title");
+			//System.out.print(type);
+		%>
+	
 		<!-- scrollToTop -->
 		<!-- ================ -->
 		<div class="scrollToTop"><i class="icon-up-open-big"></i></div>
@@ -98,8 +106,8 @@
 										<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
 											<ul class="nav navbar-nav navbar-right">
 												<li><a href=home>Home</a></li>
-												<li><a href=login>Log In</a></li>
-												<li class="active"><a href=signup>Sign Up</a></li>
+												<li><a href="javascript:void(0);" data-toggle="modal" data-target="#project-5">Login</a></li>
+												<li><a href="javascript:void(0);" data-toggle="modal" data-target="#project-7">Sign Up</a></li>
 												<!-- <li><a href="#contact">Contact</a></li> -->
 											</ul>
 										</div>
@@ -128,7 +136,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 object-non-visible" data-animation-effect="fadeIn">
-							<h1 class="text-center">Sign Up, <span>SB!</span></h1>
+							<h1 class="text-center"><span><%=type%></span></h1>
 								
 								<div class="overlay-container">
 									<a class="overlay" data-toggle="modal" data-target="#project-1">
@@ -153,6 +161,77 @@
 						</div>
 					</div>
 				</div>
+				
+				<!-- login -->
+				<div class="col-sm-6 col-md-1 col-md-offset-4 isotope-item app-development">
+					
+					<!-- Modal -->
+					<div class="modal fade" id="project-5" tabindex="-1" role="dialog" aria-labelledby="project-5-label" aria-hidden="true">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+									<h4 class="modal-title" id="project-5-label">Project Title</h4>
+								</div>
+								<div class="modal-body">
+									<h3>用户登录</h3>
+									<div class="row">
+										<div class="col-md-6">
+											<p><input data-placeholder="用户名" name="userName" type="text" placeholder="用户名" tabindex="1" spellcheck="false"></input></p>
+											<p><input data-placeholder="密码" name=""type="text" placeholder="密码" tabindex="1" spellcheck="false"></input></p>
+										</div>
+										<div class="col-md-6">
+											<img src="images/portfolio-5.jpg" alt="">
+										</div>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<a href="login"><button type="button" class="btn btn-sm btn-default">Login</button></a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Modal end -->
+				</div>
+				<!-- login end --> 
+				
+				<!-- sign up -->
+				<div class="col-sm-6 col-md-1 col-md-offset-1 isotope-item app-development">
+					
+					<!-- Modal -->
+					<div class="modal fade" id="project-7" tabindex="-1" role="dialog" aria-labelledby="project-7-label" aria-hidden="true">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+									<h4 class="modal-title" id="project-5-label">Sign up</h4>
+								</div>
+								<form action="signUp" method="post">
+								<div class="modal-body">
+									<h3 class="text-center">欢迎加入 <span>AirPull</span></h3>
+									<div class="row">
+										<div class="col-md-6">
+											<p><input data-placeholder="用户名" name="user.name" type="text" placeholder="用户名" tabindex="1" spellcheck="false"></input>（用户名由英文字母和数字构成长度不超过20）</p>
+											<p><input data-placeholder="密码" name="user.password" type="password" id="password" placeholder="密码" tabindex="1" spellcheck="false"></input>（密码非纯数字，长度大于等于8位小于等于20位）</p>
+										</div>
+										
+										<div class="col-md-6">
+											<img src="images/portfolio-7.jpg" alt="">
+										</div>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<input type="submit" class="btn btn-sm btn-default" value="Submit">
+								</div>
+								</form>
+								
+								
+							</div>
+						</div>
+					</div>
+					<!-- Modal end -->
+				</div>
+				<!-- sign up end -->
 	
 			</div>
 		</div>
@@ -225,7 +304,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<p class="text-center">Copyright Â© 2016 AirPull by <a target="_blank" href="http://htmlcoder.me">AirDrop Group</a>.</p>
+							<p class="text-center">Copyright © 2016 AirPull by <a target="_blank" href="http://htmlcoder.me">AirDrop Group</a>.</p>
 						</div>
 					</div>
 				</div>
