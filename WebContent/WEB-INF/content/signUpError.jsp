@@ -8,7 +8,7 @@
 <!--<![endif]-->
 	<head>
 		<meta charset="utf-8">
-		<title>AirPull | Free Extract Tool by AirDrop</title>
+		<title>AirPull | Error</title>
 		<meta name="description" content="Worthy a Bootstrap-based, Responsive HTML5 Template">
 		<meta name="author" content="htmlcoder.me">
 

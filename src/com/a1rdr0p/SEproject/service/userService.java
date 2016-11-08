@@ -66,6 +66,7 @@ public class userService {
     	
     	boolean checkNum ;
     	checkNum = Password.matches("[0-9]+");
+    	System.out.println(checkNum);
     	if (checkNum==true ) 
     		return false;
     	
@@ -93,9 +94,10 @@ public class userService {
     	String MD5PW= MD5.convertMD5(Password);
     	
     	Connection conn = userService.getConn();
-        String sql = "insert into users values(?,?)";
+        String sql = "insert into user values(?,?)";
         PreparedStatement pstmt;
         try {
+        	
             pstmt = (PreparedStatement)conn.prepareStatement(sql);
             pstmt.setString(1, userName);
             pstmt.setString(2, MD5PW);
@@ -104,6 +106,8 @@ public class userService {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.println(userName);
+        System.out.println(MD5PW);
     	return 0;//未知错误
     }
     
@@ -111,7 +115,7 @@ public class userService {
     	User tmp = findUser(userName);
     	String ps = MD5.convertMD5(Password);
     	if (ps == tmp.getPassword())
-    		return false;
-    	return true;
+    		return true;
+    	return false;
     }
 }
