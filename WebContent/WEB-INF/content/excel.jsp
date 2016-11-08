@@ -248,9 +248,9 @@ for (var k = table.rows.item(0).cells.length - 1; k>= 0; k --)
 }
 }
 
-
 //提取表格的值,JSON格式    
-function GetTableData(table){    
+function GetTableData(table){  
+alert(table)
 var tableData = new Array();    
 alert("行数：" + table.rows.length);    
 for(var i=1; i<table.rows.length;i++){    

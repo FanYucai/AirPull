@@ -69,9 +69,28 @@ public class FileUploadTools {
 //            FileUtils.copyFile(uploadFile[i], target);
 //        }
         
-        Document doc = Jsoup.parse(target, "UTF-8", ""); 
+        
 //        System.out.println(doc.html());
-        fileContent = doc.html();
+//        fileContent = doc.html();
+		try {
+			Document doc = Jsoup.parse(target, "UTF-8", ""); 
+	//    		Elements elements = doc.getElementsByTag("button");
+			Elements elements = doc.getElementsByAttributeValue("style", "line-height:16px;");
+			Elements eles = doc.getElementsByAttribute("data-reactid");
+			
+			for(Element element : elements) {
+				fileContent = fileContent+element.html()+"\n";	
+				System.out.println(element);
+			}
+			
+			for(Element element : eles) {
+				fileContent = fileContent+element.html()+"\n"; 	
+				System.out.println(element);
+			}
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
         return "success";
     }
 }
