@@ -100,7 +100,7 @@
 												<li><a href="#about">About</a></li>
 												<li><a href="#services">Services</a></li>
 												
-												<li><a href="javascript:void(0);" data-toggle="modal" data-target="#project-5">Log In</a></li>
+												<li><a href="javascript:void(0);" data-toggle="modal" data-target="#project-5">Login</a></li>
 												<li><a href="javascript:void(0);" data-toggle="modal" data-target="#project-7">Sign Up</a></li>
 											</ul>
 										</div>
