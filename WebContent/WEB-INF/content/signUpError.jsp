@@ -39,6 +39,14 @@
 	</head>
 
 	<body class="no-trans">
+	
+		<%
+			//request.setCharacterEncoding("UTF-8");
+			String type = request.getParameter("type");
+			//String book=request.getParameter("Title");
+			System.out.print(type);
+		%>
+	
 		<!-- scrollToTop -->
 		<!-- ================ -->
 		<div class="scrollToTop"><i class="icon-up-open-big"></i></div>
@@ -128,7 +136,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 object-non-visible" data-animation-effect="fadeIn">
-							<h1 class="text-center">Sign Up, <span>SB!</span></h1>
+							<h1 class="text-center"><span><%=type%></span></h1>
 								
 								<div class="overlay-container">
 									<a class="overlay" data-toggle="modal" data-target="#project-1">

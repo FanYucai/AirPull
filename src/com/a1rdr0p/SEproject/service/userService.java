@@ -106,8 +106,8 @@ public class userService {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println(userName);
-        System.out.println(MD5PW);
+//        System.out.println(userName);
+//        System.out.println(MD5PW);
     	return 0;//未知错误
     }
     
