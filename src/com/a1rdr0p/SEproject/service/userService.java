@@ -114,7 +114,9 @@ public class userService {
     public static boolean checkPassword(String userName, String Password){//检查登录名密码是否正确
     	User tmp = findUser(userName);
     	String ps = MD5.convertMD5(Password);
-    	if (ps == tmp.getPassword())
+    	System.out.println(ps);
+    	System.out.println(tmp.getPassword());
+    	if (tmp.getPassword().equals(ps))
     		return true;
     	return false;
     }

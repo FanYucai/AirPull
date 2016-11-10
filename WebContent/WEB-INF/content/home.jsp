@@ -154,7 +154,7 @@
 										<div class="row">
 											<div class="col-md-6">
 												<p><input data-placeholder="用户名" name="user.name" type="text" placeholder="用户名" tabindex="1" spellcheck="false"></input></p>
-												<p><input data-placeholder="密码" name="user.password" type="password" id="password" placeholder="密码" tabindex="1" spellcheck="false"></input>（密码非纯数字，长度大于等于8位小于等于20位）</p>
+												<p><input data-placeholder="密码" name="user.password" type="password" id="password" placeholder="密码" tabindex="1" spellcheck="false"></input></p>
 											</div>
 											<div class="col-md-6">
 												<img src="images/portfolio-5.jpg" alt="">

@@ -25,9 +25,23 @@ public class login implements Action {
 	@Override
 	public String execute() throws Exception {
 		userService us = new userService();
+		String ret = "";
 		
-		
-		return SUCCESS;
+		User tmp = us.findUser(user.getName());
+//		System.out.println(tmp.getPassword());
+		if (tmp == null) {
+			ret = "notExist"; 
+		}
+		else {
+			boolean flag = us.checkPassword(user.getName(), user.getPassword());
+			if (flag == true) {
+				ret = "success";
+			}
+			else {
+				ret = "notMatch";
+			}
+		}
+		return ret;
 	}
 
 }

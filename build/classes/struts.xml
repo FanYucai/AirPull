@@ -45,7 +45,8 @@
 
 		<action name="login" class="com.a1rdr0p.SEproject.action.login">
 			<result name="success">/WEB-INF/content/homeLogged.jsp</result>
-			<result name="wrong"></result>
+			<result name="notExist">/WEB-INF/content/signUpError.jsp?type=User is not existed!</result>
+			<result name="notMatch">/WEB-INF/content/signUpError.jsp?type=Wrong password!</result>
 		</action>
 
 		<!-- Sign Up Action -->
