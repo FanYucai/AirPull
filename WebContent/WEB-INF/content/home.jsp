@@ -146,23 +146,26 @@
 							<div class="modal-content">
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-									<h4 class="modal-title" id="project-5-label">Project Title</h4>
+									<h4 class="modal-title" id="project-5-label">Login</h4>
 								</div>
-								<div class="modal-body">
-									<h3>用户登录</h3>
-									<div class="row">
-										<div class="col-md-6">
-											<p><input data-placeholder="用户名" name="userName" type="text" placeholder="用户名" tabindex="1" spellcheck="false"></input></p>
-											<p><input data-placeholder="密码" name=""type="text" placeholder="密码" tabindex="1" spellcheck="false"></input></p>
-										</div>
-										<div class="col-md-6">
-											<img src="images/portfolio-5.jpg" alt="">
+								<form action="login" method="post">
+									<div class="modal-body">
+										<h3>用户登录</h3>
+										<div class="row">
+											<div class="col-md-6">
+												<p><input data-placeholder="用户名" name="user.name" type="text" placeholder="用户名" tabindex="1" spellcheck="false"></input></p>
+												<p><input data-placeholder="密码" name="user.password" type="password" id="password" placeholder="密码" tabindex="1" spellcheck="false"></input>（密码非纯数字，长度大于等于8位小于等于20位）</p>
+											</div>
+											<div class="col-md-6">
+												<img src="images/portfolio-5.jpg" alt="">
+											</div>
 										</div>
 									</div>
-								</div>
-								<div class="modal-footer">
-									<a href="login"><button type="button" class="btn btn-sm btn-default">Login</button></a>
-								</div>
+									<div class="modal-footer">
+										<input type="submit" class="btn btn-sm btn-default" value="Login">
+									</div>
+								</form>
+								
 							</div>
 						</div>
 					</div>
@@ -182,23 +185,23 @@
 									<h4 class="modal-title" id="project-5-label">Sign up</h4>
 								</div>
 								<form action="signUp" method="post">
-								<div class="modal-body">
-									<h3 class="text-center">欢迎加入 <span>AirPull</span></h3>
-									<div class="row">
-										<div class="col-md-6">
-											<p><input data-placeholder="用户名" name="user.name" type="text" placeholder="用户名" tabindex="1" spellcheck="false"></input>（用户名由英文字母和数字构成长度不超过20）</p>
-											<p><input data-placeholder="密码" name="user.password" type="password" id="password" placeholder="密码" tabindex="1" spellcheck="false"></input>（密码非纯数字，长度大于等于8位小于等于20位）</p>
-											<p><input data-placeholder="确认密码" name="verifyPassword" type="password" id="password" placeholder="确认密码" tabindex="1" spellcheck="false"></input></p>
-										</div>
-										
-										<div class="col-md-6">
-											<img src="images/portfolio-7.jpg" alt="">
+									<div class="modal-body">
+										<h3 class="text-center">欢迎加入 <span>AirPull</span></h3>
+										<div class="row">
+											<div class="col-md-6">
+												<p><input data-placeholder="用户名" name="user.name" type="text" placeholder="用户名" tabindex="1" spellcheck="false"></input>（用户名由英文字母和数字构成长度不超过20）</p>
+												<p><input data-placeholder="密码" name="user.password" type="password" id="password" placeholder="密码" tabindex="1" spellcheck="false"></input>（密码非纯数字，长度大于等于8位小于等于20位）</p>
+												<p><input data-placeholder="确认密码" name="verifyPassword" type="password" id="password" placeholder="确认密码" tabindex="1" spellcheck="false"></input></p>
+											</div>
+											
+											<div class="col-md-6">
+												<img src="images/portfolio-7.jpg" alt="">
+											</div>
 										</div>
 									</div>
-								</div>
-								<div class="modal-footer">
-									<input type="submit" class="btn btn-sm btn-default" value="Submit">
-								</div>
+									<div class="modal-footer">
+										<input type="submit" class="btn btn-sm btn-default" value="Submit">
+									</div>
 								</form>
 								
 								
