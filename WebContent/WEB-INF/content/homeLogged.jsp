@@ -209,8 +209,8 @@ function submitForm() {
 
 					<!-- logo -->
 					<div class="logo smooth-scroll">
-						<a href="#services"><img id="logo" src="images/adlogo.png"
-							alt="Worthy"></a>
+						<a href="#services">
+						<img id="logo" src="images/adlogo.png"alt="Worthy"></a>
 					</div>
 
 					<!-- name-and-slogan -->
@@ -220,7 +220,7 @@ function submitForm() {
 						</div>
 						<div class="site-slogan">
 							Free Web Extract Tool by <a target="_blank"
-								href="http://htmlcoder.me">AirDrop</a>
+								href="http://www.baidu.com">AirDrop</a>
 						</div>
 					</div>
 
