@@ -88,10 +88,10 @@ function file_change() {
 	var postfix = this.value.substring(this.value.lastIndexOf(".") + 1)
 			.toUpperCase();
 	//判断扩展是否合法
-	if (postfix == "HTML") {
+	if (postfix == "HTML" || postfix == "HTM" ) {
 	} else {
 		//如果不合法就删除相应的File表单及br标签
-		alert("您上传的文件类型不被支持，本系统只支持html文件！");
+		alert("您上传的文件类型不被支持，本系统只支持.html, .htm 文件！");
 		var testtest = $(this).attr('id');
 		testtest = '#' + testtest;
 		var sub_file = $(testtest);
@@ -136,7 +136,7 @@ function insertFile() {
 
 	var is_null = false;
 	//循环遍历判断是否有某一个File表单域的值为空
-	alert("瞅啥啊還不快傳！")
+	/* alert("瞅啥啊還不快傳！") */
 	for (var i = 0; i < file_array.length; i++) {
 		if (file_array[i].type == "file"
 				&& file_array[i].name.substring(0, 15) == "fileUploadTools") {
