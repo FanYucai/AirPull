@@ -318,7 +318,7 @@
 		<!-- ================ -->
 		<div class="section translucent-bg bg-image-1 black">
 			<div class="container object-non-visible" data-animation-effect="fadeIn">
-				<h1 id="services"  class="text-center title">How to use AirPull</h1>
+				<h1 id="services"  class="text-center title">How to use <span>AirPull</span></h1>
 				<div class="space"></div>
 				<div class="row">
 					<div class="space visible-xs"></div>
