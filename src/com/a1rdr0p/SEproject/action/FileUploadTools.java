@@ -53,7 +53,7 @@ public class FileUploadTools {
     }
 
     public String beginUpload() throws IOException {
-        System.out.println("用户名：" + username);
+//        System.out.println("用户名：" + username);
         //将文件放于项目部署路径下的upload文件夹下  
         String targetDirectory="/WEB-INF/upload";  
     //根据相对部署路径计算完整路径  

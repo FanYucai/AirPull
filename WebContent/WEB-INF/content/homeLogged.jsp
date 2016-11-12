@@ -41,27 +41,153 @@
 <!-- Custom css -->
 <link href="css/custom.css" rel="stylesheet">
 </head>
-<%-- <script>
-$(document).ready(function()
-		{
-		    var isShow=false;
-		    $("#logoutqwq").hide();
-		    $("#profileqwq").mouseover(function(){
-		        $("#logoutqwq").show();
-		    });
-		    $("#logoutqwq").mouseover(function(){
-		        isShow=true;   
-		        $(this).show(); 
-		    });
-		    $("#logoutqwq").mouseout(function(){
-		        if(isShow)
-		        {
-		            $(this).hide(); 
-		            isShow=false;
-		        }   
-		    });
-		})
-</script> --%>
+<script>
+//下面这三个函数是生成与刷新进度条、进度详细信息的
+//初始化进度条
+$(function() {
+	$("#progressbar").progressbar({
+		value : 0
+	});
+});
+
+//调用查询进度信息接口
+function refreshProcessBar() {
+	$.get("getState.action?timestamp=" + new Date().getTime(), function(data) {
+		refreshProcessBarCallBack(data);
+	}, 'xml');
+}
+
+//查询进度信息接口回调函数
+
+function refreshProcessBarCallBack(returnXMLParam) {
+	var returnXML = returnXMLParam;
+	var percent = $(returnXML).find('percent').text()
+	var showText = "进度是：" + percent + "%";
+	showText = showText + "\n当前上传文件大小为："
+			+ $(returnXML).find('uploadByte').text();
+	showText = showText + "\n上传文件总大小为："
+			+ $(returnXML).find('fileSizeByte').text();
+	showText = showText + "\n当前上传文件为第：" + $(returnXML).find('fileIndex').text()
+			+ "个";
+	showText = showText + "\n开始上传时间：" + $(returnXML).find('startTime').text();
+
+	// 刷新进度详细信息
+	$('#progressDetail').empty();
+	$('#progressDetail').text(showText);
+
+	// 刷新进度条
+	$("#progressbar").progressbar("option", "value", parseInt(percent));
+
+	setTimeout("refreshProcessBar()", 1000);
+}
+
+//下面这三个函数是控制添加、删除、修改附件的（允许增加、删除附件，只允许指定后缀的文件被选择等）
+var a = 0;
+function file_change() {
+	//当文本域中的值改变时触发此方法
+	var postfix = this.value.substring(this.value.lastIndexOf(".") + 1)
+			.toUpperCase();
+	//判断扩展是否合法
+	if (postfix == "HTML") {
+	} else {
+		//如果不合法就删除相应的File表单及br标签
+		alert("您上传的文件类型不被支持，本系统只支持html文件！");
+		var testtest = $(this).attr('id');
+		testtest = '#' + testtest;
+		var sub_file = $(testtest);
+
+		var next_a_ele = sub_file.next();//取得a标记
+		var br1_ele = $(next_a_ele).next();//取得回车
+		var br2_ele = $(br1_ele).next();//取得回车
+
+		$(br2_ele).remove();//删除回车
+		$(br1_ele).remove();//删除回车
+		$(next_a_ele).remove();//删除a标签
+		$(sub_file).remove();
+		//删除文本域，因为上传的文件类型出错，要删除动态创建的File表单
+		return;
+	}
+}
+
+function remove_file() {//删除File表单域的方法
+	//删除表单
+	var testtest = $(this).val();
+	testtest = '#' + testtest;
+	var sub_file = $(testtest);
+
+	var next_a_ele = sub_file.next();//取得a标记
+	var br1_ele = $(next_a_ele).next();//取得回车
+	var br2_ele = $(br1_ele).next();//取得回车
+
+	$(br2_ele).remove();//删除回车
+	$(br1_ele).remove();//删除回车
+	$(next_a_ele).remove();//删除a标签
+	$(sub_file).remove();//删除File标记
+}
+
+function f() {
+	//方法名为f的主要作用是不允许在File表单域中手动输入文件名，必须单击“浏览”按钮
+	return false;
+}
+
+function insertFile() {
+	//新建File表单
+	var file_array = document.getElementsByTagName("input");
+
+	var is_null = false;
+	//循环遍历判断是否有某一个File表单域的值为空
+	alert("瞅啥啊還不快傳！")
+	for (var i = 0; i < file_array.length; i++) {
+		if (file_array[i].type == "file"
+				&& file_array[i].name.substring(0, 15) == "fileUploadTools") {
+			if (file_array[i].value == "") {
+				alert("某一附件为空不能继续添加");
+				is_null = true;
+				break;
+			}
+		}
+	}
+
+	if (is_null) {
+		return;
+	}
+
+	a++;
+	//新建file表单的基本信息
+	var new_File_element = $('<input>');
+	new_File_element.attr('type', 'file');
+	new_File_element.attr('id', 'uploadFile' + a);
+	new_File_element.attr('name', 'fileUploadTools.uploadFile');
+	new_File_element.attr('size', 55);
+	new_File_element.keydown(f);
+	new_File_element.change(file_change);
+
+	$('#fileForm').append(new_File_element);
+
+	//新建删除附件的a标签的基本信息
+	var new_a_element = $('<a>');
+	new_a_element.html("删除附件");
+	new_a_element.attr('id', "a_" + new_File_element.name);
+	new_a_element.attr('name', "a_" + new_File_element.name);
+	new_a_element.val($(new_File_element).attr('id'));
+	new_a_element.attr('href', "#");
+	new_a_element.click(remove_file);
+	$('#fileForm').append(new_a_element);
+
+	var new_br_element = $("<br>");
+	$('#fileForm').append(new_br_element);
+	var new_br_element = $("<br>");
+	$('#fileForm').append(new_br_element);
+}
+
+//提交表单，提交时触发刷新进度条函数
+function submitForm() {
+	setTimeout("refreshProcessBar()", 1000);
+
+	return true;
+}
+
+</script>
 
 <body class="no-trans">
 	<!-- scrollToTop -->
@@ -135,7 +261,8 @@ $(document).ready(function()
 									<li><a href="#portfolio">AirPull</a></li>
 									<li><a href="#clients">Clients</a></li>
 									<li><a href=profile id="profileqwq">Profile</a></li>
-									<li><a href="javascript:void(0);" data-toggle="modal" data-target="#project-5">Logout</a></li>
+									<li><a href="javascript:void(0);" data-toggle="modal"
+										data-target="#project-5">Logout</a></li>
 								</ul>
 							</div>
 
@@ -154,28 +281,32 @@ $(document).ready(function()
 	</div>
 	</header>
 	<!-- header end -->
-	
+
 	<!-- Modal start-->
 	<!-- ================ -->
-	<div class="modal fade" id="project-5" tabindex="-1" role="dialog" aria-labelledby="project-5-label" aria-hidden="true">
+	<div class="modal fade" id="project-5" tabindex="-1" role="dialog"
+		aria-labelledby="project-5-label" aria-hidden="true">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
 					<h4 class="modal-title" id="project-5-label">Logout</h4>
 				</div>
 				<div class="modal-body">
 					<!-- <h1 class="text-center title">Are you sure to quit the AirPull?</h1> -->
 					<div class="row">
-						<div class="text-center title" >
+						<div class="text-center title">
 							<img src="images/logout.png" alt="">
 						</div>
 					</div>
 				</div>
 				<div class="modal-footer">
-					<a href="home"><button type="button" class="btn btn-sm btn-default">Good Bye</button></a>
+					<a href="home"><button type="button"
+							class="btn btn-sm btn-default">Good Bye</button></a>
 				</div>
-				
+
 			</div>
 		</div>
 	</div>
@@ -343,6 +474,7 @@ $(document).ready(function()
 					<!-- isotope filters end -->
 
 					<!-- portfolio items start -->
+
 					<div class="isotope-container row grid-space-20">
 						<div class="col-sm-6 col-md-3 isotope-item web-design">
 							<div class="image-box">
@@ -368,214 +500,51 @@ $(document).ready(function()
 											<h4 class="modal-title" id="project-1-label">Project
 												Title</h4>
 										</div>
+										
 										<div class="modal-body">
 											<h3>Project Description</h3>
 											<div class="row">
 												<div class="col-md-6">
-													
+													<!-- 上传文件，最近添加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
+													<s:form action="uploadT2" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
+														<br />
+														<table width="818" border="1">
+															<tr>
+																<td width="176">
+																	<div align="center">
+																		用户附件 <br /> <a href="javascript:insertFile()">添加附件</a>
+																	</div>
+																</td>
+																<td width="626" id="fileForm"><br /></td>
+															</tr>
+														</table>
 
-<!-- 上传文件，最近添加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
-
-<!--参考：http://api.jqueryui.com/progressbar/-->
-
-<script type="text/javascript">
-    // 下面这三个函数是生成与刷新进度条、进度详细信息的
-    // 初始化进度条
-    $(function() {
-        $("#progressbar").progressbar({
-            value: 0
-        });
-    });
-    
-    // 调用查询进度信息接口
-    function refreshProcessBar(){
-        $.get("getState.action?timestamp=" + new Date().getTime(), function(data){
-            refreshProcessBarCallBack(data);
-        }, 'xml');
-    }
-    
-    // 查询进度信息接口回调函数
-    function refreshProcessBarCallBack(returnXMLParam){
-        var returnXML = returnXMLParam;
-        var percent = $(returnXML).find('percent').text()
-        var showText = "进度是：" + percent + "%";
-        showText = showText + "\n当前上传文件大小为：" + $(returnXML).find ('uploadByte').text();
-        showText = showText + "\n上传文件总大小为：" + $(returnXML).find ('fileSizeByte').text();
-        showText = showText + "\n当前上传文件为第：" + $(returnXML).find ('fileIndex').text() + "个";
-        showText = showText + "\n开始上传时间：" + $(returnXML).find ('startTime').text();
-        
-        // 刷新进度详细信息
-        $('#progressDetail').empty();
-        $('#progressDetail').text(showText);
-        
-        // 刷新进度条
-        $("#progressbar").progressbar("option", "value", parseInt(percent));
-        
-        setTimeout("refreshProcessBar()", 1000);
-    }
-    
-    // 下面这三个函数是控制添加、删除、修改附件的（允许增加、删除附件，只允许指定后缀的文件被选择等）
-    var a = 0;
-    function file_change(){
-        //当文本域中的值改变时触发此方法
-        var postfix = this.value.substring(this.value.lastIndexOf(".") + 1).toUpperCase();
-        //判断扩展是否合法
-        if (postfix == "HTML") {
-        }
-        else {
-            //如果不合法就删除相应的File表单及br标签
-            alert("您上传的文件类型不被支持，本系统只支持html文件！");
-            var testtest = $(this).attr('id');
-            testtest = '#' + testtest;
-            var sub_file = $(testtest);
-            
-            var next_a_ele = sub_file.next();//取得a标记
-            var br1_ele = $(next_a_ele).next();//取得回车
-            var br2_ele = $(br1_ele).next();//取得回车
-            
-            $(br2_ele).remove();//删除回车
-            $(br1_ele).remove();//删除回车
-            $(next_a_ele).remove();//删除a标签
-            $(sub_file).remove();
-            //删除文本域，因为上传的文件类型出错，要删除动态创建的File表单
-            return;
-        }
-    }
-    
-    function remove_file(){//删除File表单域的方法
-        //删除表单
-        var testtest = $(this).val();
-        testtest = '#' + testtest;
-        var sub_file = $(testtest);
-        
-        var next_a_ele = sub_file.next();//取得a标记
-        var br1_ele = $(next_a_ele).next();//取得回车
-        var br2_ele = $(br1_ele).next();//取得回车
-        
-        $(br2_ele).remove();//删除回车
-        $(br1_ele).remove();//删除回车
-        $(next_a_ele).remove();//删除a标签
-        $(sub_file).remove();//删除File标记
-    }
-    
-    function f(){
-        //方法名为f的主要作用是不允许在File表单域中手动输入文件名，必须单击“浏览”按钮
-        return false;
-    }
-    
-    function insertFile(){
-        //新建File表单
-        var file_array = document.getElementsByTagName("input");
-        
-        var is_null = false;
-        //循环遍历判断是否有某一个File表单域的值为空
-        alert("瞅啥啊還不快傳！")
-        for (var i = 0; i < file_array.length; i++) {
-            if (file_array[i].type == "file" && file_array[i].name.substring(0, 15) == "fileUploadTools") {
-                if (file_array[i].value == "") {
-                    alert("某一附件为空不能继续添加");
-                    is_null = true;
-                    break;
-                }
-            }
-        }
-        
-        if (is_null) {
-            return;
-        }
-        
-        a++;
-        //新建file表单的基本信息
-        var new_File_element = $('<input>');
-        new_File_element.attr('type', 'file');
-        new_File_element.attr('id', 'uploadFile' + a);
-        new_File_element.attr('name', 'fileUploadTools.uploadFile');
-        new_File_element.attr('size', 55);
-        new_File_element.keydown(f);
-        new_File_element.change(file_change);
-        
-        $('#fileForm').append(new_File_element);
-        
-        //新建删除附件的a标签的基本信息
-        var new_a_element = $('<a>');
-        new_a_element.html("删除附件");
-        new_a_element.attr('id', "a_" + new_File_element.name);
-        new_a_element.attr('name', "a_" + new_File_element.name);
-        new_a_element.val($(new_File_element).attr('id'));
-        new_a_element.attr('href', "#");
-        new_a_element.click(remove_file);
-        $('#fileForm').append(new_a_element);
-        
-        var new_br_element = $("<br>");
-        $('#fileForm').append(new_br_element);
-        var new_br_element = $("<br>");
-        $('#fileForm').append(new_br_element);
-    }
-    
-    // 提交表单，提交时触发刷新进度条函数
-    function submitForm(){
-        setTimeout("refreshProcessBar()", 1000);
-        
-        return true;
-    }
-</script>
-
-    <br/>
-    <s:form action="uploadT2" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
-        <table width="818" border="1">
-            <tr>
-                <td width="176">
-                    <div align="center">
-                        用户账号
-                    </div>
-                </td>
-                <td width="626">
-                    <input type="text" name="FileUploadTools.username" />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <div align="center">
-                        用户附件
-                        <br/>
-                        <a href="javascript:insertFile()">添加附件</a>
-                    </div>
-                </td>
-                <td id="fileForm">
-                    <br/>
-                </td>
-            </tr>
-        </table>
-        <input type="submit" value="开始上传..." />
-    </s:form>
-    <br/>
-    <div id="progressbar">qw</div>
-    <br/>
-    <div id="progressDetail" class="demo-description">
-    <p>进度详细信息显示于此......</p>
-    </div>
-<!-- 上传文件，最近一次加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
-													
+														<br />
+														<!-- <div id="progressbar">qw</div> -->
+														<br />
+														<div id="progressDetail" class="demo-description">
+															<!-- <p>进度详细信息显示于此......</p> -->
+														</div>
+													<!-- 上传文件，最近一次加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
 												</div>
 
 												<div class="col-md-6">
 													<img src="images/taobao1.jpg" alt="">
 												</div>
-
-
-											</div>
+											</div>											
 										</div>
 
 										<div class="modal-footer">
-											<a href="airpullIteye.action"><button type="button"
-													class="btn btn-sm btn-default">AirPull it</button></a>
+											<button type="submit" class="btn btn-sm btn-default">AirPull it</button>
 										</div>
+										</s:form>
 									</div>
 								</div>
 							</div>
+							
 							<!-- Modal end -->
 						</div>
-
+					
 						<div class="col-sm-6 col-md-3 isotope-item app-development">
 							<div class="image-box">
 								<div class="overlay-container">
@@ -585,7 +554,7 @@ $(document).ready(function()
 									</a>
 								</div>
 								<a class="btn btn-default btn-block" data-toggle="modal"
-									data-target="#project-2">Project Title</a>
+									data-target="#project-2">功能紧急开发中～～～</a>
 							</div>
 							<!-- Modal -->
 							<div class="modal fade" id="project-2" tabindex="-1"
@@ -646,7 +615,7 @@ $(document).ready(function()
 									</a>
 								</div>
 								<a class="btn btn-default btn-block" data-toggle="modal"
-									data-target="#project-3">Project Title</a>
+									data-target="#project-3">功能紧急开发中～～～</a>
 							</div>
 							<!-- Modal -->
 							<div class="modal fade" id="project-3" tabindex="-1"
@@ -707,7 +676,7 @@ $(document).ready(function()
 									</a>
 								</div>
 								<a class="btn btn-default btn-block" data-toggle="modal"
-									data-target="#project-4">Project Title</a>
+									data-target="#project-4">功能紧急开发中～～～</a>
 							</div>
 							<!-- Modal -->
 							<div class="modal fade" id="project-4" tabindex="-1"
@@ -768,7 +737,7 @@ $(document).ready(function()
 									</a>
 								</div>
 								<a class="btn btn-default btn-block" data-toggle="modal"
-									data-target="#project-5">Project Title</a>
+									data-target="#project-5">功能紧急开发中～～～</a>
 							</div>
 							<!-- Modal -->
 							<div class="modal fade" id="project-5" tabindex="-1"
@@ -829,7 +798,7 @@ $(document).ready(function()
 									</a>
 								</div>
 								<a class="btn btn-default btn-block" data-toggle="modal"
-									data-target="#project-6">Project Title</a>
+									data-target="#project-6">功能紧急开发中～～～</a>
 							</div>
 							<!-- Modal -->
 							<div class="modal fade" id="project-6" tabindex="-1"
@@ -890,7 +859,7 @@ $(document).ready(function()
 									</a>
 								</div>
 								<a class="btn btn-default btn-block" data-toggle="modal"
-									data-target="#project-7">Project Title</a>
+									data-target="#project-7">功能紧急开发中～～～</a>
 							</div>
 							<!-- Modal -->
 							<div class="modal fade" id="project-7" tabindex="-1"
@@ -942,249 +911,6 @@ $(document).ready(function()
 							<!-- Modal end -->
 						</div>
 
-						<div class="col-sm-6 col-md-3 isotope-item web-design">
-							<div class="image-box">
-								<div class="overlay-container">
-									<img src="images/portfolio-8.jpg" alt=""> <a
-										class="overlay" data-toggle="modal" data-target="#project-8">
-										<i class="fa fa-search-plus"></i> <span>Web Design</span>
-									</a>
-								</div>
-								<a class="btn btn-default btn-block" data-toggle="modal"
-									data-target="#project-8">Project Title</a>
-							</div>
-							<!-- Modal -->
-							<div class="modal fade" id="project-8" tabindex="-1"
-								role="dialog" aria-labelledby="project-8-label"
-								aria-hidden="true">
-								<div class="modal-dialog modal-lg">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal">
-												<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-											</button>
-											<h4 class="modal-title" id="project-8-label">Project
-												Title</h4>
-										</div>
-										<div class="modal-body">
-											<h3>Project Description</h3>
-											<div class="row">
-												<div class="col-md-6">
-													<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-														elit. Atque sed, quidem quis praesentium, ut unde. Quae
-														sed, incidunt laudantium nesciunt, optio corporis quod
-														earum pariatur omnis illo saepe numquam suscipit, nemo
-														placeat dignissimos eius mollitia et quas officia
-														doloremque ipsum labore rem deserunt vero! Magnam totam
-														delectus accusantium voluptas et, tempora quos atque,
-														fugiat, obcaecati voluptatibus commodi illo voluptates
-														dolore nemo quo soluta quis.</p>
-													<p>Molestiae sed enim laboriosam atque delectus
-														voluptates rerum nostrum sapiente obcaecati molestias
-														quasi optio exercitationem, voluptate quis consequatur
-														libero incidunt, in, quod. Lorem ipsum dolor sit amet,
-														consectetur adipisicing elit. Eos nobis officiis, autem
-														earum tenetur quidem. Quae non dicta earum. Ipsum autem
-														eaque cum dolor placeat corporis quisquam dolorum at
-														nesciunt.</p>
-												</div>
-												<div class="col-md-6">
-													<img src="images/portfolio-8.jpg" alt="">
-												</div>
-											</div>
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-sm btn-default"
-												data-dismiss="modal">Close</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- Modal end -->
-						</div>
-
-						<div class="col-sm-6 col-md-3 isotope-item web-design">
-							<div class="image-box">
-								<div class="overlay-container">
-									<img src="images/portfolio-9.jpg" alt=""> <a
-										class="overlay" data-toggle="modal" data-target="#project-9">
-										<i class="fa fa-search-plus"></i> <span>Web Design</span>
-									</a>
-								</div>
-								<a class="btn btn-default btn-block" data-toggle="modal"
-									data-target="#project-9">Project Title</a>
-							</div>
-							<!-- Modal -->
-							<div class="modal fade" id="project-9" tabindex="-1"
-								role="dialog" aria-labelledby="project-9-label"
-								aria-hidden="true">
-								<div class="modal-dialog modal-lg">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal">
-												<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-											</button>
-											<h4 class="modal-title" id="project-9-label">Project
-												Title</h4>
-										</div>
-										<div class="modal-body">
-											<h3>Project Description</h3>
-											<div class="row">
-												<div class="col-md-6">
-													<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-														elit. Atque sed, quidem quis praesentium, ut unde. Quae
-														sed, incidunt laudantium nesciunt, optio corporis quod
-														earum pariatur omnis illo saepe numquam suscipit, nemo
-														placeat dignissimos eius mollitia et quas officia
-														doloremque ipsum labore rem deserunt vero! Magnam totam
-														delectus accusantium voluptas et, tempora quos atque,
-														fugiat, obcaecati voluptatibus commodi illo voluptates
-														dolore nemo quo soluta quis.</p>
-													<p>Molestiae sed enim laboriosam atque delectus
-														voluptates rerum nostrum sapiente obcaecati molestias
-														quasi optio exercitationem, voluptate quis consequatur
-														libero incidunt, in, quod. Lorem ipsum dolor sit amet,
-														consectetur adipisicing elit. Eos nobis officiis, autem
-														earum tenetur quidem. Quae non dicta earum. Ipsum autem
-														eaque cum dolor placeat corporis quisquam dolorum at
-														nesciunt.</p>
-												</div>
-												<div class="col-md-6">
-													<img src="images/portfolio-9.jpg" alt="">
-												</div>
-											</div>
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-sm btn-default"
-												data-dismiss="modal">Close</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- Modal end -->
-						</div>
-
-						<div class="col-sm-6 col-md-3 isotope-item site-building">
-							<div class="image-box">
-								<div class="overlay-container">
-									<img src="images/portfolio-10.jpg" alt=""> <a
-										class="overlay" data-toggle="modal" data-target="#project-10">
-										<i class="fa fa-search-plus"></i> <span>Site Building</span>
-									</a>
-								</div>
-								<a class="btn btn-default btn-block" data-toggle="modal"
-									data-target="#project-10">Project Title</a>
-							</div>
-							<!-- Modal -->
-							<div class="modal fade" id="project-10" tabindex="-1"
-								role="dialog" aria-labelledby="project-10-label"
-								aria-hidden="true">
-								<div class="modal-dialog modal-lg">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal">
-												<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-											</button>
-											<h4 class="modal-title" id="project-10-label">Project
-												Title</h4>
-										</div>
-										<div class="modal-body">
-											<h3>Project Description</h3>
-											<div class="row">
-												<div class="col-md-6">
-													<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-														elit. Atque sed, quidem quis praesentium, ut unde. Quae
-														sed, incidunt laudantium nesciunt, optio corporis quod
-														earum pariatur omnis illo saepe numquam suscipit, nemo
-														placeat dignissimos eius mollitia et quas officia
-														doloremque ipsum labore rem deserunt vero! Magnam totam
-														delectus accusantium voluptas et, tempora quos atque,
-														fugiat, obcaecati voluptatibus commodi illo voluptates
-														dolore nemo quo soluta quis.</p>
-													<p>Molestiae sed enim laboriosam atque delectus
-														voluptates rerum nostrum sapiente obcaecati molestias
-														quasi optio exercitationem, voluptate quis consequatur
-														libero incidunt, in, quod. Lorem ipsum dolor sit amet,
-														consectetur adipisicing elit. Eos nobis officiis, autem
-														earum tenetur quidem. Quae non dicta earum. Ipsum autem
-														eaque cum dolor placeat corporis quisquam dolorum at
-														nesciunt.</p>
-												</div>
-												<div class="col-md-6">
-													<img src="images/portfolio-10.jpg" alt="">
-												</div>
-											</div>
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-sm btn-default"
-												data-dismiss="modal">Close</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- Modal end -->
-						</div>
-
-						<div class="col-sm-6 col-md-3 isotope-item web-design">
-							<div class="image-box">
-								<div class="overlay-container">
-									<img src="images/portfolio-11.jpg" alt=""> <a
-										class="overlay" data-toggle="modal" data-target="#project-11">
-										<i class="fa fa-search-plus"></i> <span>Web Design</span>
-									</a>
-								</div>
-								<a class="btn btn-default btn-block" data-toggle="modal"
-									data-target="#project-11">Project Title</a>
-							</div>
-							<!-- Modal -->
-							<div class="modal fade" id="project-11" tabindex="-1"
-								role="dialog" aria-labelledby="project-11-label"
-								aria-hidden="true">
-								<div class="modal-dialog modal-lg">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" class="close" data-dismiss="modal">
-												<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-											</button>
-											<h4 class="modal-title" id="project-11-label">Project
-												Title</h4>
-										</div>
-										<div class="modal-body">
-											<h3>Project Description</h3>
-											<div class="row">
-												<div class="col-md-6">
-													<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-														elit. Atque sed, quidem quis praesentium, ut unde. Quae
-														sed, incidunt laudantium nesciunt, optio corporis quod
-														earum pariatur omnis illo saepe numquam suscipit, nemo
-														placeat dignissimos eius mollitia et quas officia
-														doloremque ipsum labore rem deserunt vero! Magnam totam
-														delectus accusantium voluptas et, tempora quos atque,
-														fugiat, obcaecati voluptatibus commodi illo voluptates
-														dolore nemo quo soluta quis.</p>
-													<p>Molestiae sed enim laboriosam atque delectus
-														voluptates rerum nostrum sapiente obcaecati molestias
-														quasi optio exercitationem, voluptate quis consequatur
-														libero incidunt, in, quod. Lorem ipsum dolor sit amet,
-														consectetur adipisicing elit. Eos nobis officiis, autem
-														earum tenetur quidem. Quae non dicta earum. Ipsum autem
-														eaque cum dolor placeat corporis quisquam dolorum at
-														nesciunt.</p>
-												</div>
-												<div class="col-md-6">
-													<img src="images/portfolio-11.jpg" alt="">
-												</div>
-											</div>
-										</div>
-										<div class="modal-footer">
-											<button type="button" class="btn btn-sm btn-default"
-												data-dismiss="modal">Close</button>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- Modal end -->
-						</div>
 
 						<div class="col-sm-6 col-md-3 isotope-item app-development">
 							<div class="image-box">
@@ -1195,7 +921,7 @@ $(document).ready(function()
 									</a>
 								</div>
 								<a class="btn btn-default btn-block" data-toggle="modal"
-									data-target="#project-12">Project Title</a>
+									data-target="#project-12">功能紧急开发中～～～</a>
 							</div>
 							<!-- Modal -->
 							<div class="modal fade" id="project-12" tabindex="-1"
@@ -1380,23 +1106,22 @@ $(document).ready(function()
 	<!-- section end -->
 
 	<!-- footer start -->
-	<footer id="footer">
-		<!-- .subfooter start -->
-		<!-- ================ -->
-		<div class="subfooter">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<p class="text-center">Copyright © 2016 AirPull by <a target="_blank" href="http://htmlcoder.me">AirDrop Group</a>.</p>
-					</div>
+	<footer id="footer"> <!-- .subfooter start --> <!-- ================ -->
+	<div class="subfooter">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<p class="text-center">
+						Copyright © 2016 AirPull by <a target="_blank"
+							href="http://htmlcoder.me">AirDrop Group</a>.
+					</p>
 				</div>
 			</div>
 		</div>
-		<!-- .subfooter end -->
+	</div>
+	<!-- .subfooter end --> </footer>
+	<!-- footer end -->
 
-	</footer>
-	<!-- footer end -->		
-		
 	<!-- JavaScript files placed at the end of the document so the pages load faster
 		================================================== -->
 	<!-- Jquery and Bootstap core js files -->
@@ -1423,9 +1148,9 @@ $(document).ready(function()
 	<script type="text/javascript" src="js/custom.js"></script>
 
 	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-	
-<script src="js/jquery.ui.core.js"></script>
-<script src="js/jquery.ui.widget.js"></script>
-<script src="js/jquery.ui.progressbar.js"></script>
+
+	<script src="js/jquery.ui.core.js"></script>
+	<script src="js/jquery.ui.widget.js"></script>
+	<script src="js/jquery.ui.progressbar.js"></script>
 </body>
 </html>
