@@ -135,7 +135,7 @@ $(document).ready(function()
 									<li><a href="#portfolio">AirPull</a></li>
 									<li><a href="#clients">Clients</a></li>
 									<li><a href=profile id="profileqwq">Profile</a></li>
-									<li><a href=home id="logoutqwq">Log Out</a></li>
+									<li><a href="javascript:void(0);" data-toggle="modal" data-target="#project-5">Logout</a></li>
 								</ul>
 							</div>
 
@@ -154,6 +154,39 @@ $(document).ready(function()
 	</div>
 	</header>
 	<!-- header end -->
+	
+	<!-- Modal -->
+	<div class="modal fade" id="project-5" tabindex="-1" role="dialog" aria-labelledby="project-5-label" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title" id="project-5-label">Logout</h4>
+				</div>
+				<div class="modal-body">
+					<h3>用户登录</h3>
+					<div class="row">
+						<div class="col-md-6">
+							<p><input data-placeholder="用户名" name="user.name" type="text" placeholder="用户名" tabindex="1" spellcheck="false"></input></p>
+							<p><input data-placeholder="密码" name="user.password" type="password" id="password" placeholder="密码" tabindex="1" spellcheck="false"></input></p>
+						</div>
+						<div class="col-md-6">
+							<img src="images/portfolio-5.jpg" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<input type="submit" class="btn btn-sm btn-default" value="Login">
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<!-- Modal end -->
+	
+	</div>
+	<!-- banner end -->
+	
 
 	<!-- section start -->
 	<!-- ================ -->
