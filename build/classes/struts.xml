@@ -38,16 +38,18 @@
 		<!-- <action name="login" class="com.test.action.LoginAction" method="execute"> 
 			<result name="error">/WEB-INF/content/error.jsp</result> <result name="success">/WEB-INF/content/welcome.jsp</result> 
 			</action> -->
-		<!-- Login Action -->
+		
 		<action name="airpullIteye" class="com.a1rdr0p.SEproject.action.airpullIteye">
 			<result name="success">/WEB-INF/content/afterPull.jsp</result>
 		</action>
 
+		<!-- Login Action -->
 		<action name="login" class="com.a1rdr0p.SEproject.action.login">
 			<result name="success">/WEB-INF/content/homeLogged.jsp</result>
 			<result name="notExist">/WEB-INF/content/loginError.jsp?type=User is not existed!</result>
 			<result name="notMatch">/WEB-INF/content/loginError.jsp?type=Wrong password!</result>
 		</action>
+		<!-- =============== -->
 
 		<!-- Sign Up Action -->
 		<action name="signUp" class="com.a1rdr0p.SEproject.action.signUp">
@@ -59,6 +61,11 @@
 			<result name="error">/WEB-INF/content/signUpError.jsp?type=There may be some error happened!</result>
 			<result name="notMatch">/WEB-INF/content/signUpError.jsp?type=Password should be the same!</result>
 		</action>
+		<!-- =============== -->
+		
+		<!-- Forget Password Action -->
+		
+		<!-- =============== -->
 
 		<action name="*">
 			<result>/WEB-INF/content/{1}.jsp</result>

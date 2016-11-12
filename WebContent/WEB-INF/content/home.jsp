@@ -153,8 +153,10 @@
 										<h3>用户登录</h3>
 										<div class="row">
 											<div class="col-md-6">
-												<p><input data-placeholder="用户名" name="user.name" type="text" placeholder="用户名" tabindex="1" spellcheck="false"></input></p>
-												<p><input data-placeholder="密码" name="user.password" type="password" id="password" placeholder="密码" tabindex="1" spellcheck="false"></input></p>
+												<p><input data-placeholder="用户名" name="user.name" type="text" 
+													placeholder="用户名" tabindex="1" spellcheck="false"></input></p>
+												<p><input data-placeholder="密码" name="user.password" type="password" 
+													id="password" placeholder="密码" tabindex="1" spellcheck="false"></input><a href="forgetPassword">忘记密码</a></p>
 											</div>
 											<div class="col-md-6">
 												<img src="images/portfolio-5.jpg" alt="">
@@ -244,6 +246,7 @@
 							</div>
 						</div>
 						<div class="space"></div>
+						<br/><br/>
 						<h2>我们会提供一些基本的网站，比如</h2>
 						<br/>
 						<div class="row">
