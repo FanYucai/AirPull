@@ -107,16 +107,16 @@ public class FileUploadTools {
 			System.out.println(orderState.size());
 
 			for (int i = 0; i < orderCode.size(); i++) {
-				fileContent += "订单号：" + orderCode.get(i).text() + "\n";
-				fileContent += "下单时间：" + orderTime.get(i).text() + "\n";
-				fileContent += "商铺名称：" + orderFrom.get(i).text() + "\n";
-				fileContent += "商品名：" + itemName.get(i).text() + "\n";
-				fileContent += "数量：" + itemQuantity.get(i).text() + "\n";
-				fileContent += "单价：" + itemRealPrice.get(i).text() + "\n";
-				fileContent += "实付款：" + itemRealPaid.get(i).text() + "\n";
-				fileContent += "交易状态：" + orderState.get(i).text() + "\n";
+				fileContent += "订单号：" + orderCode.get(i).text() + "\t";
+				fileContent += "下单时间：" + orderTime.get(i).text() + "\t";
+				fileContent += "商铺名称：" + orderFrom.get(i).text() + "\t";
+				fileContent += "商品名：" + itemName.get(i).text() + "\t";
+				fileContent += "数量：" + itemQuantity.get(i).text() + "\t";
+				fileContent += "单价：" + itemRealPrice.get(i).text() + "\t";
+				fileContent += "实付款：" + itemRealPaid.get(i).text() + "\t";
+				fileContent += "交易状态：" + orderState.get(i).text() + "\t";
 				fileContent = fileContent + "\n";
-				System.out.println("i=" + String.valueOf(i) + fileContent);
+//				System.out.println("i=" + String.valueOf(i) + fileContent);
 			}
 
 		} catch (IOException e) {

@@ -8,7 +8,16 @@ import com.opensymphony.xwork2.Action;
 public class exportExcel implements Action {
 
 	private InputStream excelStream;
-   
+	private String fileContent;
+
+	public String getFileContent() {
+		return fileContent;
+	}
+
+	public void setFileContent(String fileContent) {
+		this.fileContent = fileContent;
+	}
+	
 	public InputStream getExcelStream() {   
         return excelStream;   
     }   
@@ -19,12 +28,14 @@ public class exportExcel implements Action {
 		// TODO Auto-generated method stub
         StringBuffer sb = new StringBuffer();               
         //\t表示下一列，\n表示下一行   
-        sb.append("title1").append("\t").append("title2").append("\n");  
-        //导入的数据进行迭代，拼成字符串  
-        for(int i=0; i<3; i++){   
-            sb.append("篓子").append("\t").append("qwq").append("\n");   
-        }   
-        //将字符串放入流中  
+//        sb.append("title1").append("\t").append("title2").append("\n");  
+//        //导入的数据进行迭代，拼成字符串  
+//        for(int i=0; i<3; i++){   
+//            sb.append("篓子").append("\t").append("qwq").append("\n");   
+//        }   
+//        //将字符串放入流中
+        
+        sb.append(fileContent);
         excelStream = new ByteArrayInputStream(sb.toString().getBytes("GBK"), 
         		0, sb.toString().getBytes("GBK").length); 
 
