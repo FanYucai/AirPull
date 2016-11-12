@@ -155,7 +155,8 @@ $(document).ready(function()
 	</header>
 	<!-- header end -->
 	
-	<!-- Modal -->
+	<!-- Modal start-->
+	<!-- ================ -->
 	<div class="modal fade" id="project-5" tabindex="-1" role="dialog" aria-labelledby="project-5-label" aria-hidden="true">
 		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
@@ -164,29 +165,21 @@ $(document).ready(function()
 					<h4 class="modal-title" id="project-5-label">Logout</h4>
 				</div>
 				<div class="modal-body">
-					<h3>用户登录</h3>
+					<!-- <h1 class="text-center title">Are you sure to quit the AirPull?</h1> -->
 					<div class="row">
-						<div class="col-md-6">
-							<p><input data-placeholder="用户名" name="user.name" type="text" placeholder="用户名" tabindex="1" spellcheck="false"></input></p>
-							<p><input data-placeholder="密码" name="user.password" type="password" id="password" placeholder="密码" tabindex="1" spellcheck="false"></input></p>
-						</div>
-						<div class="col-md-6">
-							<img src="images/portfolio-5.jpg" alt="">
+						<div class="text-center title" >
+							<img src="images/logout.png" alt="">
 						</div>
 					</div>
 				</div>
 				<div class="modal-footer">
-					<input type="submit" class="btn btn-sm btn-default" value="Login">
+					<a href="home"><button type="button" class="btn btn-sm btn-default">Good Bye</button></a>
 				</div>
 				
 			</div>
 		</div>
 	</div>
 	<!-- Modal end -->
-	
-	</div>
-	<!-- banner end -->
-	
 
 	<!-- section start -->
 	<!-- ================ -->
@@ -1263,8 +1256,6 @@ $(document).ready(function()
 	</div>
 	<!-- section end -->
 
-
-
 	<!-- section start -->
 	<!-- ================ -->
 	<div class="section translucent-bg bg-image-2 pb-clear">
@@ -1375,37 +1366,36 @@ $(document).ready(function()
 		</div>
 	</div>
 
-		<!-- section start -->
+	<!-- section start -->
+	<!-- ================ -->
+	<div class="default-bg space blue">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<h1 class="text-center">Let's Begin!</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- section end -->
+
+	<!-- footer start -->
+	<footer id="footer">
+		<!-- .subfooter start -->
 		<!-- ================ -->
-		<div class="default-bg space blue">
+		<div class="subfooter">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-						<h1 class="text-center">Let's Begin!</h1>
+					<div class="col-md-12">
+						<p class="text-center">Copyright © 2016 AirPull by <a target="_blank" href="http://htmlcoder.me">AirDrop Group</a>.</p>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!-- section end -->
+		<!-- .subfooter end -->
 
-		
-		<footer id="footer">
-			<!-- .subfooter start -->
-			<!-- ================ -->
-			<div class="subfooter">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<p class="text-center">Copyright © 2016 AirPull by <a target="_blank" href="http://htmlcoder.me">AirDrop Group</a>.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- .subfooter end -->
-
-		</footer>
-		<!-- footer end -->
-		
+	</footer>
+	<!-- footer end -->		
 		
 	<!-- JavaScript files placed at the end of the document so the pages load faster
 		================================================== -->
