@@ -324,6 +324,19 @@ function submitForm() {
 		</div>
 	</div>
 	<!-- section end -->
+	
+	<!-- section start -->
+	<!-- ================ -->
+	<div class="default-bg space blue">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<h1 class="text-center">Hello, <a href="profile"><s:property value="user.name"/></a></h1>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- section end -->
 
 	<!-- section start -->
 	<!-- ================ -->
@@ -433,18 +446,7 @@ function submitForm() {
 	<!-- section end -->
 
 
-	<!-- section start -->
-	<!-- ================ -->
-	<div class="default-bg space blue">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
-					<h1 class="text-center">Let's Work Together!</h1>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- section end -->
+	
 
 	<!-- section start -->
 	<!-- ================ -->
