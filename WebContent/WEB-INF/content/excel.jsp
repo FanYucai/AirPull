@@ -312,7 +312,8 @@ for(var j=0;j<row.cells.length; j++){
 }    
 return eval(expn);    
 }    
-    
+
+
 ///////////////////////////////////////////////////////////////////////////////////    
 /**   
 * 格式化数字显示方式     
@@ -398,70 +399,68 @@ return retstr.replace(/^,+/,'').replace(/\.$/,'');
 <body>    
 <form id="form1" name="form1" method="post" action="">    
 <h3>表格数据获取结果</h3>    
-<table  border="0" cellpadding="0" cellspacing="0" id="tabProduct">  
-    <tr>    
-      <td/></td>    
-      <td  bgcolor="#FFFFFF"><input type="checkbox" name="checkbox22" value="checkbox" /></td> 
-      <td  bgcolor="#FFFFFF"><input type="checkbox" name="checkbox22" value="checkbox" /></td> 
-      <td  bgcolor="#FFFFFF"><input type="checkbox" name="checkbox22" value="checkbox" /></td> 
-      <td  bgcolor="#FFFFFF"><input type="checkbox" name="checkbox22" value="checkbox" /></td> 
-      <td  bgcolor="#FFFFFF"><input type="checkbox" name="checkbox22" value="checkbox" /></td> 
-    </tr>   
-    <tr>    
-      <td width="32" align="center" bgcolor="#EFEFEF" Name="Num"><input type="checkbox" name="checkbox" value="checkbox"/></td>  
-      <td width="186" bgcolor="#EFEFEF" Name="Num" EditType="TextBox">序号</td>    
-      <td width="152" bgcolor="#EFEFEF" Name="ProductName" EditType="TextBox">商品名称</td>    
-      <td width="103" bgcolor="#EFEFEF" Name="Amount" EditType="TextBox">数量</td>    
-      <td width="103" bgcolor="#EFEFEF" Name="Price" EditType="TextBox">单价</td>    
-      <td width="120" bgcolor="#EFEFEF" Name="SumMoney" EditType="TextBox">合计</td>    
-    </tr>    
-    <tr>    
-      <td align="center" bgcolor="#FFFFFF"><input type="checkbox" name="checkbox2" value="checkbox" /></td>    
-      <td bgcolor="#FFFFFF">1</td>    
-      <td bgcolor="#FFFFFF">C</td>    
-      <td bgcolor="#FFFFFF">0</td>    
-      <td bgcolor="#FFFFFF">0</td>    
-      <td bgcolor="#FFFFFF">0</td>    
-    </tr>    
-    <tr>    
-      <td align="center" bgcolor="#FFFFFF"><input type="checkbox" name="checkbox22" value="checkbox" /></td>    
-      <td bgcolor="#FFFFFF">2</td>    
-      <td bgcolor="#FFFFFF">D</td>    
-      <td bgcolor="#FFFFFF">0</td>    
-      <td bgcolor="#FFFFFF">0</td>    
-      <td bgcolor="#FFFFFF">0</td>    
-    </tr>    
-    <tr>    
-      <td align="center" bgcolor="#FFFFFF"><input type="checkbox" name="checkbox22" value="checkbox" /></td>    
-      <td bgcolor="#FFFFFF">2</td>    
-      <td bgcolor="#FFFFFF">D</td>    
-      <td bgcolor="#FFFFFF">0</td>    
-      <td bgcolor="#FFFFFF">0</td>    
-      <td bgcolor="#FFFFFF">0</td>    
-    </tr> 
-    <tr>    
-      <td align="center" bgcolor="#FFFFFF"><input type="checkbox" name="checkbox22" value="checkbox" /></td>    
-      <td bgcolor="#FFFFFF">2</td>    
-      <td bgcolor="#FFFFFF">D</td>    
-      <td bgcolor="#FFFFFF">0</td>    
-      <td bgcolor="#FFFFFF">0</td>    
-      <td bgcolor="#FFFFFF">0</td>    
-    </tr> 
 
-</table>    
     
 <br />    
-<input type="button" name="Submit2" value="删除" onclick="DeleteRow(document.getElementById('tabProduct'),1)" />    
-<input type="button" name="Submit22" value="重置" onclick="window.location.reload()" />    
-<s:property value="fileUploadTools.fileContent"/> 
+<input type="button" name="Submit2" value="删除" onclick="DeleteRow(document.getElementById('tabProduct'),1)" />   
+<input type="button" name="Submit22" value="重置" onclick="window.location.reload()" />
+
+<script language="javascript">    
+/* var cols=5;    //5列
+var rows=4; //4行
+var htmlstr="<table border='1px'>";
+for(i=1;i<=rows;i++){
+ htmlstr+="<tr>";
+ for(j=1;j<=cols;j++){
+  htmlstr+="<td >" + i +"行"+j+"列" +"</td>"; 
+ }
+ htmlstr+="</tr>";
+}
+htmlstr+="</table>"; */
+var tempstr='<s:property value="fileUploadTools.feifeiContent"/>';
+var index =new Array();
+index.push(-1);
+var cnt= 0; 
+for (i=0;i<tempstr.length;i++)
+	if (tempstr[i]=='@') 
+	{
+		index.push(i);
+		cnt++;	
+	}
+var htmlstr='<table border="0" cellpadding="0" cellspacing="0" id="tabProduct">';
+htmlstr+='<tr><td></td>';
+for (i=0;i<8;i++)
+	htmlstr+='<td  bgcolor="#FFFFFF"><input type="checkbox" value="checkbox" /></td>';
+htmlstr+='</tr><tr>'
+htmlstr+='<td width="32" align="center" bgcolor="#EFEFEF"><input type="checkbox" value="checkbox"/></td>';
+htmlstr+='<td width="100" bgcolor="#EFEFEF" EditType="TextBox">订单号</td>';
+htmlstr+='<td width="100" bgcolor="#EFEFEF" EditType="TextBox">下单时间</td>';
+htmlstr+='<td width="100" bgcolor="#EFEFEF" EditType="TextBox">商铺名称</td>';
+htmlstr+='<td width="100" bgcolor="#EFEFEF" EditType="TextBox">商品名</td>';
+htmlstr+='<td width="100" bgcolor="#EFEFEF" EditType="TextBox">数量</td>';
+htmlstr+='<td width="100" bgcolor="#EFEFEF" EditType="TextBox">单价</td>';
+htmlstr+='<td width="100" bgcolor="#EFEFEF" EditType="TextBox">实付款</td>';
+htmlstr+='<td width="100" bgcolor="#EFEFEF" EditType="TextBox">交易状态</td></tr>';
+for (i=1;i<=cnt/8;i++){
+	htmlstr+='<tr>';
+	htmlstr+='<td align="center" bgcolor="#FFFFFF"><input type="checkbox" value="checkbox" /></td>';
+	for (j=1;j<=8;j++){
+		var w=8*(i-1)+j;
+		htmlstr+='<td bgcolor="#FFFFFF">'+ tempstr.substring(index[w-1]+1,index[w])+'</td>';
+	}
+	htmlstr+='</tr>';
+}
+htmlstr+='</table>';
+document.write(htmlstr);
+</script>    
 </form>    
     
 <script language="javascript" src="GridEdit.js"></script>    
 <script language="javascript">    
-var tabProduct = document.getElementById("tabProduct");    
-    
 // 设置表格可编辑    
 // 可一次设置多个，例如：EditTables(tb1,tb2,tb2,......)    
+
+var tabProduct = document.getElementById("tabProduct");    
 EditTables(tabProduct);    
     
     
