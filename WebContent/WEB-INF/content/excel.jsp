@@ -403,7 +403,7 @@ return retstr.replace(/^,+/,'').replace(/\.$/,'');
 <h3>表格数据获取结果</h3>    
 <br />    
 <input type="button" name="Submit2" value="删除" onclick="DeleteRow(document.getElementById('tabProduct'),1)" />   
-<input type="button" name="Submit22" value="重置" onclick="location.replace(location)" />
+<input type="button" name="Submit22" value="重置" onclick="window.location.reload()" />
 
 <script language="javascript">    
 /* var cols=5;    //5列
