@@ -1,5 +1,6 @@
 package com.a1rdr0p.SEproject.action;
 
+import com.a1rdr0p.SEproject.model.Mail;
 import com.a1rdr0p.SEproject.model.User;
 import com.a1rdr0p.SEproject.service.userService;
 import com.opensymphony.xwork2.Action;
@@ -59,6 +60,8 @@ public class signUp implements Action {
 		}
 		else if (verify == 1) {
 			ret = SUCCESS;
+			sendEmail mail = new sendEmail();
+			mail.sendSignUpEmail(user.getName(), user.getPassword(), user.getNickname(), user.getEmail());
 		}
 		else if (verify == 110) {
 			ret = "exist";//用户已存在
