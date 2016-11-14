@@ -191,12 +191,50 @@
 										<h3 class="text-center">欢迎加入 <span>AirPull</span></h3>
 										<div class="row">
 											<div class="col-md-6">
+												<!-- <div class="media-left">
+													<i class="fa fa-leaf"></i>
+												</div>
+												<div class="media-body">
+													<h4 class="media-heading">用户名</h4>
+													<p><input data-placeholder="用户名" name="user.name" type="text" placeholder="用户名" tabindex="1" spellcheck="false"></input>（请输入你注册的用户名）</p>
+												</div>
+												<br/>
+												<div class="media-left">
+													<i class="fa fa-leaf"></i>
+												</div>
+												<div class="media-body">
+													<p><input data-placeholder="密码" name="user.password" type="password" id="password" placeholder="密码" tabindex="1" spellcheck="false"></input>（密码非纯数字，长度大于等于8位小于等于20位）</p>
+												</div>
+												<br/>
+												<div class="media-left">
+													<i class="fa fa-leaf"></i>
+												</div>
+												<div class="media-body">
+													<h4 class="media-heading">确认密码</h4>
+													<p><input data-placeholder="确认密码" name="verifyPassword" type="password" id="password" placeholder="确认密码" tabindex="1" spellcheck="false"></input></p>
+												</div>
+												<br/>
+												<div class="media-left">
+													<i class="fa fa-leaf"></i>
+												</div>
+												<div class="media-body">
+													<h4 class="media-heading">邮箱</h4>
+													<p><input data-placeholder="邮箱" name="user.email" type="email" placeholder="邮箱" tabindex="1" spellcheck="false"></input>（请确保你的邮箱有效，修改密码会需要）</p>
+												</div>
+												<br/>
+												<div class="media-left">
+													<i class="fa fa-leaf"></i>
+												</div>
+												<div class="media-body">
+													<h4 class="media-heading">昵称</h4>
+													<p><input data-placeholder="昵称" name="user.nickname" type="text" placeholder="昵称" tabindex="1" spellcheck="false"></input></p>
+												</div> -->
 												<p><input data-placeholder="用户名" name="user.name" type="text" placeholder="用户名" tabindex="1" spellcheck="false"></input>（用户名由英文字母和数字构成长度不超过20）</p>
 												<p><input data-placeholder="密码" name="user.password" type="password" id="password" placeholder="密码" tabindex="1" spellcheck="false"></input>（密码非纯数字，长度大于等于8位小于等于20位）</p>
 												<p><input data-placeholder="确认密码" name="verifyPassword" type="password" id="password" placeholder="确认密码" tabindex="1" spellcheck="false"></input></p>
 												<p><input data-placeholder="邮箱" name="user.email" type="email" placeholder="邮箱" tabindex="1" spellcheck="false"></input>（请确保你的邮箱有效，修改密码会需要）</p>
 												<p><input data-placeholder="昵称" name="user.nickname" type="text" placeholder="昵称" tabindex="1" spellcheck="false"></input></p>
-											
+											 
 											</div>
 											
 											<div class="col-md-6">
