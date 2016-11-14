@@ -136,7 +136,6 @@ function insertFile() {
 
 	var is_null = false;
 	//循环遍历判断是否有某一个File表单域的值为空
-	/* alert("瞅啥啊還不快傳！") */
 	for (var i = 0; i < file_array.length; i++) {
 		if (file_array[i].type == "file"
 				&& file_array[i].name.substring(0, 15) == "fileUploadTools") {
@@ -575,33 +574,38 @@ function submitForm() {
 											<h3>Project Description</h3>
 											<div class="row">
 												<div class="col-md-6">
-													<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-														elit. Atque sed, quidem quis praesentium, ut unde. Quae
-														sed, incidunt laudantium nesciunt, optio corporis quod
-														earum pariatur omnis illo saepe numquam suscipit, nemo
-														placeat dignissimos eius mollitia et quas officia
-														doloremque ipsum labore rem deserunt vero! Magnam totam
-														delectus accusantium voluptas et, tempora quos atque,
-														fugiat, obcaecati voluptatibus commodi illo voluptates
-														dolore nemo quo soluta quis.</p>
-													<p>Molestiae sed enim laboriosam atque delectus
-														voluptates rerum nostrum sapiente obcaecati molestias
-														quasi optio exercitationem, voluptate quis consequatur
-														libero incidunt, in, quod. Lorem ipsum dolor sit amet,
-														consectetur adipisicing elit. Eos nobis officiis, autem
-														earum tenetur quidem. Quae non dicta earum. Ipsum autem
-														eaque cum dolor placeat corporis quisquam dolorum at
-														nesciunt.</p>
+													<s:form action="uploadT2" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
+														<br />
+														<table width="818" border="1">
+															<tr>
+																<td width="176">
+																	<div align="center">
+																		用户附件 <br /> <a href="javascript:insertFile()">添加附件</a>
+																	</div>
+																</td>
+																<td width="626" id="fileForm"><br /></td>
+															</tr>
+														</table>
+
+														<br />
+														<!-- <div id="progressbar">qw</div> -->
+														<br />
+														<div id="progressDetail" class="demo-description">
+															<!-- <p>进度详细信息显示于此......</p> -->
+														</div>
+													<!-- 上传文件，最近一次加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
 												</div>
+
 												<div class="col-md-6">
-													<img src="images/portfolio-2.jpg" alt="">
+													<img src="images/taobao1.jpg" alt="">
 												</div>
-											</div>
+											</div>											
 										</div>
+
 										<div class="modal-footer">
-											<button type="button" class="btn btn-sm btn-default"
-												data-dismiss="modal">Close</button>
+											<button type="submit" class="btn btn-sm btn-default">AirPull it</button>
 										</div>
+										</s:form>
 									</div>
 								</div>
 							</div>
@@ -1146,8 +1150,8 @@ function submitForm() {
 	<!-- Initialization of Plugins -->
 	<script type="text/javascript" src="js/template.js"></script>
 
-	<!-- Custom Scripts -->
-	<script type="text/javascript" src="js/custom.js"></script>
+<%-- 	<!-- Custom Scripts -->
+	<script type="text/javascript" src="js/custom.js"></script> --%>
 
 	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
 
