@@ -20,11 +20,6 @@
 <link rel="shortcut icon" href="images/favicon.ico">
 <link rel="stylesheet" href="css/base/jquery.ui.all.css">
 <!-- Web Fonts -->
-<link
-	href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700,300&amp;subset=latin,latin-ext'
-	rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300'
-	rel='stylesheet' type='text/css'>
 
 <!-- Bootstrap core CSS -->
 <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -477,7 +472,7 @@ function submitForm() {
 					<!-- portfolio items start -->
 
 					<div class="isotope-container row grid-space-20">
-						<div class="col-sm-6 col-md-3 isotope-item web-design">
+<%-- 						<div class="col-sm-6 col-md-3 isotope-item web-design">
 							<div class="image-box">
 								<div class="overlay-container">
 									<img src="images/taobao1.jpg" alt=""> <a class="overlay"
@@ -544,18 +539,18 @@ function submitForm() {
 							</div>
 							
 							<!-- Modal end -->
-						</div>
+						</div> --%>
 					
 						<div class="col-sm-6 col-md-3 isotope-item app-development">
 							<div class="image-box">
 								<div class="overlay-container">
-									<img src="images/portfolio-2.jpg" alt=""> <a
+									<img src="images/jiaowuchu.jpeg" alt=""> <a
 										class="overlay" data-toggle="modal" data-target="#project-2">
 										<i class="fa fa-search-plus"></i> <span>App Development</span>
 									</a>
 								</div>
 								<a class="btn btn-default btn-block" data-toggle="modal"
-									data-target="#project-2">功能紧急开发中～～～</a>
+									data-target="#project-2">查看宇宙工业大学成绩单～</a>
 							</div>
 							<!-- Modal -->
 							<div class="modal fade" id="project-2" tabindex="-1"
@@ -570,10 +565,12 @@ function submitForm() {
 											<h4 class="modal-title" id="project-2-label">Project
 												Title</h4>
 										</div>
+										
 										<div class="modal-body">
 											<h3>Project Description</h3>
 											<div class="row">
 												<div class="col-md-6">
+													<!-- 上传文件，最近添加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
 													<s:form action="uploadT2" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
 														<br />
 														<table width="818" border="1">
@@ -586,18 +583,12 @@ function submitForm() {
 																<td width="626" id="fileForm"><br /></td>
 															</tr>
 														</table>
-
-														<br />
-														<!-- <div id="progressbar">qw</div> -->
-														<br />
-														<div id="progressDetail" class="demo-description">
-															<!-- <p>进度详细信息显示于此......</p> -->
-														</div>
+		
 													<!-- 上传文件，最近一次加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
 												</div>
 
 												<div class="col-md-6">
-													<img src="images/taobao1.jpg" alt="">
+													<img src="images/jiaowuchu.jpeg" alt="">
 												</div>
 											</div>											
 										</div>
@@ -609,6 +600,7 @@ function submitForm() {
 									</div>
 								</div>
 							</div>
+							
 							<!-- Modal end -->
 						</div>
 
