@@ -21,7 +21,7 @@ import com.a1rdr0p.SEproject.security.MD5;
 public class userService {
     public static Connection getConn() {
         String driver = "com.mysql.jdbc.Driver";
-        String url = "jdbc:mysql://localhost:3306/users";
+        String url = "jdbc:mysql://localhost:3306/users?useUnicode=true&characterEncoding=utf-8";
         String username = "root";
         String password = "louyujing127";
         Connection conn = null;
@@ -88,6 +88,32 @@ public class userService {
         }
         return null;
     }
+    public static User findNickname(String Nickname) {
+        Connection conn = userService.getConn();
+        String sql = "select * from userList";
+        PreparedStatement pstmt;
+        try {
+            pstmt = (PreparedStatement)conn.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+            
+            User tmp = null;
+            while(rs.next()){
+                if(rs.getString("nickname").equals(Nickname))
+                {
+                	tmp = new User();
+                	tmp.setName(rs.getString("name"));
+                	tmp.setPassword(rs.getString("password"));
+                	tmp.setNickname(rs.getString("nickname"));
+                	tmp.setEmail(rs.getString("email"));
+                	//ServletActionContext.getRequest().setAttribute("display", User);
+                }
+            }
+            return tmp;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     public static boolean checkPasswordValid(String Password){//检验内容为长度为8位到20位的非纯数字可通过
     	
     	if (Password.length()<8 || Password.length()>20) 
@@ -121,6 +147,8 @@ public class userService {
     		return 108;//用户名不符合规范
     	if (findEmail(Email) != null)
     		return 107;//邮箱已存在
+    	if (findNickname(Nickname) != null)
+    		return 106;//昵称已存在
     	
     	String MD5PW = MD5.convertMD5(Password);
     	String MD5Email = MD5.convertMD5(Email); 

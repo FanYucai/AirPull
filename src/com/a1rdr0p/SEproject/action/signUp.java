@@ -75,6 +75,9 @@ public class signUp implements Action {
 		else if (verify == 107) {
 			ret = "emailExist";
 		}
+		else if (verify == 106) {
+			ret = "nicknameExist";
+		}
 		else {
 			ret = ERROR;
 		}

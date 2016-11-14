@@ -184,6 +184,7 @@ function submitForm() {
 </script>
 
 <body class="no-trans">
+
 	<!-- scrollToTop -->
 	<!-- ================ -->
 	<div class="scrollToTop">
@@ -254,7 +255,7 @@ function submitForm() {
 									<li class="active"><a href="#services">How to use</a></li>
 									<li><a href="#portfolio">AirPull</a></li>
 									<li><a href="#clients">Clients</a></li>
-									<li><a href=profile id="profileqwq">Profile</a></li>
+									<li><a href="profile?name=${user.nickname}" id="profileqwq">Profile</a></li>
 									<li><a href="javascript:void(0);" data-toggle="modal"
 										data-target="#project-5">Logout</a></li>
 								</ul>
@@ -325,7 +326,7 @@ function submitForm() {
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
-					<h1 class="text-center">Hello, <a href="profile"><s:property value="user.nickname"/></a></h1>
+					<h1 class="text-center">Hello, <a href="profile?name=${user.nickname}"><s:property value="user.nickname"/></a></h1>
 				</div>
 			</div>
 		</div>

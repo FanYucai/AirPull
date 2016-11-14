@@ -66,11 +66,14 @@
 			<result name="nullEmail">/WEB-INF/content/signUpError.jsp?type=邮箱不能为空</result>
 			<result name="nullNickname">/WEB-INF/content/signUpError.jsp?type=昵称不能为空</result>
 			<result name="emailExist">/WEB-INF/content/signUpError.jsp?type=邮箱已存在</result>
+			<result name="nicknameExist">/WEB-INF/content/signUpError.jsp?type=昵称已存在</result>
 		</action>
 		<!-- =============== -->
 		
-		<!-- Forget Password Action -->
-		
+		<!-- Back Home Logged JSP Action -->
+		<action name="backHomeLogged" class="com.a1rdr0p.SEproject.action.backHomeLogged">
+			<result name="success">/WEB-INF/content/homeLogged.jsp</result>
+		</action>
 		<!-- =============== -->
 
 		<action name="*">
