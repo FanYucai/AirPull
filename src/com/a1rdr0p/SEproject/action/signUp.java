@@ -36,9 +36,21 @@ public class signUp implements Action {
 		userService us = new userService();
 		String ret = "";
 		
+		if (user.getName().equals("")) {
+			return "nullName";
+		} else if (user.getPassword().equals("")) {
+			return "nullPassword";
+		} else if (verifyPassword.equals("")) {
+			return "nullVerify";
+		} else if (user.getEmail().equals("")) {
+			return "nullEmail";
+		} else if (user.getNickname().equals("")) {
+			return "nullNickname";
+		}
+		
 		boolean flag = user.getPassword().equals(verifyPassword);
 		
-		int verify = us.newUser(user.getName(), user.getPassword());
+		int verify = us.newUser(user.getName(), user.getPassword(), user.getNickname(), user.getEmail());
 //		System.out.println(user.getName());
 //		System.out.println(user.getPassword());
 //		System.out.println(verify);

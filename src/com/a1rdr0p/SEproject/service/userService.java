@@ -23,7 +23,7 @@ public class userService {
         String driver = "com.mysql.jdbc.Driver";
         String url = "jdbc:mysql://localhost:3306/users";
         String username = "root";
-        String password = "11111111";
+        String password = "louyujing127";
         Connection conn = null;
         try {
             Class.forName(driver);
@@ -37,7 +37,7 @@ public class userService {
     }
     public static User findUser(String userName) {
         Connection conn = userService.getConn();
-        String sql = "select * from user";
+        String sql = "select * from userList";
         PreparedStatement pstmt;
         try {
             pstmt = (PreparedStatement)conn.prepareStatement(sql);
@@ -83,7 +83,7 @@ public class userService {
     	return true;
     }
     
-    public static int newUser(String userName , String Password){
+    public static int newUser(String userName , String Password, String Nickname, String Email){
     	if (findUser(userName)!=null) 
     		return 110;//错误代码110 ， 账户名已存在
     	if (checkPasswordValid(Password)==false)
@@ -94,13 +94,15 @@ public class userService {
     	String MD5PW= MD5.convertMD5(Password);
     	
     	Connection conn = userService.getConn();
-        String sql = "insert into user values(?,?)";
+        String sql = "insert into userList values(?,?,?,?)";
         PreparedStatement pstmt;
         try {
         	
             pstmt = (PreparedStatement)conn.prepareStatement(sql);
             pstmt.setString(1, userName);
             pstmt.setString(2, MD5PW);
+            pstmt.setString(3, Nickname);
+            pstmt.setString(4, Email);
             if (pstmt.executeUpdate()!= 0 )
             	return 1;//成功新建用户
         } catch (SQLException e) {

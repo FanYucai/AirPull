@@ -60,6 +60,11 @@
 			<result name="passwordIllegal">/WEB-INF/content/signUpError.jsp?type=Password is illegal!</result>
 			<result name="error">/WEB-INF/content/signUpError.jsp?type=There may be some error happened!</result>
 			<result name="notMatch">/WEB-INF/content/signUpError.jsp?type=Password should be the same!</result>
+			<result name="nullName">/WEB-INF/content/signUpError.jsp?type=用户名不能为空</result>
+			<result name="nullPassword">/WEB-INF/content/signUpError.jsp?type=密码不能为空</result>
+			<result name="nullVerify">/WEB-INF/content/signUpError.jsp?type=确认密码不能为空</result>
+			<result name="nullEmail">/WEB-INF/content/signUpError.jsp?type=邮箱不能为空</result>
+			<result name="nullNickname">/WEB-INF/content/signUpError.jsp?type=昵称不能为空</result>
 		</action>
 		<!-- =============== -->
 		
