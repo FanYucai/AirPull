@@ -38,6 +38,8 @@
 	</head>
 
 	<body class="no-trans">
+		<% String nickname = request.getParameter("name");%>
+	
 		<!-- scrollToTop -->
 		<!-- ================ -->
 		<div class="scrollToTop"><i class="icon-up-open-big"></i></div>
@@ -96,8 +98,8 @@
 										<!-- Collect the nav links, forms, and other content for toggling -->
 										<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
 											<ul class="nav navbar-nav navbar-right">
-												<li><s:property value="user.name"/></li>
-												<li><a href=homeLogged>Back</a></li>
+												<li><a href="#services"><%=nickname %></a></li>
+												<li><a href="backHomeLogged?name=<%=nickname %>">Back</a></li>
 												<!-- <li><a href="#export">Export</a></li> -->
 											</ul>
 										</div>

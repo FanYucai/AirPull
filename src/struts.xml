@@ -69,8 +69,10 @@
 		</action>
 		<!-- =============== -->
 		
-		<!-- Forget Password Action -->
-		
+		<!-- Back Home Logged JSP Action -->
+		<action name="backHomeLogged" class="com.a1rdr0p.SEproject.action.backHomeLogged">
+			<result name="success">/WEB-INF/content/homeLogged.jsp</result>
+		</action>
 		<!-- =============== -->
 
 		<action name="*">
