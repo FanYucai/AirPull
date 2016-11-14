@@ -36,6 +36,7 @@ public class login implements Action {
 			boolean flag = us.checkPassword(user.getName(), user.getPassword());
 			if (flag == true) {
 				ret = "success";
+				user = tmp;
 			}
 			else {
 				ret = "notMatch";

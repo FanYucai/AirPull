@@ -103,14 +103,14 @@ public class FileUploadTools {
 				}
 				tmp_ = "";
 				for (int j = 0; j < itemInItem.size(); j++) {
-					if(!itemInItem.get(j).hasText()){
-						continue;
-					}
 					System.out.println(itemInItem.get(j).html());
-					tmp_ += itemInItem.get(j).text() + "@";
+					if (j!=itemInItem.size()-1)
+						tmp_ += itemInItem.get(j).text() + "@";
+					else
+						tmp_ += itemInItem.get(j).text();
 					fileContent += itemInItem.get(j).text() + "\t";	
 				}
-				feifeiContent += tmp_+"&";
+				feifeiContent += tmp_+"$";
 				fileContent = fileContent + "\n";
 			}
 			

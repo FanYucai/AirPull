@@ -3,6 +3,9 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<script type="text/javascript">
+var content= '<s:property value="fileUploadTools.feifeiContent"/>';
+</script>
 <html lang="en">    
 <head>    
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />    
@@ -395,15 +398,12 @@ return retstr.replace(/^,+/,'').replace(/\.$/,'');
 }    
 </script>  
 </head>    
-    
 <body>    
 <form id="form1" name="form1" method="post" action="">    
 <h3>表格数据获取结果</h3>    
-
-    
 <br />    
 <input type="button" name="Submit2" value="删除" onclick="DeleteRow(document.getElementById('tabProduct'),1)" />   
-<input type="button" name="Submit22" value="重置" onclick="window.location.reload()" />
+<input type="button" name="Submit22" value="重置" onclick="location.replace(location)" />
 
 <script language="javascript">    
 /* var cols=5;    //5列
@@ -417,22 +417,35 @@ for(i=1;i<=rows;i++){
  htmlstr+="</tr>";
 }
 htmlstr+="</table>"; */
-var tempstr='<s:property value="fileUploadTools.feifeiContent"/>';
+var tempstr=content;
 var index =new Array();
 index.push(-1);
 var cnt= 0; 
+var col= 0;
+var row= 0;
 for (i=0;i<tempstr.length;i++)
 	if (tempstr[i]=='@') 
 	{
 		index.push(i);
 		cnt++;	
+	} else
+	if (tempstr[i]=='$')
+	{
+		row++;
+		index.push(i);
 	}
+col = cnt/row+1;
+row--;
 var htmlstr='<table border="0" cellpadding="0" cellspacing="0" id="tabProduct">';
 htmlstr+='<tr><td></td>';
-for (i=0;i<8;i++)
+for (i=0;i<col;i++)
 	htmlstr+='<td  bgcolor="#FFFFFF"><input type="checkbox" value="checkbox" /></td>';
 htmlstr+='</tr><tr>'
 htmlstr+='<td width="32" align="center" bgcolor="#EFEFEF"><input type="checkbox" value="checkbox"/></td>';
+for (i=0;i<col;i++)
+	htmlstr+='<td width="100" bgcolor="#EFEFEF" EditType="TextBox">'+tempstr.substring(index[i]+1,index[i+1])+'</td>';
+	htmlstr+='</tr>';
+/* htmlstr+='<td width="32" align="center" bgcolor="#EFEFEF"><input type="checkbox" value="checkbox"/></td>';
 htmlstr+='<td width="100" bgcolor="#EFEFEF" EditType="TextBox">订单号</td>';
 htmlstr+='<td width="100" bgcolor="#EFEFEF" EditType="TextBox">下单时间</td>';
 htmlstr+='<td width="100" bgcolor="#EFEFEF" EditType="TextBox">商铺名称</td>';
@@ -440,12 +453,12 @@ htmlstr+='<td width="100" bgcolor="#EFEFEF" EditType="TextBox">商品名</td>';
 htmlstr+='<td width="100" bgcolor="#EFEFEF" EditType="TextBox">数量</td>';
 htmlstr+='<td width="100" bgcolor="#EFEFEF" EditType="TextBox">单价</td>';
 htmlstr+='<td width="100" bgcolor="#EFEFEF" EditType="TextBox">实付款</td>';
-htmlstr+='<td width="100" bgcolor="#EFEFEF" EditType="TextBox">交易状态</td></tr>';
-for (i=1;i<=cnt/8;i++){
+htmlstr+='<td width="100" bgcolor="#EFEFEF" EditType="TextBox">交易状态</td></tr>'; */
+for (i=1;i<=row;i++){
 	htmlstr+='<tr>';
 	htmlstr+='<td align="center" bgcolor="#FFFFFF"><input type="checkbox" value="checkbox" /></td>';
-	for (j=1;j<=8;j++){
-		var w=8*(i-1)+j;
+	for (j=1;j<=col;j++){
+		var w=col*i+j;
 		htmlstr+='<td bgcolor="#FFFFFF">'+ tempstr.substring(index[w-1]+1,index[w])+'</td>';
 	}
 	htmlstr+='</tr>';
@@ -455,7 +468,6 @@ document.write(htmlstr);
 </script>    
 </form>    
     
-<script language="javascript" src="GridEdit.js"></script>    
 <script language="javascript">    
 // 设置表格可编辑    
 // 可一次设置多个，例如：EditTables(tb1,tb2,tb2,......)    
