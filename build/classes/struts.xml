@@ -82,6 +82,12 @@
 			<result name="success">/WEB-INF/content/changePassword.jsp</result>
 		</action>
 		<!-- =============== -->
+		
+		<!-- Change Password Action -->
+		<action name="changePassword" class="com.a1rdr0p.SEproject.action.changePassword">
+			<result name="success"></result>
+		</action>
+		<!-- =============== -->
 
 		<action name="*">
 			<result>/WEB-INF/content/{1}.jsp</result>

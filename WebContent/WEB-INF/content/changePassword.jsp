@@ -131,7 +131,7 @@
 		</div>
 		<!-- section end -->
 
-		<form action="changePassword" method="post">
+		<form action="changePassword?name=${user.name }" method="post">
 		<!-- section start -->
 		<!-- ================ -->
 		<div class="section translucent-bg bg-image-1 black">

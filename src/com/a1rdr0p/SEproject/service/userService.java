@@ -182,4 +182,8 @@ public class userService {
     		return true;
     	return false;
     }
+    
+    public static boolean updateUser(String name) {
+    	return false;
+    }
 }
