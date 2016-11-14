@@ -147,10 +147,20 @@
 							<i class="fa fa-leaf"></i>
 						</div>
 						<div class="media-body">
-							<h4 class="media-heading">Name</h4>
-							<p>lanxuan</p>
+							<h4 class="media-heading">用户名</h4>
+							<p><s:property value="user.name"/></p>
 						</div>
-					</div>			
+						<br/>
+						<div class="media-left">
+							<i class="fa fa-leaf"></i>
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading">昵称</h4>
+							<p><s:property value="user.nickname"/></p>
+						</div>
+						
+					</div>
+									
 								
 					<div class="space visible-xs"></div>
 					

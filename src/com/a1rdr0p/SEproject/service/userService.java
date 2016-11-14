@@ -21,7 +21,7 @@ import com.a1rdr0p.SEproject.security.MD5;
 public class userService {
     public static Connection getConn() {
         String driver = "com.mysql.jdbc.Driver";
-        String url = "jdbc:mysql://localhost:3306/users?useUnicode=true&characterEncoding=utf-8";
+        String url = "jdbc:mysql://localhost:3306/users?useUnicode=true&characterEncoding=utf-8&useSSL=false";
         String username = "root";
         String password = "louyujing127";
         Connection conn = null;

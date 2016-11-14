@@ -75,6 +75,12 @@
 			<result name="success">/WEB-INF/content/homeLogged.jsp</result>
 		</action>
 		<!-- =============== -->
+		
+		<!-- Go Profile Action -->
+		<action name="goProfile" class="com.a1rdr0p.SEproject.action.goProfile">
+			<result name="success">/WEB-INF/content/profile.jsp</result>
+		</action>
+		<!-- =============== -->
 
 		<action name="*">
 			<result>/WEB-INF/content/{1}.jsp</result>
