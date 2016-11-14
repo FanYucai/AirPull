@@ -38,8 +38,6 @@
 	</head>
 
 	<body class="no-trans">
-		<% String nickname = request.getParameter("name");%>
-	
 		<!-- scrollToTop -->
 		<!-- ================ -->
 		<div class="scrollToTop"><i class="icon-up-open-big"></i></div>
@@ -98,8 +96,8 @@
 										<!-- Collect the nav links, forms, and other content for toggling -->
 										<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
 											<ul class="nav navbar-nav navbar-right">
-												<li><a href="#services"><%=nickname %></a></li>
-												<li><a href="backHomeLogged?name=<%=nickname %>">Back</a></li>
+												<li><a href="#services"><s:property value="user.nickname"/></a></li>
+												<li><a href="backHomeLogged?name=${user.nickname }">Back</a></li>
 												<!-- <li><a href="#export">Export</a></li> -->
 											</ul>
 										</div>
@@ -133,16 +131,17 @@
 		</div>
 		<!-- section end -->
 
+		<form action="changePassword" method="post">
 		<!-- section start -->
 		<!-- ================ -->
 		<div class="section translucent-bg bg-image-1 black">
 			<div class="container object-non-visible" data-animation-effect="fadeIn">
-				<h1 id="services"  class="text-center title">个人信息</h1>
+				<h1 id="services"  class="text-center title">修改密码</h1>
 				<div class="space"></div>
 				<div class="row">
-					<div class="space visible-xs"></div>
+					<!-- <div class="space visible-xs"></div> -->
 						
-					<div class="col-sm-6">
+					<!-- <div class="col-sm-6"> -->
 						<div class="media-left">
 							<i class="fa fa-leaf"></i>
 						</div>
@@ -154,72 +153,48 @@
 						<div class="media-left">
 							<i class="fa fa-leaf"></i>
 						</div>
-						<div class="media-body">
-							<h4 class="media-heading">昵称</h4>
-							<p><s:property value="user.nickname"/></p>
+						<div class="media-body">	
+							<h4 class="media-heading">旧密码</h4>
+							<p><input data-placeholder="旧密码" name="oldpassword" type="password" id="password" placeholder="旧密码" tabindex="1" spellcheck="false"></input></p>
 						</div>
 						<br/>
 						<div class="media-left">
 							<i class="fa fa-leaf"></i>
 						</div>
-						<div class="media-body">
-							<a href="goChangePassword?name=${user.name}"><h4 class="media-heading">修改密码</h4></a>
+						<div class="media-body">	
+							<h4 class="media-heading">新密码</h4>
+							<p><input data-placeholder="新密码" name="newpassword" type="password" id="password" placeholder="新密码" tabindex="1" spellcheck="false"></input>（密码非纯数字，长度大于等于8位小于等于20位）</p>
 						</div>
 						<br/>
 						<div class="media-left">
 							<i class="fa fa-leaf"></i>
 						</div>
-						<div class="media-body">
-							<a href="goChangeEmail?name=${user.name}"><h4 class="media-heading">修改邮箱</h4></a>
+						<div class="media-body">	
+							<h4 class="media-heading">确认密码</h4>
+							<p><input data-placeholder="确认密码" name="verifypassword" type="password" id="password" placeholder="确认密码" tabindex="1" spellcheck="false"></input></p>
 						</div>
 						
-					</div>
-									
-								
+					<!-- </div> -->		
 					<div class="space visible-xs"></div>
 					
-					<div class="col-sm-6">
-						<div class="media">
-							<div class="media-left">
-								<i class="fa fa-leaf"></i>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Service 5</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
-							</div>
-						</div>
-						<div class="media">
-							<div class="media-left">
-								<i class="fa fa-area-chart"></i>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Service 6</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
-							</div>
-						</div>
-						<div class="media">
-							<div class="media-left">
-								<i class="fa fa-child"></i>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Service 7</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
-							</div>
-						</div>
-						<div class="media">
-							<div class="media-left">
-								<i class="fa fa-codepen"></i>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Service 8</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
-							</div>
-						</div>
+				</div>
+			</div>
+		</div>
+		<!-- section end -->
+		
+		<!-- section start -->
+		<!-- ================ -->
+		<div class="default-bg space blue">
+			<div class="container">
+				<div class="text-center">
+					<div class="col-md-8 col-md-offset-2">
+						<input type="submit" class="btn btn-sm btn-default" value="确认修改">
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- section end -->
+		</form>	
 
  
 		<!-- footer start -->
