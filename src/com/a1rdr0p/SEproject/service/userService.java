@@ -50,6 +50,35 @@ public class userService {
                 	tmp = new User();
                 	tmp.setName(rs.getString("name"));
                 	tmp.setPassword(rs.getString("password"));
+                	tmp.setNickname(rs.getString("nickname"));
+                	tmp.setEmail(rs.getString("email"));
+                	//ServletActionContext.getRequest().setAttribute("display", User);
+                }
+            }
+            return tmp;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public static User findEmail(String Email) {
+        Connection conn = userService.getConn();
+        String sql = "select * from userList";
+        String MD5Email = MD5.convertMD5(Email);
+        PreparedStatement pstmt;
+        try {
+            pstmt = (PreparedStatement)conn.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+            
+            User tmp = null;
+            while(rs.next()){
+                if(rs.getString("email").equals(MD5Email))
+                {
+                	tmp = new User();
+                	tmp.setName(rs.getString("name"));
+                	tmp.setPassword(rs.getString("password"));
+                	tmp.setNickname(rs.getString("nickname"));
+                	tmp.setEmail(rs.getString("email"));
                 	//ServletActionContext.getRequest().setAttribute("display", User);
                 }
             }
@@ -84,14 +113,17 @@ public class userService {
     }
     
     public static int newUser(String userName , String Password, String Nickname, String Email){
-    	if (findUser(userName)!=null) 
+    	if (findUser(userName) != null) 
     		return 110;//错误代码110 ， 账户名已存在
-    	if (checkPasswordValid(Password)==false)
+    	if (checkPasswordValid(Password) == false)
     		return 109;//密码不符合规范
-    	if (checkUsernameValid(userName)==false)
+    	if (checkUsernameValid(userName) == false)
     		return 108;//用户名不符合规范
+    	if (findEmail(Email) != null)
+    		return 107;//邮箱已存在
     	
-    	String MD5PW= MD5.convertMD5(Password);
+    	String MD5PW = MD5.convertMD5(Password);
+    	String MD5Email = MD5.convertMD5(Email); 
     	
     	Connection conn = userService.getConn();
         String sql = "insert into userList values(?,?,?,?)";
@@ -102,7 +134,7 @@ public class userService {
             pstmt.setString(1, userName);
             pstmt.setString(2, MD5PW);
             pstmt.setString(3, Nickname);
-            pstmt.setString(4, Email);
+            pstmt.setString(4, MD5Email);
             if (pstmt.executeUpdate()!= 0 )
             	return 1;//成功新建用户
         } catch (SQLException e) {
