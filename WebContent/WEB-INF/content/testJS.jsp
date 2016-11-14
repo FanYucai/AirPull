@@ -3,20 +3,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
+<head></head>
 <body>
-    <script type="text/javascript">
-    var cols=5;    //5列
-    var rows=4; //4行
-    var htmlstr="<table border='1px'>";
-    for(i=1;i<=rows;i++){
-     htmlstr+="<tr>";
-     for(j=1;j<=cols;j++){
-      htmlstr+="<td >" + i +"行"+j+"列" +"</td>"; 
-     }
-     htmlstr+="</tr>";
-    }
-    htmlstr+="</table>";
-    document.write(htmlstr);
-    </script>
+fjaisdjfois
+<script type="text/javascript">
+// 当点击鼠标时调用 document.write
+document.onclick = function() {
+    document.write("<span>Javascript</span>");
+};
+</script>
 </body>
 </html>

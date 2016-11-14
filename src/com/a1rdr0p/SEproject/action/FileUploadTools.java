@@ -89,21 +89,32 @@ public class FileUploadTools {
 		File target = uploadFile[0];
 		try {
 			Document doc = Jsoup.parse(target, "UTF-8", "");
-			Elements gradeItem = doc.getElementsByTag("tr");
-//			System.out.println(gradeItem.html());
+
+			Elements bigTable = doc.getElementsByAttributeValue("class", "bot_line");
+			Elements gradeItem = bigTable.get(0).getElementsByTag("tr");
 			String tmp_ = "";
+
 			for (int i = 0; i < gradeItem.size(); i++) {
-				Elements itemInItem = gradeItem.get(i).getElementsByTag("td");
-				for(int j=0; j<itemInItem.size(); j++) {
-					System.out.println(itemInItem.get(j).html());
-					tmp_ = "";
-					tmp_ +=itemInItem.get(j).text() + "@";	
-					fileContent += itemInItem.get(j).text() + "\t";		
-					feifeiContent += tmp_;		
+				Elements itemInItem;
+				if(i==0) {
+					itemInItem = gradeItem.get(i).getElementsByTag("th");
+				} else {
+					itemInItem = gradeItem.get(i).getElementsByTag("td");
 				}
+				tmp_ = "";
+				for (int j = 0; j < itemInItem.size(); j++) {
+					System.out.println(itemInItem.get(j).html());
+					if (j!=itemInItem.size()-1)
+						tmp_ += itemInItem.get(j).text() + "@";
+					else
+						tmp_ += itemInItem.get(j).text();
+					fileContent += itemInItem.get(j).text() + "\t";	
+				}
+				feifeiContent += tmp_+"$";
 				fileContent = fileContent + "\n";
 			}
-			System.out.println(fileContent);
+			
+			System.out.println(feifeiContent);
 			
 			//		try {
 //			Pattern p = Pattern.compile("0\\.1\\:1\\:0\\.\\$0\\.\\$4\\.0\\.0\\.[23]\\.0\\.1");
