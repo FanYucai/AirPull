@@ -134,7 +134,7 @@
 		<!-- ================ -->
 		<div class="section translucent-bg bg-image-1 black">
 			<div class="container object-non-visible" data-animation-effect="fadeIn">
-				<h1 id="services"  class="text-center title">How to use AirPull</h1>
+				<h1 id="services"  class="text-center title">Don't Worry! Please tell us some information about you.</h1>
 				<div class="space"></div>
 				<div class="row">
 					<div class="space visible-xs"></div>
@@ -144,14 +144,23 @@
 							<i class="fa fa-leaf"></i>
 						</div>
 						<div class="media-body">
-							<h4 class="media-heading">Name</h4>
-							<p>lanxuan</p>
+							<h4 class="media-heading">用户名</h4>
+							<p><input data-placeholder="用户名" name="user.name" type="text" placeholder="用户名" tabindex="1" spellcheck="false"></input>（请输入你注册的用户名）</p>
+						</div>
+						<br/>
+						<div class="media-left">
+							<i class="fa fa-leaf"></i>
+						</div>
+						<div class="media-body">	
+							<h4 class="media-heading">邮箱</h4>
+							<p><input data-placeholder="邮箱" name="user.email" type="email" placeholder="邮箱" tabindex="1" spellcheck="false"></input>（请输入你注册时用的邮箱）</p>
+
 						</div>
 					</div>			
 								
 					<div class="space visible-xs"></div>
 					
-					<div class="col-sm-6">
+					<!-- <div class="col-sm-6">
 						<div class="media">
 							<div class="media-left">
 								<i class="fa fa-leaf"></i>
@@ -188,7 +197,7 @@
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
