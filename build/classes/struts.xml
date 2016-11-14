@@ -66,6 +66,7 @@
 			<result name="nullEmail">/WEB-INF/content/signUpError.jsp?type=邮箱不能为空</result>
 			<result name="nullNickname">/WEB-INF/content/signUpError.jsp?type=昵称不能为空</result>
 			<result name="emailExist">/WEB-INF/content/signUpError.jsp?type=邮箱已存在</result>
+			<result name="nicknameExist">/WEB-INF/content/signUpError.jsp?type=昵称已存在</result>
 		</action>
 		<!-- =============== -->
 		

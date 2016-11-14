@@ -1,6 +1,7 @@
 package com.a1rdr0p.SEproject.action;
 
 import com.a1rdr0p.SEproject.model.User;
+import com.a1rdr0p.SEproject.service.userService;
 import com.opensymphony.xwork2.Action;
 
 public class backHomeLogged implements Action {
@@ -29,7 +30,9 @@ public class backHomeLogged implements Action {
 
 	@Override
 	public String execute() throws Exception {
+		userService us = new userService();
 		
+		user = us.findNickname(name);
 		return SUCCESS;
 	}
 
