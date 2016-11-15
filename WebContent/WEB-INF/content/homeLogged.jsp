@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
@@ -77,47 +76,20 @@ function refreshProcessBarCallBack(returnXMLParam) {
 }
 
 //下面这三个函数是控制添加、删除、修改附件的（允许增加、删除附件，只允许指定后缀的文件被选择等）
-var a = 0;
-function file_change() {
+var a = 2;
+function file_change(input) {
 	//当文本域中的值改变时触发此方法
-	var postfix = this.value.substring(this.value.lastIndexOf(".") + 1)
+	var postfix = input.value.substring(input.value.lastIndexOf(".") + 1)
 			.toUpperCase();
 	//判断扩展是否合法
 	if (postfix == "HTML" || postfix == "HTM" ) {
 	} else {
 		//如果不合法就删除相应的File表单及br标签
 		alert("您上传的文件类型不被支持，本系统只支持.html, .htm 文件！");
-		var testtest = $(this).attr('id');
-		testtest = '#' + testtest;
-		var sub_file = $(testtest);
-
-		var next_a_ele = sub_file.next();//取得a标记
-		var br1_ele = $(next_a_ele).next();//取得回车
-		var br2_ele = $(br1_ele).next();//取得回车
-
-		$(br2_ele).remove();//删除回车
-		$(br1_ele).remove();//删除回车
-		$(next_a_ele).remove();//删除a标签
-		$(sub_file).remove();
-		//删除文本域，因为上传的文件类型出错，要删除动态创建的File表单
+        //清除当前所选文件
+        //input.outerHTML=input.outerHTML.replace(/(value=\").+\"/i,"$1\"");
 		return;
 	}
-}
-
-function remove_file() {//删除File表单域的方法
-	//删除表单
-	var testtest = $(this).val();
-	testtest = '#' + testtest;
-	var sub_file = $(testtest);
-
-	var next_a_ele = sub_file.next();//取得a标记
-	var br1_ele = $(next_a_ele).next();//取得回车
-	var br2_ele = $(br1_ele).next();//取得回车
-
-	$(br2_ele).remove();//删除回车
-	$(br1_ele).remove();//删除回车
-	$(next_a_ele).remove();//删除a标签
-	$(sub_file).remove();//删除File标记
 }
 
 function f() {
@@ -125,56 +97,6 @@ function f() {
 	return false;
 }
 
-function insertFile() {
-	//新建File表单
-	var file_array = document.getElementsByTagName("input");
-
-	var is_null = false;
-	//循环遍历判断是否有某一个File表单域的值为空
-	for (var i = 0; i < file_array.length; i++) {
-		if (file_array[i].type == "file"
-				&& file_array[i].name.substring(0, 15) == "fileUploadTools") {
-			if (file_array[i].value == "") {
-				alert("某一附件为空不能继续添加");
-				is_null = true;
-				break;
-			}
-		}
-	}
-
-	if (is_null) {
-		return;
-	}
-
-	a++;
-	//新建file表单的基本信息
-	var new_File_element = $('<input>');
-	new_File_element.attr('type', 'file');
-	new_File_element.attr('id', 'uploadFile' + a);
-	new_File_element.attr('name', 'fileUploadTools.uploadFile');
-	new_File_element.attr('size', 55);
-	new_File_element.keydown(f);
-	new_File_element.change(file_change);
-
-	$('#fileForm').append(new_File_element);
-
-	//新建删除附件的a标签的基本信息
-	var new_a_element = $('<a>');
-	new_a_element.html("删除附件");
-	new_a_element.attr('id', "a_" + new_File_element.name);
-	new_a_element.attr('name', "a_" + new_File_element.name);
-	new_a_element.val($(new_File_element).attr('id'));
-	new_a_element.attr('href', "#");
-	new_a_element.click(remove_file);
-	$('#fileForm').append(new_a_element);
-
-	var new_br_element = $("<br>");
-	$('#fileForm').append(new_br_element);
-	var new_br_element = $("<br>");
-	$('#fileForm').append(new_br_element);
-}
-
-//提交表单，提交时触发刷新进度条函数
 function submitForm() {
 	setTimeout("refreshProcessBar()", 1000);
 
@@ -473,7 +395,7 @@ function submitForm() {
 					<!-- portfolio items start -->
 
 					<div class="isotope-container row grid-space-20">
-<%-- 						<div class="col-sm-6 col-md-3 isotope-item web-design">
+ 						<div class="col-sm-6 col-md-3 isotope-item web-design">
 							<div class="image-box">
 								<div class="overlay-container">
 									<img src="images/taobao1.jpg" alt=""> <a class="overlay"
@@ -482,7 +404,7 @@ function submitForm() {
 									</a>
 								</div>
 								<a class="btn btn-default btn-block" data-toggle="modal"
-									data-target="#project-1">查看淘宝订单</a>
+									data-target="#project-1">查看淘宝订单[未完成]</a>
 							</div>
 							<!-- Modal -->
 							<div class="modal fade" id="project-1" tabindex="-1"
@@ -509,10 +431,12 @@ function submitForm() {
 															<tr>
 																<td width="176">
 																	<div align="center">
-																		用户附件 <br /> <a href="javascript:insertFile()">添加附件</a>
+																		用户附件
 																	</div>
 																</td>
-																<td width="626" id="fileForm"><br /></td>
+																<td width="626" id="fileForm"><br>
+																	<input type="file" id="uploadFile2" name="fileUploadTools.uploadFile" onchange="file_change(this)"  size="55">
+																</td>
 															</tr>
 														</table>
 
@@ -540,7 +464,7 @@ function submitForm() {
 							</div>
 							
 							<!-- Modal end -->
-						</div> --%>
+						</div>
 					
 						<div class="col-sm-6 col-md-3 isotope-item app-development">
 							<div class="image-box">
@@ -578,10 +502,12 @@ function submitForm() {
 															<tr>
 																<td width="176">
 																	<div align="center">
-																		用户附件 <br /> <a href="javascript:insertFile()">添加附件</a>
+																		用户附件
 																	</div>
 																</td>
-																<td width="626" id="fileForm"><br /></td>
+																<td width="626" id="fileForm"><br>
+																	<input type="file" id="uploadFile2" name="fileUploadTools.uploadFile" onchange="file_change(this)"  size="55">
+																</td>
 															</tr>
 														</table>
 		
