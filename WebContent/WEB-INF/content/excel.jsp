@@ -250,7 +250,7 @@ for (var k = table.rows.item(0).cells.length - 1; k>= 0; k --)
 	}
 
 }
-Str(table);
+//Str(table);
 }
 
 
@@ -423,7 +423,7 @@ return retstr.replace(/^,+/,'').replace(/\.$/,'');
 	<input type="button" name="Submit2" value="删除" onclick="DeleteRow(document.getElementById('tabProduct'),1)" />   
 	<input type="button" name="Submit22" value="重置" onclick="window.location.reload()" />
 	<input id="fan2dog" type="hidden" name="fileContent" value="" >
-	<button type="submit">导出</button>
+	<button type="submit" onclick="Str(document.getElementById('tabProduct'))">导出</button>
 </form>
 <form id="form1" name="form1" method="post" action="">    
 <h3>表格数据获取结果</h3>    
