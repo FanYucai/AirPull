@@ -475,7 +475,7 @@ function submitForm() {
 									</a>
 								</div>
 								<a class="btn btn-default btn-block" data-toggle="modal"
-									data-target="#project-2">查看宇宙工业大学成绩单～</a>
+									data-target="#project-2">查看哈尔滨工业大学成绩单～</a>
 							</div>
 							<!-- Modal -->
 							<div class="modal fade" id="project-2" tabindex="-1"

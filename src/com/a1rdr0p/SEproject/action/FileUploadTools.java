@@ -17,9 +17,10 @@ public class FileUploadTools {
 	private String fileContent = "";
 	private String feifeiContent = "";
 	private File uploadFile[];// 上传的文件是数组类型
-	private String uploadFileFileName[];// 文件名是数组类型
+	private String uploadFileFileName = "";// 文件名是数组类型
 	private String uploadFileContentType[];
-
+//	uploadFileFileName[0] = "";
+	
 	public String getUsername() {
 		return username;
 	}
@@ -46,11 +47,11 @@ public class FileUploadTools {
 		this.uploadFile = uploadFile;
 	}
 
-	public String[] getUploadFileFileName() {
+	public String getUploadFileFileName() {
 		return uploadFileFileName;
 	}
 
-	public void setUploadFileFileName(String[] uploadFileFileName) {
+	public void setUploadFileFileName(String uploadFileFileName) {
 		this.uploadFileFileName = uploadFileFileName;
 	}
 
@@ -86,8 +87,16 @@ public class FileUploadTools {
 		// }
 		// fileContent = doc.html();
 
-		File target = uploadFile[0];
+		System.out.println("qwq: "+uploadFileFileName);
+		System.out.println("qwq: "+uploadFileFileName.length());
+		
+		if(uploadFileFileName.length() == 0) {
+			feifeiContent = "您没有选择@上传文件！$";
+			fileContent = "您没有选择\t上传文件！\n";
+			return "success";
+		}
 		try {
+			File target = uploadFile[0];
 			Document doc = Jsoup.parse(target, "UTF-8", "");
 
 			Elements bigTable = doc.getElementsByAttributeValue("class", "bot_line");
@@ -113,8 +122,6 @@ public class FileUploadTools {
 				feifeiContent += tmp_+"$";
 				fileContent = fileContent + "\n";
 			}
-			
-			System.out.println(feifeiContent);
 
 			// try {
 			// Pattern p =
