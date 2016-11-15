@@ -38,8 +38,6 @@
 	</head>
 
 	<body class="no-trans">
-		<% String type = request.getParameter("type");%>
-	
 		<!-- scrollToTop -->
 		<!-- ================ -->
 		<div class="scrollToTop"><i class="icon-up-open-big"></i></div>
@@ -133,17 +131,30 @@
 		</div>
 		<!-- section end -->
 
+		<form action="changePassword?name=${user.name }" method="post">
 		<!-- section start -->
 		<!-- ================ -->
 		<div class="section translucent-bg bg-image-1 black">
 			<div class="container object-non-visible" data-animation-effect="fadeIn">
-				<h1 id="services"  class="text-center title"><%=type %></h1>
-				
+				<h1 id="services"  class="text-center title">修改密码成功</h1>
 				
 			</div>
 		</div>
 		<!-- section end -->
 		
+		<!-- section start -->
+		<!-- ================ -->
+		<div class="default-bg space blue">
+			<div class="container">
+				<div class="text-center">
+					<div class="col-md-8 col-md-offset-2">
+						<input type="submit" class="btn btn-sm btn-default" value="确认修改">
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- section end -->
+		</form>	
 
  
 		<!-- footer start -->

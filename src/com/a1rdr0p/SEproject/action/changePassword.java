@@ -1,6 +1,7 @@
 package com.a1rdr0p.SEproject.action;
 
 import com.a1rdr0p.SEproject.model.User;
+import com.a1rdr0p.SEproject.security.MD5;
 import com.a1rdr0p.SEproject.service.userService;
 import com.opensymphony.xwork2.Action;
 
@@ -15,6 +16,16 @@ public class changePassword implements Action {
 	private String verifypassword;
 	private User user;
 	
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
 	public String getName() {
 		return name;
 	}
@@ -57,24 +68,42 @@ public class changePassword implements Action {
 
 	@Override
 	public String execute() throws Exception {
+		if (oldpassword.equals("")) {
+			return "nullOld";
+		} else if (newpassword.equals("")) {
+			return "nullNew";
+		} else if (verifypassword.equals("")) {
+			return "nullVerify";
+		}
+		
 		userService us = new userService();
 		user = us.findUser(name);
-		
-		boolean flag = user.getPassword().equals(oldpassword);		
-		if (flag == false)
+		String MD5PW = MD5.convertMD5(oldpassword);		
+		boolean flag = user.getPassword().equals(MD5PW);		
+		if (flag == false) {
+			System.out.println("wrong");
 			return "wrongPassword";//密码错误
+		}
 		
 		flag = us.checkPasswordValid(newpassword);
-		if (flag == false)
+		if (flag == false) {
+			System.out.println("illegal");
 			return "illegalPassword";//密码不合法
+		}
 
 		flag = newpassword.equals(verifypassword);
-		if (flag == false)
+		if (flag == false) {
+			System.out.println("notsame");
 			return "notSame";//两次密码不相同
+		}
 		
 		flag = us.updatePassword(user.getName(), newpassword);
 		if (flag == false)
 			return ERROR;
+		else {
+			sendEmail mail = new sendEmail();
+			mail.sendChangePasswordEmail(user.getName(), user.getPassword(), user.getNickname(), user.getEmail());
+		}
 		return SUCCESS;
 	}
 

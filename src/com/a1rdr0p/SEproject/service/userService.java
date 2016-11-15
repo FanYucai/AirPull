@@ -152,7 +152,7 @@ public class userService {
     		return 106;//昵称已存在
     	
     	String MD5PW = MD5.convertMD5(Password);
-    	String MD5Email = MD5.convertMD5(Email); 
+//    	String MD5Email = MD5.convertMD5(Email); 
     	
     	Connection conn = userService.getConn();
         String sql = "insert into userList values(?,?,?,?)";
@@ -163,7 +163,7 @@ public class userService {
             pstmt.setString(1, userName);
             pstmt.setString(2, MD5PW);
             pstmt.setString(3, Nickname);
-            pstmt.setString(4, MD5Email);
+            pstmt.setString(4, Email);
             if (pstmt.executeUpdate()!= 0 ) {
             	pstmt.close();
             	conn.close();
@@ -195,13 +195,13 @@ public class userService {
     public static boolean updatePassword(String userName, String newPassword) {
     	Connection conn = userService.getConn();
     	
-    	String MD5PW = "123";//MD5.convertMD5(newPassword); 
+    	String MD5PW = MD5.convertMD5(newPassword); 
     	String sql = "update userList set password='" + MD5PW + "' where name='" + userName + "'";
     	PreparedStatement pstmt;
     	try {
 	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
 	        int i = pstmt.executeUpdate();
-	        System.out.println("resutl:" + i);
+//	        System.out.println("resutl:" + i);
 	        pstmt.close();
 	        conn.close();
 	        return true;
