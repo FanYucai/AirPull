@@ -46,7 +46,7 @@ public class sendEmail {
 		mail.setPassword("louyujing127"); // 发件人邮箱的登录密码
 		mail.setSubject("你的AirPull账户信息发生改动");
 		String str1 = "你好，" + Nickname + "！\n";
-		String str2 = "\t你刚刚对你的账号进行乐修改密码的操作，如非本人操作，请快速前往我们的网站进行修改。\n";
+		String str2 = "\t你刚刚对你的账号进行了修改密码的操作，如非本人操作，请快速前往我们的网站进行修改。\n";
 		String str4 = "\nHappy with AirPull~\n";
 		String str5 = "（请勿回复此邮件）";
 		mail.setMessage(str1+str2+str4+str5);
