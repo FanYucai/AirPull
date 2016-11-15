@@ -56,4 +56,24 @@ public class sendEmail {
 			System.out.println("ERROR!");
 		return mail;
 	}
+	
+	public Mail sendChangeEmailEmail(String userName, String Password, String Nickname, String Email) {
+		Mail mail = new Mail();
+		mail.setHost("smtp.hit.edu.cn"); // 设置邮件服务器
+		mail.setSender("louyujing@hit.edu.cn");
+		mail.setReceiver(Email); // 接收人
+		mail.setUsername("louyujing@hit.edu.cn"); // 登录账号,一般都是和邮箱名一样
+		mail.setPassword("louyujing127"); // 发件人邮箱的登录密码
+		mail.setSubject("你的AirPull账户信息发生改动");
+		String str1 = "你好，" + Nickname + "！\n";
+		String str2 = "\t你已经成功修改邮箱为:\n\t"+Email+".\n如非本人操作，请快速前往我们的网站进行修改。\n";
+		String str4 = "\nHappy with AirPull~\n";
+		String str5 = "（请勿回复此邮件）";
+		mail.setMessage(str1+str2+str4+str5);
+		if (new emailService().send(mail)) {
+			System.out.println("SEND success!");
+		} else
+			System.out.println("ERROR!");
+		return mail;
+	}
 }

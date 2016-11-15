@@ -210,4 +210,21 @@ public class userService {
 	    }
     	return false;
     }
+    public static boolean updateEmail(String userName, String newEmail) {
+    	Connection conn = userService.getConn();
+    	
+    	String sql = "update userList set email='" + newEmail + "' where name='" + userName + "'";
+    	PreparedStatement pstmt;
+    	try {
+	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
+	        int i = pstmt.executeUpdate();
+//	        System.out.println("resutl:" + i);
+	        pstmt.close();
+	        conn.close();
+	        return true;
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+    	return false;
+    }
 }

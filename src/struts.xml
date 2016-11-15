@@ -89,15 +89,33 @@
 		</action>
 		<!-- =============== -->
 		
+		<!-- Go Change Email Action -->
+		<action name="goChangeEmail" class="com.a1rdr0p.SEproject.action.goChangeEmail">
+			<result name="success">/WEB-INF/content/changeEmail.jsp</result>
+		</action>
+		<!-- =============== -->
+		
 		<!-- Change Password Action -->
 		<action name="changePassword" class="com.a1rdr0p.SEproject.action.changePassword">
-			<result name="success">/WEB-INF/content/changeSuccess.jsp</result>
+			<result name="success">/WEB-INF/content/changeSuccess.jsp?type=修改密码成功</result>
 			<result name="nullOld">/WEB-INF/content/change.jsp?type=密码不能为空</result>
 			<result name="nullNew">/WEB-INF/content/change.jsp?type=密码不能为空</result>
 			<result name="nullVerify">/WEB-INF/content/change.jsp?type=密码不能为空</result>
 			<result name="wrongPassword">/WEB-INF/content/change.jsp?type=密码错误</result>
 			<result name="illegalPassword">/WEB-INF/content/change.jsp?type=新密码不符合要求</result>
 			<result name="notSame">/WEB-INF/content/change.jsp?type=两次密码不同</result>
+			<result name="error">/WEB-INF/content/change.jsp?type=未知错误</result>
+		</action>
+		<!-- =============== -->
+		
+		<!-- Change Email Action -->
+		<action name="changeEmail" class="com.a1rdr0p.SEproject.action.changeEmail">
+			<result name="success">/WEB-INF/content/changeSuccess.jsp?type=修改邮箱成功</result>
+			<result name="nullPassword">/WEB-INF/content/change.jsp?type=密码不能为空</result>
+			<result name="nullOld">/WEB-INF/content/change.jsp?type=邮箱不能为空</result>
+			<result name="nullNew">/WEB-INF/content/change.jsp?type=邮箱不能为空</result>
+			<result name="wrongPassword">/WEB-INF/content/change.jsp?type=密码错误</result>
+			<result name="wrongEmail">/WEB-INF/content/change.jsp?type=邮箱错误</result>
 			<result name="error">/WEB-INF/content/change.jsp?type=未知错误</result>
 		</action>
 		<!-- =============== -->
