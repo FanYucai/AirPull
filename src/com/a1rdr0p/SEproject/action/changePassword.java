@@ -16,6 +16,16 @@ public class changePassword implements Action {
 	private String verifypassword;
 	private User user;
 	
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
 	public String getName() {
 		return name;
 	}
@@ -58,6 +68,14 @@ public class changePassword implements Action {
 
 	@Override
 	public String execute() throws Exception {
+		if (oldpassword.equals("")) {
+			return "nullOld";
+		} else if (newpassword.equals("")) {
+			return "nullNew";
+		} else if (verifypassword.equals("")) {
+			return "nullVerify";
+		}
+		
 		userService us = new userService();
 		user = us.findUser(name);
 		String MD5PW = MD5.convertMD5(oldpassword);		

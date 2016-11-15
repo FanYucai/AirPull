@@ -97,7 +97,7 @@
 										<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
 											<ul class="nav navbar-nav navbar-right">
 												<li><a href="#services"><s:property value="user.nickname"/></a></li>
-												<li><a href="backHomeLogged?name=${user.nickname }">Back</a></li>
+												<li><a href="backProfile?name=${user.nickname }">Back</a></li>
 												<!-- <li><a href="#export">Export</a></li> -->
 											</ul>
 										</div>
