@@ -146,7 +146,7 @@
 						</div>
 						<div class="media-body">
 							<h4 class="media-heading">用户名</h4>
-							<p><input data-placeholder="用户名" name="user.name" type="text" placeholder="用户名" tabindex="1" spellcheck="false"></input>（请输入你注册的用户名）</p>
+							<p><input data-placeholder="用户名" name="user.name" type="text" placeholder="用户名" tabindex="1" spellcheck="false" style="color:#000000;"></input>（请输入你注册的用户名）</p>
 						</div>
 						<br/>
 						<div class="media-left">
@@ -154,7 +154,7 @@
 						</div>
 						<div class="media-body">	
 							<h4 class="media-heading">邮箱</h4>
-							<p><input data-placeholder="邮箱" name="user.email" type="email" placeholder="邮箱" tabindex="1" spellcheck="false"></input>（请输入你注册时用的邮箱）</p>
+							<p><input data-placeholder="邮箱" name="user.email" type="email" placeholder="邮箱" tabindex="1" spellcheck="false" style="color:#000000;"></input>（请输入你注册时用的邮箱）</p>
 
 						</div>
 					</div>			

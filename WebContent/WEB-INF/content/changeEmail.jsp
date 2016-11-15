@@ -155,7 +155,7 @@
 						</div>
 						<div class="media-body">	
 							<h4 class="media-heading">密码</h4>
-							<p><input data-placeholder="密码" name="password" type="password" id="password" placeholder="密码" tabindex="1" spellcheck="false"></input></p>
+							<p><input data-placeholder="密码" name="password" type="password" id="password" placeholder="密码" tabindex="1" spellcheck="false" style="color:#000000;"></input></p>
 						</div>
 						<br/>
 						<div class="media-left">
@@ -163,7 +163,7 @@
 						</div>
 						<div class="media-body">	
 							<h4 class="media-heading">旧邮箱</h4>
-							<p><input data-placeholder="旧邮箱" name="oldemail" type="email" placeholder="旧邮箱" tabindex="1" spellcheck="false"></input>（请确保你的邮箱有效，修改密码会需要）</p>
+							<p><input data-placeholder="旧邮箱" name="oldemail" type="email" placeholder="旧邮箱" tabindex="1" spellcheck="false" style="color:#000000;"></input>（请确保你的邮箱有效，修改密码会需要）</p>
 						</div>
 						<br/>
 						<div class="media-left">
@@ -171,7 +171,7 @@
 						</div>
 						<div class="media-body">	
 							<h4 class="media-heading">新邮箱</h4>
-							<p><input data-placeholder="新邮箱" name="newemail" type="email" placeholder="新邮箱" tabindex="1" spellcheck="false"></input>（请确保你的邮箱有效，修改密码会需要）</p>
+							<p><input data-placeholder="新邮箱" name="newemail" type="email" placeholder="新邮箱" tabindex="1" spellcheck="false" style="color:#000000;"></input>（请确保你的邮箱有效，修改密码会需要）</p>
 						</div>
 						
 					<!-- </div> -->		

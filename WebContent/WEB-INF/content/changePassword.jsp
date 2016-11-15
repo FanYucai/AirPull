@@ -155,7 +155,7 @@
 						</div>
 						<div class="media-body">	
 							<h4 class="media-heading">旧密码</h4>
-							<p><input data-placeholder="旧密码" name="oldpassword" type="password" id="password" placeholder="旧密码" tabindex="1" spellcheck="false"></input></p>
+							<p><input data-placeholder="旧密码" name="oldpassword" type="password" id="password" placeholder="旧密码" tabindex="1" spellcheck="false" style="color:#000000;"></input></p>
 						</div>
 						<br/>
 						<div class="media-left">
@@ -163,7 +163,7 @@
 						</div>
 						<div class="media-body">	
 							<h4 class="media-heading">新密码</h4>
-							<p><input data-placeholder="新密码" name="newpassword" type="password" id="password" placeholder="新密码" tabindex="1" spellcheck="false"></input>（密码非纯数字，长度大于等于8位小于等于20位）</p>
+							<p><input data-placeholder="新密码" name="newpassword" type="password" id="password" placeholder="新密码" tabindex="1" spellcheck="false" style="color:#000000;"></input>（密码非纯数字，长度大于等于8位小于等于20位）</p>
 						</div>
 						<br/>
 						<div class="media-left">
@@ -171,7 +171,7 @@
 						</div>
 						<div class="media-body">	
 							<h4 class="media-heading">确认密码</h4>
-							<p><input data-placeholder="确认密码" name="verifypassword" type="password" id="password" placeholder="确认密码" tabindex="1" spellcheck="false"></input></p>
+							<p><input data-placeholder="确认密码" name="verifypassword" type="password" id="password" placeholder="确认密码" tabindex="1" spellcheck="false" style="color:#000000;"></input></p>
 						</div>
 						
 					<!-- </div> -->		
