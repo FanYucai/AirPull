@@ -72,8 +72,10 @@ public class changePassword implements Action {
 		if (flag == false)
 			return "notSame";//两次密码不相同
 		
-		
-		return null;
+		flag = us.updatePassword(user.getName(), newpassword);
+		if (flag == false)
+			return ERROR;
+		return SUCCESS;
 	}
 
 }

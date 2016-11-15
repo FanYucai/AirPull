@@ -14,10 +14,7 @@ import com.mysql.jdbc.PreparedStatement;
 
 import com.a1rdr0p.SEproject.model.User;
 import com.a1rdr0p.SEproject.security.MD5;
-/**
- * @User lanxuan
- *
- */
+
 public class userService {
     public static Connection getConn() {
         String driver = "com.mysql.jdbc.Driver";
@@ -55,6 +52,7 @@ public class userService {
                 	//ServletActionContext.getRequest().setAttribute("display", User);
                 }
             }
+            conn.close();
             return tmp;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -82,6 +80,7 @@ public class userService {
                 	//ServletActionContext.getRequest().setAttribute("display", User);
                 }
             }
+            conn.close();
             return tmp;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -108,6 +107,8 @@ public class userService {
                 	//ServletActionContext.getRequest().setAttribute("display", User);
                 }
             }
+            pstmt.close();
+            conn.close();
             return tmp;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -163,8 +164,11 @@ public class userService {
             pstmt.setString(2, MD5PW);
             pstmt.setString(3, Nickname);
             pstmt.setString(4, MD5Email);
-            if (pstmt.executeUpdate()!= 0 )
+            if (pstmt.executeUpdate()!= 0 ) {
+            	pstmt.close();
+            	conn.close();
             	return 1;//成功新建用户
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -183,7 +187,27 @@ public class userService {
     	return false;
     }
     
-    public static boolean updateUser(String name) {
+    /**
+     * @param userName
+     * @param newPassword
+     * @return
+     */
+    public static boolean updatePassword(String userName, String newPassword) {
+    	Connection conn = userService.getConn();
+    	
+    	String MD5PW = "123";//MD5.convertMD5(newPassword); 
+    	String sql = "update userList set password='" + MD5PW + "' where name='" + userName + "'";
+    	PreparedStatement pstmt;
+    	try {
+	        pstmt = (PreparedStatement) conn.prepareStatement(sql);
+	        int i = pstmt.executeUpdate();
+	        System.out.println("resutl:" + i);
+	        pstmt.close();
+	        conn.close();
+	        return true;
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
     	return false;
     }
 }

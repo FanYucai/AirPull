@@ -85,7 +85,11 @@
 		
 		<!-- Change Password Action -->
 		<action name="changePassword" class="com.a1rdr0p.SEproject.action.changePassword">
-			<result name="success"></result>
+			<result name="success">/WEB-INF/content/change.jsp</result>
+			<result name="wrongPassword">/WEB-INF/content/change.jsp</result>
+			<result name="illegalPassword">/WEB-INF/content/change.jsp</result>
+			<result name="notSame">/WEB-INF/content/change.jsp</result>
+			<result name="error">/WEB-INF/content/change.jsp</result>
 		</action>
 		<!-- =============== -->
 
