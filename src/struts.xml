@@ -95,6 +95,12 @@
 		</action>
 		<!-- =============== -->
 		
+		<!-- Go Forget Password Action -->
+		<action name="goForgetPassword">
+			<result>/WEB-INF/content/forgetPassword.jsp</result>
+		</action>
+		<!-- =============== -->
+		
 		<!-- Change Password Action -->
 		<action name="changePassword" class="com.a1rdr0p.SEproject.action.changePassword">
 			<result name="success">/WEB-INF/content/changeSuccess.jsp?type=修改密码成功</result>
@@ -117,6 +123,17 @@
 			<result name="wrongPassword">/WEB-INF/content/change.jsp?type=密码错误</result>
 			<result name="wrongEmail">/WEB-INF/content/change.jsp?type=邮箱错误</result>
 			<result name="error">/WEB-INF/content/change.jsp?type=未知错误</result>
+		</action>
+		<!-- =============== -->
+		
+		<!-- Forget Password Action -->
+		<action name="forgetPassword" class="com.a1rdr0p.SEproject.action.forgetPassword">
+			<result name="nullName">/WEB-INF/content/forget.jsp?type=用户名不能为空</result>
+			<result name="nullEmail">/WEB-INF/content/forget.jsp?type=邮箱不能为空</result>
+			<result name="notExist">/WEB-INF/content/forget.jsp?type=用户名不存在</result>
+			<result name="wrongEmail">/WEB-INF/content/forget.jsp?type=邮箱错误</result>
+			<result name="success">/WEB-INF/content/forget.jsp?type=您的新密码已经发到您的邮箱，请及时查看并修改密码</result>
+			<result name="error">/WEB-INF/content/forget.jsp?type=未知错误</result>
 		</action>
 		<!-- =============== -->
 

@@ -179,7 +179,7 @@
 										<div class="row">
 											<div class="col-md-6">
 												<p><input data-placeholder="用户名" name="user.name" type="text" placeholder="用户名" tabindex="1" spellcheck="false"></input></p>
-												<p><input data-placeholder="密码" name="user.password" type="password" id="password" placeholder="密码" tabindex="1" spellcheck="false"></input><a href="forgetPassword">忘记密码</a></p>
+												<p><input data-placeholder="密码" name="user.password" type="password" id="password" placeholder="密码" tabindex="1" spellcheck="false"></input><a href="goForgetPassword">忘记密码</a></p>
 											</div>
 											<div class="col-md-6">
 												<img src="images/portfolio-5.jpg" alt="">

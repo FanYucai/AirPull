@@ -38,6 +38,8 @@
 	</head>
 
 	<body class="no-trans">
+		<% String type = request.getParameter("type");%>
+	
 		<!-- scrollToTop -->
 		<!-- ================ -->
 		<div class="scrollToTop"><i class="icon-up-open-big"></i></div>
@@ -97,7 +99,6 @@
 										<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
 											<ul class="nav navbar-nav navbar-right">
 												<li><a href="home">Back</a></li>
-												<!-- <li><a href="#export">Export</a></li> -->
 											</ul>
 										</div>
 
@@ -130,54 +131,17 @@
 		</div>
 		<!-- section end -->
 
-		<form action="forgetPassword" method="post">
 		<!-- section start -->
 		<!-- ================ -->
 		<div class="section translucent-bg bg-image-1 black">
 			<div class="container object-non-visible" data-animation-effect="fadeIn">
-				<h1 id="services"  class="text-center title">Don't Worry! Please tell us some information about you.</h1>
-				<div class="space"></div>
-				<div class="row">
-					<div class="space visible-xs"></div>
-						
-					<div class="col-sm-6">
-						<div class="media-left">
-							<i class="fa fa-leaf"></i>
-						</div>
-						<div class="media-body">
-							<h4 class="media-heading">用户名</h4>
-							<p><input data-placeholder="用户名" name="user.name" type="text" placeholder="用户名" tabindex="1" spellcheck="false"></input>（请输入你注册的用户名）</p>
-						</div>
-						<br/>
-						<div class="media-left">
-							<i class="fa fa-leaf"></i>
-						</div>
-						<div class="media-body">	
-							<h4 class="media-heading">邮箱</h4>
-							<p><input data-placeholder="邮箱" name="user.email" type="email" placeholder="邮箱" tabindex="1" spellcheck="false"></input>（请输入你注册时用的邮箱）</p>
-
-						</div>
-					</div>			
-								
-					<div class="space visible-xs"></div>
-				</div>
+				<h1 id="services"  class="text-center title"><%=type %></h1>
+				
+				
 			</div>
 		</div>
 		<!-- section end -->
 		
-		<!-- section start -->
-		<!-- ================ -->
-		<div class="default-bg space blue">
-			<div class="container">
-				<div class="text-center">
-					<div class="col-md-8 col-md-offset-2">
-						<input type="submit" class="btn btn-sm btn-default" value="确认">
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- section end -->
-		</form>	
 
  
 		<!-- footer start -->
