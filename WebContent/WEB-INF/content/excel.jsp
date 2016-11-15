@@ -5,6 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <script type="text/javascript">
 var content= '<s:property value="fileUploadTools.feifeiContent"/>';
+var output= '<s:property value="fileUploadTools.feifeiContent"/>';
 </script>
 <html lang="en">    
 <head>    
@@ -249,7 +250,25 @@ for (var k = table.rows.item(0).cells.length - 1; k>= 0; k --)
 	}
 
 }
+Str(table);
 }
+
+
+// 导出当表格的内容为一个字符串
+function Str(table){
+    var tableInfo = "";
+    for (var i = 0; i < table.rows.length; i++) {    //遍历Table的所有Row
+        for (var j = 0; j < table.rows[i].cells.length; j++) {   //遍历Row中的每一列
+            tableInfo += table.rows[i].cells[j].innerText;   //获取Table中单元格的内容
+            tableInfo += "\t";
+        }
+        tableInfo += "\n";
+    }
+    output=tableInfo;
+    document.getElementById('fan2dog').value=output;
+    return tableInfo;
+}
+
 
 //提取表格的值,JSON格式    
 function GetTableData(table){  
@@ -399,13 +418,18 @@ return retstr.replace(/^,+/,'').replace(/\.$/,'');
 </script>  
 </head>    
 <body>    
+<form action="exportExcel" method="post">
+	<%-- <input type="hidden" name="fileContent" value='<s:property value="fileUploadTools.fileContent"/>' > --%>
+	<input type="button" name="Submit2" value="删除" onclick="DeleteRow(document.getElementById('tabProduct'),1)" />   
+	<input type="button" name="Submit22" value="重置" onclick="window.location.reload()" />
+	<input id="fan2dog" type="hidden" name="fileContent" value="" >
+	<button type="submit">导出</button>
+</form>
 <form id="form1" name="form1" method="post" action="">    
 <h3>表格数据获取结果</h3>    
 <br />    
-<input type="button" name="Submit2" value="删除" onclick="DeleteRow(document.getElementById('tabProduct'),1)" />   
-<input type="button" name="Submit22" value="重置" onclick="window.location.reload()" />
 
-<script language="javascript">    
+<script language="javascript">
 /* var cols=5;    //5列
 var rows=4; //4行
 var htmlstr="<table border='1px'>";
@@ -473,8 +497,9 @@ document.write(htmlstr);
 // 可一次设置多个，例如：EditTables(tb1,tb2,tb2,......)    
 
 var tabProduct = document.getElementById("tabProduct");    
-EditTables(tabProduct);    
-    
+EditTables(tabProduct);
+Str(document.getElementById("tabProduct"));
+
     
 </script>    
 </body>    
