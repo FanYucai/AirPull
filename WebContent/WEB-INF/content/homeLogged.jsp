@@ -87,7 +87,7 @@ function file_change(input) {
 		//如果不合法就删除相应的File表单及br标签
 		alert("您上传的文件类型不被支持，本系统只支持.html, .htm 文件！");
         //清除当前所选文件
-        //input.outerHTML=input.outerHTML.replace(/(value=\").+\"/i,"$1\"");
+        input.outerHTML=input.outerHTML.replace(/(value=\").+\"/i,"$1\"");
 		return;
 	}
 }
@@ -427,14 +427,14 @@ function submitForm() {
 													<!-- 上传文件，最近添加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
 													<s:form action="uploadT2" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
 														<br />
-														<table width="818" border="1">
+														<table width="450" border="1">
 															<tr>
-																<td width="176">
+																<td width="150">
 																	<div align="center">
 																		用户附件
 																	</div>
 																</td>
-																<td width="626" id="fileForm"><br>
+																<td width="300" id="fileForm"><br>
 																	<input type="file" id="uploadFile2" name="fileUploadTools.uploadFile" onchange="file_change(this)"  size="55">
 																</td>
 															</tr>
