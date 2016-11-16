@@ -94,7 +94,8 @@ public class FileUploadTools {
 			feifeiContent = "您没有选择@上传文件！$";
 			fileContent = "您没有选择\t上传文件！\n";
 			return "success";
-		}
+		}//空文件判断
+		
 		try {
 			File target = uploadFile[0];
 			Document doc = Jsoup.parse(target, "UTF-8", "");
@@ -122,7 +123,10 @@ public class FileUploadTools {
 				feifeiContent += tmp_+"$";
 				fileContent = fileContent + "\n";
 			}
-
+			
+			
+			//错误格式判断
+			
 			// try {
 			// Pattern p =
 			// Pattern.compile("0\\.1\\:1\\:0\\.\\$0\\.\\$4\\.0\\.0\\.[23]\\.0\\.1");
