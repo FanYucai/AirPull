@@ -162,6 +162,12 @@
 			<result>/WEB-INF/content/afterPullCustom.jsp</result>
 		</action>
 		<!-- =============== -->
+		
+		<!-- =============== -->
+		<action name="uploadTaobao" class="com.a1rdr0p.SEproject.action.UploadActionTaobao">
+			<result>/WEB-INF/content/afterPullTaobao.jsp</result>
+		</action>
+		<!-- =============== -->
 	</package>
 
 </struts>

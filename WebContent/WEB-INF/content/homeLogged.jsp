@@ -425,7 +425,7 @@ function submitForm() {
 											<div class="row">
 												<div class="col-md-6">
 													<!-- 上传文件，最近添加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
-													<s:form action="uploadT2" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
+													<s:form action="uploadTaobao" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
 														<br />
 														<table width="450" border="1">
 															<tr>
@@ -435,7 +435,7 @@ function submitForm() {
 																	</div>
 																</td>
 																<td width="300" id="fileForm"><br>
-																	<input type="file" id="uploadFile2" name="fileUploadTools.uploadFile" onchange="file_change(this)"  size="55">
+																	<input type="file" id="uploadFileTaobao" name="fileUploadToolsTaobao.uploadFile" onchange="file_change(this)"  size="55">
 																</td>
 															</tr>
 														</table>
