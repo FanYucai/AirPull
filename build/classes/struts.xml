@@ -151,11 +151,17 @@
 			</result>
 		</action>
 
+		<!-- =============== -->
 		<action name="uploadT2" class="com.a1rdr0p.SEproject.action.UploadTest2Action">
 			<result>/WEB-INF/content/afterPull.jsp</result>
 		</action>
-		<action name="getState" class="com.a1rdr0p.SEproject.action.GetState"></action>
-
+		<!-- =============== -->
+		
+		<!-- =============== -->
+		<action name="uploadCustom" class="com.a1rdr0p.SEproject.action.UploadActionCustom">
+			<result>/WEB-INF/content/afterPullCustom.jsp</result>
+		</action>
+		<!-- =============== -->
 	</package>
 
 </struts>

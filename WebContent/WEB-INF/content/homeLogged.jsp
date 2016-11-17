@@ -540,7 +540,7 @@ function submitForm() {
 									</a>
 								</div>
 								<a class="btn btn-default btn-block" data-toggle="modal"
-									data-target="#project-3">功能紧急开发中～～～</a>
+									data-target="#project-3">自定义表格提取[初步]</a>
 							</div>
 							<!-- Modal -->
 							<div class="modal fade" id="project-3" tabindex="-1"
@@ -559,33 +559,35 @@ function submitForm() {
 											<h3>Project Description</h3>
 											<div class="row">
 												<div class="col-md-6">
-													<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-														elit. Atque sed, quidem quis praesentium, ut unde. Quae
-														sed, incidunt laudantium nesciunt, optio corporis quod
-														earum pariatur omnis illo saepe numquam suscipit, nemo
-														placeat dignissimos eius mollitia et quas officia
-														doloremque ipsum labore rem deserunt vero! Magnam totam
-														delectus accusantium voluptas et, tempora quos atque,
-														fugiat, obcaecati voluptatibus commodi illo voluptates
-														dolore nemo quo soluta quis.</p>
-													<p>Molestiae sed enim laboriosam atque delectus
-														voluptates rerum nostrum sapiente obcaecati molestias
-														quasi optio exercitationem, voluptate quis consequatur
-														libero incidunt, in, quod. Lorem ipsum dolor sit amet,
-														consectetur adipisicing elit. Eos nobis officiis, autem
-														earum tenetur quidem. Quae non dicta earum. Ipsum autem
-														eaque cum dolor placeat corporis quisquam dolorum at
-														nesciunt.</p>
+													<!-- 上传文件，最近添加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
+													<s:form action="uploadCustom" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
+														<br />
+														<table width="818" border="1">
+															<tr>
+																<td width="176">
+																	<div align="center">
+																		用户附件
+																	</div>
+																</td>
+																<td width="626" id="fileForm"><br>
+																	<input type="file" id="uploadFileCustom" name="fileUploadToolsCustom.uploadFile" onchange="file_change(this)"  size="55">
+																</td>
+															</tr>
+														</table>
+		
+													<!-- 上传文件，最近一次加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
 												</div>
+
 												<div class="col-md-6">
-													<img src="images/portfolio-3.jpg" alt="">
+													<img src="images/jiaowuchu.jpeg" alt="">
 												</div>
-											</div>
+											</div>											
 										</div>
+
 										<div class="modal-footer">
-											<button type="button" class="btn btn-sm btn-default"
-												data-dismiss="modal">Close</button>
+											<button type="submit" class="btn btn-sm btn-default">AirPull it</button>
 										</div>
+										</s:form>
 									</div>
 								</div>
 							</div>
