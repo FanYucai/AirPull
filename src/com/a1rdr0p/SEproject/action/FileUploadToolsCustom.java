@@ -3,6 +3,7 @@ package com.a1rdr0p.SEproject.action;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.regex.*;
 import org.jsoup.Jsoup;
@@ -72,23 +73,7 @@ public class FileUploadToolsCustom {
 	}
 
 	public String beginUpload() throws IOException {
-		// System.out.println("用户名：" + username);
-		// 将文件放于项目部署路径下的upload文件夹下
-		// String targetDirectory="/WEB-INF/upload";
-		// 根据相对部署路径计算完整路径
-		// targetDirectory=ServletActionContext.getServletContext().getRealPath(targetDirectory);
-		// for (int i = 0; i < uploadFile.length; i++) {
-		// target = new File(targetDirectory, new
-		// SimpleDateFormat("yyyy_MM_dd_HH_mm_ss")
-		// .format(new Date()).toString() + System.nanoTime() +
-		// uploadFileFileName[i]);
-		// //fileContent = (target.toString());
-		// FileUtils.copyFile(uploadFile[i], target);
-		// }
-		// fileContent = doc.html();
-
 		System.out.println("qwq: "+uploadFileFileName);
-		System.out.println("qwq: "+uploadFileFileName.length());
 		
 		if(uploadFileFileName.length() == 0) {
 			feifeiContent = "您没有选择@上传文件！$";
@@ -97,32 +82,66 @@ public class FileUploadToolsCustom {
 		}//空文件判断
 		
 		try {
+			ArrayList<String> feifeiContentArr = new ArrayList<String>();
+			ArrayList<String> fileContentArr = new ArrayList<String>();
+
+			int tableIndex = 0, maxTdCnt = 0;
+			
 			File target = uploadFile[0];
 			Document doc = Jsoup.parse(target, "UTF-8", "");
 
-			Elements bigTable = doc.getElementsByAttributeValue("class", "bot_line");
-			Elements gradeItem = bigTable.get(0).getElementsByTag("tr");
-			String tmp_ = "";
-
-			for (int i = 0; i < gradeItem.size(); i++) {
-				Elements itemInItem;
-				if(i==0) {
-					itemInItem = gradeItem.get(i).getElementsByTag("th");
+//			Elements tableElements = doc.getElementsByAttributeValue("class", "table_a");
+			Elements tableElements = doc.getElementsByTag("table");
+			System.out.println("size: "+tableElements.size());
+			for(int tb=0; tb<tableElements.size(); tb++) {
+				String tmp_ = "";
+				feifeiContent = "";
+				fileContent = "";
+				int tdCnt;
+				
+				Elements trElements = tableElements.get(tb).getElementsByTag("tr");
+				tdCnt = 0;
+				for (int i = 0; i < trElements.size(); i++) {
+					Elements tdElements;
+					
+					if(i==0) {
+						tdElements = trElements.get(i).getElementsByTag("th");
+						if(tdElements.size() == 0) {
+							tdElements = trElements.get(i).getElementsByTag("td");
+						}
+					} else {
+						tdElements = trElements.get(i).getElementsByTag("td");
+					}
+					
+					tdCnt += tdElements.size();
+					tmp_ = "";
+					for (int j = 0; j < tdElements.size(); j++) {
+						if (j!=tdElements.size()-1)
+							tmp_ += tdElements.get(j).text() + "@";
+						else
+							tmp_ += tdElements.get(j).text();
+						fileContent += tdElements.get(j).text() + "\t";	
+					}
+					feifeiContent += tmp_+"$";
+					fileContent = fileContent + "\n";
+				}
+				
+				if(tb == 0) {
+					tableIndex = 0;
+					maxTdCnt = tdCnt;
 				} else {
-					itemInItem = gradeItem.get(i).getElementsByTag("td");
+					if(maxTdCnt < tdCnt) {
+						maxTdCnt = tdCnt; //查找td数量最多的table
+						tableIndex = tb;
+					}
 				}
-				tmp_ = "";
-				for (int j = 0; j < itemInItem.size(); j++) {
-					System.out.println(itemInItem.get(j).html());
-					if (j!=itemInItem.size()-1)
-						tmp_ += itemInItem.get(j).text() + "@";
-					else
-						tmp_ += itemInItem.get(j).text();
-					fileContent += itemInItem.get(j).text() + "\t";	
-				}
-				feifeiContent += tmp_+"$";
-				fileContent = fileContent + "\n";
+				System.out.println("---------------------------------------------------");
+				System.out.println("feifei: "+feifeiContent);
+				feifeiContentArr.add(feifeiContent);
+				fileContentArr.add(fileContent);
 			}
+			feifeiContent = feifeiContentArr.get(tableIndex);
+			fileContent = fileContentArr.get(tableIndex);
 
 		} catch (IOException e) {
 			e.printStackTrace();

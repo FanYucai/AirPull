@@ -505,8 +505,10 @@ function submitForm() {
 																		用户附件
 																	</div>
 																</td>
-																<td width="626" id="fileForm"><br>
-																	<input type="file" id="uploadFile2" name="fileUploadTools.uploadFile" onchange="file_change(this)"  size="55">
+																<td width="626" id="fileForm">
+																	<div align="center">
+																		<input type="file" id="uploadFile2" name="fileUploadTools.uploadFile" onchange="file_change(this)"  size="55">
+																	</div>
 																</td>
 															</tr>
 														</table>
@@ -574,7 +576,80 @@ function submitForm() {
 																</td>
 															</tr>
 														</table>
-		
+														
+														<br/>
+														<p><h4>参数设置</h4></p>
+														<table>
+															<tr>
+																<td>表格class</td>
+																<td><input type="text" name="tableCustom" value="table_class"></td>
+															</tr>
+															<tr>
+																<td>行class</td>
+																<td><input type="text" name="trCustom" value="tr_class"></td>
+															</tr>
+															<tr>	
+																<td>单元格class</td>
+																<td><input type="text" name="tdCustom" value="td_class"></td>
+															</tr>															<tr>
+																<td>表格标签</td>
+																<td><input type="text" name="tableCustom" value="table"></td>
+															</tr>
+															<tr>
+																<td>行标签</td>
+																<td><input type="text" name="trCustom" value="tr"></td>
+															</tr>
+															<tr>	
+																<td>单元格标签</td>
+																<td><input type="text" name="tdCustom" value="td"></td>
+															</tr>
+															<!-- <tr>
+																<td>高级</td><input type="text" name="tableCustom" placeholder="table"></td>
+															</tr> -->
+														</table>
+														
+														<br/>
+														<p><h4>高级</h4></p>
+														<table>
+															<p><h4>CSS样式</h4></p>
+															<tr>
+																<td>表格ID:</td>
+																<td><input type="text" name="tableCustom" value="tableID"></td>
+															</tr>
+															<tr>
+																<td>行ID:</td>
+																<td><input type="text" name="trCustom" value="trID"></td>
+															</tr>
+															<tr>	
+																<td>单元格ID:</td>
+																<td><input type="text" name="tdCustom" value="tdID"></td>
+															</tr>
+															<tr>
+																<td>表格Attribute-Value键值对</td>
+																<td><input type="text" name="tableCustom" value="undefined"></td>
+															</tr>
+															<tr>
+																<td>行Attribute-Value键值对</td>
+																<td><input type="text" name="trCustom" value="undefined"></td>
+															</tr>
+															<tr>	
+																<td>单元格Attribute-Value键值对</td>
+																<td><input type="text" name="tdCustom" value="undefined"></td>
+															</tr>
+																																													<tr>
+																<td>表格Attribute-Value(正则表达式)</td>
+																<td><input type="text" name="tableCustom" value="undefined"></td>
+															</tr>
+															<tr>
+																<td>行Attribute-Value(正则表达式)</td>
+																<td><input type="text" name="trCustom" value="undefined"></td>
+															</tr>
+															<tr>	
+																<td>单元格Attribute-Value(正则表达式)</td>
+																<td><input type="text" name="tdCustom" value="undefined"></td>
+															</tr>
+														</table>														
+														
 													<!-- 上传文件，最近一次加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
 												</div>
 
