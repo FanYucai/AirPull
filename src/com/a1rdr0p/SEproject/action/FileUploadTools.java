@@ -101,24 +101,42 @@ public class FileUploadTools {
 			Document doc = Jsoup.parse(target, "UTF-8", "");
 
 			Elements bigTable = doc.getElementsByAttributeValue("class", "bot_line");
-			Elements gradeItem = bigTable.get(0).getElementsByTag("tr");
+			Elements trItem = bigTable.get(0).getElementsByTag("tr");
 			String tmp_ = "";
 
-			for (int i = 0; i < gradeItem.size(); i++) {
-				Elements itemInItem;
+			for (int i = 0; i < trItem.size(); i++) {
+				Elements tdItem;
 				if(i==0) {
-					itemInItem = gradeItem.get(i).getElementsByTag("th");
+					tdItem = trItem.get(i).getElementsByTag("th");
 				} else {
-					itemInItem = gradeItem.get(i).getElementsByTag("td");
+					tdItem = trItem.get(i).getElementsByTag("td");
 				}
 				tmp_ = "";
-				for (int j = 0; j < itemInItem.size(); j++) {
-					System.out.println(itemInItem.get(j).html());
-					if (j!=itemInItem.size()-1)
-						tmp_ += itemInItem.get(j).text() + "@";
-					else
-						tmp_ += itemInItem.get(j).text();
-					fileContent += itemInItem.get(j).text() + "\t";	
+				for (int j = 0; j < tdItem.size(); j++) {
+					System.out.println(tdItem.get(j).html());
+					if (j!=tdItem.size()-1) {
+						tmp_ += tdItem.get(j).text();
+						if(tdItem.get(j).hasAttr("colspan")||tdItem.get(j).hasAttr("rowspan")) {
+							String rowspan="", colspan="";
+							rowspan = tdItem.get(j).attr("rowspan");
+							colspan = tdItem.get(j).attr("colspan");
+							String rowcolInfo = "{"+rowspan+","+colspan+"}";
+							tmp_ += rowcolInfo;
+						}
+						tmp_ += "@";						
+					} else {
+						tmp_ += tdItem.get(j).text();
+						if(tdItem.get(j).hasAttr("colspan")||tdItem.get(j).hasAttr("rowspan")) {
+							String rowspan="0", colspan="0";
+							rowspan = tdItem.get(j).attr("rowspan");
+							colspan = tdItem.get(j).attr("colspan");
+							String rowcolInfo = "{"+rowspan+","+colspan+"}";
+							tmp_ += rowcolInfo;
+						}
+					}
+					System.out.println("tmp:"+tmp_);
+					
+					fileContent += tdItem.get(j).text() + "\t";	
 				}
 				feifeiContent += tmp_+"$";
 				fileContent = fileContent + "\n";

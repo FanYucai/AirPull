@@ -271,9 +271,7 @@ function submitForm() {
 						</div>
 						<div class="media-body">
 							<h4 class="media-heading">Step 1</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-								Iure aperiam consequatur quo quis exercitationem reprehenderit
-								dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
+							<p>打开冰箱</p>
 						</div>
 					</div>
 					<div class="media">
@@ -282,9 +280,7 @@ function submitForm() {
 						</div>
 						<div class="media-body">
 							<h4 class="media-heading">Step2</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-								Iure aperiam consequatur quo quis exercitationem reprehenderit
-								dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
+							<p>把大象放进冰箱</p>
 						</div>
 					</div>
 					<div class="media">
@@ -293,9 +289,7 @@ function submitForm() {
 						</div>
 						<div class="media-body">
 							<h4 class="media-heading">Step 3</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-								Iure aperiam consequatur quo quis exercitationem reprehenderit
-								dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
+							<p>关上冰箱</p>
 						</div>
 					</div>
 					<div class="media">
