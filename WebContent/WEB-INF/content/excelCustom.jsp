@@ -209,19 +209,15 @@ element.innerHTML = "";
 }    
     
 //添加行    
-function AddRow(table, index){    
+function Addrow(table, index){    
 var lastRow = table.rows[table.rows.length-1];    
 var newRow = lastRow.cloneNode(true);    
-//计算新增加行的序号，需要引入jquery 的jar包  
-var startIndex = $.inArray(lastRow,table.rows);  
-var endIndex = table.rows;   
-nbsp;table.tBodies[0].appendChild(newRow);    
-newRow.cells[0].innerHTML=endIndex-startIndex;  
+table.tBodies[0].appendChild(newRow);    
+newRow.cells[1].innerHTML='fuck';  
 SetRowCanEdit(newRow);    
 return newRow;    
     
 }    
-    
     
 //删除行    
 function DeleteRow(table, index){    
@@ -421,6 +417,7 @@ return retstr.replace(/^,+/,'').replace(/\.$/,'');
 <form action="exportExcel" method="post">
 	<%-- <input type="hidden" name="fileContent" value='<s:property value="fileUploadToolsCustom.fileContent"/>' > --%>
 	<input type="button" name="Submit2" value="删除" onclick="DeleteRow(document.getElementById('tabProduct'),1)" />   
+	<input type="button" name="Submit2" value="添行" onclick="Addrow(document.getElementById('tabProduct'),1)" />   
 	<input type="button" name="Submit22" value="重置" onclick="window.location.reload()" />
 	<input id="fan2dog" type="hidden" name="fileContent" value="" >
 	<button type="submit" onclick="Str(document.getElementById('tabProduct'))">导出</button>
