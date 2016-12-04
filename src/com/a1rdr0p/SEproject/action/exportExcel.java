@@ -45,12 +45,13 @@ public class exportExcel implements Action {
 		HSSFSheet sheet = wb.createSheet();
 		HSSFPatriarch patriarch = sheet.createDrawingPatriarch();
 		sheet.addMergedRegion(new CellRangeAddress(1,1,6,7));
+		
 		for(int i=0; i<10; i++) {
 			HSSFRow r = sheet.createRow(i);
 			for(int k=0; k<10; k++) {
 				HSSFCell c = r.createCell(k);
 				HSSFComment comment = patriarch.createComment(new HSSFClientAnchor(0, 0, 0, 0, (short)1, 2, (short)4, 4));
-		        comment.setString(new HSSFRichTextString("qweqweqweqwe"));
+		        comment.setString(new HSSFRichTextString(String.valueOf(i)+','+String.valueOf(k)));
 		        c.setCellComment(comment);
 				String value = "123";
 				c.setCellValue(value);
