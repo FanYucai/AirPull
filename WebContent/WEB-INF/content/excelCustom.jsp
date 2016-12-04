@@ -480,7 +480,7 @@ for (i=1;i<=row;i++){
 	htmlstr+='<td align="center" bgcolor="#FFFFFF"><input type="checkbox" value="checkbox" /></td>';
 	for (j=1;j<=col;j++){
 		var w=col*i+j;
-		htmlstr+='<td bgcolor="#FFFFFF">'+ tempstr.substring(index[w-1]+1,index[w])+'</td>';
+		htmlstr+='<td bgcolor="#FFFFFF" EditType="TextBox">'+ tempstr.substring(index[w-1]+1,index[w])+'</td>';
 	}
 	htmlstr+='</tr>';
 }
