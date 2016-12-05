@@ -360,11 +360,13 @@ for (var k = table.rows.item(0).cells.length - 1; k>= 0; k --)
 function Str(table){
     var tableInfo = "";
     for (var i = 0; i < table.rows.length; i++) {    //遍历Table的所有Row
-        for (var j = 0; j < table.rows[i].cells.length; j++) {   //遍历Row中的每一列
+        for (var j = 0; j < table.rows[i].cells.length-1; j++) {   //遍历Row中的每一列
             tableInfo += table.rows[i].cells[j].innerText;   //获取Table中单元格的内容
-            tableInfo += "\t";
+            tableInfo += "{"+table.rows[i].cells[j].rowSpan+","+table.rows[i].cells[j].colSpan+"}@";
         }
-        tableInfo += "\n";
+        tableInfo += table.rows[i].cells[j].innerText; 
+        tableInfo += "{"+table.rows[i].cells[j].rowSpan+","+table.rows[i].cells[j].colSpan+"}";
+        tableInfo += "$";
     }
     output=tableInfo;
     document.getElementById('fan2dog').value=output;

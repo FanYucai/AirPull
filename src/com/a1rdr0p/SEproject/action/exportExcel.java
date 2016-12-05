@@ -45,7 +45,7 @@ public class exportExcel implements Action {
 		
 		HSSFSheet sheet = wb.createSheet();
 		HSSFPatriarch patriarch = sheet.createDrawingPatriarch();
-		fileContent = "123{1,1}@hhh{1,1}@asdflj{1,1}@hfajkd{1,1}$123{1,3}@{1,1}@asdf{1,1}@er32{1,1}$adsf{#qqwqwqwqw#1,1}@qwe{1,1}@sdfs{1,1}@qweq{1,1}$";
+		//fileContent = "123{1,1}@hhh{1,1}@asdflj{1,1}@hfajkd{1,1}$123{1,3}@{1,1}@asdf{1,1}@er32{1,1}$adsf{#qqwqwqwqw#1,1}@qwe{1,1}@sdfs{1,1}@qweq{1,1}$";
 		String[] rowStr = fileContent.split("\\$");
 		System.out.println("length:"+rowStr.length);
 		for(int i=0; i<rowStr.length; i++) {
@@ -53,15 +53,15 @@ public class exportExcel implements Action {
 			HSSFRow r = sheet.createRow(i);
 			String[] cellStr = rowStr[i].split("@");
 			for(int k=0; k<cellStr.length; k++) {
-				HSSFCell c = r.createCell(k);
-				String value = "123";
+				HSSFCell c;
+				String value = "";
 				if(cellStr[k].lastIndexOf("{") != -1) {
 					String info = cellStr[k].substring(cellStr[k].lastIndexOf('{'));
 					int rspan = 1, cspan = 1;
 					rspan = Integer.parseInt(String.valueOf(info.charAt(info.indexOf(',')-1)));
 					cspan = Integer.parseInt(String.valueOf(info.charAt(info.indexOf(',')+1)));
 					sheet.addMergedRegion(new CellRangeAddress(i,i+rspan-1,k,k+cspan-1));
-					
+					c = r.createCell(k);
 					value = cellStr[k].substring(0, cellStr[k].lastIndexOf('{'));
 					
 					if(info.charAt(1) == '#') {
@@ -69,10 +69,9 @@ public class exportExcel implements Action {
 						comment.setString(new HSSFRichTextString(info.substring(info.indexOf('#')+1, info.lastIndexOf('#')+1)));
 			        	c.setCellComment(comment);
 					}
-				}
-
-				c.setCellValue(value);
-				c.setCellStyle(style);
+					c.setCellValue(value);
+					c.setCellStyle(style);
+				} 
 			}
 		}
 		ByteArrayOutputStream os = new ByteArrayOutputStream();
