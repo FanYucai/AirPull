@@ -116,10 +116,39 @@ public class FileUploadToolsCustom {
 					tdCnt += tdElements.size();
 					tmp_ = "";
 					for (int j = 0; j < tdElements.size(); j++) {
-						if (j!=tdElements.size()-1)
-							tmp_ += tdElements.get(j).text() + "@";
-						else
+						if (j!=tdElements.size()-1) {
 							tmp_ += tdElements.get(j).text();
+							String rowspan="1", colspan="1";
+							if(tdElements.get(j).hasAttr("colspan")||tdElements.get(j).hasAttr("rowspan")) {	
+								rowspan = tdElements.get(j).attr("rowspan");
+								colspan = tdElements.get(j).attr("colspan");
+							
+								if(rowspan.isEmpty()) {
+									rowspan = "1";
+								}
+								if(colspan.isEmpty()) {
+									colspan = "1";
+								}
+							}
+							String rowcolInfo = "{"+rowspan+","+colspan+"}";
+							tmp_ += rowcolInfo+"@";						
+						} else {
+							String rowspan="1", colspan="1";
+							tmp_ += tdElements.get(j).text();
+							if(tdElements.get(j).hasAttr("colspan")||tdElements.get(j).hasAttr("rowspan")) {
+								rowspan = tdElements.get(j).attr("rowspan");
+								colspan = tdElements.get(j).attr("colspan");
+								if(rowspan.isEmpty()) {
+									rowspan = "1";
+								}
+								if(colspan.isEmpty()) {
+									colspan = "1";
+								}
+							}
+							String rowcolInfo = "{"+rowspan+","+colspan+"}";
+							tmp_ += rowcolInfo;											
+						}
+							
 						fileContent += tdElements.get(j).text() + "\t";	
 					}
 					feifeiContent += tmp_+"$";
@@ -142,7 +171,6 @@ public class FileUploadToolsCustom {
 			}
 			feifeiContent = feifeiContentArr.get(tableIndex);
 			fileContent = fileContentArr.get(tableIndex);
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

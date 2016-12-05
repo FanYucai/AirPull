@@ -120,6 +120,13 @@ public class FileUploadTools {
 							String rowspan="", colspan="";
 							rowspan = tdItem.get(j).attr("rowspan");
 							colspan = tdItem.get(j).attr("colspan");
+						
+							if(rowspan.isEmpty()) {
+								rowspan = "1";
+							}
+							if(colspan.isEmpty()) {
+								colspan = "1";
+							}
 							String rowcolInfo = "{"+rowspan+","+colspan+"}";
 							tmp_ += rowcolInfo;
 						}
@@ -127,19 +134,26 @@ public class FileUploadTools {
 					} else {
 						tmp_ += tdItem.get(j).text();
 						if(tdItem.get(j).hasAttr("colspan")||tdItem.get(j).hasAttr("rowspan")) {
-							String rowspan="0", colspan="0";
+							String rowspan="", colspan="";
 							rowspan = tdItem.get(j).attr("rowspan");
 							colspan = tdItem.get(j).attr("colspan");
+						
+							if(rowspan.isEmpty()) {
+								rowspan = "1";
+							}
+							if(colspan.isEmpty()) {
+								colspan = "1";
+							}
 							String rowcolInfo = "{"+rowspan+","+colspan+"}";
 							tmp_ += rowcolInfo;
 						}
 					}
-					System.out.println("tmp:"+tmp_);
 					
 					fileContent += tdItem.get(j).text() + "\t";	
 				}
 				feifeiContent += tmp_+"$";
 				fileContent = fileContent + "\n";
+				System.out.println(tmp_);
 			}
 			
 			
