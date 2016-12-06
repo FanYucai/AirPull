@@ -49,40 +49,11 @@ public class exportExcel implements Action {
 
 		HSSFSheet sheet = wb.createSheet();
 		HSSFPatriarch patriarch = sheet.createDrawingPatriarch();
-		fileContent = "123{1,1}@hhh{1,1}@asdflj{1,1}@hfajkd{1,1}$123{1,3}@{1,1}@{1,1}@er32{1,1}$adsf{#qqwqwqwqw#1,1}@qwe{1,1}@sdfs{1,1}@qweq{1,1}$";
+	//	fileContent = "123{1,1}@hhh{1,1}@asdflj{1,1}@hfajkd{1,1}$123{1,3}@{1,1}@{1,1}@er32{1,1}$adsf{#qqwqwqwqw#1,1}@qwe{1,1}@sdfs{1,1}@qweq{1,1}$";
 		String[] rowStr = fileContent.split("\\$");
 		System.out.println("length:"+rowStr.length);
 
-//------------------------ pre-operation begins -----------------------------		
-//		int[] rowMap = new int[1000];
-//		int[] colMap = new int[1000];
-//		String fileContentDup = new String();
-//		fileContentDup = fileContent;
-//		int rowCnt = 0;
-//		while(true) {
-//			int dollari = fileContentDup.indexOf("$");
-//
-//			String tarStr = fileContentDup.substring(0, dollari+1);
-//			String tarStrDup = fileContentDup.substring(0, dollari+1);
-//			
-//			while(tarStrDup.indexOf("@") != -1) {
-//				
-//				tarStrDup = tarStrDup.substring(tarStrDup.indexOf("@")+1);
-//			}
-//			
-//			
-//			while(tarStr.indexOf("{"+String.valueOf(rowCnt)) == -1) {
-//				rowCnt++;
-//			}//find minimal left digits of {[0-9]+, [0-9]+}
-//			
-//
-//			if(fileContentDup.length() > dollari+1)
-//				fileContentDup = fileContentDup.substring(dollari+1);
-//			else
-//				break;
-//		}
-//		
-//-------------------------- pre-operation ends -----------------------------		
+
 		
 
 //-------------------- createExcel begins -----------------------------		

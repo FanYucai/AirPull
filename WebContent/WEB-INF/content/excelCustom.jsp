@@ -359,7 +359,37 @@ for (var k = table.rows.item(0).cells.length - 1; k>= 0; k --)
 // 导出当表格的内容为一个字符串
 function Str(table){
     var tableInfo = "";
-    for (var i = 0; i < table.rows.length; i++) {    //遍历Table的所有Row
+ //   alert(table.rows.item(0).cells.length);
+    var n = table.rows.length;
+    var m = table.rows.item(0).cells.length;
+	var flag = [];
+	for (var i = 0; i<n ; i++){
+		flag[i]= [];
+		for (var j = 0 ;j< m ;j++){
+			flag[i][j]=["0","0",""];
+		}
+	}
+	for (var i = 0; i < table.rows.length; i++)    
+        for (var j = 0; j < table.rows[i].cells.length; j++) {   
+            var text = table.rows[i].cells[j].innerText;
+            var pos = j;
+            while (flag[i][pos][0]!="0"&&flag[i][pos][1]!="0") pos+=1;
+            flag[i][pos]=[table.rows[i].cells[j].rowSpan,table.rows[i].cells[j].colSpan,text];
+            var tn=parseInt(table.rows[i].cells[j].rowSpan);
+            var tm=parseInt(table.rows[i].cells[j].colSpan);
+            for (var o = 0;o<tn ;o++)
+            	for (var p= 0;p<tm;p++){
+            		if (o+p!=0)
+            			flag[i+o][pos+p]=["1","1",""];
+            	}
+        }
+	for (var i=0;i<n;i++){
+		for (var j=0;j<m-1;j++){
+			tableInfo += flag[i][j][2]+"{"+flag[i][j][0]+","+flag[i][j][1]+"}"+"@";
+		}
+		tableInfo += flag[i][m-1][2]+"{"+flag[i][m-1][0]+","+flag[i][m-1][1]+"}"+"$";
+	}
+    /* for (var i = 0; i < table.rows.length; i++) {    //遍历Table的所有Row
         for (var j = 0; j < table.rows[i].cells.length-1; j++) {   //遍历Row中的每一列
             tableInfo += table.rows[i].cells[j].innerText;   //获取Table中单元格的内容
             tableInfo += "{"+table.rows[i].cells[j].rowSpan+","+table.rows[i].cells[j].colSpan+"}@";
@@ -367,7 +397,7 @@ function Str(table){
         tableInfo += table.rows[i].cells[j].innerText; 
         tableInfo += "{"+table.rows[i].cells[j].rowSpan+","+table.rows[i].cells[j].colSpan+"}";
         tableInfo += "$";
-    }
+    } */
     output=tableInfo;
     document.getElementById('fan2dog').value=output;
     return tableInfo;
