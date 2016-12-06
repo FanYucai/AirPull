@@ -41,18 +41,56 @@ public class exportExcel implements Action {
 		HSSFCellStyle style = wb.createCellStyle();
 		style.setVerticalAlignment(HSSFCellStyle.VERTICAL_CENTER);
 		style.setAlignment(HSSFCellStyle.ALIGN_CENTER);
-//		style.setAlignment(HSSFCellStyle.VERTICAL_JUSTIFY);
 		
+		Boolean occupied[][]= new Boolean[1000][1000];
+		for(int i=0; i<1000; i++) 
+			for(int j=0; j<1000; j++) 
+				occupied[i][j] = false;
+
 		HSSFSheet sheet = wb.createSheet();
 		HSSFPatriarch patriarch = sheet.createDrawingPatriarch();
-		//fileContent = "123{1,1}@hhh{1,1}@asdflj{1,1}@hfajkd{1,1}$123{1,3}@{1,1}@asdf{1,1}@er32{1,1}$adsf{#qqwqwqwqw#1,1}@qwe{1,1}@sdfs{1,1}@qweq{1,1}$";
+		fileContent = "123{1,1}@hhh{1,1}@asdflj{1,1}@hfajkd{1,1}$123{1,3}@{1,1}@{1,1}@er32{1,1}$adsf{#qqwqwqwqw#1,1}@qwe{1,1}@sdfs{1,1}@qweq{1,1}$";
 		String[] rowStr = fileContent.split("\\$");
 		System.out.println("length:"+rowStr.length);
+
+//------------------------ pre-operation begins -----------------------------		
+//		int[] rowMap = new int[1000];
+//		int[] colMap = new int[1000];
+//		String fileContentDup = new String();
+//		fileContentDup = fileContent;
+//		int rowCnt = 0;
+//		while(true) {
+//			int dollari = fileContentDup.indexOf("$");
+//
+//			String tarStr = fileContentDup.substring(0, dollari+1);
+//			String tarStrDup = fileContentDup.substring(0, dollari+1);
+//			
+//			while(tarStrDup.indexOf("@") != -1) {
+//				
+//				tarStrDup = tarStrDup.substring(tarStrDup.indexOf("@")+1);
+//			}
+//			
+//			
+//			while(tarStr.indexOf("{"+String.valueOf(rowCnt)) == -1) {
+//				rowCnt++;
+//			}//find minimal left digits of {[0-9]+, [0-9]+}
+//			
+//
+//			if(fileContentDup.length() > dollari+1)
+//				fileContentDup = fileContentDup.substring(dollari+1);
+//			else
+//				break;
+//		}
+//		
+//-------------------------- pre-operation ends -----------------------------		
+		
+
+//-------------------- createExcel begins -----------------------------		
 		for(int i=0; i<rowStr.length; i++) {
 			System.out.println(rowStr[i]);
 			HSSFRow r = sheet.createRow(i);
 			String[] cellStr = rowStr[i].split("@");
-			for(int k=0; k<cellStr.length; k++) {
+			for(int k=0; k<cellStr.length; k++) { 
 				HSSFCell c;
 				String value = "";
 				if(cellStr[k].lastIndexOf("{") != -1) {
@@ -60,6 +98,7 @@ public class exportExcel implements Action {
 					int rspan = 1, cspan = 1;
 					rspan = Integer.parseInt(String.valueOf(info.charAt(info.indexOf(',')-1)));
 					cspan = Integer.parseInt(String.valueOf(info.charAt(info.indexOf(',')+1)));
+
 					sheet.addMergedRegion(new CellRangeAddress(i,i+rspan-1,k,k+cspan-1));
 					c = r.createCell(k);
 					value = cellStr[k].substring(0, cellStr[k].lastIndexOf('{'));
@@ -74,6 +113,8 @@ public class exportExcel implements Action {
 				} 
 			}
 		}
+//-------------------- createExcel ends -----------------------------
+		
 		ByteArrayOutputStream os = new ByteArrayOutputStream();
 		wb.write(os);
 		byte[] content = os.toByteArray();
