@@ -12,7 +12,7 @@ import org.jsoup.select.Elements;
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
-public class FileUploadTools {
+public class FileUploadToolsJiaowuchu {
 	private String username = "qwqdefault";
 	private String fileContent = "";
 	private String feifeiContent = "";
@@ -47,11 +47,11 @@ public class FileUploadTools {
 		this.uploadFile = uploadFile;
 	}
 
-	public String getUploadFileFileName() {
+	public String getuploadFileFileName() {
 		return uploadFileFileName;
 	}
 
-	public void setUploadFileFileName(String uploadFileFileName) {
+	public void setuploadFileFileName(String uploadFileFileName) {
 		this.uploadFileFileName = uploadFileFileName;
 	}
 

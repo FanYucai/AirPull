@@ -10,7 +10,7 @@ public class UploadActionCustom extends ActionSupport {
     // 声明封装了File上传的FileUploadToolsCustom类的实例
     // FileUploadToolsCustom类也封装了上传的属性及get和set方法
     private FileUploadToolsCustom FileUploadToolsCustom = new FileUploadToolsCustom();
-    String qwqresult =  UploadActionCustom.class.getResource("UploadTest2Action.class").toString();
+    String qwqresult =  UploadActionCustom.class.getResource("UploadActionCustom.class").toString();
     
     public FileUploadToolsCustom getFileUploadToolsCustom() {
         return FileUploadToolsCustom;

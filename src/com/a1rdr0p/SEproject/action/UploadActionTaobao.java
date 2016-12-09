@@ -10,7 +10,7 @@ public class UploadActionTaobao extends ActionSupport {
     // 声明封装了File上传的FileUploadToolsTaobao类的实例
     // FileUploadToolsTaobao类也封装了上传的属性及get和set方法
     private FileUploadToolsTaobao FileUploadToolsTaobao = new FileUploadToolsTaobao();
-    String qwqresult =  UploadActionTaobao.class.getResource("UploadTest2Action.class").toString();
+    String qwqresult =  UploadActionTaobao.class.getResource("UploadActionTaobao.class").toString();
     
     public FileUploadToolsTaobao getFileUploadToolsTaobao() {
         return FileUploadToolsTaobao;
