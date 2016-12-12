@@ -152,8 +152,8 @@
 		</action>
 
 		<!-- =============== -->
-		<action name="uploadT2" class="com.a1rdr0p.SEproject.action.UploadTest2Action">
-			<result>/WEB-INF/content/afterPull.jsp</result>
+		<action name="uploadJiaowuchu" class="com.a1rdr0p.SEproject.action.UploadActionJiaowuchu">
+			<result>/WEB-INF/content/afterPullJiaowuchu.jsp</result>
 		</action>
 		<!-- =============== -->
 		
