@@ -392,7 +392,7 @@ function submitForm() {
  						<div class="col-sm-6 col-md-3 isotope-item web-design">
 							<div class="image-box">
 								<div class="overlay-container">
-									<img src="images/taobao1.jpg" alt=""> <a class="overlay"
+									<img src="images/taobao2.jpeg" alt=""> <a class="overlay"
 										data-toggle="modal" data-target="#project-1"> <i
 										class="fa fa-search-plus"></i> <span>Web Design</span>
 									</a>
@@ -413,7 +413,6 @@ function submitForm() {
 											<h4 class="modal-title" id="project-1-label">Project
 												Title</h4>
 										</div>
-										
 										<div class="modal-body">
 											<h3>Project Description</h3>
 											<div class="row">
@@ -421,30 +420,26 @@ function submitForm() {
 													<!-- 上传文件，最近添加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
 													<s:form action="uploadTaobao" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
 														<br />
-														<table width="450" border="1">
+														<table width="818" border="1">
 															<tr>
-																<td width="150">
+																<td width="176">
 																	<div align="center">
 																		用户附件
 																	</div>
 																</td>
-																<td width="300" id="fileForm"><br>
+																<td width="626" id="fileForm"><br>
 																	<input type="file" id="uploadFileTaobao" name="fileUploadToolsTaobao.uploadFile" onchange="file_change(this)"  size="55">
 																</td>
 															</tr>
 														</table>
-
-														<br />
-														<!-- <div id="progressbar">qw</div> -->
-														<br />
-														<div id="progressDetail" class="demo-description">
-															<!-- <p>进度详细信息显示于此......</p> -->
-														</div>
+														
+														<br/>
+														
 													<!-- 上传文件，最近一次加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
 												</div>
 
 												<div class="col-md-6">
-													<img src="images/taobao1.jpg" alt="">
+													<img src="images/taobao2.jpeg" alt="">
 												</div>
 											</div>											
 										</div>
@@ -456,7 +451,6 @@ function submitForm() {
 									</div>
 								</div>
 							</div>
-							
 							<!-- Modal end -->
 						</div>
 					
@@ -672,7 +666,7 @@ function submitForm() {
 								<a class="btn btn-default btn-block" data-toggle="modal"
 									data-target="#project-4">查看守望先锋战绩</a>
 							</div>
-							<!-- Modal -->
+						<!-- Modal -->
 							<div class="modal fade" id="project-4" tabindex="-1"
 								role="dialog" aria-labelledby="project-4-label"
 								aria-hidden="true">
@@ -689,33 +683,37 @@ function submitForm() {
 											<h3>Project Description</h3>
 											<div class="row">
 												<div class="col-md-6">
-													<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-														elit. Atque sed, quidem quis praesentium, ut unde. Quae
-														sed, incidunt laudantium nesciunt, optio corporis quod
-														earum pariatur omnis illo saepe numquam suscipit, nemo
-														placeat dignissimos eius mollitia et quas officia
-														doloremque ipsum labore rem deserunt vero! Magnam totam
-														delectus accusantium voluptas et, tempora quos atque,
-														fugiat, obcaecati voluptatibus commodi illo voluptates
-														dolore nemo quo soluta quis.</p>
-													<p>Molestiae sed enim laboriosam atque delectus
-														voluptates rerum nostrum sapiente obcaecati molestias
-														quasi optio exercitationem, voluptate quis consequatur
-														libero incidunt, in, quod. Lorem ipsum dolor sit amet,
-														consectetur adipisicing elit. Eos nobis officiis, autem
-														earum tenetur quidem. Quae non dicta earum. Ipsum autem
-														eaque cum dolor placeat corporis quisquam dolorum at
-														nesciunt.</p>
+													<!-- 上传文件，最近添加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
+													<s:form action="uploadOw" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
+														<br />
+														<table width="818" border="1">
+															<tr>
+																<td width="176">
+																	<div align="center">
+																		用户附件
+																	</div>
+																</td>
+																<td width="626" id="fileForm"><br>
+																	<input type="file" id="uploadFileOw" name="fileUploadToolsOw.uploadFile" onchange="file_change(this)"  size="55">
+																</td>
+															</tr>
+														</table>
+														
+														<br/>
+														
+													<!-- 上传文件，最近一次加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
 												</div>
+
 												<div class="col-md-6">
 													<img src="images/overwatch.jpg" alt="">
 												</div>
-											</div>
+											</div>											
 										</div>
+
 										<div class="modal-footer">
-											<button type="button" class="btn btn-sm btn-default"
-												data-dismiss="modal">Close</button>
+											<button type="submit" class="btn btn-sm btn-default">AirPull it</button>
 										</div>
+										</s:form>
 									</div>
 								</div>
 							</div>
@@ -816,7 +814,7 @@ function submitForm() {
 											<div class="row">
 												<div class="col-md-6">
 													<!-- 上传文件，最近添加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
-													<s:form action="uploadAlipay" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
+													<s:form action="uploadHs" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
 														<br />
 														<table width="818" border="1">
 															<tr>
@@ -826,7 +824,7 @@ function submitForm() {
 																	</div>
 																</td>
 																<td width="626" id="fileForm"><br>
-																	<input type="file" id="uploadFileAlipay" name="fileUploadToolsAlipay.uploadFile" onchange="file_change(this)"  size="55">
+																	<input type="file" id="uploadFileHs" name="fileUploadToolsHs.uploadFile" onchange="file_change(this)"  size="55">
 																</td>
 															</tr>
 														</table>
@@ -855,7 +853,7 @@ function submitForm() {
 						<div class="col-sm-6 col-md-3 isotope-item site-building">
 							<div class="image-box">
 								<div class="overlay-container">
-									<img src="images/portfolio-7.jpg" alt=""> <a
+									<img src="images/port.jpg" alt=""> <a
 										class="overlay" data-toggle="modal" data-target="#project-7">
 										<i class="fa fa-search-plus"></i> <span>Site Building</span>
 									</a>
@@ -947,7 +945,7 @@ function submitForm() {
 											<div class="row">
 												<div class="col-md-6">
 													<!-- 上传文件，最近添加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
-													<s:form action="uploadAlipay" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
+													<s:form action="uploadJd" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
 														<br />
 														<table width="818" border="1">
 															<tr>
@@ -957,7 +955,7 @@ function submitForm() {
 																	</div>
 																</td>
 																<td width="626" id="fileForm"><br>
-																	<input type="file" id="uploadFileAlipay" name="fileUploadToolsAlipay.uploadFile" onchange="file_change(this)"  size="55">
+																	<input type="file" id="uploadFileJd" name="fileUploadToolsJd.uploadFile" onchange="file_change(this)"  size="55">
 																</td>
 															</tr>
 														</table>
