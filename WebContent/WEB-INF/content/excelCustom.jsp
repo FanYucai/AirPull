@@ -319,8 +319,8 @@ function Addrow(table, index){
 var lastRow = table.rows[table.rows.length-1];    
 var newRow = lastRow.cloneNode(true);    
 table.tBodies[0].appendChild(newRow);    
-newRow.cells[1].innerHTML='fuck';  
-SetRowCanEdit(newRow);    
+newRow.cells[1].innerHTML='fuck';
+SetRowCanEdit(newRow);
 return newRow;    
     
 }    
@@ -333,6 +333,42 @@ for(var i=table.rows.length - 1; i>=0;i--){
     if(chkOrder.type = "CHECKBOX"){    
      if(chkOrder.checked){    
       //执行删除    
+      for (var a=0;a<i;a++){
+    	  for (var b=0;b<table.rows[a].cells.length;b++){
+        	  var o = parseInt(table.rows[a].cells[b].rowSpan);
+        	  var p = parseInt(table.rows[b].cells[b].colSpan);    		  
+    		  if (o+a>i) {
+    			  o=o-1;
+    			  table.rows[a].cells[b].rowSpan=o.toString();
+    		  }
+    	  }
+      }
+      var coltmp=0;
+      for (var j=0;j<table.rows[i].cells.length;j++){
+    	  var o = parseInt(table.rows[i].cells[j].rowSpan);
+    	  var p = parseInt(table.rows[i].cells[j].colSpan);
+    	  coltmp+=p;
+    	  if (o>1){
+    		  o=o-1;
+    		  var tmp=0;
+    		  var pos=0;
+    		  for (var k=0;k<table.rows[i+1].cells.length;k++){
+    			  tmp+=parseInt(table.rows[i+1].cells[k].colSpan);
+    			  pos = k;
+    			  if (tmp==coltmp)
+    				  break;
+    		  }
+    		  table.rows[i+1].insertCell(pos);
+    		  table.rows[i+1].cells[pos].innerHTML=table.rows[i].cells[j].innerHTML;
+    		  table.rows[i+1].cells[pos].setAttribute("align", "center");	  
+    		  table.rows[i+1].cells[pos].setAttribute("bgcolor", "#FFFFFF");
+    		  table.rows[i+1].cells[pos].setAttribute("width", "100");
+    		  table.rows[i+1].cells[pos].setAttribute("EditType", "TextBox");
+    		  EditTables(table);
+    		  table.rows[i+1].cells[pos].rowSpan=o.toString();
+    	  }
+      }
+      
       table.deleteRow(i);    
      }    
     }    
