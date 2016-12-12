@@ -398,8 +398,9 @@ for(var i=table.rows.length - 1; i>=0;i--){
     		  table.rows[i+1].cells[pos].setAttribute("bgcolor", "#FFFFFF");
     		  table.rows[i+1].cells[pos].setAttribute("width", "100");
     		  table.rows[i+1].cells[pos].setAttribute("EditType", "TextBox");
-    		  EditTables(table);
     		  table.rows[i+1].cells[pos].rowSpan=o.toString();
+    		  table.rows[i+1].cells[pos].colSpan=p.toString();
+    		  EditTables(table);
     	  }
       }
       
@@ -408,21 +409,126 @@ for(var i=table.rows.length - 1; i>=0;i--){
     }    
    }    
 }    
-for (var k = table.rows.item(0).cells.length - 1; k>= 0; k --)
+for (var k = table.rows.item(0).cells.length-1; k>=0; k--)
 {
 	var tmp = table.rows[0].cells[k].firstChild;
 	if (tmp){
 		if (tmp.type = "CHECKBOX"){
 			if (tmp.checked){
-				for (var i= table.rows.length-1;i>=0;i --){
-					table.rows[i].deleteCell(k);
+			    var n = table.rows.length;
+			    var m = table.rows.item(0).cells.length;
+				var flag = [];
+				var bj = [];
+				for (var i = 0; i<n ; i++){
+					flag[i]= [];
+					bj[i] = -1;
+					for (var j = 0 ;j< m ;j++){
+						flag[i][j]=[0,0,0,0];
+					}
 				}
+				for (var i = 0; i < table.rows.length; i++)    
+			        for (var j = 0; j < table.rows[i].cells.length; j++) {   
+			            var text = table.rows[i].cells[j].innerText;
+			            var pos = j;
+			            while (flag[i][pos][0]!=0&&flag[i][pos][1]!=0) pos+=1;
+			            flag[i][pos]=[i,j,parseInt(table.rows[i].cells[j].rowSpan),parseInt(table.rows[i].cells[j].colSpan)];
+			            var tn=parseInt(table.rows[i].cells[j].rowSpan);
+			            var tm=parseInt(table.rows[i].cells[j].colSpan);
+			            for (var o = 0;o<tn ;o++)
+			            	for (var p= 0;p<tm;p++){
+			            		if (o+p!=0)
+			            			flag[i+o][pos+p]=[i,j,-1,-1];
+			            	}
+			        }
+				for (var i=0; i< table.rows.length;i++)
+					if (bj[i]==-1){
+						if (flag[i][k][2]==-1&&flag[i][k][3]==-1){
+							var aimCell = table.rows[flag[i][k][0]].cells[flag[i][k][1]];
+							aimCell.colSpan=(parseInt(aimCell.colSpan)-1).toString();
+							var len = aimCell.rowSpan;
+							for (tmp = 0;tmp <len ; tmp++)
+								bj[i+tmp]=0;
+						} else
+						if (flag[i][k][3]==1){
+							var a = flag[i][k][0];
+							var b = flag[i][k][1];
+							var aimCell = table.rows[a].cells[b];
+							var len = aimCell.rowSpan;
+							for (tmp = 0;tmp <len ; tmp++)
+								bj[i+tmp]=0;
+							table.rows[a].deleteCell(b);
+						} else{
+							var a = flag[i][k][0];
+							var b = flag[i][k][1];
+							var tmplen = flag[i][k][3];
+							var aimCell = table.rows[a].cells[b];
+							var len = aimCell.rowSpan;
+							for (tmp = 0;tmp <len ; tmp++)
+								bj[i+tmp]=0;
+							tmplen = tmplen -1;
+							table.rows[a].insertCell(b+1);
+							table.rows[a].cells[b+1].innerHTML = table.rows[a].cells[b].innerHTML;
+							table.rows[a].cells[b+1].rowSpan = table.rows[a].cells[b].rowSpan;
+							table.rows[a].cells[b+1].colSpan = tmplen.toString();
+							table.rows[a].cells[b+1].setAttribute("align", "center");
+							table.rows[a].cells[b+1].setAttribute("bgcolor", "#FFFFFF");
+							table.rows[a].cells[b+1].setAttribute("width", "100");
+							table.rows[a].cells[b+1].setAttribute("EditType", "TextBox");
+							table.rows[a].deleteCell(b);
+							EditTables(table);
+						}
+					} 
+				
+/* 				  for (var a=0;a<table.rows.length;a++){
+					  var rowtmp=0;
+					  for (var b=0;b<k;b++){
+			        	  var o = parseInt(table.rows[a].cells[b].rowSpan);
+			        	  var p = parseInt(table.rows[b].cells[b].colSpan);
+			        	  rowtmp+=p;
+			    		  if (rowtmp>i) {
+			    			  p=p-1;
+			    			  table.rows[a].cells[b].colSpan=p.toString();
+			    		  }
+			    	  }
+			      }
+			      var rowtmp=0;
+			      for (var j=0;j<table.rows[i].cells.length;j++){
+			    	  var o = parseInt(table.rows[i].cells[j].rowSpan);
+			    	  var p = parseInt(table.rows[i].cells[j].colSpan);
+			    	  coltmp+=p;
+			    	  if (o>1){
+			    		  o=o-1;
+			    		  var tmp=0;
+			    		  var pos=0;
+			    		  for (var k=0;k<table.rows[i+1].cells.length;k++){
+			    			  tmp+=parseInt(table.rows[i+1].cells[k].colSpan);
+			    			  pos = k;
+			    			  if (tmp==coltmp)
+			    				  break;
+			    		  }
+			    		  table.rows[i+1].insertCell(pos);
+			    		  table.rows[i+1].cells[pos].innerHTML=table.rows[i].cells[j].innerHTML;
+			    		  table.rows[i+1].cells[pos].setAttribute("align", "center");	  
+			    		  table.rows[i+1].cells[pos].setAttribute("bgcolor", "#FFFFFF");
+			    		  table.rows[i+1].cells[pos].setAttribute("width", "100");
+			    		  table.rows[i+1].cells[pos].setAttribute("EditType", "TextBox");
+			    		  table.rows[i+1].cells[pos].rowSpan=o.toString();
+			    		  table.rows[i+1].cells[pos].colSpan=p.toString();
+			    		  EditTables(table);
+			    	  }
+			      }
+				
+				
+				
+				
+				for (var i=0;i<table.rows.length;i++){
+					table.rows[i].deleteCell(k);
+				} */
 			}
 		}
 	}
 
 }
-//Str(table);
 }
 
 
