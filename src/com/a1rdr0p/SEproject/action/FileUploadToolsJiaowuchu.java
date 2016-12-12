@@ -47,11 +47,11 @@ public class FileUploadToolsJiaowuchu {
 		this.uploadFile = uploadFile;
 	}
 
-	public String getuploadFileFileName() {
+	public String getUploadFileFileName() {
 		return uploadFileFileName;
 	}
 
-	public void setuploadFileFileName(String uploadFileFileName) {
+	public void setUploadFileFileName(String uploadFileFileName) {
 		this.uploadFileFileName = uploadFileFileName;
 	}
 
