@@ -316,15 +316,49 @@ element.innerHTML = "";
     
 //添加行    
 function Addrow(table, index){    
-var lastRow = table.rows[table.rows.length-1];    
-var newRow = lastRow.cloneNode(true);    
-table.tBodies[0].appendChild(newRow);    
-newRow.cells[1].innerHTML='fuck';
+var Row = table.rows[1];
+var newRow = Row.cloneNode(true);
+table.tBodies[0].appendChild(newRow);
+var h = table.rows.length;
+for (var i=0;i<table.rows[h-1].cells.length;i++){
+	table.rows[h-1].cells[i].setAttribute("bgcolor", "#FFFFFF");
+	if (i!=0) table.rows[h-1].cells[i].innerHTML='';
+}
 SetRowCanEdit(newRow);
 return newRow;    
     
-}    
-    
+}
+
+//添加列
+function Addcol(table){    
+	for (var i=0;i<table.rows.length;i++){
+		var l = table.rows[i].cells.length;
+		table.rows[i].insertCell(l);
+		if (i==0){
+			table.rows[i].cells[l].setAttribute("align", "center");
+			table.rows[i].cells[l].setAttribute("width", "100");
+			table.rows[i].cells[l].setAttribute("bgcolor", "#FFFFFF");
+			table.rows[i].cells[l].innerHTML='<input type="checkbox" value="checkbox"/>';
+		} else
+		if (i==1){
+			table.rows[i].cells[l].setAttribute("align", "center");
+			table.rows[i].cells[l].setAttribute("width", "100");
+			table.rows[i].cells[l].setAttribute("bgcolor", "#EFEFEF");
+			table.rows[i].cells[l].setAttribute("EditType", "TextBox");
+			table.rows[i].cells[l].innerHTML='';
+		} else{
+			table.rows[i].cells[l].setAttribute("align", "center");
+			table.rows[i].cells[l].setAttribute("width", "100");
+			table.rows[i].cells[l].setAttribute("bgcolor", "#FFFFFF");
+			table.rows[i].cells[l].setAttribute("EditType", "TextBox");
+			table.rows[i].cells[l].innerHTML='';
+		}
+	}
+	 EditTables(table);
+}
+
+
+
 //删除行    
 function DeleteRow(table, index){    
 for(var i=table.rows.length - 1; i>=0;i--){    
@@ -591,7 +625,8 @@ return retstr.replace(/^,+/,'').replace(/\.$/,'');
 <form action="exportExcel" method="post">
 	<%-- <input type="hidden" name="fileContent" value='<s:property value="fileUploadToolsCustom.fileContent"/>' > --%>
 	<input type="button" name="Submit2" value="删除" onclick="DeleteRow(document.getElementById('tabProduct'),1)" />   
-	<input type="button" name="Submit2" value="添行" onclick="Addrow(document.getElementById('tabProduct'),1)" />   
+	<input type="button" name="Submit2" value="添行" onclick="Addrow(document.getElementById('tabProduct'),1)" />
+	<input type="button" name="Submit2" value="添列" onclick="Addcol(document.getElementById('tabProduct'))" />   
 	<input type="button" name="Submit22" value="重置" onclick="window.location.reload()" />
 	<input id="fan2dog" type="hidden" name="fileContent" value="" >
 	<button type="submit" onclick="Str(document.getElementById('tabProduct'))">导出</button>
