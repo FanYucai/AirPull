@@ -162,7 +162,19 @@
 			<result>/WEB-INF/content/afterPullCustom.jsp</result>
 		</action>
 		<!-- =============== -->
-		
+		<action name="uploadOw" class="com.a1rdr0p.SEproject.action.UploadActionOw">
+			<result>/WEB-INF/content/afterPullOw.jsp</result>
+		</action>
+		<!-- =============== -->
+		<action name="uploadJd" class="com.a1rdr0p.SEproject.action.UploadActionJd">
+			<result>/WEB-INF/content/afterPullJd.jsp</result>
+		</action>
+		<!-- =============== -->
+		<action name="uploadHs" class="com.a1rdr0p.SEproject.action.UploadActionHs">
+			<result>/WEB-INF/content/afterPullHs.jsp</result>
+		</action>
+		<!-- =============== -->
+								
 		<!-- =============== -->
 		<action name="uploadTaobao" class="com.a1rdr0p.SEproject.action.UploadActionTaobao">
 			<result>/WEB-INF/content/afterPullTaobao.jsp</result>
