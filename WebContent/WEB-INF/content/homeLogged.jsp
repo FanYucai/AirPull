@@ -473,7 +473,7 @@ function submitForm() {
 							</div>
 							<!-- Modal -->
 							<div class="modal fade" id="project-2" tabindex="-1"
-								role="dialog" aria-labelledby="project-2-label"
+								role="dialog" aria-labelledby="project-3-label"
 								aria-hidden="true">
 								<div class="modal-dialog modal-lg">
 									<div class="modal-content">
@@ -481,10 +481,9 @@ function submitForm() {
 											<button type="button" class="close" data-dismiss="modal">
 												<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 											</button>
-											<h4 class="modal-title" id="project-2-label">Project
+											<h4 class="modal-title" id="project-3-label">Project
 												Title</h4>
 										</div>
-										
 										<div class="modal-body">
 											<h3>Project Description</h3>
 											<div class="row">
@@ -499,14 +498,14 @@ function submitForm() {
 																		用户附件
 																	</div>
 																</td>
-																<td width="626" id="fileForm">
-																	<div align="center">
-																		<input type="file" id="uploadFileJiaowuchu" name="fileUploadToolsJiaowuchu.uploadFile" onchange="file_change(this)"  size="55">
-																	</div>
+																<td width="626" id="fileForm"><br>
+																	<input type="file" id="uploadFileJiaowuchu" name="fileUploadToolsJiaowuchu.uploadFile" onchange="file_change(this)"  size="55">
 																</td>
 															</tr>
 														</table>
-		
+														
+														<br/>
+														
 													<!-- 上传文件，最近一次加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
 												</div>
 
@@ -523,7 +522,6 @@ function submitForm() {
 									</div>
 								</div>
 							</div>
-							
 							<!-- Modal end -->
 						</div>
 
