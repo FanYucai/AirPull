@@ -83,9 +83,7 @@ public class FileUploadToolsJd {
 		}//空文件判断
 		
 		try {
-			ArrayList<String> feifeiContentArr = new ArrayList<String>();
-			ArrayList<String> fileContentArr = new ArrayList<String>();
-
+			
 			int tableIndex = 0, maxTdCnt = 0;
 			
 			File target = uploadFile[0];
@@ -118,8 +116,18 @@ public class FileUploadToolsJd {
 					tmp_ = "";
 					for (int j = 0; j < tdElements.size(); j++) {
 						if (j!=tdElements.size()-1) {
-							byte[] encodeBase64 = Base64.encodeBase64(tdElements.get(j).text().getBytes("UTF-8")); 
-							tmp_ += new String(encodeBase64);							
+							if(i == 0 && j == 0) {
+								byte[] encodeBase64 = Base64.encodeBase64(tdElements.get(j).getElementsByAttributeValue("class", "time-txt").get(0).text().getBytes("UTF-8")); 
+								tmp_ += new String(encodeBase64);										
+							}
+							else if(i == 0 && j == 3) {
+								byte[] encodeBase64 = Base64.encodeBase64(tdElements.get(j).getElementsByAttributeValue("class", "state-txt").get(0).text().getBytes("UTF-8")); 
+								tmp_ += new String(encodeBase64);									
+							} else {
+								byte[] encodeBase64 = Base64.encodeBase64(tdElements.get(j).text().getBytes("UTF-8")); 
+								tmp_ += new String(encodeBase64);								
+							}
+						
 							//tmp_ += tdElements.get(j).text();
 							String rowspan="1", colspan="1";
 							if(tdElements.get(j).hasAttr("colspan")||tdElements.get(j).hasAttr("rowspan")) {	
@@ -163,22 +171,9 @@ public class FileUploadToolsJd {
 					fileContent = fileContent + "\n";
 				}
 				
-				if(tb == 0) {
-					tableIndex = 0;
-					maxTdCnt = tdCnt;
-				} else {
-					if(maxTdCnt < tdCnt) {
-						maxTdCnt = tdCnt; //查找td数量最多的table
-						tableIndex = tb;
-					}
-				}
 				System.out.println("---------------------------------------------------");
 				System.out.println("feifei: "+feifeiContent);
-				feifeiContentArr.add(feifeiContent);
-				fileContentArr.add(fileContent);
 			}
-			feifeiContent = feifeiContentArr.get(tableIndex);
-			fileContent = fileContentArr.get(tableIndex);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
