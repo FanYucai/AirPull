@@ -665,7 +665,7 @@ function submitForm() {
 									</a>
 								</div>
 								<a class="btn btn-default btn-block" data-toggle="modal"
-									data-target="#project-4">查看守望先锋战绩</a>
+									data-target="#project-4">查看微博热点话题</a>
 							</div>
 						<!-- Modal -->
 							<div class="modal fade" id="project-4" tabindex="-1"
