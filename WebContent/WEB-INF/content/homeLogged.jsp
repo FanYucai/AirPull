@@ -177,7 +177,7 @@ function submitForm() {
 								<ul class="nav navbar-nav navbar-right">
 									<li class="active"><a href="#services">How to use</a></li>
 									<li><a href="#portfolio">AirPull</a></li>
-									<li><a href="#clients">Clients</a></li>
+									<li><a href="#contact">Contact Us</a></li>
 									<li><a href="goProfile?name=${user.nickname}" id="profileqwq">Profile</a></li>
 									<li><a href="javascript:void(0);" data-toggle="modal"
 										data-target="#project-logout">Logout</a></li>
@@ -993,7 +993,7 @@ function submitForm() {
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
-					<h2 class="text-center">Contact Us</h2>
+					<h2 class="text-center" id="contact">联系我们</h2>
 				</div>
 			</div>
 		</div>
