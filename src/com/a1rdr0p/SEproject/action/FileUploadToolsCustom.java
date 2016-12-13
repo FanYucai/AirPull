@@ -17,10 +17,18 @@ import org.apache.commons.codec.binary.Base64;
 public class FileUploadToolsCustom {
 	private String username = "qwqdefault";
 	private String fileContent = "";
+//	private String tableClass = "123qweqweqw";
+//	private String trClass = "";
+//	private String tdClass = "";
+//	private String tableId = "";
+//	private String trId = "";
+//	private String tdId = "";
+	
 	private String feifeiContent = "";
 	private File uploadFile[];// 上传的文件是数组类型
 	private String uploadFileFileName = "";// 文件名是数组类型
 	private String uploadFileContentType[];
+	
 //	uploadFileFileName[0] = "";
 	
 	public String getUsername() {
@@ -64,6 +72,54 @@ public class FileUploadToolsCustom {
 	public void setFileContent(String fileContent) {
 		this.fileContent = fileContent;
 	}
+	
+//	public String getTableClass() {
+//		return tableClass;
+//	}
+//
+//	public void setTableClass(String tableClass) {
+//		this.tableClass = tableClass;
+//	}
+//
+//	public String getTrClass() {
+//		return trClass;
+//	}
+//
+//	public void setTrClass(String trClass) {
+//		this.trClass = trClass;
+//	}
+//
+//	public String getTdClass() {
+//		return tdClass;
+//	}
+//
+//	public void setTdClass(String tdClass) {
+//		this.tdClass = tdClass;
+//	}
+//
+//	public String getTableId() {
+//		return tableId;
+//	}
+//
+//	public void setTableId(String tableId) {
+//		this.tableId = tableId;
+//	}
+//
+//	public String getTrId() {
+//		return trId;
+//	}
+//
+//	public void setTrId(String trId) {
+//		this.trId = trId;
+//	}
+//
+//	public String getTdId() {
+//		return tdId;
+//	}
+
+//	public void setTdId(String tdId) {
+//		this.tdId = tdId;
+//	}
 
 	public String getFeifeiContent() {
 		return feifeiContent;
@@ -77,7 +133,7 @@ public class FileUploadToolsCustom {
 		System.out.println("qwq: "+uploadFileFileName);
 		
 		if(uploadFileFileName.length() == 0) {
-			feifeiContent = "您没有选择@上传文件！$";
+			feifeiContent = "!您没有选择上传文件！";
 			fileContent = "您没有选择\t上传文件！\n";
 			return "success";
 		}//空文件判断
