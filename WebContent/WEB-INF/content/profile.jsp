@@ -8,6 +8,8 @@
 	<head>
 		<meta charset="utf-8">
 		<title>AirPull | Free Extract Tool by AirDrop</title>
+		
+		
 		<meta name="description" content="Worthy a Bootstrap-based, Responsive HTML5 Template">
 		<meta name="author" content="htmlcoder.me">
 	
@@ -39,7 +41,6 @@
 
 	<body class="no-trans">
 		<% String nickname = request.getParameter("name");%>
-	
 		<!-- scrollToTop -->
 		<!-- ================ -->
 		<div class="scrollToTop"><i class="icon-up-open-big"></i></div>
@@ -229,7 +230,6 @@
 				<div class="row">
 					<div class="col-md-12">
 						<h1 id="repository" class="title text-center">你的 <span>AirPull</span>仓库</h1>
-						
 						<div class="space"></div>
 						<div class="row">
 							
@@ -245,10 +245,10 @@
 									</div>
 									<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 										<div class="panel-body">
-											购物记录<br/>
-											收藏宝贝<br/>
-											订单查询<br/>
-											……
+										<jsp:include page="showExcel1.jsp" flush="true" > 
+										<jsp:param value="view" name="piId"/> 
+										<jsp:param value="view" name="action"/> 
+										</jsp:include>
 										</div>
 									</div>
 								</div>
@@ -263,10 +263,10 @@
 									</div>
 									<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
 										<div class="panel-body">
-											课表导出<br/>
-											成绩单导出<br/>
-											培养方案执行进度<br/>
-											……
+										<jsp:include page="showExcel2.jsp" flush="true" > 
+										<jsp:param value="view" name="piId"/> 
+										<jsp:param value="view" name="action"/> 
+										</jsp:include>
 										</div>
 									</div>
 								</div>
@@ -281,7 +281,10 @@
 									</div>
 									<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
 										<div class="panel-body">
-											战绩 战绩 战绩……
+										<jsp:include page="showExcel3.jsp" flush="true" > 
+										<jsp:param value="view" name="piId"/> 
+										<jsp:param value="view" name="action"/> 
+										</jsp:include>
 										</div>
 									</div>
 								</div>
@@ -296,7 +299,10 @@
 									</div>
 									<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
 										<div class="panel-body">
-											战绩 战绩 战绩……
+										<jsp:include page="showExcel4.jsp" flush="true" > 
+										<jsp:param value="view" name="piId"/> 
+										<jsp:param value="view" name="action"/> 
+										</jsp:include>
 										</div>
 									</div>
 								</div>
@@ -311,7 +317,10 @@
 									</div>
 									<div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
 										<div class="panel-body">
-											战绩 战绩 战绩……
+										<jsp:include page="showExcel5.jsp" flush="true" > 
+										<jsp:param value="view" name="piId"/> 
+										<jsp:param value="view" name="action"/> 
+										</jsp:include>
 										</div>
 									</div>
 								</div>
@@ -326,7 +335,10 @@
 									</div>
 									<div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
 										<div class="panel-body">
-											战绩 战绩 战绩……
+										<jsp:include page="showExcel6.jsp" flush="true" > 
+										<jsp:param value="view" name="piId"/> 
+										<jsp:param value="view" name="action"/> 
+										</jsp:include>
 										</div>
 									</div>
 								</div>
@@ -341,7 +353,10 @@
 									</div>
 									<div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
 										<div class="panel-body">
-											战绩 战绩 战绩……
+										<jsp:include page="showExcel7.jsp" flush="true" > 
+										<jsp:param value="view" name="piId"/> 
+										<jsp:param value="view" name="action"/> 
+										</jsp:include>
 										</div>
 									</div>
 								</div>
@@ -356,7 +371,10 @@
 									</div>
 									<div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
 										<div class="panel-body">
-											战绩 战绩 战绩……
+										<jsp:include page="showExcel8.jsp" flush="true" > 
+										<jsp:param value="view" name="piId"/> 
+										<jsp:param value="view" name="action"/> 
+										</jsp:include>
 										</div>
 									</div>
 								</div>
