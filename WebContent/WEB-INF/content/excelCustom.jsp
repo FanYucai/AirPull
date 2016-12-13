@@ -596,7 +596,6 @@ function Strsave(table){
         tableInfo += "{"+table.rows[i].cells[j].rowSpan+","+table.rows[i].cells[j].colSpan+"}";
         tableInfo += "$";
     }
-    alert(document.getElementById('fan3dog'));
     document.getElementById('fan3dog').value=tableInfo;
     return tableInfo;
 }

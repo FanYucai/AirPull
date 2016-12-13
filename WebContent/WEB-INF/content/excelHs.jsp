@@ -173,13 +173,15 @@ for(var i=1; i<table.rows.length;i++){
 }    
     
 function SetRowCanEdit(row){    
-for(var j=0;j<row.cells.length; j++){    
+for(var j=1;j<row.cells.length; j++){    
     
    //如果当前单元格指定了编辑类型，则表示允许编辑    
    var editType = row.cells[j].getAttribute("EditType");    
    if(!editType){    
     //如果当前单元格没有指定，则查看当前列是否指定    
-    editType = row.parentNode.rows[0].cells[j].getAttribute("EditType");    
+    //editType = row.parentNode.rows[0].cells[j].getAttribute("EditType");    
+	   row.cells[j].setAttribute("EditType","TextBox");
+	   editType = row.cells[j].getAttribute("EditType");
    }    
    if(editType){    
     row.cells[j].onclick = function (){    
@@ -196,7 +198,9 @@ function EditCell(element, editType){
 var editType = element.getAttribute("EditType");    
 if(!editType){    
    //如果当前单元格没有指定，则查看当前列是否指定    
-   editType = element.parentNode.parentNode.rows[0].cells[element.cellIndex].getAttribute("EditType");    
+   //editType = element.parentNode.parentNode.rows[0].cells[element.cellIndex].getAttribute("EditType");    
+   //element.setAttribute("EditType","TextBox");
+   editType = element.getAttribute("EditType");
 }    
     
 switch(editType){    
@@ -398,8 +402,9 @@ for(var i=table.rows.length - 1; i>=0;i--){
     		  table.rows[i+1].cells[pos].setAttribute("bgcolor", "#FFFFFF");
     		  table.rows[i+1].cells[pos].setAttribute("width", "100");
     		  table.rows[i+1].cells[pos].setAttribute("EditType", "TextBox");
-    		  EditTables(table);
     		  table.rows[i+1].cells[pos].rowSpan=o.toString();
+    		  table.rows[i+1].cells[pos].colSpan=p.toString();
+    		  EditTables(table);
     	  }
       }
       
@@ -408,21 +413,126 @@ for(var i=table.rows.length - 1; i>=0;i--){
     }    
    }    
 }    
-for (var k = table.rows.item(0).cells.length - 1; k>= 0; k --)
+for (var k = table.rows.item(0).cells.length-1; k>=0; k--)
 {
 	var tmp = table.rows[0].cells[k].firstChild;
 	if (tmp){
 		if (tmp.type = "CHECKBOX"){
 			if (tmp.checked){
-				for (var i= table.rows.length-1;i>=0;i --){
-					table.rows[i].deleteCell(k);
+			    var n = table.rows.length;
+			    var m = table.rows.item(0).cells.length;
+				var flag = [];
+				var bj = [];
+				for (var i = 0; i<n ; i++){
+					flag[i]= [];
+					bj[i] = -1;
+					for (var j = 0 ;j< m ;j++){
+						flag[i][j]=[0,0,0,0];
+					}
 				}
+				for (var i = 0; i < table.rows.length; i++)    
+			        for (var j = 0; j < table.rows[i].cells.length; j++) {   
+			            var text = table.rows[i].cells[j].innerText;
+			            var pos = j;
+			            while (flag[i][pos][0]!=0&&flag[i][pos][1]!=0) pos+=1;
+			            flag[i][pos]=[i,j,parseInt(table.rows[i].cells[j].rowSpan),parseInt(table.rows[i].cells[j].colSpan)];
+			            var tn=parseInt(table.rows[i].cells[j].rowSpan);
+			            var tm=parseInt(table.rows[i].cells[j].colSpan);
+			            for (var o = 0;o<tn ;o++)
+			            	for (var p= 0;p<tm;p++){
+			            		if (o+p!=0)
+			            			flag[i+o][pos+p]=[i,j,-1,-1];
+			            	}
+			        }
+				for (var i=0; i< table.rows.length;i++)
+					if (bj[i]==-1){
+						if (flag[i][k][2]==-1&&flag[i][k][3]==-1){
+							var aimCell = table.rows[flag[i][k][0]].cells[flag[i][k][1]];
+							aimCell.colSpan=(parseInt(aimCell.colSpan)-1).toString();
+							var len = aimCell.rowSpan;
+							for (tmp = 0;tmp <len ; tmp++)
+								bj[i+tmp]=0;
+						} else
+						if (flag[i][k][3]==1){
+							var a = flag[i][k][0];
+							var b = flag[i][k][1];
+							var aimCell = table.rows[a].cells[b];
+							var len = aimCell.rowSpan;
+							for (tmp = 0;tmp <len ; tmp++)
+								bj[i+tmp]=0;
+							table.rows[a].deleteCell(b);
+						} else{
+							var a = flag[i][k][0];
+							var b = flag[i][k][1];
+							var tmplen = flag[i][k][3];
+							var aimCell = table.rows[a].cells[b];
+							var len = aimCell.rowSpan;
+							for (tmp = 0;tmp <len ; tmp++)
+								bj[i+tmp]=0;
+							tmplen = tmplen -1;
+							table.rows[a].insertCell(b+1);
+							table.rows[a].cells[b+1].innerHTML = table.rows[a].cells[b].innerHTML;
+							table.rows[a].cells[b+1].rowSpan = table.rows[a].cells[b].rowSpan;
+							table.rows[a].cells[b+1].colSpan = tmplen.toString();
+							table.rows[a].cells[b+1].setAttribute("align", "center");
+							table.rows[a].cells[b+1].setAttribute("bgcolor", "#FFFFFF");
+							table.rows[a].cells[b+1].setAttribute("width", "100");
+							table.rows[a].cells[b+1].setAttribute("EditType", "TextBox");
+							table.rows[a].deleteCell(b);
+							EditTables(table);
+						}
+					} 
+				
+/* 				  for (var a=0;a<table.rows.length;a++){
+					  var rowtmp=0;
+					  for (var b=0;b<k;b++){
+			        	  var o = parseInt(table.rows[a].cells[b].rowSpan);
+			        	  var p = parseInt(table.rows[b].cells[b].colSpan);
+			        	  rowtmp+=p;
+			    		  if (rowtmp>i) {
+			    			  p=p-1;
+			    			  table.rows[a].cells[b].colSpan=p.toString();
+			    		  }
+			    	  }
+			      }
+			      var rowtmp=0;
+			      for (var j=0;j<table.rows[i].cells.length;j++){
+			    	  var o = parseInt(table.rows[i].cells[j].rowSpan);
+			    	  var p = parseInt(table.rows[i].cells[j].colSpan);
+			    	  coltmp+=p;
+			    	  if (o>1){
+			    		  o=o-1;
+			    		  var tmp=0;
+			    		  var pos=0;
+			    		  for (var k=0;k<table.rows[i+1].cells.length;k++){
+			    			  tmp+=parseInt(table.rows[i+1].cells[k].colSpan);
+			    			  pos = k;
+			    			  if (tmp==coltmp)
+			    				  break;
+			    		  }
+			    		  table.rows[i+1].insertCell(pos);
+			    		  table.rows[i+1].cells[pos].innerHTML=table.rows[i].cells[j].innerHTML;
+			    		  table.rows[i+1].cells[pos].setAttribute("align", "center");	  
+			    		  table.rows[i+1].cells[pos].setAttribute("bgcolor", "#FFFFFF");
+			    		  table.rows[i+1].cells[pos].setAttribute("width", "100");
+			    		  table.rows[i+1].cells[pos].setAttribute("EditType", "TextBox");
+			    		  table.rows[i+1].cells[pos].rowSpan=o.toString();
+			    		  table.rows[i+1].cells[pos].colSpan=p.toString();
+			    		  EditTables(table);
+			    	  }
+			      }
+				
+				
+				
+				
+				for (var i=0;i<table.rows.length;i++){
+					table.rows[i].deleteCell(k);
+				} */
 			}
 		}
 	}
 
 }
-//Str(table);
 }
 
 
@@ -472,6 +582,24 @@ function Str(table){
     document.getElementById('fan2dog').value=output;
     return tableInfo;
 }
+
+//保存
+function Strsave(table){
+    var tableInfo = "";
+    var base = new Base64();
+    for (var i = 1; i < table.rows.length; i++) {    //遍历Table的所有Row
+        for (var j = 1; j < table.rows[i].cells.length-1; j++) {   //遍历Row中的每一列
+            tableInfo += base.encode(table.rows[i].cells[j].innerText);   //获取Table中单元格的内容
+            tableInfo += "{"+table.rows[i].cells[j].rowSpan+","+table.rows[i].cells[j].colSpan+"}@";
+        }
+        tableInfo += base.encode(table.rows[i].cells[j].innerText); 
+        tableInfo += "{"+table.rows[i].cells[j].rowSpan+","+table.rows[i].cells[j].colSpan+"}";
+        tableInfo += "$";
+    }
+    document.getElementById('fan3dog').value=tableInfo;
+    return tableInfo;
+}
+
 
 
 //提取表格的值,JSON格式    
@@ -619,21 +747,88 @@ for(var f=0;f<fmt.length;f++){
 }      
 return retstr.replace(/^,+/,'').replace(/\.$/,'');      
 }    
+function edit(table){
+	EditTables(table);
+	alert("成功进入编辑状态～");
+}
+function caedit(table){
+    var n = table.rows.length;
+   	for (var i=1;i<n;i++){
+   		for (var j=1;j<table.rows[i].cells.length;j++){
+  		table.rows[i].cells[j].setAttribute("EditState", "false");
+   		table.rows[i].cells[j].removeAttribute("EditType");
+   		}
+   	}
+   	alert("取消编辑状态!");
+   	
+}
 </script>  
 </head>    
 <body>    
 <form action="exportExcel" method="post">
-	<%-- <input type="hidden" name="fileContent" value='<s:property value="fileUploadToolsHs.fileContent"/>' > --%>
+	<%-- <input type="hidden" name="fileContent" value='<s:property value="fileUploadToolsCustom.fileContent"/>' > --%>
 	<input type="button" name="Submit2" value="删除" onclick="DeleteRow(document.getElementById('tabProduct'),1)" />   
 	<input type="button" name="Submit2" value="添行" onclick="Addrow(document.getElementById('tabProduct'),1)" />
-	<input type="button" name="Submit2" value="添列" onclick="Addcol(document.getElementById('tabProduct'))" />   
+	<input type="button" name="Submit2" value="添列" onclick="Addcol(document.getElementById('tabProduct'))" />
+	<input type="button" name="Submit2" value="编辑" onclick="edit(document.getElementById('tabProduct'))" />   
+	<input type="button" name="Submit2" value="取消编辑" onclick="caedit(document.getElementById('tabProduct'))" />   
 	<input type="button" name="Submit22" value="重置" onclick="window.location.reload()" />
+	
 	<input id="fan2dog" type="hidden" name="fileContent" value="" >
 	<button type="submit" onclick="Str(document.getElementById('tabProduct'))">导出</button>
 </form>
-<form id="form1" name="form1" method="post" action="">    
-<h3>表格数据获取结果</h3>    
-<br />    
+
+
+<form action = saveTable  method="post">
+	<input id="fan3dog" type="hidden" name="fan3dog" value="" >
+	<input type="hidden" name="name" value=${ user.nickname }>
+	<input type="hidden" name="type" value="3">
+	<button type="submit" name="Submit" onclick="Strsave(document.getElementById('tabProduct'))">保存</button>
+</form>
+
+<!-- login -->
+<div class="col-sm-6 col-md-1 col-md-offset-4 isotope-item app-development">
+	
+	<!-- Modal -->
+	<div class="modal fade" id="project-5" tabindex="-1" role="dialog" aria-labelledby="project-5-label" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title" id="project-5-label">Login</h4>
+				</div>
+				<form action="login" method="post">
+					<div class="modal-body">
+						<h3>添加注释</h3>
+						<div class="row">
+							<div class="col-md-6">
+								<p><input data-placeholder="用户名" name="user.name" type="text" 
+									placeholder="用户名" tabindex="1" spellcheck="false"></input></p>
+								<p><input data-placeholder="密码" name="user.password" type="password" 
+									id="password" placeholder="密码" tabindex="1" spellcheck="false"></input><a href="goForgetPassword">忘记密码</a></p>
+							</div>
+							<div class="col-md-6">
+								<img src="images/portfolio-5.jpg" alt="">
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<input type="submit" class="btn btn-sm btn-default" value="Login">
+					</div>
+				</form>
+				
+			</div>
+		</div>
+	</div>
+	<!-- Modal end -->
+</div>
+<!-- login end -->  
+<form id="fo" name="form1" method="post" action="" >    
+<br />  
+</form>
+<form id="form1" name="form1" method="post" action="" >    
+<h3 align="left">表格数据获取结果</h3>    
+<br />  </form>
 
 <script language="javascript">
 /* var cols=5;    //5列
@@ -689,77 +884,83 @@ for (i=1;i<=row;i++){
 htmlstr+='</table>';
 document.write(htmlstr);*/
 var tempstr=content;
-var index =new Array();
-var indexD = new Array();//douhao
-var indexK = new Array();//kuohao
-var indexKK = new Array();//kuohui
-index.push(-1);
-var cnt= 0; 
-var col= 0;
-var sum= 0;
-var row= 0;
-for (i=0;i<tempstr.length;i++)
-	if (tempstr[i]=='@') 
-	{
-		index.push(i);
-		cnt++;	
-	} else
-	if (tempstr[i]=='$')
-	{
-		row++;
-		cnt++;
-		index.push(i);
-	} else
-	if (tempstr[i]==',')
-	{
-		indexD.push(i);
-	} else
-	if (tempstr[i]=='{')
-	{
-		indexK.push(i);
-	} else
-	if (tempstr[i]=='}')
-	{
-		indexKK.push(i);
-	}
-	for (i=0;i<cnt;i++)
-	{
-		sum+=parseInt(tempstr.substring(indexD[i]+1,indexKK[i]));
-	}
-col = sum/row;
-var htmlstr='<table border="1" cellpadding="0" cellspacing="0" id="tabProduct">';
-htmlstr+='<tr><td></td>';
-for (i=0;i<col;i++)
-	htmlstr+='<td  align="center" bgcolor="#FFFFFF"><input type="checkbox" value="checkbox" /></td>';
-htmlstr+='</tr><tr>'
-htmlstr+='<td width="32" align="center" bgcolor="#EFEFEF"><input type="checkbox" value="checkbox"/></td>';
-var base = new Base64();
-var type= 0;
-for (i=0;i<cnt;i++){
-	if (type==0){
+if (tempstr[0]=='!'){
+	alert(tempstr.substring(1,tempstr.length));
+} else{
+	var index =new Array();
+	var indexD = new Array();//douhao
+	var indexK = new Array();//kuohao
+	var indexKK = new Array();//kuohui
+	index.push(-1);
+	var cnt= 0; 
+	var col= 0;
+	var sum= 0;
+	var row= 0;
+	for (i=0;i<tempstr.length;i++)
+		if (tempstr[i]=='@') 
+		{
+			index.push(i);
+			cnt++;	
+		} else
+		if (tempstr[i]=='$')
+		{
+			row++;
+			cnt++;
+			index.push(i);
+		} else
+		if (tempstr[i]==',')
+		{
+			indexD.push(i);
+		} else
+		if (tempstr[i]=='{')
+		{
+			indexK.push(i);
+		} else
+		if (tempstr[i]=='}')
+		{
+			indexKK.push(i);
+		}
+		for (i=0;i<cnt;i++)
+		{
+			sum+=parseInt(tempstr.substring(indexD[i]+1,indexKK[i]));
+		}
+	col = sum/row;
+	var htmlstr='<table border="1" cellpadding="0" cellspacing="0" id="tabProduct">';
+	htmlstr+='<tr><td></td>';
+	for (i=0;i<col;i++)
+		htmlstr+='<td  align="center" bgcolor="#FFFFFF"><input type="checkbox" value="checkbox" /></td>';
+	htmlstr+='</tr><tr>'
+	htmlstr+='<td width="32" align="center" bgcolor="#EFEFEF"><input type="checkbox" value="checkbox"/></td>';
+	var base = new Base64();
+	var type= 0;
+	for (i=0;i<cnt;i++){
+		if (type==0){
+			if (tempstr[index[i]]=='$') {
+				htmlstr+='<tr>';
+				htmlstr+='<td align="center" bgcolor="#FFFFFF"><input type="checkbox" value="checkbox" /></td>';
+			}
+			htmlstr+='<td  bgcolor="#EFEFEF" EditType="TextBox" align="center" '+ 'rowspan="'+tempstr.substring(indexK[i]+1,indexD[i])+'" colspan="'+tempstr.substring(indexD[i]+1,indexKK[i])+'">' +base.decode(tempstr.substring(index[i]+1,indexK[i]))+'</td>';
+			if (tempstr[index[i+1]]=='$'){
+				htmlstr+='</tr>';
+				type=1;
+			}
+			
+		} else{
 		if (tempstr[index[i]]=='$') {
 			htmlstr+='<tr>';
 			htmlstr+='<td align="center" bgcolor="#FFFFFF"><input type="checkbox" value="checkbox" /></td>';
 		}
-		htmlstr+='<td  bgcolor="#EFEFEF" EditType="TextBox" align="center" '+ 'rowspan="'+tempstr.substring(indexK[i]+1,indexD[i])+'" colspan="'+tempstr.substring(indexD[i]+1,indexKK[i])+'">' +base.decode(tempstr.substring(index[i]+1,indexK[i]))+'</td>';
+		htmlstr+='<td width="100" bgcolor="#FFFFFF" EditType="TextBox" align="center" '+ 'rowspan="'+tempstr.substring(indexK[i]+1,indexD[i])+'" colspan="'+tempstr.substring(indexD[i]+1,indexKK[i])+'">' +base.decode(tempstr.substring(index[i]+1,indexK[i]))+'</td>';
+			
 		if (tempstr[index[i+1]]=='$'){
 			htmlstr+='</tr>';
-			type=1;
 		}
-		
-	} else{
-	if (tempstr[index[i]]=='$') {
-		htmlstr+='<tr>';
-		htmlstr+='<td align="center" bgcolor="#FFFFFF"><input type="checkbox" value="checkbox" /></td>';
+		}
 	}
-	htmlstr+='<td width="100" bgcolor="#FFFFFF" EditType="TextBox" align="center" '+ 'rowspan="'+tempstr.substring(indexK[i]+1,indexD[i])+'" colspan="'+tempstr.substring(indexD[i]+1,indexKK[i])+'">' +base.decode(tempstr.substring(index[i]+1,indexK[i]))+'</td>';
-		
-	if (tempstr[index[i+1]]=='$'){
-		htmlstr+='</tr>';
-	}
-	}
+	htmlstr+='</table>';
 }
-htmlstr+='</table>';
+
+
 document.write(htmlstr);
 
 
@@ -770,11 +971,19 @@ document.write(htmlstr);
 // 设置表格可编辑    
 // 可一次设置多个，例如：EditTables(tb1,tb2,tb2,......)    
 
-var tabProduct = document.getElementById("tabProduct");    
-EditTables(tabProduct);
+var tabProduct = document.getElementById("tabProduct");
+var table = tabProduct;
+var n = table.rows.length;
+	for (var i=1;i<n;i++){
+		for (var j=1;j<table.rows[i].cells.length;j++){
+		table.rows[i].cells[j].setAttribute("EditState", "false");
+		table.rows[i].cells[j].removeAttribute("EditType");
+		}
+	}
 Str(document.getElementById("tabProduct"));
-
+Strsave(document.getElementById("tabProduct"));
     
 </script>    
+
 </body>    
 </html>    
