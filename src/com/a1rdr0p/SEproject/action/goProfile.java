@@ -1,6 +1,7 @@
 package com.a1rdr0p.SEproject.action;
 
 import com.a1rdr0p.SEproject.model.User;
+import com.a1rdr0p.SEproject.service.stringService;
 import com.a1rdr0p.SEproject.service.userService;
 import com.opensymphony.xwork2.Action;
 import org.apache.commons.codec.binary.Base64; 
@@ -37,18 +38,6 @@ public class goProfile implements Action {
 	public void setStr1(String str1) {
 		this.str1 = str1;
 	}
-
-
-	@Override
-	public String execute() throws Exception {
-		userService us = new userService();
-		str1 = "5qiK{1,1}@5qiK{1,1}$5qiK{1,1}@5qiK{1,1}$";
-		str2 = str3 = str4 = str5 = str6= str7 =str8 =str1;
-		user = us.findNickname(name);
-		System.out.print(str1);
-		return SUCCESS;
-	}
-
 
 	public String getStr2() {
 		return str2;
@@ -117,5 +106,26 @@ public class goProfile implements Action {
 
 	public void setStr8(String str8) {
 		this.str8 = str8;
+	}
+	
+
+	@Override
+	public String execute() throws Exception {
+		userService us = new userService();
+		stringService ss = new stringService();
+		user = us.findNickname(name);
+		
+		str1 = ss.findString(user.getName(), "1");
+		str2 = ss.findString(user.getName(), "2");
+		str3 = ss.findString(user.getName(), "3");
+		str4 = ss.findString(user.getName(), "4");
+		str5 = ss.findString(user.getName(), "5");
+		str6 = ss.findString(user.getName(), "6");
+		str7 = ss.findString(user.getName(), "7");
+		str8 = ss.findString(user.getName(), "8");
+		
+		
+		System.out.print(str1);
+		return SUCCESS;
 	}
 }

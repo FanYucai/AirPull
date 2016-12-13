@@ -229,7 +229,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h1 id="repository" class="title text-center">你的 <span>AirPull</span>仓库</h1>
+						<h1 id="repository" class="title text-center">你的AirPull仓库</h1>
+					
 						<div class="space"></div>
 						<div class="row">
 							
