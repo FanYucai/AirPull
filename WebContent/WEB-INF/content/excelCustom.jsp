@@ -737,9 +737,49 @@ return retstr.replace(/^,+/,'').replace(/\.$/,'');
 	<input id="fan2dog" type="hidden" name="fileContent" value="" >
 	<button type="submit" onclick="Str(document.getElementById('tabProduct'))">导出</button>
 </form>
+
+
 <form id="form1" name="form1" method="post" action="">    
 <h3>表格数据获取结果</h3>    
-<br />    
+<br />  
+
+<!-- login -->
+<div class="col-sm-6 col-md-1 col-md-offset-4 isotope-item app-development">
+	
+	<!-- Modal -->
+	<div class="modal fade" id="project-5" tabindex="-1" role="dialog" aria-labelledby="project-5-label" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title" id="project-5-label">Login</h4>
+				</div>
+				<form action="login" method="post">
+					<div class="modal-body">
+						<h3>添加注释</h3>
+						<div class="row">
+							<div class="col-md-6">
+								<p><input data-placeholder="用户名" name="user.name" type="text" 
+									placeholder="用户名" tabindex="1" spellcheck="false"></input></p>
+								<p><input data-placeholder="密码" name="user.password" type="password" 
+									id="password" placeholder="密码" tabindex="1" spellcheck="false"></input><a href="goForgetPassword">忘记密码</a></p>
+							</div>
+							<div class="col-md-6">
+								<img src="images/portfolio-5.jpg" alt="">
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<input type="submit" class="btn btn-sm btn-default" value="Login">
+					</div>
+				</form>
+				
+			</div>
+		</div>
+	</div>
+	<!-- Modal end -->
+</div>
+<!-- login end -->   
 
 <script language="javascript">
 /* var cols=5;    //5列
