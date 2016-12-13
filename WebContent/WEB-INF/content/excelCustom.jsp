@@ -586,16 +586,17 @@ function Str(table){
 //保存
 function Strsave(table){
     var tableInfo = "";
+    var base = new Base64();
     for (var i = 1; i < table.rows.length; i++) {    //遍历Table的所有Row
         for (var j = 1; j < table.rows[i].cells.length-1; j++) {   //遍历Row中的每一列
-            tableInfo += table.rows[i].cells[j].innerText;   //获取Table中单元格的内容
+            tableInfo += base.encode(table.rows[i].cells[j].innerText);   //获取Table中单元格的内容
             tableInfo += "{"+table.rows[i].cells[j].rowSpan+","+table.rows[i].cells[j].colSpan+"}@";
         }
-        tableInfo += table.rows[i].cells[j].innerText; 
+        tableInfo += base.encode(table.rows[i].cells[j].innerText); 
         tableInfo += "{"+table.rows[i].cells[j].rowSpan+","+table.rows[i].cells[j].colSpan+"}";
         tableInfo += "$";
     }
-    output=tableInfo;
+    alert(document.getElementById('fan3dog'));
     document.getElementById('fan3dog').value=tableInfo;
     return tableInfo;
 }
@@ -779,9 +780,12 @@ function caedit(table){
 </form>
 
 
-<form id="form1" name="form1" method="post" action="">    
-<h3>表格数据获取结果</h3>    
-<br />  
+<form action = saveTable  method="post">
+	<input id="fan3dog" type="hidden" name="fan3dog" value="" >
+	<input type="hidden" name="name" value=${ user.nickname }>
+	<input type="hidden" name="type" value="3">
+	<button type="submit" name="Submit" onclick="Strsave(document.getElementById('tabProduct'))">保存</button>
+</form>
 
 <!-- login -->
 <div class="col-sm-6 col-md-1 col-md-offset-4 isotope-item app-development">
@@ -819,7 +823,13 @@ function caedit(table){
 	</div>
 	<!-- Modal end -->
 </div>
-<!-- login end -->   
+<!-- login end -->  
+<form id="fo" name="form1" method="post" action="" >    
+<br />  
+</form>
+<form id="form1" name="form1" method="post" action="" >    
+<h3 align="left">表格数据获取结果</h3>    
+<br />  </form>
 
 <script language="javascript">
 /* var cols=5;    //5列
@@ -962,17 +972,19 @@ document.write(htmlstr);
 // 设置表格可编辑    
 // 可一次设置多个，例如：EditTables(tb1,tb2,tb2,......)    
 
-var tabProduct = document.getElementById("tabProduct");    
-EditTables(tabProduct);
+var tabProduct = document.getElementById("tabProduct");
+var table = tabProduct;
+var n = table.rows.length;
+	for (var i=1;i<n;i++){
+		for (var j=1;j<table.rows[i].cells.length;j++){
+		table.rows[i].cells[j].setAttribute("EditState", "false");
+		table.rows[i].cells[j].removeAttribute("EditType");
+		}
+	}
 Str(document.getElementById("tabProduct"));
-
+Strsave(document.getElementById("tabProduct"));
     
 </script>    
-<form action = saveTable  method="post">
-	<input id="fan3dog" type="hidden" name="fan3dog" value="" >
-	<input type="hidden" name="name" value=${ user.nickname }>
-	<input type="hidden" name="type" value="3">
-	<button type="submit" name="Submit" onclick="Strsave(document.getElementById('tabProduct'))">保存</button>
-</form>
+
 </body>    
 </html>    
