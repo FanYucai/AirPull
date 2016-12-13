@@ -378,11 +378,9 @@ function submitForm() {
 					<div class="filters text-center">
 						<ul class="nav nav-pills">
 							<li class="active"><a href="#" data-filter="*">All</a></li>
-							<li><a href="#" data-filter=".web-design">Web design</a></li>
-							<li><a href="#" data-filter=".app-development">App
-									development</a></li>
-							<li><a href="#" data-filter=".site-building">Site
-									building</a></li>
+							<li><a href="#" data-filter=".shopping">Shopping</a></li>
+							<li><a href="#" data-filter=".game">Game</a></li>
+							<li><a href="#" data-filter=".daily">Daily</a></li>
 						</ul>
 					</div>
 					<!-- isotope filters end -->
@@ -390,12 +388,12 @@ function submitForm() {
 					<!-- portfolio items start -->
 
 					<div class="isotope-container row grid-space-20">
- 						<div class="col-sm-6 col-md-3 isotope-item web-design">
+ 						<div class="col-sm-6 col-md-3 isotope-item shopping">
 							<div class="image-box">
 								<div class="overlay-container">
 									<img src="images/taobao2.jpeg" alt=""> <a class="overlay"
 										data-toggle="modal" data-target="#project-1"> <i
-										class="fa fa-search-plus"></i> <span>Web Design</span>
+										class="fa fa-search-plus"></i> <span>Shopping</span>
 									</a>
 								</div>
 								<a class="btn btn-default btn-block" data-toggle="modal"
@@ -458,12 +456,12 @@ function submitForm() {
 							<!-- Modal end -->
 						</div>
 					
-						<div class="col-sm-6 col-md-3 isotope-item app-development">
+						<div class="col-sm-6 col-md-3 isotope-item daily">
 							<div class="image-box">
 								<div class="overlay-container">
 									<img src="images/jiaowuchu.jpeg" alt=""> <a
 										class="overlay" data-toggle="modal" data-target="#project-2">
-										<i class="fa fa-search-plus"></i> <span>App Development</span>
+										<i class="fa fa-search-plus"></i> <span>Daily</span>
 									</a>
 								</div>
 								<a class="btn btn-default btn-block" data-toggle="modal"
@@ -524,12 +522,12 @@ function submitForm() {
 							<!-- Modal end -->
 						</div>
 
-						<div class="col-sm-6 col-md-3 isotope-item web-design">
+						<div class="col-sm-6 col-md-3 isotope-item daily">
 							<div class="image-box">
 								<div class="overlay-container">
 									<img src="images/portfolio-3.jpg" alt=""> <a
 										class="overlay" data-toggle="modal" data-target="#project-3">
-										<i class="fa fa-search-plus"></i> <span>Web Design</span>
+										<i class="fa fa-search-plus"></i> <span>Daily</span>
 									</a>
 								</div>
 								<a class="btn btn-default btn-block" data-toggle="modal"
@@ -661,12 +659,12 @@ function submitForm() {
 							<!-- Modal end -->
 						</div>
 
-						<div class="col-sm-6 col-md-3 isotope-item site-building">
+						<div class="col-sm-6 col-md-3 isotope-item daily">
 							<div class="image-box">
 								<div class="overlay-container">
 									<img src="images/overwatch.jpg" alt=""> <a
 										class="overlay" data-toggle="modal" data-target="#project-4">
-										<i class="fa fa-search-plus"></i> <span>Site Building</span>
+										<i class="fa fa-search-plus"></i> <span>Daily</span>
 									</a>
 								</div>
 								<a class="btn btn-default btn-block" data-toggle="modal"
@@ -726,12 +724,12 @@ function submitForm() {
 							<!-- Modal end -->
 						</div>
 
-						<div class="col-sm-6 col-md-3 isotope-item app-development">
+						<div class="col-sm-6 col-md-3 isotope-item shopping">
 							<div class="image-box">
 								<div class="overlay-container">
 									<img src="images/alipay.jpg" alt=""> <a
 										class="overlay" data-toggle="modal" data-target="#project-5">
-										<i class="fa fa-search-plus"></i> <span>App Development</span>
+										<i class="fa fa-search-plus"></i> <span>Shopping</span>
 									</a>
 								</div>
 								<a class="btn btn-default btn-block" data-toggle="modal"
@@ -792,12 +790,12 @@ function submitForm() {
 							<!-- Modal end -->
 						</div>
 
-						<div class="col-sm-6 col-md-3 isotope-item web-design">
+						<div class="col-sm-6 col-md-3 isotope-item game">
 							<div class="image-box">
 								<div class="overlay-container">
 									<img src="images/hearthstone.png" alt=""> <a
 										class="overlay" data-toggle="modal" data-target="#project-6">
-										<i class="fa fa-search-plus"></i> <span>Web Design</span>
+										<i class="fa fa-search-plus"></i> <span>Game</span>
 									</a>
 								</div>
 								<a class="btn btn-default btn-block" data-toggle="modal"
@@ -857,12 +855,12 @@ function submitForm() {
 							<!-- Modal end -->
 						</div>
 
-						<div class="col-sm-6 col-md-3 isotope-item site-building">
+						<div class="col-sm-6 col-md-3 isotope-item daily">
 							<div class="image-box">
 								<div class="overlay-container">
 									<img src="images/port.jpg" alt=""> <a
 										class="overlay" data-toggle="modal" data-target="#project-7">
-										<i class="fa fa-search-plus"></i> <span>Site Building</span>
+										<i class="fa fa-search-plus"></i> <span>Daily</span>
 									</a>
 								</div>
 								<a class="btn btn-default btn-block" data-toggle="modal"
@@ -924,12 +922,12 @@ function submitForm() {
 						</div>
 
 
-						<div class="col-sm-6 col-md-3 isotope-item app-development">
+						<div class="col-sm-6 col-md-3 isotope-item shopping">
 							<div class="image-box">
 								<div class="overlay-container">
 									<img src="images/jd.jpeg" alt=""> <a
 										class="overlay" data-toggle="modal" data-target="#project-8">
-										<i class="fa fa-search-plus"></i> <span>App Development</span>
+										<i class="fa fa-search-plus"></i> <span>Shopping</span>
 									</a>
 								</div>
 								<a class="btn btn-default btn-block" data-toggle="modal"
