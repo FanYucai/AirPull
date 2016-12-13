@@ -9,6 +9,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 
@@ -115,7 +116,8 @@ public class FileUploadToolsJiaowuchu2 {
 				for (int j = 0; j < tdItem.size(); j++) {
 					System.out.println(tdItem.get(j).html());
 					if (j!=tdItem.size()-1) {
-						tmp_ += tdItem.get(j).text();
+						byte[] encodeBase64 = Base64.encodeBase64(tdItem.get(j).text().getBytes("UTF-8")); 
+						tmp_ += new String(encodeBase64);
 						if(tdItem.get(j).hasAttr("colspan")||tdItem.get(j).hasAttr("rowspan")) {
 							String rowspan="", colspan="";
 							rowspan = tdItem.get(j).attr("rowspan");
@@ -132,7 +134,8 @@ public class FileUploadToolsJiaowuchu2 {
 						}
 						tmp_ += "@";						
 					} else {
-						tmp_ += tdItem.get(j).text();
+						byte[] encodeBase64 = Base64.encodeBase64(tdItem.get(j).text().getBytes("UTF-8")); 
+						tmp_ += new String(encodeBase64);
 						if(tdItem.get(j).hasAttr("colspan")||tdItem.get(j).hasAttr("rowspan")) {
 							String rowspan="", colspan="";
 							rowspan = tdItem.get(j).attr("rowspan");

@@ -559,77 +559,37 @@ function submitForm() {
 														</table>
 														
 														<br/>
-														<p><h4>参数设置</h4></p>
+														<!-- <p><h4>参数设置</h4></p>
 														<table>
 															<tr>
 																<td>表格class</td>
-																<td><input type="text" name="tableCustom" value="table_class"></td>
+																<td><input type="text" name="tableClass" value="qwqwqwqw"></td>
 															</tr>
 															<tr>
 																<td>行class</td>
-																<td><input type="text" name="trCustom" value="tr_class"></td>
+																<td><input type="text" name="trClass" value="123456"></td>
 															</tr>
 															<tr>	
 																<td>单元格class</td>
-																<td><input type="text" name="tdCustom" value="td_class"></td>
-															</tr>															<tr>
-																<td>表格标签</td>
-																<td><input type="text" name="tableCustom" value="table"></td>
-															</tr>
+																<td><input type="text" name="tdClass" value=""></td>
+															</tr>												
 															<tr>
-																<td>行标签</td>
-																<td><input type="text" name="trCustom" value="tr"></td>
-															</tr>
-															<tr>	
-																<td>单元格标签</td>
-																<td><input type="text" name="tdCustom" value="td"></td>
-															</tr>
-															<!-- <tr>
 																<td>高级</td><input type="text" name="tableCustom" placeholder="table"></td>
-															</tr> -->
-														</table>
-														
-														<br/>
-														<p><h4>高级</h4></p>
-														<table>
-															<p><h4>CSS样式</h4></p>
+															</tr>
+												
 															<tr>
 																<td>表格ID:</td>
-																<td><input type="text" name="tableCustom" value="tableID"></td>
+																<td><input type="text" name="tableId" value=""></td>
 															</tr>
 															<tr>
 																<td>行ID:</td>
-																<td><input type="text" name="trCustom" value="trID"></td>
+																<td><input type="text" name="trId" value=""></td>
 															</tr>
 															<tr>	
 																<td>单元格ID:</td>
-																<td><input type="text" name="tdCustom" value="tdID"></td>
+																<td><input type="text" name="tdId" value=""></td>
 															</tr>
-															<tr>
-																<td>表格Attribute-Value键值对</td>
-																<td><input type="text" name="tableCustom" value="undefined"></td>
-															</tr>
-															<tr>
-																<td>行Attribute-Value键值对</td>
-																<td><input type="text" name="trCustom" value="undefined"></td>
-															</tr>
-															<tr>	
-																<td>单元格Attribute-Value键值对</td>
-																<td><input type="text" name="tdCustom" value="undefined"></td>
-															</tr>
-																																													<tr>
-																<td>表格Attribute-Value(正则表达式)</td>
-																<td><input type="text" name="tableCustom" value="undefined"></td>
-															</tr>
-															<tr>
-																<td>行Attribute-Value(正则表达式)</td>
-																<td><input type="text" name="trCustom" value="undefined"></td>
-															</tr>
-															<tr>	
-																<td>单元格Attribute-Value(正则表达式)</td>
-																<td><input type="text" name="tdCustom" value="undefined"></td>
-															</tr>
-														</table>	
+														</table> -->	
 														<input type="hidden" name="name" value=${ user.nickname }>													
 														
 													<!-- 上传文件，最近一次加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
