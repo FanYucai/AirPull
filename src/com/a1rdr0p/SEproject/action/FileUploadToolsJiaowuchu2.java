@@ -118,8 +118,9 @@ public class FileUploadToolsJiaowuchu2 {
 					if (j!=tdItem.size()-1) {
 						byte[] encodeBase64 = Base64.encodeBase64(tdItem.get(j).text().getBytes("UTF-8")); 
 						tmp_ += new String(encodeBase64);
+						String rowspan="1", colspan="1";
 						if(tdItem.get(j).hasAttr("colspan")||tdItem.get(j).hasAttr("rowspan")) {
-							String rowspan="", colspan="";
+							
 							rowspan = tdItem.get(j).attr("rowspan");
 							colspan = tdItem.get(j).attr("colspan");
 						
@@ -129,15 +130,17 @@ public class FileUploadToolsJiaowuchu2 {
 							if(colspan.isEmpty()) {
 								colspan = "1";
 							}
-							String rowcolInfo = "{"+rowspan+","+colspan+"}";
-							tmp_ += rowcolInfo;
+							
 						}
+						String rowcolInfo = "{"+rowspan+","+colspan+"}";
+						tmp_ += rowcolInfo;
 						tmp_ += "@";						
 					} else {
 						byte[] encodeBase64 = Base64.encodeBase64(tdItem.get(j).text().getBytes("UTF-8")); 
 						tmp_ += new String(encodeBase64);
+						String rowspan="1", colspan="1";
 						if(tdItem.get(j).hasAttr("colspan")||tdItem.get(j).hasAttr("rowspan")) {
-							String rowspan="", colspan="";
+							
 							rowspan = tdItem.get(j).attr("rowspan");
 							colspan = tdItem.get(j).attr("colspan");
 						
@@ -147,9 +150,10 @@ public class FileUploadToolsJiaowuchu2 {
 							if(colspan.isEmpty()) {
 								colspan = "1";
 							}
-							String rowcolInfo = "{"+rowspan+","+colspan+"}";
-							tmp_ += rowcolInfo;
+							
 						}
+						String rowcolInfo = "{"+rowspan+","+colspan+"}";
+						tmp_ += rowcolInfo;
 					}
 					
 					fileContent += tdItem.get(j).text() + "\t";	
