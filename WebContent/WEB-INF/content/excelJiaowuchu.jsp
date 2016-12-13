@@ -533,7 +533,15 @@ return retstr.replace(/^,+/,'').replace(/\.$/,'');
 	<input id="fan2dog" type="hidden" name="fileContent" value="" >
 	<button type="submit" onclick="Str(document.getElementById('tabProduct'))">导出</button>
 </form>
-<form id="form1" name="form1" method="post" action="">    
+
+<form action = saveTable  method="post">
+	<input id="fan3dog" type="hidden" name="fan3dog" value="" >
+	<input type="hidden" name="name" value=${ user.nickname }>
+	<input type="hidden" name="type" value="2">
+	<button type="submit" name="Submit" onclick="Strsave(document.getElementById('tabProduct'))">保存</button>
+</form>
+
+<form id="form1" name="form1" method="post" action=""> 
 <h3>表格数据获取结果</h3>    
 <br />    
 
