@@ -109,7 +109,8 @@
 							<div class="collapse navbar-collapse scrollspy smooth-scroll"
 								id="navbar-collapse-1">
 								<ul class="nav navbar-nav navbar-right">
-									<li><a href=homeLogged>Back</a></li>
+									<li><a href=goProfile?name=${user.nickname}>${user.nickname }</a></li>
+									<li><a href=goHomeLogged?name=${user.nickname}>Back</a></li>
 									<li><a href="#export">Export</a></li>
 								</ul>
 							</div>

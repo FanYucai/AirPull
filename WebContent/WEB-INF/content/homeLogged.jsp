@@ -414,41 +414,44 @@ function submitForm() {
 											<h4 class="modal-title" id="project-1-label">Project
 												Title</h4>
 										</div>
-										<div class="modal-body">
-											<h3>Project Description</h3>
-											<div class="row">
-												<div class="col-md-6">
-													<!-- 上传文件，最近添加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
-													<s:form action="uploadTaobao" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
-														<br />
-														<table width="818" border="1">
-															<tr>
-																<td width="176">
-																	<div align="center">
-																		用户附件
-																	</div>
-																</td>
-																<td width="626" id="fileForm"><br>
-																	<input type="file" id="uploadFileTaobao" name="fileUploadToolsTaobao.uploadFile" onchange="file_change(this)"  size="55">
-																</td>
-															</tr>
-														</table>
-														
-														<br/>
-														
-													<!-- 上传文件，最近一次加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
-												</div>
-
-												<div class="col-md-6">
-													<img src="images/taobao2.jpeg" alt="">
-												</div>
-											</div>											
-										</div>
-
-										<div class="modal-footer">
-											<button type="submit" class="btn btn-sm btn-default">AirPull it</button>
-										</div>
-										</s:form>
+											<div class="modal-body">
+												<h3>Project Description</h3>
+												<div class="row">
+													<div class="col-md-6">
+														<!-- 上传文件，最近添加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
+														<s:form action="uploadTaobao" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
+															<br />
+															<table width="818" border="1">
+																<tr>
+																	<td width="176">
+																		<div align="center">
+																			用户附件
+																		</div>
+																	</td>
+																	<td width="626" id="fileForm"><br>
+																		<input type="file" id="uploadFileTaobao" name="fileUploadToolsTaobao.uploadFile" onchange="file_change(this)"  size="55">
+																	</td>
+																</tr>
+															</table>
+															
+															<br/>
+															<input type="hidden" name="name" value=${ user.nickname }> 
+															
+															
+														<!-- 上传文件，最近一次加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
+													</div>
+	
+													<div class="col-md-6">
+														<img src="images/taobao2.jpeg" alt="">
+													</div>
+												</div>											
+											</div>
+	
+											<div class="modal-footer">
+												<button type="submit" class="btn btn-sm btn-default">AirPull it</button>
+											</div>
+										</s:form>	
+										
 									</div>
 								</div>
 							</div>
@@ -500,6 +503,7 @@ function submitForm() {
 														</table>
 														
 														<br/>
+														<input type="hidden" name="name" value=${ user.nickname }>
 														
 													<!-- 上传文件，最近一次加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
 												</div>
@@ -635,7 +639,8 @@ function submitForm() {
 																<td>单元格Attribute-Value(正则表达式)</td>
 																<td><input type="text" name="tdCustom" value="undefined"></td>
 															</tr>
-														</table>														
+														</table>	
+														<input type="hidden" name="name" value=${ user.nickname }>													
 														
 													<!-- 上传文件，最近一次加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
 												</div>
@@ -701,7 +706,7 @@ function submitForm() {
 														</table>
 														
 														<br/>
-														
+														<input type="hidden" name="name" value=${ user.nickname }>
 													<!-- 上传文件，最近一次加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
 												</div>
 
@@ -766,6 +771,7 @@ function submitForm() {
 														</table>
 														
 														<br/>
+														<input type="hidden" name="name" value=${ user.nickname }>
 														
 													<!-- 上传文件，最近一次加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
 												</div>
@@ -831,7 +837,7 @@ function submitForm() {
 														</table>
 														
 														<br/>
-														
+														<input type="hidden" name="name" value=${ user.nickname }>
 													<!-- 上传文件，最近一次加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
 												</div>
 
@@ -896,6 +902,7 @@ function submitForm() {
 														</table>
 														
 														<br/>
+														<input type="hidden" name="name" value=${ user.nickname }>
 														
 													<!-- 上传文件，最近一次加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
 												</div>
@@ -962,6 +969,7 @@ function submitForm() {
 														</table>
 														
 														<br/>
+														<input type="hidden" name="name" value=${ user.nickname }>
 														
 													<!-- 上传文件，最近一次加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
 												</div>

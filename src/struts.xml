@@ -91,6 +91,12 @@
 		</action>
 		<!-- =============== -->
 		
+		<!-- Go HomeLogged Action -->
+		<action name="goHomeLogged" class="com.a1rdr0p.SEproject.action.goHomeLogged">
+			<result name="success">/WEB-INF/content/homeLogged.jsp</result>
+		</action>
+		<!-- =============== -->
+		
 		<!-- Go Change Password Action -->
 		<action name="goChangePassword" class="com.a1rdr0p.SEproject.action.goChangePassword">
 			<result name="success">/WEB-INF/content/changePassword.jsp</result>
