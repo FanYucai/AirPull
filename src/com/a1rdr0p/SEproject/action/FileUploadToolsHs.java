@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.regex.*;
+import org.apache.commons.codec.binary.Base64;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -91,94 +92,52 @@ public class FileUploadToolsHs {
 			File target = uploadFile[0];
 			Document doc = Jsoup.parse(target, "UTF-8", "");
 
-//			Elements tableElements = doc.getElementsByAttributeValue("class", "table_a");
-			Elements tableElements = doc.getElementsByTag("table");
-			System.out.println("size: "+tableElements.size());
-			for(int tb=0; tb<tableElements.size(); tb++) {
-				String tmp_ = "";
-				feifeiContent = "";
-				fileContent = "";
-				int tdCnt;
+			Elements divElements = doc.getElementsByAttributeValue("id", "standingsBox");
+//			System.out.println("size: "+tableElements.size());
+			byte[] encodeBase64; 
+			String tmp_ = "";
+			feifeiContent = "";
+			fileContent = "";
+			String title = "", subtitle = "";
+//			title += divElements.get(0).getElementsByAttributeValue("data-reactid", ".0.0.0.0").text();
+			title += doc.getElementsByAttributeValue("data-reactid", ".0.0.0.0").text();
+			title += doc.getElementsByAttributeValue("data-reactid", ".0.0.0.1").text();
+			title += doc.getElementsByAttributeValue("data-reactid", ".0.0.0.2").text();
+			encodeBase64 = Base64.encodeBase64(title.getBytes("UTF-8"));
+			tmp_ += new String(encodeBase64);
+			tmp_ += "{1,3}$";
+			
+			
+			subtitle += doc.getElementsByAttributeValue("data-reactid", ".0.0.1.0").text();
+			subtitle += doc.getElementsByAttributeValue("data-reactid", ".0.0.1.1").text();
+//			subtitle += doc.getElementsByAttributeValue("data-reactid", ".0.0.0.2").text();
+			encodeBase64 = Base64.encodeBase64(subtitle.getBytes("UTF-8"));
+			tmp_ += new String(encodeBase64);
+			tmp_ += "{1,3}$";
+			
+			tmp_ += "5o6S5ZCN{1,1}@546p5a62{1,1}@56ev5YiG{1,1}$";
+			
+			Elements liElements = doc.getElementsByAttributeValue("class", "esports-standings__list__item");			
+			System.out.println("hahahshabi:" + String.valueOf(liElements.size()));
+			System.out.println(liElements.size());
+			
+			for(int i=0; i<liElements.size(); i++) {
+
+				encodeBase64 = Base64.encodeBase64(liElements.get(i).getElementsByAttributeValueContaining("class", "esports-standings__list__item__rank").text().getBytes("UTF-8"));
+				tmp_ += new String(encodeBase64);
+				tmp_ += "{1,1}@";
 				
-				Elements trElements = tableElements.get(tb).getElementsByTag("tr");
-				tdCnt = 0;
-				for (int i = 0; i < trElements.size(); i++) {
-					Elements tdElements;
-					
-					if(i==0) {
-						tdElements = trElements.get(i).getElementsByTag("th");
-						if(tdElements.size() == 0) {
-							tdElements = trElements.get(i).getElementsByTag("td");
-						}
-					} else {
-						tdElements = trElements.get(i).getElementsByTag("td");
-					}
-					
-					tdCnt += tdElements.size();
-					tmp_ = "";
-					for (int j = 0; j < tdElements.size(); j++) {
-						if (j!=tdElements.size()-1) {
-							byte[] encodeBase64 = Base64.encodeBase64(tdElements.get(j).text().getBytes("UTF-8")); 
-							tmp_ += new String(encodeBase64);							
-							//tmp_ += tdElements.get(j).text();
-							String rowspan="1", colspan="1";
-							if(tdElements.get(j).hasAttr("colspan")||tdElements.get(j).hasAttr("rowspan")) {	
-								rowspan = tdElements.get(j).attr("rowspan");
-								colspan = tdElements.get(j).attr("colspan");
-							
-								if(rowspan.isEmpty()) {
-									rowspan = "1";
-								}
-								if(colspan.isEmpty()) {
-									colspan = "1";
-								}
-							}
-							
-							String rowcolInfo = "{"+rowspan+","+colspan+"}";
-							tmp_ += rowcolInfo+"@";						
-						} else {
-							String rowspan="1", colspan="1";
-							byte[] encodeBase64 = Base64.encodeBase64(tdElements.get(j).text().getBytes("UTF-8")); 
-							tmp_ += new String(encodeBase64);
-//							tmp_ += tdElements.get(j).text();
-							if(tdElements.get(j).hasAttr("colspan")||tdElements.get(j).hasAttr("rowspan")) {
-								rowspan = tdElements.get(j).attr("rowspan");
-								colspan = tdElements.get(j).attr("colspan");
-								if(rowspan.isEmpty()) {
-									rowspan = "1";
-								}
-								if(colspan.isEmpty()) {
-									colspan = "1";
-								}
-							}
-							String rowcolInfo = "{"+rowspan+","+colspan+"}";
-							tmp_ += rowcolInfo;											
-						}
-						
-//						byte[] encodeBase64 = Base64.encodeBase64(tdElements.get(j).text().getBytes("UTF-8"));  
-//						fileContent += new String(encodeBase64) + "\t";	
-				        fileContent += tdElements.get(j).text() + "\t";	
-					}
-					feifeiContent += tmp_+"$";
-					fileContent = fileContent + "\n";
-				}
+				encodeBase64 = Base64.encodeBase64(liElements.get(i).getElementsByAttributeValueContaining("class", "esports-standings__list__item__name").text().getBytes("UTF-8"));
+				tmp_ += new String(encodeBase64);
+				tmp_ += "{1,1}@";
 				
-				if(tb == 0) {
-					tableIndex = 0;
-					maxTdCnt = tdCnt;
-				} else {
-					if(maxTdCnt < tdCnt) {
-						maxTdCnt = tdCnt; //查找td数量最多的table
-						tableIndex = tb;
-					}
-				}
-				System.out.println("---------------------------------------------------");
-				System.out.println("feifei: "+feifeiContent);
-				feifeiContentArr.add(feifeiContent);
-				fileContentArr.add(fileContent);
+				encodeBase64 = Base64.encodeBase64(liElements.get(i).getElementsByAttributeValueContaining("class", "esports-standings__list__item__score").text().getBytes("UTF-8"));
+				tmp_ += new String(encodeBase64);			
+				tmp_ += "{1,1}$";
 			}
-			feifeiContent = feifeiContentArr.get(tableIndex);
-			fileContent = fileContentArr.get(tableIndex);
+			System.out.println("---------------------------------------------------");
+			feifeiContent += tmp_;
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
