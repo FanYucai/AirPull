@@ -624,12 +624,12 @@ return retstr.replace(/^,+/,'').replace(/\.$/,'');
 <body>    
 <form action="exportExcel" method="post">
 	<%-- <input type="hidden" name="fileContent" value='<s:property value="fileUploadToolsCustom.fileContent"/>' > --%>
-	<input type="button" name="Submit2" value="删除" onclick="DeleteRow(document.getElementById('tabProduct'),1)" />   
-	<input type="button" name="Submit2" value="添行" onclick="Addrow(document.getElementById('tabProduct'),1)" />
-	<input type="button" name="Submit2" value="添列" onclick="Addcol(document.getElementById('tabProduct'))" />   
-	<input type="button" name="Submit22" value="重置" onclick="window.location.reload()" />
+	<input type="button" name="Submit2" value="删除" onclick="DeleteRow(document.getElementById('tabProduct'),1)" class="btn btn-sm btn-default"/>   
+	<input type="button" name="Submit2" value="添行" onclick="Addrow(document.getElementById('tabProduct'),1)" class="btn btn-sm btn-default"/>
+	<input type="button" name="Submit2" value="添列" onclick="Addcol(document.getElementById('tabProduct'))" class="btn btn-sm btn-default"/>   
+	<input type="button" name="Submit22" value="重置" onclick="window.location.reload()" class="btn btn-sm btn-default"/>
 	<input id="fan2dog" type="hidden" name="fileContent" value="" >
-	<button type="submit" onclick="Str(document.getElementById('tabProduct'))">导出</button>
+	<button type="submit" onclick="Str(document.getElementById('tabProduct'))" class="btn btn-sm btn-default">导出</button>
 </form>
 <form id="form1" name="form1" method="post" action="">    
 <h3>表格数据获取结果</h3>    
