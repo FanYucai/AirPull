@@ -138,7 +138,7 @@ function submitForm() {
 						</div>
 						<div class="site-slogan">
 							Free Web Extract Tool by <a target="_blank"
-								href="http://www.baidu.com">AirDrop</a>
+								href="https://github.com/FanYucai/AirPull">AirDrop</a>
 						</div>
 					</div>
 
