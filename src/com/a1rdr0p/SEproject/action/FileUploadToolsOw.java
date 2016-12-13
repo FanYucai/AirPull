@@ -6,6 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.regex.*;
+import org.apache.commons.codec.binary.Base64;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -83,102 +84,34 @@ public class FileUploadToolsOw {
 		}//空文件判断
 		
 		try {
-			ArrayList<String> feifeiContentArr = new ArrayList<String>();
-			ArrayList<String> fileContentArr = new ArrayList<String>();
-
-			int tableIndex = 0, maxTdCnt = 0;
-			
 			File target = uploadFile[0];
 			Document doc = Jsoup.parse(target, "UTF-8", "");
 
-//			Elements tableElements = doc.getElementsByAttributeValue("class", "table_a");
-			Elements tableElements = doc.getElementsByTag("table");
-			System.out.println("size: "+tableElements.size());
-			for(int tb=0; tb<tableElements.size(); tb++) {
-				String tmp_ = "";
-				feifeiContent = "";
-				fileContent = "";
-				int tdCnt;
+			Elements title = doc.getElementsByAttributeValue("class", "tlink S_txt1");
+			Elements count = doc.getElementsByAttributeValue("class", "subtext S_txt2");
+
+			byte[] encodeBase64; 
+			String tmp_ = "";
+			feifeiContent = "";
+			fileContent = "";
+			
+			tmp_ += "54Ot6Zeo6K+d6aKY{1,1}@6ZiF6K+76YeP{1,1}$";
+			
+			System.out.println(title.size());
+			System.out.println(count.size());
+			
+			for(int i=0; i<title.size(); i++) {
+				encodeBase64 = Base64.encodeBase64(title.get(i).text().getBytes("UTF-8"));
+				tmp_ += new String(encodeBase64);
+				tmp_ += "{1,1}@";
 				
-				Elements trElements = tableElements.get(tb).getElementsByTag("tr");
-				tdCnt = 0;
-				for (int i = 0; i < trElements.size(); i++) {
-					Elements tdElements;
-					
-					if(i==0) {
-						tdElements = trElements.get(i).getElementsByTag("th");
-						if(tdElements.size() == 0) {
-							tdElements = trElements.get(i).getElementsByTag("td");
-						}
-					} else {
-						tdElements = trElements.get(i).getElementsByTag("td");
-					}
-					
-					tdCnt += tdElements.size();
-					tmp_ = "";
-					for (int j = 0; j < tdElements.size(); j++) {
-						if (j!=tdElements.size()-1) {
-							byte[] encodeBase64 = Base64.encodeBase64(tdElements.get(j).text().getBytes("UTF-8")); 
-							tmp_ += new String(encodeBase64);							
-							//tmp_ += tdElements.get(j).text();
-							String rowspan="1", colspan="1";
-							if(tdElements.get(j).hasAttr("colspan")||tdElements.get(j).hasAttr("rowspan")) {	
-								rowspan = tdElements.get(j).attr("rowspan");
-								colspan = tdElements.get(j).attr("colspan");
-							
-								if(rowspan.isEmpty()) {
-									rowspan = "1";
-								}
-								if(colspan.isEmpty()) {
-									colspan = "1";
-								}
-							}
-							
-							String rowcolInfo = "{"+rowspan+","+colspan+"}";
-							tmp_ += rowcolInfo+"@";						
-						} else {
-							String rowspan="1", colspan="1";
-							byte[] encodeBase64 = Base64.encodeBase64(tdElements.get(j).text().getBytes("UTF-8")); 
-							tmp_ += new String(encodeBase64);
-//							tmp_ += tdElements.get(j).text();
-							if(tdElements.get(j).hasAttr("colspan")||tdElements.get(j).hasAttr("rowspan")) {
-								rowspan = tdElements.get(j).attr("rowspan");
-								colspan = tdElements.get(j).attr("colspan");
-								if(rowspan.isEmpty()) {
-									rowspan = "1";
-								}
-								if(colspan.isEmpty()) {
-									colspan = "1";
-								}
-							}
-							String rowcolInfo = "{"+rowspan+","+colspan+"}";
-							tmp_ += rowcolInfo;											
-						}
-						
-//						byte[] encodeBase64 = Base64.encodeBase64(tdElements.get(j).text().getBytes("UTF-8"));  
-//						fileContent += new String(encodeBase64) + "\t";	
-				        fileContent += tdElements.get(j).text() + "\t";	
-					}
-					feifeiContent += tmp_+"$";
-					fileContent = fileContent + "\n";
-				}
-				
-				if(tb == 0) {
-					tableIndex = 0;
-					maxTdCnt = tdCnt;
-				} else {
-					if(maxTdCnt < tdCnt) {
-						maxTdCnt = tdCnt; //查找td数量最多的table
-						tableIndex = tb;
-					}
-				}
-				System.out.println("---------------------------------------------------");
-				System.out.println("feifei: "+feifeiContent);
-				feifeiContentArr.add(feifeiContent);
-				fileContentArr.add(fileContent);
+				encodeBase64 = Base64.encodeBase64(count.get(i).text().getBytes("UTF-8"));
+				tmp_ += new String(encodeBase64);
+				tmp_ += "{1,1}$";
 			}
-			feifeiContent = feifeiContentArr.get(tableIndex);
-			fileContent = fileContentArr.get(tableIndex);
+			System.out.println("---------------------------------------------------");
+			feifeiContent += tmp_;
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
