@@ -67,9 +67,8 @@
 		
 		<!-- Save Table Action -->
 		<action name="saveTable" class="com.a1rdr0p.SEproject.action.saveTable">
-			<result name="success"></result>
-			<result name="exist"></result>
-			<result name="error"></result>
+			<result name="success">/WEB-INF/content/saveSuccess.jsp?type=保存成功</result>
+			<result name="error">/WEB-INF/content/saveSuccess.jsp?type=未知错误</result>
 		</action>
 		<!-- =============== -->
 		

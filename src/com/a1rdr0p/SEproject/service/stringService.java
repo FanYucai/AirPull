@@ -43,10 +43,10 @@ public class stringService {
                 if(rs.getString("name").equals(name) && rs.getString("type").equals(type))
                 {
                 	tmp = rs.getString("string");
+                	return tmp;
                 }
             }
             conn.close();
-            return tmp;
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -54,9 +54,14 @@ public class stringService {
     }
 	
 	public static int insertString(String name , String type, String string){
-    	if (findString(name, type) != null) 
+//		System.out.println(string);
+//		System.out.println("我进来了");
+    	if (findString(name, type) != null) {
+//    		System.out.println("qwq");
     		return 110;//错误代码110，相应字符串已存在
-    	
+    	}
+//    	System.out.println(type);
+//    	System.out.println("hello");
     	Connection conn = userService.getConn();
         String sql = "insert into tb values(?,?,?)";
         PreparedStatement pstmt;
@@ -64,6 +69,7 @@ public class stringService {
         	
             pstmt = (PreparedStatement)conn.prepareStatement(sql);
             pstmt.setString(1, name);
+            System.out.println(type);
             pstmt.setString(2, type);
             pstmt.setString(3, string);
             if (pstmt.executeUpdate()!= 0 ) {

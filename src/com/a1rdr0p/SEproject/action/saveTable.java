@@ -2,13 +2,25 @@ package com.a1rdr0p.SEproject.action;
 
 import com.a1rdr0p.SEproject.model.User;
 import com.a1rdr0p.SEproject.service.stringService;
+import com.a1rdr0p.SEproject.service.userService;
 import com.opensymphony.xwork2.Action;
 
 public class saveTable implements Action {
 	private User user;
-	private String string;
+	private String name;
+	private String fan3dog;
 	private String type;
 	
+	public String getName() {
+		return name;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
 	public User getUser() {
 		return user;
 	}
@@ -18,14 +30,15 @@ public class saveTable implements Action {
 		this.user = user;
 	}
 
-	public String getString() {
-		return string;
+	public String getFan3dog() {
+		return fan3dog;
 	}
 
 
-	public void setString(String string) {
-		this.string = string;
+	public void setFan3dog(String fan3dog) {
+		this.fan3dog = fan3dog;
 	}
+
 
 	public String getType() {
 		return type;
@@ -40,11 +53,17 @@ public class saveTable implements Action {
 	@Override
 	public String execute() throws Exception {
 		stringService ss = new stringService();
+		userService us = new userService();
 		
-		int flag = ss.insertString(user.getName(), type, string);
+		user = us.findNickname(name);
+		
+		int flag = ss.insertString(user.getName(), type, fan3dog);
 		if (flag == 110) {
-			
-			return "exist";
+			boolean bool = ss.updateString(user.getName(), type, fan3dog);
+			if (bool == true)
+				return SUCCESS;
+			else 
+				return ERROR;
 		} else if (flag == 1) {
 			return SUCCESS;
 		} else {

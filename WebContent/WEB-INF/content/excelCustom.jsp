@@ -970,7 +970,9 @@ Str(document.getElementById("tabProduct"));
 </script>    
 <form action = saveTable  method="post">
 	<input id="fan3dog" type="hidden" name="fan3dog" value="" >
-	<input type="button" name="Submit" value="保存" onclick="Strsave(document.getElementById('tabProduct'))" />
+	<input type="hidden" name="name" value=${ user.nickname }>
+	<input type="hidden" name="type" value="3">
+	<button type="submit" name="Submit" onclick="Strsave(document.getElementById('tabProduct'))">保存</button>
 </form>
 </body>    
 </html>    
