@@ -836,7 +836,7 @@ function submitForm() {
 											<div class="row">
 												<div class="col-md-6">
 													<!-- 上传文件，最近添加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
-													<s:form action="uploadCustom" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
+													<s:form action="uploadJiaowuchu2" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
 														<br />
 														<table width="818" border="1">
 															<tr>
@@ -846,7 +846,7 @@ function submitForm() {
 																	</div>
 																</td>
 																<td width="626" id="fileForm"><br>
-																	<input type="file" id="uploadFileCustom" name="fileUploadToolsCustom.uploadFile" onchange="file_change(this)"  size="55">
+																	<input type="file" id="uploadFileJiaowuchu2" name="fileUploadToolsJiaowuchu2.uploadFile" onchange="file_change(this)"  size="55">
 																</td>
 															</tr>
 														</table>
@@ -858,7 +858,7 @@ function submitForm() {
 												</div>
 
 												<div class="col-md-6">
-													<img src="images/jiaowuchu.jpeg" alt="">
+													<img src="images/port.jpg" alt="">
 												</div>
 											</div>											
 										</div>

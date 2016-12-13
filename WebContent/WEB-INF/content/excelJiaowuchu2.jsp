@@ -4,8 +4,8 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <script type="text/javascript">
-var content= '<s:property value="fileUploadToolsJd.feifeiContent"/>';
-var output= '<s:property value="fileUploadToolsJd.feifeiContent"/>';
+var content= '<s:property value="fileUploadToolsJiaowuchu2.feifeiContent"/>';
+var output= '<s:property value="fileUploadToolsJiaowuchu2.feifeiContent"/>';
 </script>
 <html lang="en">    
 <head>    
@@ -778,10 +778,11 @@ function caedit(table){
 	<button type="submit" onclick="Str(document.getElementById('tabProduct'))">导出</button>
 </form>
 
+
 <form action = saveTable  method="post">
 	<input id="fan3dog" type="hidden" name="fan3dog" value="" >
 	<input type="hidden" name="name" value=${ user.nickname }>
-	<input type="hidden" name="type" value="8">
+	<input type="hidden" name="type" value="7">
 	<button type="submit" name="Submit" onclick="Strsave(document.getElementById('tabProduct'))">保存</button>
 </form>
 

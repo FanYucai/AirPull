@@ -171,6 +171,12 @@
 		<!-- =============== -->
 		
 		<!-- =============== -->
+		<action name="uploadJiaowuchu2" class="com.a1rdr0p.SEproject.action.UploadActionJiaowuchu2">
+			<result>/WEB-INF/content/afterPullJiaowuchu2.jsp</result>
+		</action>
+		<!-- =============== -->
+		
+		<!-- =============== -->
 		<action name="uploadCustom" class="com.a1rdr0p.SEproject.action.UploadActionCustom">
 			<result>/WEB-INF/content/afterPullCustom.jsp</result>
 		</action>

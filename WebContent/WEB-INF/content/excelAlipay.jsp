@@ -778,13 +778,13 @@ function caedit(table){
 	<button type="submit" onclick="Str(document.getElementById('tabProduct'))">导出</button>
 </form>
 
-
 <form action = saveTable  method="post">
 	<input id="fan3dog" type="hidden" name="fan3dog" value="" >
 	<input type="hidden" name="name" value=${ user.nickname }>
-	<input type="hidden" name="type" value="3">
+	<input type="hidden" name="type" value="5">
 	<button type="submit" name="Submit" onclick="Strsave(document.getElementById('tabProduct'))">保存</button>
 </form>
+
 
 <!-- login -->
 <div class="col-sm-6 col-md-1 col-md-offset-4 isotope-item app-development">

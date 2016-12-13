@@ -29,7 +29,7 @@ public class sendEmail {
 		String str3 = "\t您的密码是：" + Password + "\n";
 		String str4 = "\n请保存好您的账号信息以及邮箱。如果您忘记了密码，可以通过您的邮箱获取密码。\n\nHappy with AirPull~\n";
 		String str5 = "（请勿回复此邮件）";
-		mail.setMessage(str1+str2+str3+str4+str5);
+		mail.setMessage(str1+str2+str4+str5);
 		if (new emailService().send(mail)) {
 			System.out.println("SEND success!");
 		} else
