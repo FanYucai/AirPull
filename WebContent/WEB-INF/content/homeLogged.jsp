@@ -860,7 +860,7 @@ function submitForm() {
 									</a>
 								</div>
 								<a class="btn btn-default btn-block" data-toggle="modal"
-									data-target="#project-7">查看教务处课表</a>
+									data-target="#project-7">查看教务处选课信息</a>
 							</div>
 							<!-- Modal -->
 							<div class="modal fade" id="project-7" tabindex="-1"
@@ -880,7 +880,7 @@ function submitForm() {
 											<div class="row">
 												<div class="col-md-6">
 													<!-- 上传文件，最近添加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
-													<s:form action="uploadAlipay" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
+													<s:form action="uploadCustom" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
 														<br />
 														<table width="818" border="1">
 															<tr>
@@ -890,7 +890,7 @@ function submitForm() {
 																	</div>
 																</td>
 																<td width="626" id="fileForm"><br>
-																	<input type="file" id="uploadFileAlipay" name="fileUploadToolsAlipay.uploadFile" onchange="file_change(this)"  size="55">
+																	<input type="file" id="uploadFileCustom" name="fileUploadToolsCustom.uploadFile" onchange="file_change(this)"  size="55">
 																</td>
 															</tr>
 														</table>
@@ -901,7 +901,7 @@ function submitForm() {
 												</div>
 
 												<div class="col-md-6">
-													<img src="images/hearthstone.png" alt="">
+													<img src="images/jiaowuchu.jpeg" alt="">
 												</div>
 											</div>											
 										</div>
