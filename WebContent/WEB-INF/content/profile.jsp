@@ -99,7 +99,7 @@
 										<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
 											<ul class="nav navbar-nav navbar-right">
 												<li><a href="#services"><%=nickname %></a></li>
-												<li><a href="#tables">Repository</a></li>
+												<li><a href="#repository">Repository</a></li>
 												<li><a href="backHomeLogged?name=<%=nickname %>">Back</a></li>
 												<!-- <li><a href="#export">Export</a></li> -->
 											</ul>
@@ -228,7 +228,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h1 id="tables" class="title text-center">你的 <span>AirPull</span>仓库</h1>
+						<h1 id="repository" class="title text-center">你的 <span>AirPull</span>仓库</h1>
 						
 						<div class="space"></div>
 						<div class="row">
@@ -287,14 +287,14 @@
 								</div>
 								
 								<div class="panel panel-default">
-									<div class="panel-heading" role="tab" id="headingThree">
+									<div class="panel-heading" role="tab" id="headingFour">
 										<h4 class="panel-title">
-											<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+											<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
 												游戏数据 #4
 											</a>
 										</h4>
 									</div>
-									<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+									<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
 										<div class="panel-body">
 											战绩 战绩 战绩……
 										</div>
@@ -302,14 +302,14 @@
 								</div>
 								
 								<div class="panel panel-default">
-									<div class="panel-heading" role="tab" id="headingThree">
+									<div class="panel-heading" role="tab" id="headingFive">
 										<h4 class="panel-title">
-											<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+											<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
 												游戏数据 #5
 											</a>
 										</h4>
 									</div>
-									<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+									<div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
 										<div class="panel-body">
 											战绩 战绩 战绩……
 										</div>
@@ -317,14 +317,14 @@
 								</div>
 								
 								<div class="panel panel-default">
-									<div class="panel-heading" role="tab" id="headingThree">
+									<div class="panel-heading" role="tab" id="headingSix">
 										<h4 class="panel-title">
-											<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+											<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
 												游戏数据 #6
 											</a>
 										</h4>
 									</div>
-									<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+									<div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
 										<div class="panel-body">
 											战绩 战绩 战绩……
 										</div>
@@ -332,14 +332,14 @@
 								</div>
 								
 								<div class="panel panel-default">
-									<div class="panel-heading" role="tab" id="headingThree">
+									<div class="panel-heading" role="tab" id="headingSeven">
 										<h4 class="panel-title">
-											<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+											<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
 												游戏数据 #7
 											</a>
 										</h4>
 									</div>
-									<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+									<div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
 										<div class="panel-body">
 											战绩 战绩 战绩……
 										</div>
@@ -347,14 +347,14 @@
 								</div>
 								
 								<div class="panel panel-default">
-									<div class="panel-heading" role="tab" id="headingThree">
+									<div class="panel-heading" role="tab" id="headingEight">
 										<h4 class="panel-title">
-											<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+											<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
 												游戏数据 #8
 											</a>
 										</h4>
 									</div>
-									<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+									<div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
 										<div class="panel-body">
 											战绩 战绩 战绩……
 										</div>
