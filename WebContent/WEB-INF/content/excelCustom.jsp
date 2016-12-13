@@ -173,13 +173,15 @@ for(var i=1; i<table.rows.length;i++){
 }    
     
 function SetRowCanEdit(row){    
-for(var j=0;j<row.cells.length; j++){    
+for(var j=1;j<row.cells.length; j++){    
     
    //如果当前单元格指定了编辑类型，则表示允许编辑    
    var editType = row.cells[j].getAttribute("EditType");    
    if(!editType){    
     //如果当前单元格没有指定，则查看当前列是否指定    
-    editType = row.parentNode.rows[0].cells[j].getAttribute("EditType");    
+    //editType = row.parentNode.rows[0].cells[j].getAttribute("EditType");    
+	   row.cells[j].setAttribute("EditType","TextBox");
+	   editType = row.cells[j].getAttribute("EditType");
    }    
    if(editType){    
     row.cells[j].onclick = function (){    
@@ -196,7 +198,9 @@ function EditCell(element, editType){
 var editType = element.getAttribute("EditType");    
 if(!editType){    
    //如果当前单元格没有指定，则查看当前列是否指定    
-   editType = element.parentNode.parentNode.rows[0].cells[element.cellIndex].getAttribute("EditType");    
+   //editType = element.parentNode.parentNode.rows[0].cells[element.cellIndex].getAttribute("EditType");    
+   //element.setAttribute("EditType","TextBox");
+   editType = element.getAttribute("EditType");
 }    
     
 switch(editType){    
@@ -725,6 +729,21 @@ for(var f=0;f<fmt.length;f++){
 }      
 return retstr.replace(/^,+/,'').replace(/\.$/,'');      
 }    
+function edit(table){
+	EditTables(table);
+	alert("成功进入编辑状态～");
+}
+function caedit(table){
+    var n = table.rows.length;
+   	for (var i=1;i<n;i++){
+   		for (var j=1;j<table.rows[i].cells.length;j++){
+  		table.rows[i].cells[j].setAttribute("EditState", "false");
+   		table.rows[i].cells[j].removeAttribute("EditType");
+   		}
+   	}
+   	alert("取消编辑状态!");
+   	
+}
 </script>  
 </head>    
 <body>    
@@ -732,8 +751,11 @@ return retstr.replace(/^,+/,'').replace(/\.$/,'');
 	<%-- <input type="hidden" name="fileContent" value='<s:property value="fileUploadToolsCustom.fileContent"/>' > --%>
 	<input type="button" name="Submit2" value="删除" onclick="DeleteRow(document.getElementById('tabProduct'),1)" />   
 	<input type="button" name="Submit2" value="添行" onclick="Addrow(document.getElementById('tabProduct'),1)" />
-	<input type="button" name="Submit2" value="添列" onclick="Addcol(document.getElementById('tabProduct'))" />   
+	<input type="button" name="Submit2" value="添列" onclick="Addcol(document.getElementById('tabProduct'))" />
+	<input type="button" name="Submit2" value="编辑" onclick="edit(document.getElementById('tabProduct'))" />   
+	<input type="button" name="Submit2" value="取消编辑" onclick="caedit(document.getElementById('tabProduct'))" />   
 	<input type="button" name="Submit22" value="重置" onclick="window.location.reload()" />
+	
 	<input id="fan2dog" type="hidden" name="fileContent" value="" >
 	<button type="submit" onclick="Str(document.getElementById('tabProduct'))">导出</button>
 </form>
@@ -835,77 +857,83 @@ for (i=1;i<=row;i++){
 htmlstr+='</table>';
 document.write(htmlstr);*/
 var tempstr=content;
-var index =new Array();
-var indexD = new Array();//douhao
-var indexK = new Array();//kuohao
-var indexKK = new Array();//kuohui
-index.push(-1);
-var cnt= 0; 
-var col= 0;
-var sum= 0;
-var row= 0;
-for (i=0;i<tempstr.length;i++)
-	if (tempstr[i]=='@') 
-	{
-		index.push(i);
-		cnt++;	
-	} else
-	if (tempstr[i]=='$')
-	{
-		row++;
-		cnt++;
-		index.push(i);
-	} else
-	if (tempstr[i]==',')
-	{
-		indexD.push(i);
-	} else
-	if (tempstr[i]=='{')
-	{
-		indexK.push(i);
-	} else
-	if (tempstr[i]=='}')
-	{
-		indexKK.push(i);
-	}
-	for (i=0;i<cnt;i++)
-	{
-		sum+=parseInt(tempstr.substring(indexD[i]+1,indexKK[i]));
-	}
-col = sum/row;
-var htmlstr='<table border="1" cellpadding="0" cellspacing="0" id="tabProduct">';
-htmlstr+='<tr><td></td>';
-for (i=0;i<col;i++)
-	htmlstr+='<td  align="center" bgcolor="#FFFFFF"><input type="checkbox" value="checkbox" /></td>';
-htmlstr+='</tr><tr>'
-htmlstr+='<td width="32" align="center" bgcolor="#EFEFEF"><input type="checkbox" value="checkbox"/></td>';
-var base = new Base64();
-var type= 0;
-for (i=0;i<cnt;i++){
-	if (type==0){
+if (tempstr[0]=='!'){
+	alert(tempstr.substring(1,tempstr.length));
+} else{
+	var index =new Array();
+	var indexD = new Array();//douhao
+	var indexK = new Array();//kuohao
+	var indexKK = new Array();//kuohui
+	index.push(-1);
+	var cnt= 0; 
+	var col= 0;
+	var sum= 0;
+	var row= 0;
+	for (i=0;i<tempstr.length;i++)
+		if (tempstr[i]=='@') 
+		{
+			index.push(i);
+			cnt++;	
+		} else
+		if (tempstr[i]=='$')
+		{
+			row++;
+			cnt++;
+			index.push(i);
+		} else
+		if (tempstr[i]==',')
+		{
+			indexD.push(i);
+		} else
+		if (tempstr[i]=='{')
+		{
+			indexK.push(i);
+		} else
+		if (tempstr[i]=='}')
+		{
+			indexKK.push(i);
+		}
+		for (i=0;i<cnt;i++)
+		{
+			sum+=parseInt(tempstr.substring(indexD[i]+1,indexKK[i]));
+		}
+	col = sum/row;
+	var htmlstr='<table border="1" cellpadding="0" cellspacing="0" id="tabProduct">';
+	htmlstr+='<tr><td></td>';
+	for (i=0;i<col;i++)
+		htmlstr+='<td  align="center" bgcolor="#FFFFFF"><input type="checkbox" value="checkbox" /></td>';
+	htmlstr+='</tr><tr>'
+	htmlstr+='<td width="32" align="center" bgcolor="#EFEFEF"><input type="checkbox" value="checkbox"/></td>';
+	var base = new Base64();
+	var type= 0;
+	for (i=0;i<cnt;i++){
+		if (type==0){
+			if (tempstr[index[i]]=='$') {
+				htmlstr+='<tr>';
+				htmlstr+='<td align="center" bgcolor="#FFFFFF"><input type="checkbox" value="checkbox" /></td>';
+			}
+			htmlstr+='<td  bgcolor="#EFEFEF" EditType="TextBox" align="center" '+ 'rowspan="'+tempstr.substring(indexK[i]+1,indexD[i])+'" colspan="'+tempstr.substring(indexD[i]+1,indexKK[i])+'">' +base.decode(tempstr.substring(index[i]+1,indexK[i]))+'</td>';
+			if (tempstr[index[i+1]]=='$'){
+				htmlstr+='</tr>';
+				type=1;
+			}
+			
+		} else{
 		if (tempstr[index[i]]=='$') {
 			htmlstr+='<tr>';
 			htmlstr+='<td align="center" bgcolor="#FFFFFF"><input type="checkbox" value="checkbox" /></td>';
 		}
-		htmlstr+='<td  bgcolor="#EFEFEF" EditType="TextBox" align="center" '+ 'rowspan="'+tempstr.substring(indexK[i]+1,indexD[i])+'" colspan="'+tempstr.substring(indexD[i]+1,indexKK[i])+'">' +base.decode(tempstr.substring(index[i]+1,indexK[i]))+'</td>';
+		htmlstr+='<td width="100" bgcolor="#FFFFFF" EditType="TextBox" align="center" '+ 'rowspan="'+tempstr.substring(indexK[i]+1,indexD[i])+'" colspan="'+tempstr.substring(indexD[i]+1,indexKK[i])+'">' +base.decode(tempstr.substring(index[i]+1,indexK[i]))+'</td>';
+			
 		if (tempstr[index[i+1]]=='$'){
 			htmlstr+='</tr>';
-			type=1;
 		}
-		
-	} else{
-	if (tempstr[index[i]]=='$') {
-		htmlstr+='<tr>';
-		htmlstr+='<td align="center" bgcolor="#FFFFFF"><input type="checkbox" value="checkbox" /></td>';
+		}
 	}
-	htmlstr+='<td width="100" bgcolor="#FFFFFF" EditType="TextBox" align="center" '+ 'rowspan="'+tempstr.substring(indexK[i]+1,indexD[i])+'" colspan="'+tempstr.substring(indexD[i]+1,indexKK[i])+'">' +base.decode(tempstr.substring(index[i]+1,indexK[i]))+'</td>';
-		
-	if (tempstr[index[i+1]]=='$'){
-		htmlstr+='</tr>';
-	}
-	}
+	htmlstr+='</table>';
 }
-htmlstr+='</table>';
+
+
 document.write(htmlstr);
 
 
