@@ -272,7 +272,7 @@ function submitForm() {
 						</div>
 						<div class="media-body">
 							<h4 class="media-heading">Step 1</h4>
-							<p>打开冰箱</p>
+							<p>欢迎来到AirPull！在这里您可以选择操作上传相应的文件，并且提取出您需要的表格。您还可以对您提取出的表格进行修改，增添、删除等操作，并可以将您的修改导出或者保存，以便之后再次查看。</p>
 						</div>
 					</div>
 					<div class="media">
@@ -281,7 +281,7 @@ function submitForm() {
 						</div>
 						<div class="media-body">
 							<h4 class="media-heading">Step2</h4>
-							<p>把大象放进冰箱</p>
+							<p>在下方的操作列表，我们为您提供了共8个操作选项，分为购物、娱乐、以及教务管理等三个类别以及一个自定义操作。您可以自由点击并查看每种操作的相应描，述以及上传文件的操作步骤。</p>
 						</div>
 					</div>
 					<div class="media">
@@ -290,7 +290,7 @@ function submitForm() {
 						</div>
 						<div class="media-body">
 							<h4 class="media-heading">Step 3</h4>
-							<p>关上冰箱</p>
+							<p>当您获得了您需要的.html或者.htm文件并成功上传文件时，点击AirPull It按钮，您将会跳转到表格展示的页面，在这个页面我们会为您展示出我们的抽取结果。</p><br />
 						</div>
 					</div>
 					<div class="media">
@@ -299,9 +299,7 @@ function submitForm() {
 						</div>
 						<div class="media-body">
 							<h4 class="media-heading">Step 4</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-								Iure aperiam consequatur quo quis exercitationem reprehenderit
-								dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
+							<p>如果您需要对提取出的表格进行修改，您可以根据表格上方的操作按钮进行增添删除以及修改操作。您所做的修改都将被保存在您的个人记录中，您可以随时查看您的抽取历史。</p>
 						</div>
 					</div>
 				</div>
@@ -312,10 +310,8 @@ function submitForm() {
 							<i class="fa fa-leaf"></i>
 						</div>
 						<div class="media-body">
-							<h4 class="media-heading">Service 5</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-								Iure aperiam consequatur quo quis exercitationem reprehenderit
-								dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
+							<h4 class="media-heading">Step 5</h4>
+							<p>当您完成对表格的修改之后，您可以点击表格上方的导出按钮，将您看到的表格保存在excel能够打开的.xls文件中，并下载到本地。</p><br />
 						</div>
 					</div>
 					<div class="media">
@@ -323,10 +319,8 @@ function submitForm() {
 							<i class="fa fa-area-chart"></i>
 						</div>
 						<div class="media-body">
-							<h4 class="media-heading">Service 6</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-								Iure aperiam consequatur quo quis exercitationem reprehenderit
-								dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
+							<h4 class="media-heading">Step 6</h4>
+							<p>我们还提供自定义表格抽取功能，如果您对html文件的格式比较了解，您可以指定您需要抽取的表格的信息，包括表格的标签属性、属性值等，从而精确定位您需要导出的表格。</p><br />
 						</div>
 					</div>
 					<div class="media">
@@ -334,10 +328,8 @@ function submitForm() {
 							<i class="fa fa-child"></i>
 						</div>
 						<div class="media-body">
-							<h4 class="media-heading">Service 7</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-								Iure aperiam consequatur quo quis exercitationem reprehenderit
-								dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
+							<h4 class="media-heading">Step 7</h4>
+							<p>我们目前只提供这八种操作模式，请确保您按照每一项操作的步骤执行，否则很有可能无法得到您想要的表格。如果您上传了错误格式的表格，您将会看到错误提示信息。</p><br />
 						</div>
 					</div>
 					<div class="media">
@@ -345,10 +337,8 @@ function submitForm() {
 							<i class="fa fa-codepen"></i>
 						</div>
 						<div class="media-body">
-							<h4 class="media-heading">Service 8</h4>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-								Iure aperiam consequatur quo quis exercitationem reprehenderit
-								dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
+							<h4 class="media-heading">Step 8</h4>
+							<p>如果您发现了该系统存在的错误，或者您需要我们增添您常用的操作模式，请根据下方的邮件地址联系我们，我们会第一时间尝试修改错误并给您反馈。</p><br />
 						</div>
 					</div>
 				</div>
@@ -366,10 +356,10 @@ function submitForm() {
 		<div class="container">
 			<h1 class="text-center title" id="portfolio">操作列表</h1>
 			<div class="separator"></div>
-			<p class="lead text-center">
+<!-- 			<p class="lead text-center">
 				Lorem ipsum dolor sit amet laudantium molestias similique.<br>
 				Quisquam incidunt ut laboriosam.
-			</p>
+			</p> -->
 			<br>
 			<div class="row object-non-visible" data-animation-effect="fadeIn">
 				<div class="col-md-12">
@@ -377,12 +367,11 @@ function submitForm() {
 					<!-- isotope filters start -->
 					<div class="filters text-center">
 						<ul class="nav nav-pills">
-							<li class="active"><a href="#" data-filter="*">All</a></li>
-							<li><a href="#" data-filter=".web-design">Web design</a></li>
-							<li><a href="#" data-filter=".app-development">App
-									development</a></li>
-							<li><a href="#" data-filter=".site-building">Site
-									building</a></li>
+							<li class="active"><a href="#" data-filter="*">所有</a></li>
+							<li><a href="#" data-filter=".games">娱乐&社交</a></li>
+							<li><a href="#" data-filter=".shop">账单</a></li>
+							<li><a href="#" data-filter=".grade">教务</a></li>
+							<li><a href="#" data-filter=".custom">自定义</a></li>
 						</ul>
 					</div>
 					<!-- isotope filters end -->
@@ -390,7 +379,7 @@ function submitForm() {
 					<!-- portfolio items start -->
 
 					<div class="isotope-container row grid-space-20">
- 						<div class="col-sm-6 col-md-3 isotope-item web-design">
+ 						<div class="col-sm-6 col-md-3 isotope-item shop">
 							<div class="image-box">
 								<div class="overlay-container">
 									<img src="images/taobao2.jpeg" alt=""> <a class="overlay"
@@ -399,7 +388,7 @@ function submitForm() {
 									</a>
 								</div>
 								<a class="btn btn-default btn-block" data-toggle="modal"
-									data-target="#project-1">查看淘宝订单[未完成]</a>
+									data-target="#project-1">查看淘宝订单</a>
 							</div>
 							<!-- Modal -->
 							<div class="modal fade" id="project-1" tabindex="-1"
@@ -458,7 +447,7 @@ function submitForm() {
 							<!-- Modal end -->
 						</div>
 					
-						<div class="col-sm-6 col-md-3 isotope-item app-development">
+						<div class="col-sm-6 col-md-3 isotope-item grade">
 							<div class="image-box">
 								<div class="overlay-container">
 									<img src="images/jiaowuchu.jpeg" alt=""> <a
@@ -524,7 +513,7 @@ function submitForm() {
 							<!-- Modal end -->
 						</div>
 
-						<div class="col-sm-6 col-md-3 isotope-item web-design">
+						<div class="col-sm-6 col-md-3 isotope-item custom">
 							<div class="image-box">
 								<div class="overlay-container">
 									<img src="images/portfolio-3.jpg" alt=""> <a
@@ -661,7 +650,7 @@ function submitForm() {
 							<!-- Modal end -->
 						</div>
 
-						<div class="col-sm-6 col-md-3 isotope-item site-building">
+						<div class="col-sm-6 col-md-3 isotope-item games">
 							<div class="image-box">
 								<div class="overlay-container">
 									<img src="images/overwatch.jpg" alt=""> <a
@@ -726,7 +715,7 @@ function submitForm() {
 							<!-- Modal end -->
 						</div>
 
-						<div class="col-sm-6 col-md-3 isotope-item app-development">
+						<div class="col-sm-6 col-md-3 isotope-item shop">
 							<div class="image-box">
 								<div class="overlay-container">
 									<img src="images/alipay.jpg" alt=""> <a
@@ -792,7 +781,7 @@ function submitForm() {
 							<!-- Modal end -->
 						</div>
 
-						<div class="col-sm-6 col-md-3 isotope-item web-design">
+						<div class="col-sm-6 col-md-3 isotope-item games">
 							<div class="image-box">
 								<div class="overlay-container">
 									<img src="images/hearthstone.png" alt=""> <a
@@ -857,7 +846,7 @@ function submitForm() {
 							<!-- Modal end -->
 						</div>
 
-						<div class="col-sm-6 col-md-3 isotope-item site-building">
+						<div class="col-sm-6 col-md-3 isotope-item grade">
 							<div class="image-box">
 								<div class="overlay-container">
 									<img src="images/port.jpg" alt=""> <a
@@ -924,7 +913,7 @@ function submitForm() {
 						</div>
 
 
-						<div class="col-sm-6 col-md-3 isotope-item app-development">
+						<div class="col-sm-6 col-md-3 isotope-item shop">
 							<div class="image-box">
 								<div class="overlay-container">
 									<img src="images/jd.jpeg" alt=""> <a
@@ -1000,11 +989,23 @@ function submitForm() {
 
 	<!-- section start -->
 	<!-- ================ -->
+	<div class="default-bg space black">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<h2 class="text-center">Contact Us</h2>
+				</div>
+			</div>
+		</div>
+	</div> 
+	<!-- section end -->
+	
+	<!-- section start -->
+	<!-- ================ -->
 	<div class="section translucent-bg bg-image-2 pb-clear">
 		<div class="container object-non-visible"
 			data-animation-effect="fadeIn">
-			<h1 id="clients" class="title text-center">Clients</h1>
-			<div class="space"></div>
+			<!-- <p id="clients" class="title text-center">Contact Us</p> -->
 			<div class="row">
 				<div class="col-md-4">
 					<div class="media testimonial">
@@ -1012,12 +1013,11 @@ function submitForm() {
 							<img src="images/owlogo1.png" alt="">
 						</div>
 						<div class="media-body">
-							<h3 class="media-heading">You are Amazing!</h3>
+							<h3 class="media-heading">FanYucai</h3>
 							<blockquote>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-									Iure aperiam consequatur quo.</p>
-								<footer>Someone famous in <cite title="Source Title">Source
-									Title</cite></footer>
+								<p>fanyucai@126.com</p>
+								<!-- <footer>Someone famous in <cite title="Source Title">Source
+									Title</cite></footer> -->
 							</blockquote>
 						</div>
 					</div>
@@ -1028,12 +1028,11 @@ function submitForm() {
 							<img src="images/owlogo2.png" alt="">
 						</div>
 						<div class="media-body">
-							<h3 class="media-heading">Yeah!</h3>
+							<h3 class="media-heading">lanxuan365</h3>
 							<blockquote>
-								<p>Iure aperiam consequatur quo quis exercitationem
-									reprehenderit dolor vel ducimus.</p>
-								<footer>Someone famous in <cite title="Source Title">Source
-									Title</cite></footer>
+								<p>719464096@qq.com</p>
+								<!-- <footer>Someone famous in <cite title="Source Title">Source
+									Title</cite></footer> -->
 							</blockquote>
 						</div>
 					</div>
@@ -1044,18 +1043,17 @@ function submitForm() {
 							<img src="images/owlogo4.png" alt="">
 						</div>
 						<div class="media-body">
-							<h3 class="media-heading">Thank You!</h3>
+							<h3 class="media-heading">LouYJ</h3>
 							<blockquote>
-								<p>Aperiam consequatur quo quis exercitationem reprehenderit
-									suscipit iste placeat.</p>
-								<footer>Someone famous in <cite title="Source Title">Source
-									Title</cite></footer>
+								<p>865227010@qq.com</p>
+								<!-- <footer>Someone famous in <cite title="Source Title">Source
+									Title</cite></footer> -->
 							</blockquote>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="row">
+			<!-- <div class="row">
 				<div class="col-md-4">
 					<div class="media testimonial">
 						<div class="media-left">
@@ -1103,23 +1101,12 @@ function submitForm() {
 							</blockquote>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</div>
 
-	<!-- section start -->
-	<!-- ================ -->
-	<div class="default-bg space blue">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
-					<h1 class="text-center">Let's Begin!</h1>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- section end -->
+
 
 	<!-- footer start -->
 	<footer id="footer"> <!-- .subfooter start --> <!-- ================ -->
@@ -1129,7 +1116,7 @@ function submitForm() {
 				<div class="col-md-12">
 					<p class="text-center">
 						Copyright © 2016 AirPull by <a target="_blank"
-							href="http://htmlcoder.me">AirDrop Group</a>.
+							href="http://htmlcoder.me">A1rDr0p Group</a>.
 					</p>
 				</div>
 			</div>
