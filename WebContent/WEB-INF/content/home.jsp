@@ -292,7 +292,7 @@
 						<br/>
 						<div class="row">
 							<div class="col-md-6">
-								<p> 淘宝网不提供API，所以当您想要将您淘宝网站上的各种表格数据进行导出时，不免遭遇各种麻烦。你可以通过AirPull将数据抽取到您自己的仓库当中，您可以自己管理这一批数据。比如，您可以删除某一项你不想看到的购物记录，或者可以新增一列您想补充的信息。最后，您还可以将这些数据以Excel的形式导出。</p><br/>
+								<p> 许多购物网站不提供相应的API，所以当您想要将您各类购物网站网站上的各种表格数据进行导出时，不免遭遇各种麻烦。你可以通过AirPull将数据抽取到您自己的仓库当中，您可以自己管理这一批数据。比如，您可以删除某一项你不想看到的购物记录，或者可以新增一列您想补充的信息。最后，您还可以将这些数据以Excel的形式导出。</p><br/>
 								<p> 教务处网站不提供成绩单导出功能，每当您想要自己导出您的成绩单时还必须提交申请，还被学校收取一部分费用。这时，AirPull又可以帮你轻松地导出这个表格。</p><br/>
 								<p> 游戏战绩想必是一个非常能够体现您游戏水平的数据是吧？当您想把你高水平的游戏战绩展示给他人看时，您需要反复地登录游戏网站进行查询。这太麻烦了，通过AirPull一次导出，您可以随时随地将这数据展示给任何人。</p>
 							</div>
@@ -302,14 +302,14 @@
 										<div class="panel-heading" role="tab" id="headingOne">
 											<h4 class="panel-title">
 												<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-													淘宝网数据抽取 #1
+													各类网站账单查询 #1
 												</a>
 											</h4>
 										</div>
 										<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 											<div class="panel-body">
 												购物记录<br/>
-												收藏宝贝<br/>
+												转账记录<br/>
 												订单查询<br/>
 												……
 											</div>
@@ -355,108 +355,96 @@
 		</div>
 		<!-- section end -->
 
-		<!-- section start -->
-		<!-- ================ -->
-		<div class="section translucent-bg bg-image-1 black">
-			<div class="container object-non-visible" data-animation-effect="fadeIn">
-				<h1 id="services"  class="text-center title">How to use <span>AirPull</span></h1>
-				<div class="space"></div>
-				<div class="row">
-					<div class="space visible-xs"></div>
-					<div class="col-sm-6">
-						<div class="media">
-							<div class="media-left">
-								<i class="fa fa-leaf"></i>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Step 1</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
-							</div>
+	<!-- section start -->
+	<!-- ================ -->
+	<div class="section translucent-bg bg-image-1 black">
+		<div class="container object-non-visible"
+			data-animation-effect="fadeIn">
+			<h1 id="services" class="text-center title">How to use AirPull</h1>
+			<div class="space"></div>
+			<div class="row">
+				<div class="space visible-xs"></div>
+				<div class="col-sm-6">
+					<div class="media">
+						<div class="media-left">
+							<i class="fa fa-leaf"></i>
 						</div>
-						<div class="media">
-							<div class="media-left">
-								<i class="fa fa-area-chart"></i>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Step2</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
-							</div>
-						</div>
-						<div class="media">
-							<div class="media-left">
-								<i class="fa fa-child"></i>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Step 3</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
-							</div>
-						</div>
-						<div class="media">
-							<div class="media-left">
-								<i class="fa fa-codepen"></i>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Step 4</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
-							</div>
+						<div class="media-body">
+							<h4 class="media-heading">Step 1</h4>
+							<p>欢迎来到AirPull！在这里您可以选择操作上传相应的文件，并且提取出您需要的表格。您还可以对您提取出的表格进行修改，增添、删除等操作，并可以将您的修改导出或者保存，以便之后再次查看。</p>
 						</div>
 					</div>
-					<div class="space visible-xs"></div>
-					<div class="col-sm-6">
-						<div class="media">
-							<div class="media-left">
-								<i class="fa fa-leaf"></i>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Service 5</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
-							</div>
+					<div class="media">
+						<div class="media-left">
+							<i class="fa fa-area-chart"></i>
 						</div>
-						<div class="media">
-							<div class="media-left">
-								<i class="fa fa-area-chart"></i>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Service 6</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
-							</div>
+						<div class="media-body">
+							<h4 class="media-heading">Step2</h4>
+							<p>在下方的操作列表，我们为您提供了共8个操作选项，分为购物、娱乐、以及教务管理等三个类别以及一个自定义操作。您可以自由点击并查看每种操作的相应描，述以及上传文件的操作步骤。</p>
 						</div>
-						<div class="media">
-							<div class="media-left">
-								<i class="fa fa-child"></i>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Service 7</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
-							</div>
+					</div>
+					<div class="media">
+						<div class="media-left">
+							<i class="fa fa-child"></i>
 						</div>
-						<div class="media">
-							<div class="media-left">
-								<i class="fa fa-codepen"></i>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Service 8</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
-							</div>
+						<div class="media-body">
+							<h4 class="media-heading">Step 3</h4>
+							<p>当您获得了您需要的.html或者.htm文件并成功上传文件时，点击AirPull It按钮，您将会跳转到表格展示的页面，在这个页面我们会为您展示出我们的抽取结果。</p><br />
+						</div>
+					</div>
+					<div class="media">
+						<div class="media-left">
+							<i class="fa fa-codepen"></i>
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading">Step 4</h4>
+							<p>如果您需要对提取出的表格进行修改，您可以根据表格上方的操作按钮进行增添删除以及修改操作。您所做的修改都将被保存在您的个人记录中，您可以随时查看您的抽取历史。</p>
+						</div>
+					</div>
+				</div>
+				<div class="space visible-xs"></div>
+				<div class="col-sm-6">
+					<div class="media">
+						<div class="media-left">
+							<i class="fa fa-leaf"></i>
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading">Step 5</h4>
+							<p>当您完成对表格的修改之后，您可以点击表格上方的导出按钮，将您看到的表格保存在excel能够打开的.xls文件中，并下载到本地。</p><br />
+						</div>
+					</div>
+					<div class="media">
+						<div class="media-left">
+							<i class="fa fa-area-chart"></i>
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading">Step 6</h4>
+							<p>我们还提供自定义表格抽取功能，如果您对html文件的格式比较了解，您可以指定您需要抽取的表格的信息，包括表格的标签属性、属性值等，从而精确定位您需要导出的表格。</p><br />
+						</div>
+					</div>
+					<div class="media">
+						<div class="media-left">
+							<i class="fa fa-child"></i>
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading">Step 7</h4>
+							<p>我们目前只提供这八种操作模式，请确保您按照每一项操作的步骤执行，否则很有可能无法得到您想要的表格。如果您上传了错误格式的表格，您将会看到错误提示信息。</p><br />
+						</div>
+					</div>
+					<div class="media">
+						<div class="media-left">
+							<i class="fa fa-codepen"></i>
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading">Step 8</h4>
+							<p>如果您发现了该系统存在的错误，或者您需要我们增添您常用的操作模式，请根据下方的邮件地址联系我们，我们会第一时间尝试修改错误并给您反馈。</p><br />
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!-- section end -->
-
-		<!-- section start -->
-		<!-- ================ -->
-		<div class="default-bg space blue">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-						<h1 class="text-center">Let's Begin!</h1>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- section end -->
+	</div>
+	<!-- section end -->
 
 	<%-- 	<!-- section start -->
 		<!-- ================ -->
@@ -1115,18 +1103,17 @@
 		</div>
 		<!-- section end -->
 
-		<!-- section start
-		================
+		<!-- section start -->
+		
 		<div class="default-bg space">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
-						<h1 class="text-center">10000+ Happy Clients!</h1>
+						<h1 class="text-center">请先登陆，并开始尝试AirPull!</h1>
 					</div>
 				</div>
 			</div>
 		</div>
-		section end -->
 
 		<!-- footer start -->
 		<!-- ================ -->
