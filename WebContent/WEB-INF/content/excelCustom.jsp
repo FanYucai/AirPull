@@ -173,7 +173,7 @@ for(var i=1; i<table.rows.length;i++){
 }    
     
 function SetRowCanEdit(row){    
-for(var j=0;j<row.cells.length; j++){    
+for(var j=1;j<row.cells.length; j++){    
     
    //如果当前单元格指定了编辑类型，则表示允许编辑    
    var editType = row.cells[j].getAttribute("EditType");    
