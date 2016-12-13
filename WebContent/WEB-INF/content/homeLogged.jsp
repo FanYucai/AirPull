@@ -1116,7 +1116,7 @@ function submitForm() {
 				<div class="col-md-12">
 					<p class="text-center">
 						Copyright © 2016 AirPull by <a target="_blank"
-							href="http://htmlcoder.me">A1rDr0p Group</a>.
+							href="https://github.com/A1rDr0p">A1rDr0p Group</a>.
 					</p>
 				</div>
 			</div>

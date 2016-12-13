@@ -1194,7 +1194,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-12">
-							<p class="text-center">Copyright © 2016 AirPull by <a target="_blank" href="http://htmlcoder.me">AirDrop Group</a>.</p>
+							<p class="text-center">Copyright © 2016 AirPull by <a target="_blank" href="https://github.com/A1rDr0p">AirDrop Group</a>.</p>
 						</div>
 					</div>
 				</div>
