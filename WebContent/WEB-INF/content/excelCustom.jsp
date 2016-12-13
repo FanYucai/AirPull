@@ -179,7 +179,9 @@ for(var j=0;j<row.cells.length; j++){
    var editType = row.cells[j].getAttribute("EditType");    
    if(!editType){    
     //如果当前单元格没有指定，则查看当前列是否指定    
-    editType = row.parentNode.rows[0].cells[j].getAttribute("EditType");    
+    //editType = row.parentNode.rows[0].cells[j].getAttribute("EditType");    
+	   row.cells[j].setAttribute("EditType","TextBox");
+	   editType = row.cells[j].getAttribute("EditType");
    }    
    if(editType){    
     row.cells[j].onclick = function (){    
@@ -196,7 +198,9 @@ function EditCell(element, editType){
 var editType = element.getAttribute("EditType");    
 if(!editType){    
    //如果当前单元格没有指定，则查看当前列是否指定    
-   editType = element.parentNode.parentNode.rows[0].cells[element.cellIndex].getAttribute("EditType");    
+   //editType = element.parentNode.parentNode.rows[0].cells[element.cellIndex].getAttribute("EditType");    
+   //element.setAttribute("EditType","TextBox");
+   editType = element.getAttribute("EditType");
 }    
     
 switch(editType){    
@@ -725,6 +729,21 @@ for(var f=0;f<fmt.length;f++){
 }      
 return retstr.replace(/^,+/,'').replace(/\.$/,'');      
 }    
+function edit(table){
+	EditTables(table);
+	alert("成功进入编辑状态～");
+}
+function caedit(table){
+    var n = table.rows.length;
+   	for (var i=1;i<n;i++){
+   		for (var j=1;j<table.rows[i].cells.length;j++){
+  		table.rows[i].cells[j].setAttribute("EditState", "false");
+   		table.rows[i].cells[j].removeAttribute("EditType");
+   		}
+   	}
+   	alert("取消编辑状态!");
+   	
+}
 </script>  
 </head>    
 <body>    
@@ -732,8 +751,11 @@ return retstr.replace(/^,+/,'').replace(/\.$/,'');
 	<%-- <input type="hidden" name="fileContent" value='<s:property value="fileUploadToolsCustom.fileContent"/>' > --%>
 	<input type="button" name="Submit2" value="删除" onclick="DeleteRow(document.getElementById('tabProduct'),1)" />   
 	<input type="button" name="Submit2" value="添行" onclick="Addrow(document.getElementById('tabProduct'),1)" />
-	<input type="button" name="Submit2" value="添列" onclick="Addcol(document.getElementById('tabProduct'))" />   
+	<input type="button" name="Submit2" value="添列" onclick="Addcol(document.getElementById('tabProduct'))" />
+	<input type="button" name="Submit2" value="编辑" onclick="edit(document.getElementById('tabProduct'))" />   
+	<input type="button" name="Submit2" value="取消编辑" onclick="caedit(document.getElementById('tabProduct'))" />   
 	<input type="button" name="Submit22" value="重置" onclick="window.location.reload()" />
+	
 	<input id="fan2dog" type="hidden" name="fileContent" value="" >
 	<button type="submit" onclick="Str(document.getElementById('tabProduct'))">导出</button>
 </form>
