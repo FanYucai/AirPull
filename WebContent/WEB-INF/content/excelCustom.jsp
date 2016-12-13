@@ -583,6 +583,24 @@ function Str(table){
     return tableInfo;
 }
 
+//保存
+function Strsave(table){
+    var tableInfo = "";
+    for (var i = 1; i < table.rows.length; i++) {    //遍历Table的所有Row
+        for (var j = 1; j < table.rows[i].cells.length-1; j++) {   //遍历Row中的每一列
+            tableInfo += table.rows[i].cells[j].innerText;   //获取Table中单元格的内容
+            tableInfo += "{"+table.rows[i].cells[j].rowSpan+","+table.rows[i].cells[j].colSpan+"}@";
+        }
+        tableInfo += table.rows[i].cells[j].innerText; 
+        tableInfo += "{"+table.rows[i].cells[j].rowSpan+","+table.rows[i].cells[j].colSpan+"}";
+        tableInfo += "$";
+    }
+    output=tableInfo;
+    document.getElementById('fan3dog').value=tableInfo;
+    return tableInfo;
+}
+
+
 
 //提取表格的值,JSON格式    
 function GetTableData(table){  
@@ -950,5 +968,9 @@ Str(document.getElementById("tabProduct"));
 
     
 </script>    
+<form action = saveTable  method="post">
+	<input id="fan3dog" type="hidden" name="fan3dog" value="" >
+	<input type="button" name="Submit" value="保存" onclick="Strsave(document.getElementById('tabProduct'))" />
+</form>
 </body>    
 </html>    
