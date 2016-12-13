@@ -817,77 +817,83 @@ for (i=1;i<=row;i++){
 htmlstr+='</table>';
 document.write(htmlstr);*/
 var tempstr=content;
-var index =new Array();
-var indexD = new Array();//douhao
-var indexK = new Array();//kuohao
-var indexKK = new Array();//kuohui
-index.push(-1);
-var cnt= 0; 
-var col= 0;
-var sum= 0;
-var row= 0;
-for (i=0;i<tempstr.length;i++)
-	if (tempstr[i]=='@') 
-	{
-		index.push(i);
-		cnt++;	
-	} else
-	if (tempstr[i]=='$')
-	{
-		row++;
-		cnt++;
-		index.push(i);
-	} else
-	if (tempstr[i]==',')
-	{
-		indexD.push(i);
-	} else
-	if (tempstr[i]=='{')
-	{
-		indexK.push(i);
-	} else
-	if (tempstr[i]=='}')
-	{
-		indexKK.push(i);
-	}
-	for (i=0;i<cnt;i++)
-	{
-		sum+=parseInt(tempstr.substring(indexD[i]+1,indexKK[i]));
-	}
-col = sum/row;
-var htmlstr='<table border="1" cellpadding="0" cellspacing="0" id="tabProduct">';
-htmlstr+='<tr><td></td>';
-for (i=0;i<col;i++)
-	htmlstr+='<td  align="center" bgcolor="#FFFFFF"><input type="checkbox" value="checkbox" /></td>';
-htmlstr+='</tr><tr>'
-htmlstr+='<td width="32" align="center" bgcolor="#EFEFEF"><input type="checkbox" value="checkbox"/></td>';
-var base = new Base64();
-var type= 0;
-for (i=0;i<cnt;i++){
-	if (type==0){
+if (tempstr[0]=='!'){
+	alert(tempstr.substring(1,tempstr.length));
+} else{
+	var index =new Array();
+	var indexD = new Array();//douhao
+	var indexK = new Array();//kuohao
+	var indexKK = new Array();//kuohui
+	index.push(-1);
+	var cnt= 0; 
+	var col= 0;
+	var sum= 0;
+	var row= 0;
+	for (i=0;i<tempstr.length;i++)
+		if (tempstr[i]=='@') 
+		{
+			index.push(i);
+			cnt++;	
+		} else
+		if (tempstr[i]=='$')
+		{
+			row++;
+			cnt++;
+			index.push(i);
+		} else
+		if (tempstr[i]==',')
+		{
+			indexD.push(i);
+		} else
+		if (tempstr[i]=='{')
+		{
+			indexK.push(i);
+		} else
+		if (tempstr[i]=='}')
+		{
+			indexKK.push(i);
+		}
+		for (i=0;i<cnt;i++)
+		{
+			sum+=parseInt(tempstr.substring(indexD[i]+1,indexKK[i]));
+		}
+	col = sum/row;
+	var htmlstr='<table border="1" cellpadding="0" cellspacing="0" id="tabProduct">';
+	htmlstr+='<tr><td></td>';
+	for (i=0;i<col;i++)
+		htmlstr+='<td  align="center" bgcolor="#FFFFFF"><input type="checkbox" value="checkbox" /></td>';
+	htmlstr+='</tr><tr>'
+	htmlstr+='<td width="32" align="center" bgcolor="#EFEFEF"><input type="checkbox" value="checkbox"/></td>';
+	var base = new Base64();
+	var type= 0;
+	for (i=0;i<cnt;i++){
+		if (type==0){
+			if (tempstr[index[i]]=='$') {
+				htmlstr+='<tr>';
+				htmlstr+='<td align="center" bgcolor="#FFFFFF"><input type="checkbox" value="checkbox" /></td>';
+			}
+			htmlstr+='<td  bgcolor="#EFEFEF" EditType="TextBox" align="center" '+ 'rowspan="'+tempstr.substring(indexK[i]+1,indexD[i])+'" colspan="'+tempstr.substring(indexD[i]+1,indexKK[i])+'">' +base.decode(tempstr.substring(index[i]+1,indexK[i]))+'</td>';
+			if (tempstr[index[i+1]]=='$'){
+				htmlstr+='</tr>';
+				type=1;
+			}
+			
+		} else{
 		if (tempstr[index[i]]=='$') {
 			htmlstr+='<tr>';
 			htmlstr+='<td align="center" bgcolor="#FFFFFF"><input type="checkbox" value="checkbox" /></td>';
 		}
-		htmlstr+='<td  bgcolor="#EFEFEF" EditType="TextBox" align="center" '+ 'rowspan="'+tempstr.substring(indexK[i]+1,indexD[i])+'" colspan="'+tempstr.substring(indexD[i]+1,indexKK[i])+'">' +base.decode(tempstr.substring(index[i]+1,indexK[i]))+'</td>';
+		htmlstr+='<td width="100" bgcolor="#FFFFFF" EditType="TextBox" align="center" '+ 'rowspan="'+tempstr.substring(indexK[i]+1,indexD[i])+'" colspan="'+tempstr.substring(indexD[i]+1,indexKK[i])+'">' +base.decode(tempstr.substring(index[i]+1,indexK[i]))+'</td>';
+			
 		if (tempstr[index[i+1]]=='$'){
 			htmlstr+='</tr>';
-			type=1;
 		}
-		
-	} else{
-	if (tempstr[index[i]]=='$') {
-		htmlstr+='<tr>';
-		htmlstr+='<td align="center" bgcolor="#FFFFFF"><input type="checkbox" value="checkbox" /></td>';
+		}
 	}
-	htmlstr+='<td width="100" bgcolor="#FFFFFF" EditType="TextBox" align="center" '+ 'rowspan="'+tempstr.substring(indexK[i]+1,indexD[i])+'" colspan="'+tempstr.substring(indexD[i]+1,indexKK[i])+'">' +base.decode(tempstr.substring(index[i]+1,indexK[i]))+'</td>';
-		
-	if (tempstr[index[i+1]]=='$'){
-		htmlstr+='</tr>';
-	}
-	}
+	htmlstr+='</table>';
 }
-htmlstr+='</table>';
+
+
 document.write(htmlstr);
 
 
