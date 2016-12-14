@@ -764,31 +764,24 @@ function caedit(table){
 }
 </script>  
 </head>    
-<body>    
+<body>  
+<form id="form1" name="form1" method="post" action="" >    
+<h3 align="left">你可以进行以下操作</h3>    
+<br />  </form>  
 <form action="exportExcel" method="post">
 	<%-- <input type="hidden" name="fileContent" value='<s:property value="fileUploadToolsCustom.fileContent"/>' > --%>
-	<input type="button" name="Submit2" value="删除" onclick="DeleteRow(document.getElementById('tabProduct'),1)" />   
-	<input type="button" name="Submit2" value="添行" onclick="Addrow(document.getElementById('tabProduct'),1)" />
-	<input type="button" name="Submit2" value="添列" onclick="Addcol(document.getElementById('tabProduct'))" />
-	<input type="button" name="Submit2" value="编辑" onclick="edit(document.getElementById('tabProduct'))" />   
-	<input type="button" name="Submit2" value="取消编辑" onclick="caedit(document.getElementById('tabProduct'))" />   
-	<input type="button" name="Submit22" value="重置" onclick="window.location.reload()" />
+	<input type="button" name="Submit2" class="btn btn-sm btn-default" value="删除" onclick="DeleteRow(document.getElementById('tabProduct'),1)" />   
+	<input type="button" name="Submit2" class="btn btn-sm btn-default" value="添行" onclick="Addrow(document.getElementById('tabProduct'),1)" />
+	<input type="button" name="Submit2" class="btn btn-sm btn-default" value="添列" onclick="Addcol(document.getElementById('tabProduct'))" />
+	<input type="button" name="Submit2" class="btn btn-sm btn-default" value="编辑" onclick="edit(document.getElementById('tabProduct'))" />   
+	<input type="button" name="Submit2" class="btn btn-sm btn-default" value="取消编辑" onclick="caedit(document.getElementById('tabProduct'))" />   
+	<input type="button" name="Submit22" class="btn btn-sm btn-default" value="重置" onclick="window.location.reload()" />
 	
 	<input id="fan2dog" type="hidden" name="fileContent" value="" >
-	<button type="submit" onclick="Str(document.getElementById('tabProduct'))">导出</button>
+	<button type="submit" class="btn btn-sm btn-default" onclick="Str(document.getElementById('tabProduct'))">导出</button>
 </form>
 
 
-<form action = saveTable  method="post">
-	<input id="fan3dog" type="hidden" name="fan3dog" value="" >
-	<input type="hidden" name="name" value=${ user.nickname }>
-	<input type="hidden" name="type" value="7">
-	<button type="submit" name="Submit" onclick="Strsave(document.getElementById('tabProduct'))">保存</button>
-</form>
-
-<!-- login -->
-<div class="col-sm-6 col-md-1 col-md-offset-4 isotope-item app-development">
-	
 	<!-- Modal -->
 	<div class="modal fade" id="project-5" tabindex="-1" role="dialog" aria-labelledby="project-5-label" aria-hidden="true">
 		<div class="modal-dialog modal-lg">
@@ -821,14 +814,12 @@ function caedit(table){
 		</div>
 	</div>
 	<!-- Modal end -->
-</div>
-<!-- login end -->  
+	
+	
 <form id="fo" name="form1" method="post" action="" >    
 <br />  
 </form>
-<form id="form1" name="form1" method="post" action="" >    
-<h3 align="left">表格数据获取结果</h3>    
-<br />  </form>
+
 
 <script language="javascript">
 /* var cols=5;    //5列
@@ -984,6 +975,12 @@ Str(document.getElementById("tabProduct"));
 Strsave(document.getElementById("tabProduct"));
     
 </script>    
-
+<br/>
+<form action = saveTable  method="post">
+	<input id="fan3dog" type="hidden" name="fan3dog" value="" >
+	<input type="hidden" name="name" value=${ user.nickname }>
+	<input type="hidden" name="type" value="7">
+	<button type="submit" name="Submit" class="btn btn-sm btn-default" onclick="Strsave(document.getElementById('tabProduct'))">保存</button>
+</form>
 </body>    
 </html>    
