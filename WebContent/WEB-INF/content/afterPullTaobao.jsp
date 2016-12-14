@@ -67,7 +67,7 @@
 					<!-- name-and-slogan -->
 					<div class="site-name-and-slogan smooth-scroll">
 						<div class="site-name"><a href="goHomeLogged?name=${user.nickname}">AirPull</a></div>
-						<div class="site-slogan">Free Web Extract Tool by <a target="_blank" href="http://htmlcoder.me">AirDrop</a></div>
+						<div class="site-slogan">Free Web Extract Tool by <a target="_blank" href="https://github.com/FanYucai/AirPull">AirDrop</a></div>
 					</div>
 
 				</div>
@@ -105,7 +105,6 @@
 								<ul class="nav navbar-nav navbar-right">
 									<li><a href=goProfile?name=${user.nickname}>${user.nickname }</a></li>
 									<li><a href=goHomeLogged?name=${user.nickname}>Back</a></li>
-									<li><a href="#export">Export</a></li>
 								</ul>
 							</div>
 
@@ -167,7 +166,18 @@
 	</div>
 	<!-- section end -->
 
-
+	<!-- section start -->
+		<!-- ================ -->
+		<div class="default-bg space blue">
+			<div class="container">
+				<div class="text-center">
+					<div class="col-md-8 col-md-offset-2">
+						<h1 id="head">AirPull</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- section end -->
 
 
 	<!-- section start -->

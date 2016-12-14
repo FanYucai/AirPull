@@ -58,13 +58,13 @@
 
 							<!-- logo -->
 							<div class="logo smooth-scroll">
-								<a href=homeLogged><img id="logo" src="images/adlogo.png" alt="Worthy"></a>
+								<a href=#services><img id="logo" src="images/adlogo.png" alt="Worthy"></a>
 							</div>
 
 							<!-- name-and-slogan -->
 							<div class="site-name-and-slogan smooth-scroll">
-								<div class="site-name"><a href="homeLogged">AirPull</a></div>
-								<div class="site-slogan">Free Web Extract Tool by <a target="_blank" href="http://htmlcoder.me">AirDrop</a></div>
+								<div class="site-name"><a href="backHomeLogged?name=<%=nickname %>">AirPull</a></div>
+								<div class="site-slogan">Free Web Extract Tool by <a target="_blank" href="https://github.com/FanYucai/AirPull">AirDrop</a></div>
 							</div>
 
 						</div>
@@ -382,6 +382,19 @@
 							</div>
 						</div>
 						
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- section end -->
+		
+		<!-- section start -->
+		<!-- ================ -->
+		<div class="default-bg space blue">
+			<div class="container">
+				<div class="text-center">
+					<div class="col-md-8 col-md-offset-2">
+						<h1 id="head">AirPull</h1>
 					</div>
 				</div>
 			</div>
