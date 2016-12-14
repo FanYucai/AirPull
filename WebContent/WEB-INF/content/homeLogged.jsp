@@ -559,19 +559,20 @@ function submitForm() {
 														</table>
 														
 														<br/>
-														<!-- <p><h4>参数设置</h4></p>
+														<p><h4>参数设置</h4></p>
+														
 														<table>
 															<tr>
 																<td>表格class</td>
-																<td><input type="text" name="tableClass" value="qwqwqwqw"></td>
+																<td><input type="text" name="tableClass"></td>
 															</tr>
 															<tr>
 																<td>行class</td>
-																<td><input type="text" name="trClass" value="123456"></td>
+																<td><input type="text" name="trClass"></td>
 															</tr>
 															<tr>	
 																<td>单元格class</td>
-																<td><input type="text" name="tdClass" value=""></td>
+																<td><input type="text" name="tdClass" ></td>
 															</tr>												
 															<tr>
 																<td>高级</td><input type="text" name="tableCustom" placeholder="table"></td>
@@ -579,17 +580,17 @@ function submitForm() {
 												
 															<tr>
 																<td>表格ID:</td>
-																<td><input type="text" name="tableId" value=""></td>
+																<td><input type="text" name="tableId"></td>
 															</tr>
 															<tr>
 																<td>行ID:</td>
-																<td><input type="text" name="trId" value=""></td>
+																<td><input type="text" name="trId"></td>
 															</tr>
 															<tr>	
 																<td>单元格ID:</td>
-																<td><input type="text" name="tdId" value=""></td>
+																<td><input type="text" name="tdId"></td>
 															</tr>
-														</table> -->	
+														</table>
 														<input type="hidden" name="name" value=${ user.nickname }>													
 														
 													<!-- 上传文件，最近一次加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->

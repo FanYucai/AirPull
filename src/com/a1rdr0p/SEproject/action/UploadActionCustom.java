@@ -9,6 +9,56 @@ import com.opensymphony.xwork2.ActionSupport;
 
 public class UploadActionCustom extends ActionSupport {
 	private String name;
+	private String tableClass;
+	private String trClass;
+	private String tdClass;
+	private String tableCustom;
+	private String tableId;
+	private String trId;
+	private String tdId;
+	
+	public String getTableClass() {
+		return tableClass;
+	}
+	public void setTableClass(String tableClass) {
+		this.tableClass = tableClass;
+	}
+	public String getTrClass() {
+		return trClass;
+	}
+	public void setTrClass(String trClass) {
+		this.trClass = trClass;
+	}
+	public String getTdClass() {
+		return tdClass;
+	}
+	public void setTdClass(String tdClass) {
+		this.tdClass = tdClass;
+	}
+	public String getTableCustom() {
+		return tableCustom;
+	}
+	public void setTableCustom(String tableCustom) {
+		this.tableCustom = tableCustom;
+	}
+	public String getTableId() {
+		return tableId;
+	}
+	public void setTableId(String tableId) {
+		this.tableId = tableId;
+	}
+	public String getTrId() {
+		return trId;
+	}
+	public void setTrId(String trId) {
+		this.trId = trId;
+	}
+	public String getTdId() {
+		return tdId;
+	}
+	public void setTdId(String tdId) {
+		this.tdId = tdId;
+	}
 	public String getName() {
 		return name;
 	}
@@ -45,6 +95,8 @@ public class UploadActionCustom extends ActionSupport {
     	
     	userService us = new userService();
     	user = us.findNickname(name);
+    	
+    	System.out.println("class:"+tableClass);
     	
         return SUCCESS;
     }
