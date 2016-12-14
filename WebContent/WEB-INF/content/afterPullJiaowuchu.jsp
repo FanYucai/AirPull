@@ -55,7 +55,7 @@
 
 							<!-- logo -->
 							<div class="logo smooth-scroll">
-								<a href=home><img id="logo" src="images/adlogo.png" alt="Worthy"></a>
+								<a href=#head><img id="logo" src="images/adlogo.png" alt="Worthy"></a>
 							</div>
 
 							<!-- name-and-slogan -->
@@ -118,6 +118,8 @@
 		</header>
 		<!-- header end -->
 		
+		
+		
 		<!-- section start -->
 		<!-- ================ -->
 		<div class="default-bg space black">
@@ -125,6 +127,19 @@
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
 						<h1 class="text-center">&nbsp;</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- section end -->
+		
+		<!-- section start -->
+		<!-- ================ -->
+		<div class="default-bg space blue">
+			<div class="container">
+				<div class="text-center">
+					<div class="col-md-8 col-md-offset-2">
+						<h1 id="head">哈工大教务处成绩单</h1>
 					</div>
 				</div>
 			</div>

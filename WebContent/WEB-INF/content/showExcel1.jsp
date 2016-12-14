@@ -44,7 +44,8 @@ width: 90%;
 -->    
 </style>    
 <script>  
-    /**   
+
+/**   
 * JS实现可编辑的表格     
 * 用法:EditTables(tb1,tb2,tb2,......);   
 * Create by Senty at 2008-04-12   
