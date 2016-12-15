@@ -98,12 +98,95 @@ function f() {
 	return false;
 }
 
-function submitForm() {
-	setTimeout("refreshProcessBar()", 1000);
-
+function submitFormCustom() {
+    var s=document.getElementById("uploadFileCustom").value; 
+    if(s==""){
+        alert("您没有选择上传文件！");
+        document.getElementById("uploadFileCustom").focus();
+        return false;
+    }
+	document.getElementById("fCustom").submit();
 	return true;
 }
 
+function submitFormAlipay() {
+    var s=document.getElementById("uploadFileAlipay").value; 
+    if(s==""){
+        alert("您没有选择上传文件！");
+        document.getElementById("uploadFileAlipay").focus();
+        return false;
+    }
+	document.getElementById("fAlipay").submit();
+	return true;
+}
+
+function submitFormHs() {
+	var s=document.getElementById("uploadFileHs").value; 
+	if(s==""){
+		alert("您没有选择上传文件！");
+		document.getElementById("uploadFileHs").focus();
+		return false;
+	}
+	document.getElementById("fHs").submit();
+	return true;
+}
+
+function submitFormJd() {
+	var s=document.getElementById("uploadFileJd").value; 
+	if(s==""){
+		alert("您没有选择上传文件！");
+		document.getElementById("uploadFileJd").focus();
+		return false;
+	}
+	document.getElementById("fJd").submit();
+	return true;
+}
+
+function submitFormJiaowuchu() {
+	var s=document.getElementById("uploadFileJiaowuchu").value; 
+	if(s==""){
+		alert("您没有选择上传文件！");
+		document.getElementById("uploadFileJiaowuchu").focus();
+		return false;
+	}
+	document.getElementById("fJiaowuchu").submit();
+	return true;
+}
+
+
+function submitFormJiaowuchu2() {
+	var s=document.getElementById("uploadFileJiaowuchu2").value; 
+	if(s==""){
+		alert("您没有选择上传文件！");
+		document.getElementById("uploadFileJiaowuchu2").focus();
+		return false;
+	}
+	document.getElementById("fJiaowuchu2").submit();
+	return true;
+}
+
+
+function submitFormOw() {
+	var s=document.getElementById("uploadFileOw").value; 
+	if(s==""){
+		alert("您没有选择上传文件！");
+		document.getElementById("uploadFileOw").focus();
+		return false;
+	}
+	document.getElementById("fOw").submit();
+	return true;
+}
+
+function submitFormTaobao() {
+	var s=document.getElementById("uploadFileTaobao").value; 
+	if(s==""){
+		alert("您没有选择上传文件！");
+		document.getElementById("uploadFileTaobao").focus();
+		return false;
+	}
+	document.getElementById("fTaobao").submit();
+	return true;
+}
 </script>
 
 <body class="no-trans">
@@ -408,7 +491,7 @@ function submitForm() {
 												<div class="row">
 													<div class="col-md-6">
 														<!-- 上传文件，最近添加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
-														<s:form action="uploadTaobao" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
+														<s:form action="uploadTaobao" id="fTaobao" method="post" enctype="multipart/form-data" >
 															<br />
 															<table width="818" border="1">
 																<tr>
@@ -437,7 +520,7 @@ function submitForm() {
 											</div>
 	
 											<div class="modal-footer">
-												<button type="submit" class="btn btn-sm btn-default">AirPull it</button>
+												<button type="button" class="btn btn-sm btn-default" onclick="submitFormTaobao()">AirPull it</button>
 											</div>
 										</s:form>	
 										
@@ -475,7 +558,7 @@ function submitForm() {
 											<div class="row">
 												<div class="col-md-6">
 													<!-- 上传文件，最近添加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
-													<s:form action="uploadJiaowuchu" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
+													<s:form action="uploadJiaowuchu" id="fJiaowuchu" method="post" enctype="multipart/form-data" >
 														<br />
 														<table width="818" border="1">
 															<tr>
@@ -503,7 +586,7 @@ function submitForm() {
 										</div>
 
 										<div class="modal-footer">
-											<button type="submit" class="btn btn-sm btn-default">AirPull it</button>
+											<button type="button" class="btn btn-sm btn-default" onclick="submitFormJiaowuchu()">AirPull it</button>
 										</div>
 										</s:form>
 									</div>
@@ -540,7 +623,7 @@ function submitForm() {
 											<div class="row">
 												<div class="col-md-6">
 													<!-- 上传文件，最近添加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
-													<s:form action="uploadCustom" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
+													<s:form action="uploadCustom" id="fCustom" method="post" enctype="multipart/form-data">
 														<br />
 														<table width="818" border="1">
 															<tr>
@@ -600,7 +683,7 @@ function submitForm() {
 										</div>
 
 										<div class="modal-footer">
-											<button type="submit" class="btn btn-sm btn-default">AirPull it</button>
+											<button type="button" class="btn btn-sm btn-default" onclick="submitFormCustom()">AirPull it</button>
 										</div>
 										</s:form>
 									</div>
@@ -637,7 +720,7 @@ function submitForm() {
 											<div class="row">
 												<div class="col-md-6">
 													<!-- 上传文件，最近添加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
-													<s:form action="uploadOw" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
+													<s:form action="uploadOw" method="post" id="fOw" enctype="multipart/form-data">
 														<br />
 														<table width="818" border="1">
 															<tr>
@@ -664,7 +747,7 @@ function submitForm() {
 										</div>
 
 										<div class="modal-footer">
-											<button type="submit" class="btn btn-sm btn-default">AirPull it</button>
+											<button type="button" class="btn btn-sm btn-default"  onclick="submitFormOw()">AirPull it</button>
 										</div>
 										</s:form>
 									</div>
@@ -701,7 +784,7 @@ function submitForm() {
 											<div class="row">
 												<div class="col-md-6">
 													<!-- 上传文件，最近添加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
-													<s:form action="uploadAlipay" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
+													<s:form action="uploadAlipay" id="fAlipay" method="post" enctype="multipart/form-data" >
 														<br />
 														<table width="818" border="1">
 															<tr>
@@ -729,7 +812,7 @@ function submitForm() {
 										</div>
 
 										<div class="modal-footer">
-											<button type="submit" class="btn btn-sm btn-default">AirPull it</button>
+											<button type="button" class="btn btn-sm btn-default" onclick="submitFormAlipay()">AirPull it</button>
 										</div>
 										</s:form>
 									</div>
@@ -766,7 +849,7 @@ function submitForm() {
 											<div class="row">
 												<div class="col-md-6">
 													<!-- 上传文件，最近添加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
-													<s:form action="uploadHs" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
+													<s:form action="uploadHs" method="post" id="fHs" enctype="multipart/form-data" >
 														<br />
 														<table width="818" border="1">
 															<tr>
@@ -793,7 +876,7 @@ function submitForm() {
 										</div>
 
 										<div class="modal-footer">
-											<button type="submit" class="btn btn-sm btn-default">AirPull it</button>
+											<button type="button" class="btn btn-sm btn-default" onclick="submitFormHs()">AirPull it</button>
 										</div>
 										</s:form>
 									</div>
@@ -830,7 +913,7 @@ function submitForm() {
 											<div class="row">
 												<div class="col-md-6">
 													<!-- 上传文件，最近添加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
-													<s:form action="uploadJiaowuchu2" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
+													<s:form action="uploadJiaowuchu2" method="post" id="fJiaowuchu2" enctype="multipart/form-data" >
 														<br />
 														<table width="818" border="1">
 															<tr>
@@ -858,7 +941,7 @@ function submitForm() {
 										</div>
 
 										<div class="modal-footer">
-											<button type="submit" class="btn btn-sm btn-default">AirPull it</button>
+											<button type="button" class="btn btn-sm btn-default" onclick="submitFormJiaowuchu2()">AirPull it</button>
 										</div>
 										</s:form>
 									</div>
@@ -895,7 +978,7 @@ function submitForm() {
 											<div class="row">
 												<div class="col-md-6">
 													<!-- 上传文件，最近添加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
-													<s:form action="uploadJd" method="post" enctype="multipart/form-data" onsubmit="return submitForm()">
+													<s:form action="uploadJd" method="post" id="fJd" enctype="multipart/form-data">
 														<br />
 														<table width="818" border="1">
 															<tr>
@@ -923,7 +1006,7 @@ function submitForm() {
 										</div>
 
 										<div class="modal-footer">
-											<button type="submit" class="btn btn-sm btn-default">AirPull it</button>
+											<button type="button" class="btn btn-sm btn-default" onclick="submitFormJd()">AirPull it</button>
 										</div>
 										</s:form>
 									</div>
