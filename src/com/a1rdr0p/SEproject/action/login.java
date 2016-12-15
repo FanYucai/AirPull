@@ -40,6 +40,7 @@ public class login implements Action {
 				ActionContext.getContext().getSession().put("USERNAME", user.getName());
 //				ActionContext.getContext().getSession().put("1", user.getPassword());
 				user = tmp;
+				ret = "success";
 			}
 			else {
 				ret = "notMatch";
