@@ -50,15 +50,16 @@ public class signUp implements Action {
 		}
 		
 		boolean flag = user.getPassword().equals(verifyPassword);
+		if (flag == false) {
+			return "notMatch";
+		}
 		
 		int verify = us.newUser(user.getName(), user.getPassword(), user.getNickname(), user.getEmail());
 //		System.out.println(user.getName());
 //		System.out.println(user.getPassword());
 //		System.out.println(verify);
-		if (flag == false) {
-			ret = "notMatch";
-		}
-		else if (verify == 1) {
+		
+		if (verify == 1) {
 			ret = SUCCESS;
 			sendEmail mail = new sendEmail();
 			mail.sendSignUpEmail(user.getName(), user.getPassword(), user.getNickname(), user.getEmail());
