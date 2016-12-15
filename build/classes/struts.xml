@@ -23,7 +23,7 @@
 	<constant name="struts.multipart.maxSize" value="10701096" />
 	<!-- 设置上传文件的临时文件夹,默认使用javax.servlet.context.tempdir -->
 	<constant name="struts.multipart.saveDir " value="/WEB-INF/upload" />
-
+	<constant name="struts.allowed.action.names" value="[\s\S]*"></constant>
 	<!--demo12，struts2文件上传与下载 -->
 	<bean type="org.apache.struts2.dispatcher.multipart.MultiPartRequest"
 		name="MyJakartaMultiPartRequestRef" class="com.a1rdr0p.SEproject.action.MyJakartaMultiPartRequest"
