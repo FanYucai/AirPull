@@ -767,7 +767,7 @@ function caedit(table){
 <body>    
 
 <form id="form1" name="form1" method="post" action="" >    
-<h3 align="left">表格数据获取结果</h3>    
+<h3 align="left">你可以进行以下操作</h3>    
 <br />  </form>
 
 <form action="exportExcel" method="post">

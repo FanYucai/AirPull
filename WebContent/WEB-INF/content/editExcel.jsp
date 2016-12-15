@@ -4,11 +4,13 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <script type="text/javascript">
-var content= '${str6}';
+var content= '<s:property value="fan4dog"/>';
+var output= '<s:property value="fileUploadToolsAlipay.feifeiContent"/>';
 </script>
 <html lang="en">    
 <head>    
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />    
+<title>表格数据抽取结果</title>    
 <style type="text/css">    
 <!--    
 body,div,p,ul,li,font,span,td,th{    
@@ -536,7 +538,7 @@ for (var k = table.rows.item(0).cells.length-1; k>=0; k--)
 
 // 导出当表格的内容为一个字符串
 function Str(table){
-    var tableInfo = "asdf";
+    var tableInfo = "";
  //   alert(table.rows.item(0).cells.length);
     var n = table.rows.length;
     var m = table.rows.item(0).cells.length;
@@ -576,23 +578,24 @@ function Str(table){
         tableInfo += "{"+table.rows[i].cells[j].rowSpan+","+table.rows[i].cells[j].colSpan+"}";
         tableInfo += "$";
     } */
-    document.getElementById('fan2dog').value=tableInfo;
+    output=tableInfo;
+    document.getElementById('fan2dog').value=output;
     return tableInfo;
 }
 
 //保存
 function Strsave(table){
     var tableInfo = "";
+    var base = new Base64();
     for (var i = 1; i < table.rows.length; i++) {    //遍历Table的所有Row
         for (var j = 1; j < table.rows[i].cells.length-1; j++) {   //遍历Row中的每一列
-            tableInfo += table.rows[i].cells[j].innerText;   //获取Table中单元格的内容
+            tableInfo += base.encode(table.rows[i].cells[j].innerText);   //获取Table中单元格的内容
             tableInfo += "{"+table.rows[i].cells[j].rowSpan+","+table.rows[i].cells[j].colSpan+"}@";
         }
-        tableInfo += table.rows[i].cells[j].innerText; 
+        tableInfo += base.encode(table.rows[i].cells[j].innerText); 
         tableInfo += "{"+table.rows[i].cells[j].rowSpan+","+table.rows[i].cells[j].colSpan+"}";
         tableInfo += "$";
     }
-    output=tableInfo;
     document.getElementById('fan3dog').value=tableInfo;
     return tableInfo;
 }
@@ -761,13 +764,114 @@ function caedit(table){
 }
 </script>  
 </head>    
-<body>    
+<body>  
+  
+<h3 >你可以进行以下操作</h3>    
+<br />
+<form action="exportExcel" method="post">
+	<%-- <input type="hidden" name="fileContent" value='<s:property value="fileUploadToolsCustom.fileContent"/>' > --%>
+	<input type="button" name="Submit2" class="btn btn-sm btn-default" value="删除" onclick="DeleteRow(document.getElementById('tabProduct'),1)" />   
+	<input type="button" name="Submit2" class="btn btn-sm btn-default" value="添行" onclick="Addrow(document.getElementById('tabProduct'),1)" />
+	<input type="button" name="Submit2" class="btn btn-sm btn-default" value="添列" onclick="Addcol(document.getElementById('tabProduct'))" />
+	<input type="button" name="Submit2" class="btn btn-sm btn-default" value="编辑" onclick="edit(document.getElementById('tabProduct'))" />   
+	<input type="button" name="Submit2" class="btn btn-sm btn-default" value="取消编辑" onclick="caedit(document.getElementById('tabProduct'))" />   
+	<input type="button" name="Submit22" class="btn btn-sm btn-default" value="重置" onclick="window.location.reload()" />
+	
+	<input id="fan2dog" type="hidden" name="fileContent" value="" >
+	<button type="submit" class="btn btn-sm btn-default" onclick="Str(document.getElementById('tabProduct'))">导出</button>
+</form>
 
-<form id="form1" name="form1" method="post" action="">    
+	
+	<!-- Modal -->
+	<div class="modal fade" id="project-5" tabindex="-1" role="dialog" aria-labelledby="project-5-label" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+					<h4 class="modal-title" id="project-5-label">Login</h4>
+				</div>
+				<form action="login" method="post">
+					<div class="modal-body">
+						<h3>添加注释</h3>
+						<div class="row">
+							<div class="col-md-6">
+								<p><input data-placeholder="用户名" name="user.name" type="text" 
+									placeholder="用户名" tabindex="1" spellcheck="false"></input></p>
+								<p><input data-placeholder="密码" name="user.password" type="password" 
+									id="password" placeholder="密码" tabindex="1" spellcheck="false"></input><a href="goForgetPassword">忘记密码</a></p>
+							</div>
+							<div class="col-md-6">
+								<img src="images/portfolio-5.jpg" alt="">
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<input type="submit" class="btn btn-sm btn-default" value="Login">
+					</div>
+				</form>
+				
+			</div>
+		</div>
+	</div>
+	<!-- Modal end -->
+<form id="fo" name="form1" method="post" action="" >    
 <br />  
+</form>
+
 
 <script language="javascript">
+/* var cols=5;    //5列
+var rows=4; //4行
+var htmlstr="<table border='1px'>";
+for(i=1;i<=rows;i++){
+ htmlstr+="<tr>";
+ for(j=1;j<=cols;j++){
+  htmlstr+="<td >" + i +"行"+j+"列" +"</td>"; 
+ }
+ htmlstr+="</tr>";
+}
+htmlstr+="</table>"; */
 
+/*
+var tempstr=content;
+var index =new Array();
+index.push(-1);
+var cnt= 0; 
+var col= 0;
+var row= 0;
+for (i=0;i<tempstr.length;i++)
+	if (tempstr[i]=='@') 
+	{
+		index.push(i);
+		cnt++;	
+	} else
+	if (tempstr[i]=='$')
+	{
+		row++;
+		index.push(i);
+	}
+col = cnt/row+1;
+row--;
+var htmlstr='<table border="0" cellpadding="0" cellspacing="0" id="tabProduct">';
+htmlstr+='<tr><td></td>';
+for (i=0;i<col;i++)
+	htmlstr+='<td  bgcolor="#FFFFFF"><input type="checkbox" value="checkbox" /></td>';
+htmlstr+='</tr><tr>'
+htmlstr+='<td width="32" align="center" bgcolor="#EFEFEF"><input type="checkbox" value="checkbox"/></td>';
+for (i=0;i<col;i++)
+	htmlstr+='<td width="100" bgcolor="#EFEFEF" EditType="TextBox">'+tempstr.substring(index[i]+1,index[i+1])+'</td>';
+	htmlstr+='</tr>';
+for (i=1;i<=row;i++){
+	htmlstr+='<tr>';
+	htmlstr+='<td align="center" bgcolor="#FFFFFF"><input type="checkbox" value="checkbox" /></td>';
+	for (j=1;j<=col;j++){
+		var w=col*i+j;
+		htmlstr+='<td bgcolor="#FFFFFF" >'+ tempstr.substring(index[w-1]+1,index[w])+'</td>';
+	}
+	htmlstr+='</tr>';
+}
+htmlstr+='</table>';
+document.write(htmlstr);*/
 var tempstr=content;
 if (tempstr[0]=='!'){
 	alert(tempstr.substring(1,tempstr.length));
@@ -811,13 +915,18 @@ if (tempstr[0]=='!'){
 		}
 	col = sum/row;
 	var htmlstr='<table border="1" cellpadding="0" cellspacing="0" id="tabProduct">';
-	htmlstr+='<tr>'
+	htmlstr+='<tr><td></td>';
+	for (i=0;i<col;i++)
+		htmlstr+='<td  align="center" bgcolor="#FFFFFF"><input type="checkbox" value="checkbox" /></td>';
+	htmlstr+='</tr><tr>'
+	htmlstr+='<td width="32" align="center" bgcolor="#EFEFEF"><input type="checkbox" value="checkbox"/></td>';
 	var base = new Base64();
 	var type= 0;
 	for (i=0;i<cnt;i++){
 		if (type==0){
 			if (tempstr[index[i]]=='$') {
 				htmlstr+='<tr>';
+				htmlstr+='<td align="center" bgcolor="#FFFFFF"><input type="checkbox" value="checkbox" /></td>';
 			}
 			htmlstr+='<td  bgcolor="#EFEFEF" EditType="TextBox" align="center" '+ 'rowspan="'+tempstr.substring(indexK[i]+1,indexD[i])+'" colspan="'+tempstr.substring(indexD[i]+1,indexKK[i])+'">' +base.decode(tempstr.substring(index[i]+1,indexK[i]))+'</td>';
 			if (tempstr[index[i+1]]=='$'){
@@ -828,6 +937,7 @@ if (tempstr[0]=='!'){
 		} else{
 		if (tempstr[index[i]]=='$') {
 			htmlstr+='<tr>';
+			htmlstr+='<td align="center" bgcolor="#FFFFFF"><input type="checkbox" value="checkbox" /></td>';
 		}
 		htmlstr+='<td width="100" bgcolor="#FFFFFF" EditType="TextBox" align="center" '+ 'rowspan="'+tempstr.substring(indexK[i]+1,indexD[i])+'" colspan="'+tempstr.substring(indexD[i]+1,indexKK[i])+'">' +base.decode(tempstr.substring(index[i]+1,indexK[i]))+'</td>';
 			
@@ -839,12 +949,8 @@ if (tempstr[0]=='!'){
 	htmlstr+='</table>';
 }
 
-if (tempstr.length>0)
-	document.write(htmlstr);
-else
-	{
-		document.write("当前分类尚无表格<br/><a href=goHomeLogged?name=${user.nickname}>前往添加</a>");
-	}
+
+document.write(htmlstr);
 
 
 </script>    
@@ -854,8 +960,27 @@ else
 // 设置表格可编辑    
 // 可一次设置多个，例如：EditTables(tb1,tb2,tb2,......)    
 
-
+var tabProduct = document.getElementById("tabProduct");
+var table = tabProduct;
+var n = table.rows.length;
+	for (var i=1;i<n;i++){
+		for (var j=1;j<table.rows[i].cells.length;j++){
+		table.rows[i].cells[j].setAttribute("EditState", "false");
+		table.rows[i].cells[j].removeAttribute("EditType");
+		}
+	}
+Str(document.getElementById("tabProduct"));
+Strsave(document.getElementById("tabProduct"));
     
-</script>
+</script> 
+<br/>
+
+<form action = saveTable  method="post">
+	<input id="fan3dog" type="hidden" name="fan3dog" value="" >
+	<input type="hidden" name="name" value=${ user.nickname }>
+	<input type="hidden" name="type" value=${ type }>
+	<button type="submit" name="Submit" class="btn btn-sm btn-default" onclick="Strsave(document.getElementById('tabProduct'))">保存</button>
+</form>   
+
 </body>    
 </html>    

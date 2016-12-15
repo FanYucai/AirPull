@@ -114,6 +114,12 @@
 		</action>
 		<!-- =============== -->
 		
+		<!-- Go Edit Action -->
+		<action name="goEdit" class="com.a1rdr0p.SEproject.action.goEdit">
+			<result name="success">/WEB-INF/content/editAfterPull.jsp</result>
+		</action>
+		<!-- =============== -->
+		
 		<!-- Change Password Action -->
 		<action name="changePassword" class="com.a1rdr0p.SEproject.action.changePassword">
 			<result name="success">/WEB-INF/content/changeSuccess.jsp?type=修改密码成功</result>

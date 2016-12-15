@@ -964,9 +964,8 @@ function submitForm() {
 	<!-- section start -->
 	<!-- ================ -->
 	<div class="section translucent-bg bg-image-2 pb-clear">
-		<div class="container object-non-visible"
-			data-animation-effect="fadeIn">
-			<!-- <p id="clients" class="title text-center">Contact Us</p> -->
+		<div class="container object-non-visible" data-animation-effect="fadeIn">
+			
 			<div class="row">
 				<div class="col-md-4">
 					<div class="media testimonial">
@@ -1014,76 +1013,42 @@ function submitForm() {
 					</div>
 				</div>
 			</div>
-			<!-- <div class="row">
-				<div class="col-md-4">
-					<div class="media testimonial">
-						<div class="media-left">
-							<img src="images/owlogo6.png" alt="">
-						</div>
-						<div class="media-body">
-							<h3 class="media-heading">Thank You!</h3>
-							<blockquote>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-									Iure aperiam consequatur quo.</p>
-								<footer>Someone famous in <cite title="Source Title">Source
-									Title</cite></footer>
-							</blockquote>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="media testimonial">
-						<div class="media-left">
-							<img src="images/owlogo7.png" alt="">
-						</div>
-						<div class="media-body">
-							<h3 class="media-heading">Amazing!</h3>
-							<blockquote>
-								<p>Iure aperiam consequatur quo quis exercitationem
-									reprehenderit dolor vel ducimus.</p>
-								<footer>Someone famous in <cite title="Source Title">Source
-									Title</cite></footer>
-							</blockquote>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="media testimonial">
-						<div class="media-left">
-							<img src="images/owlogo8.png" alt="">
-						</div>
-						<div class="media-body">
-							<h3 class="media-heading">Best!</h3>
-							<blockquote>
-								<p>Aperiam consequatur quo quis exercitationem reprehenderit
-									suscipit iste placeat.</p>
-								<footer>Someone famous in <cite title="Source Title">Source
-									Title</cite></footer>
-							</blockquote>
-						</div>
-					</div>
-				</div> -->
+			
 			</div>
 		</div>
 	</div>
+	<!-- section start -->
+		<!-- ================ -->
+		<div class="default-bg space blue">
+			<div class="container">
+				<div class="text-center">
+					<div class="col-md-8 col-md-offset-2">
+						<h1 id="head">AirPull</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- section end -->
 
 
 
 	<!-- footer start -->
-	<footer id="footer"> <!-- .subfooter start --> <!-- ================ -->
-	<div class="subfooter">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<p class="text-center">
-						Copyright © 2016 AirPull by <a target="_blank"
-							href="https://github.com/A1rDr0p">A1rDr0p Group</a>.
-					</p>
+	<footer id="footer"> 
+		<!-- .subfooter start --> <!-- ================ -->
+		<div class="subfooter">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<p class="text-center">
+							Copyright © 2016 AirPull by <a target="_blank"
+								href="https://github.com/A1rDr0p">A1rDr0p Group</a>.
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- .subfooter end --> </footer>
+		<!-- .subfooter end --> 
+	</footer>
 	<!-- footer end -->
 
 	<!-- JavaScript files placed at the end of the document so the pages load faster

@@ -843,7 +843,7 @@ if (tempstr.length>0)
 	document.write(htmlstr);
 else
 	{
-		document.write("当前分类尚无表格");
+		document.write("当前分类尚无表格<br/><a href=goHomeLogged?name=${user.nickname}>前往添加</a>");
 	}
 
 
