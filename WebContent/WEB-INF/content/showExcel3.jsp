@@ -762,8 +762,7 @@ function caedit(table){
 </script>  
 </head>    
 <body>    
-
-<form id="form1" name="form1" method="post" action="">    
+  
 <br />  
 
 <script language="javascript">
@@ -837,6 +836,12 @@ if (tempstr[0]=='!'){
 		}
 	}
 	htmlstr+='</table>';
+	htmlstr+="<br/><form action = goEdit  method=\"post\">";
+	htmlstr+="<input type=\"hidden\" name=\"fan4dog\" value=\"${ str3 }\" >";
+	htmlstr+="<input type=\"hidden\" name=\"name\" value=${ user.nickname }>"
+	htmlstr+="<input type=\"hidden\" name=\"type\" value=\"3\">";
+	htmlstr+="<button type=\"submit\" name=\"Submit\" class=\"btn btn-sm btn-default\" onclick=\"Strsave(document.getElementById('tabProduct'))\">编辑</button>";
+	htmlstr+="</form>";
 }
 
 if (tempstr.length>0)
@@ -847,8 +852,7 @@ else
 	}
 
 
-</script>    
-</form>    
+</script>  
     
 <script language="javascript">    
 // 设置表格可编辑    
