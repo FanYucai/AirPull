@@ -31,8 +31,19 @@
 
 	<package name="qwq" extends="struts-default" namespace="/"
 		strict-method-invocation="false">
-		<!-- <global-results> <result name="error">/WEB-INF/content/error.jsp</result> 
-			</global-results> <global-allowed-methods>login,logout,initAdd,clear,all,list,upload</global-allowed-methods> -->
+		<interceptors>
+			<interceptor name="authority"
+				class="com.a1rdr0p.SEproject.actionLoginInterceptor">
+			</interceptor>
+			<!-- 拦截器栈 -->
+			<interceptor-stack name="mydefault">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="authority" />
+			</interceptor-stack>
+		</interceptors>
+		<global-results> 
+			<result name="login">/WEB-INF/content/404.jsp</result> 
+		</global-results> <!-- <global-allowed-methods>login,logout,initAdd,clear,all,list,upload</global-allowed-methods> -->
 		
 		<action name="airpullIteye" class="com.a1rdr0p.SEproject.action.airpullIteye">
 			<result name="success">/WEB-INF/content/afterPull.jsp</result>
