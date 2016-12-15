@@ -37,8 +37,8 @@ public class login implements Action {
 		else {
 			boolean flag = us.checkPassword(user.getName(), user.getPassword());
 			if (flag == true) {
-				ActionContext.getContext().getSession().put("1", user.getName());
-				ActionContext.getContext().getSession().put("1", user.getPassword());
+				ActionContext.getContext().getSession().put("USERNAME", user.getName());
+//				ActionContext.getContext().getSession().put("1", user.getPassword());
 				user = tmp;
 			}
 			else {

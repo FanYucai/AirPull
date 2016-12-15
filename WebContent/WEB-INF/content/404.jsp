@@ -128,13 +128,13 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 object-non-visible" data-animation-effect="fadeIn">
-							<h1 class="text-center">Log In, <span>SB!</span></h1>
-										
-								<div class="col-md-8 col-md-offset-5">
+							<h1 class="text-center">404 <span>ERROR</span></h1>
+							<h1 class="text-center">This page does not exist.</h1>			
+					<!-- 			<div class="col-md-8 col-md-offset-5">
 									<ul class="nav nav-pills">
 										<li class="active"><a href=homeLogged>Submit</a></li>
 									</ul>
-								</div>
+								</div> -->
 														
 								<div class="overlay-container">
 									<a class="overlay" data-toggle="modal" data-target="#project-1">
@@ -153,7 +153,6 @@
 								-->
 							
 							<p class="lead text-center">
-								Simple & Concise & Convenient
 							</p>
 
 						</div>
