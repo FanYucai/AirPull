@@ -36,7 +36,7 @@
             <interceptor name="loginInterceptor" class="com.a1rdr0p.SEproject.action.LoginInterceptor" />  
             <interceptor-stack name="loginStack">  
                    <interceptor-ref name="loginInterceptor">  
-                       <param name="excludeMethods">home</param>  
+                       <param name="includeMethods">homeLogged</param>  
                    </interceptor-ref>  
                    <interceptor-ref name="defaultStack"></interceptor-ref>  
             </interceptor-stack>  
@@ -46,6 +46,10 @@
 		<global-results> 
 			<result name="404">/WEB-INF/content/404.jsp</result> 
 		</global-results> <!-- <global-allowed-methods>login,logout,initAdd,clear,all,list,upload</global-allowed-methods> -->
+		
+		<action name="airpullIteye" class="com.a1rdr0p.SEproject.action.airpullIteye">
+			<result name="success">/WEB-INF/content/afterPull.jsp</result>
+		</action>
 
 		<!-- Login Action -->
 		<action name="login" class="com.a1rdr0p.SEproject.action.login">
@@ -186,10 +190,16 @@
 			<interceptor-ref name="defaultStack"></interceptor-ref> 
 		</action>
 		<!-- =============== -->
-
+		
 		<action name="*">
 			<result>/WEB-INF/content/{1}.jsp</result>
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>   
+			<interceptor-ref name="defaultStack"></interceptor-ref> 			
 		</action>
+		
+		<action name="home">
+			<result>/WEB-INF/content/home.jsp</result>		
+		</action>	
 
 		<action name="exportExcel" class="com.a1rdr0p.SEproject.action.exportExcel">
 			<!-- 导出excel -->
@@ -253,7 +263,7 @@
 		<action name="uploadAlipay" class="com.a1rdr0p.SEproject.action.UploadActionAlipay">
 			<result>/WEB-INF/content/afterPullAlipay.jsp</result>
 			<interceptor-ref name="loginInterceptor"></interceptor-ref>   
-			<interceptor-ref name="defaultStack"></interceptor-ref> 
+			<interceptor-ref name="defaultStack"></interceptor-ref>
 		</action>
 		<!-- =============== -->		
 	</package>
