@@ -31,8 +31,21 @@
 
 	<package name="qwq" extends="struts-default" namespace="/"
 		strict-method-invocation="false">
-		<!-- <global-results> <result name="error">/WEB-INF/content/error.jsp</result> 
-			</global-results> <global-allowed-methods>login,logout,initAdd,clear,all,list,upload</global-allowed-methods> -->
+
+ 		<interceptors>  
+            <interceptor name="loginInterceptor" class="com.a1rdr0p.SEproject.action.LoginInterceptor" />  
+            <interceptor-stack name="loginStack">  
+                   <interceptor-ref name="loginInterceptor">  
+                       <param name="includeMethods">homeLogged</param>  
+                   </interceptor-ref>  
+                   <interceptor-ref name="defaultStack"></interceptor-ref>  
+            </interceptor-stack>  
+		</interceptors>  
+		<default-interceptor-ref name="loginStack" />  
+		
+		<global-results> 
+			<result name="404">/WEB-INF/content/404.jsp</result> 
+		</global-results> <!-- <global-allowed-methods>login,logout,initAdd,clear,all,list,upload</global-allowed-methods> -->
 		
 		<action name="airpullIteye" class="com.a1rdr0p.SEproject.action.airpullIteye">
 			<result name="success">/WEB-INF/content/afterPull.jsp</result>
@@ -75,48 +88,64 @@
 		<!-- Back Home Logged JSP Action -->
 		<action name="backHomeLogged" class="com.a1rdr0p.SEproject.action.backHomeLogged">
 			<result name="success">/WEB-INF/content/homeLogged.jsp</result>
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>   
+			<interceptor-ref name="defaultStack"></interceptor-ref> 
 		</action>
 		<!-- =============== -->
 		
 		<!-- Back Profile JSP Action -->
 		<action name="backProfile" class="com.a1rdr0p.SEproject.action.backProfile">
 			<result name="success">/WEB-INF/content/profile.jsp</result>
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>   
+			<interceptor-ref name="defaultStack"></interceptor-ref> 
 		</action>
 		<!-- =============== -->
 		
 		<!-- Go Profile Action -->
 		<action name="goProfile" class="com.a1rdr0p.SEproject.action.goProfile">
 			<result name="success">/WEB-INF/content/profile.jsp</result>
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>   
+			<interceptor-ref name="defaultStack"></interceptor-ref> 	
 		</action>
 		<!-- =============== -->
 		
 		<!-- Go HomeLogged Action -->
 		<action name="goHomeLogged" class="com.a1rdr0p.SEproject.action.goHomeLogged">
 			<result name="success">/WEB-INF/content/homeLogged.jsp</result>
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>   
+			<interceptor-ref name="defaultStack"></interceptor-ref> 			
 		</action>
 		<!-- =============== -->
 		
 		<!-- Go Change Password Action -->
 		<action name="goChangePassword" class="com.a1rdr0p.SEproject.action.goChangePassword">
 			<result name="success">/WEB-INF/content/changePassword.jsp</result>
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>   
+			<interceptor-ref name="defaultStack"></interceptor-ref> 
 		</action>
 		<!-- =============== -->
 		
 		<!-- Go Change Email Action -->
 		<action name="goChangeEmail" class="com.a1rdr0p.SEproject.action.goChangeEmail">
 			<result name="success">/WEB-INF/content/changeEmail.jsp</result>
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>   
+			<interceptor-ref name="defaultStack"></interceptor-ref> 
 		</action>
 		<!-- =============== -->
 		
 		<!-- Go Forget Password Action -->
 		<action name="goForgetPassword">
 			<result>/WEB-INF/content/forgetPassword.jsp</result>
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>   
+			<interceptor-ref name="defaultStack"></interceptor-ref> 
 		</action>
 		<!-- =============== -->
 		
 		<!-- Go Edit Action -->
 		<action name="goEdit" class="com.a1rdr0p.SEproject.action.goEdit">
 			<result name="success">/WEB-INF/content/editAfterPull.jsp</result>
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>   
+			<interceptor-ref name="defaultStack"></interceptor-ref> 
 		</action>
 		<!-- =============== -->
 		
@@ -130,6 +159,8 @@
 			<result name="illegalPassword">/WEB-INF/content/change.jsp?type=新密码不符合要求</result>
 			<result name="notSame">/WEB-INF/content/change.jsp?type=两次密码不同</result>
 			<result name="error">/WEB-INF/content/change.jsp?type=未知错误</result>
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>   
+			<interceptor-ref name="defaultStack"></interceptor-ref> 
 		</action>
 		<!-- =============== -->
 		
@@ -142,6 +173,8 @@
 			<result name="wrongPassword">/WEB-INF/content/change.jsp?type=密码错误</result>
 			<result name="wrongEmail">/WEB-INF/content/change.jsp?type=邮箱错误</result>
 			<result name="error">/WEB-INF/content/change.jsp?type=未知错误</result>
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>   
+			<interceptor-ref name="defaultStack"></interceptor-ref> 
 		</action>
 		<!-- =============== -->
 		
@@ -153,12 +186,20 @@
 			<result name="wrongEmail">/WEB-INF/content/forget.jsp?type=邮箱错误</result>
 			<result name="success">/WEB-INF/content/forget.jsp?type=您的新密码已经发到您的邮箱，请及时查看并修改密码</result>
 			<result name="error">/WEB-INF/content/forget.jsp?type=未知错误</result>
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>   
+			<interceptor-ref name="defaultStack"></interceptor-ref> 
 		</action>
 		<!-- =============== -->
-
+		
 		<action name="*">
 			<result>/WEB-INF/content/{1}.jsp</result>
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>   
+			<interceptor-ref name="defaultStack"></interceptor-ref> 			
 		</action>
+		
+		<action name="home">
+			<result>/WEB-INF/content/home.jsp</result>		
+		</action>	
 
 		<action name="exportExcel" class="com.a1rdr0p.SEproject.action.exportExcel">
 			<!-- 导出excel -->
@@ -173,40 +214,56 @@
 		<!-- =============== -->
 		<action name="uploadJiaowuchu" class="com.a1rdr0p.SEproject.action.UploadActionJiaowuchu">
 			<result>/WEB-INF/content/afterPullJiaowuchu.jsp</result>
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>   
+			<interceptor-ref name="defaultStack"></interceptor-ref> 
 		</action>
 		<!-- =============== -->
 		
 		<!-- =============== -->
 		<action name="uploadJiaowuchu2" class="com.a1rdr0p.SEproject.action.UploadActionJiaowuchu2">
 			<result>/WEB-INF/content/afterPullJiaowuchu2.jsp</result>
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>   
+			<interceptor-ref name="defaultStack"></interceptor-ref> 
 		</action>
 		<!-- =============== -->
 		
 		<!-- =============== -->
 		<action name="uploadCustom" class="com.a1rdr0p.SEproject.action.UploadActionCustom">
 			<result>/WEB-INF/content/afterPullCustom.jsp</result>
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>   
+			<interceptor-ref name="defaultStack"></interceptor-ref> 
 		</action>
 		<!-- =============== -->
 		<action name="uploadOw" class="com.a1rdr0p.SEproject.action.UploadActionOw">
 			<result>/WEB-INF/content/afterPullOw.jsp</result>
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>   
+			<interceptor-ref name="defaultStack"></interceptor-ref> 
 		</action>
 		<!-- =============== -->
 		<action name="uploadJd" class="com.a1rdr0p.SEproject.action.UploadActionJd">
 			<result>/WEB-INF/content/afterPullJd.jsp</result>
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>   
+			<interceptor-ref name="defaultStack"></interceptor-ref> 
 		</action>
 		<!-- =============== -->
 		<action name="uploadHs" class="com.a1rdr0p.SEproject.action.UploadActionHs">
 			<result>/WEB-INF/content/afterPullHs.jsp</result>
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>   
+			<interceptor-ref name="defaultStack"></interceptor-ref> 
 		</action>
 		<!-- =============== -->
 								
 		<!-- =============== -->
 		<action name="uploadTaobao" class="com.a1rdr0p.SEproject.action.UploadActionTaobao">
 			<result>/WEB-INF/content/afterPullTaobao.jsp</result>
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>   
+			<interceptor-ref name="defaultStack"></interceptor-ref> 
 		</action>
 		<!-- =============== -->
 		<action name="uploadAlipay" class="com.a1rdr0p.SEproject.action.UploadActionAlipay">
 			<result>/WEB-INF/content/afterPullAlipay.jsp</result>
+			<interceptor-ref name="loginInterceptor"></interceptor-ref>   
+			<interceptor-ref name="defaultStack"></interceptor-ref>
 		</action>
 		<!-- =============== -->		
 	</package>

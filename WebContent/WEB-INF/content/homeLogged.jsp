@@ -401,8 +401,7 @@ function submitForm() {
 											<button type="button" class="close" data-dismiss="modal">
 												<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 											</button>
-											<h4 class="modal-title" id="project-1-label">Project
-												Title</h4>
+											<h4 class="modal-title" id="project-1-label">查看淘宝订单</h4>
 										</div>
 											<div class="modal-body">
 												<h3>Project Description</h3>
@@ -469,8 +468,7 @@ function submitForm() {
 											<button type="button" class="close" data-dismiss="modal">
 												<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 											</button>
-											<h4 class="modal-title" id="project-3-label">Project
-												Title</h4>
+											<h4 class="modal-title" id="project-3-label">查看哈尔滨工业大学成绩单</h4>
 										</div>
 										<div class="modal-body">
 											<h3>Project Description</h3>
@@ -523,7 +521,7 @@ function submitForm() {
 									</a>
 								</div>
 								<a class="btn btn-default btn-block" data-toggle="modal"
-									data-target="#project-3">自定义表格提取[初步]</a>
+									data-target="#project-3">自定义表格提取</a>
 							</div>
 							<!-- Modal -->
 							<div class="modal fade" id="project-3" tabindex="-1"
@@ -535,8 +533,7 @@ function submitForm() {
 											<button type="button" class="close" data-dismiss="modal">
 												<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 											</button>
-											<h4 class="modal-title" id="project-3-label">Project
-												Title</h4>
+											<h4 class="modal-title" id="project-3-label">自定义表格提取</h4>
 										</div>
 										<div class="modal-body">
 											<h3>Project Description</h3>
@@ -633,8 +630,7 @@ function submitForm() {
 											<button type="button" class="close" data-dismiss="modal">
 												<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 											</button>
-											<h4 class="modal-title" id="project-4-label">Project
-												Title</h4>
+											<h4 class="modal-title" id="project-4-label">查看微博热点话题</h4>
 										</div>
 										<div class="modal-body">
 											<h3>Project Description</h3>
@@ -698,8 +694,7 @@ function submitForm() {
 											<button type="button" class="close" data-dismiss="modal">
 												<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 											</button>
-											<h4 class="modal-title" id="project-3-label">Project
-												Title</h4>
+											<h4 class="modal-title" id="project-3-label">查看支付宝转账记录</h4>
 										</div>
 										<div class="modal-body">
 											<h3>Project Description</h3>
@@ -764,8 +759,7 @@ function submitForm() {
 											<button type="button" class="close" data-dismiss="modal">
 												<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 											</button>
-											<h4 class="modal-title" id="project-6-label">Project
-												Title</h4>
+											<h4 class="modal-title" id="project-6-label">炉石传说排行查询</h4>
 										</div>
 										<div class="modal-body">
 											<h3>Project Description</h3>
@@ -829,8 +823,7 @@ function submitForm() {
 											<button type="button" class="close" data-dismiss="modal">
 												<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 											</button>
-											<h4 class="modal-title" id="project-7-label">Project
-												Title</h4>
+											<h4 class="modal-title" id="project-7-label">查看教务处选课信息</h4>
 										</div>
 										<div class="modal-body">
 											<h3>Project Description</h3>
@@ -895,8 +888,7 @@ function submitForm() {
 											<button type="button" class="close" data-dismiss="modal">
 												<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
 											</button>
-											<h4 class="modal-title" id="project-8-label">Project
-												Title</h4>
+											<h4 class="modal-title" id="project-8-label">查看京东商城订单记录</h4>
 										</div>
 										<div class="modal-body">
 											<h3>Project Description</h3>
