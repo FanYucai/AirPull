@@ -144,11 +144,17 @@ public class FileUploadToolsCustom {
 
 			int tableIndex = 0, maxTdCnt = 0;
 			
+			String errorInfo = "您上传的文件格式不正确，请尝试其他的提取模式。"; 
+			
 			File target = uploadFile[0];
 			Document doc = Jsoup.parse(target, "UTF-8", "");
 
 //			Elements tableElements = doc.getElementsByAttributeValue("class", "table_a");
 			Elements tableElements = doc.getElementsByTag("table");
+			if(tableElements.isEmpty()) {
+				feifeiContent = "!"+errorInfo;
+				return "success";
+			}
 			System.out.println("size: "+tableElements.size());
 			for(int tb=0; tb<tableElements.size(); tb++) {
 				String tmp_ = "";
@@ -157,6 +163,10 @@ public class FileUploadToolsCustom {
 				int tdCnt;
 				
 				Elements trElements = tableElements.get(tb).getElementsByTag("tr");
+				if(trElements.isEmpty()) {
+					feifeiContent = "!"+errorInfo;
+					return "success";
+				}
 				tdCnt = 0;
 				for (int i = 0; i < trElements.size(); i++) {
 					Elements tdElements;
@@ -168,6 +178,11 @@ public class FileUploadToolsCustom {
 						}
 					} else {
 						tdElements = trElements.get(i).getElementsByTag("td");
+					}
+					
+					if(tdElements.isEmpty()) {
+						feifeiContent = "!"+errorInfo;
+						return "success";
 					}
 					
 					tdCnt += tdElements.size();

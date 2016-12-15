@@ -84,11 +84,16 @@ public class FileUploadToolsOw {
 		}//空文件判断
 		
 		try {
+			String errorInfo = "您上传的文件格式不正确，请尝试其他的提取模式。"; 
 			File target = uploadFile[0];
 			Document doc = Jsoup.parse(target, "UTF-8", "");
 
 			Elements title = doc.getElementsByAttributeValue("class", "tlink S_txt1");
 			Elements count = doc.getElementsByAttributeValue("class", "subtext S_txt2");
+			if(title.isEmpty() || count.isEmpty()) {
+				feifeiContent = "!" + errorInfo;
+				return "success";
+			}
 
 			byte[] encodeBase64; 
 			String tmp_ = "";

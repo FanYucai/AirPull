@@ -100,9 +100,17 @@ public class FileUploadToolsJiaowuchu {
 		try {
 			File target = uploadFile[0];
 			Document doc = Jsoup.parse(target, "UTF-8", "");
-
+			String errorInfo = "您上传的文件格式不正确，请尝试其他的提取模式。"; 
 			Elements bigTable = doc.getElementsByAttributeValue("class", "bot_line");
+			if(bigTable.isEmpty()) {
+				feifeiContent = "!"+errorInfo;
+				return "success";
+			}
 			Elements trItem = bigTable.get(0).getElementsByTag("tr");
+			if(trItem.isEmpty()) {
+				feifeiContent = "!"+errorInfo;
+				return "success";
+			}
 			String tmp_ = "";
 
 			for (int i = 0; i < trItem.size(); i++) {
@@ -111,6 +119,10 @@ public class FileUploadToolsJiaowuchu {
 					tdItem = trItem.get(i).getElementsByTag("th");
 				} else {
 					tdItem = trItem.get(i).getElementsByTag("td");
+				}
+				if(tdItem.isEmpty()) {
+					feifeiContent = "!"+errorInfo;
+					return "success";
 				}
 				tmp_ = "";
 				for (int j = 0; j < tdItem.size(); j++) {

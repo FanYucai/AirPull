@@ -77,7 +77,7 @@ public class FileUploadToolsAlipay {
 		System.out.println("qwq: "+uploadFileFileName);
 		
 		if(uploadFileFileName.length() == 0) {
-			feifeiContent = "您没有选择@上传文件！$";
+			feifeiContent = "!您没有选择上传文件！";
 			fileContent = "您没有选择\t上传文件！\n";
 			return "success";
 		}//空文件判断
@@ -85,7 +85,7 @@ public class FileUploadToolsAlipay {
 		try {
 			ArrayList<String> feifeiContentArr = new ArrayList<String>();
 			ArrayList<String> fileContentArr = new ArrayList<String>();
-
+			String errorInfo = "您上传的文件格式不正确，请尝试其他的提取模式。"; 
 			int tableIndex = 0, maxTdCnt = 0;
 			
 			File target = uploadFile[0];
@@ -93,6 +93,10 @@ public class FileUploadToolsAlipay {
 
 //			Elements tableElements = doc.getElementsByAttributeValue("class", "table_a");
 			Elements tableElements = doc.getElementsByTag("table");
+			if(tableElements.isEmpty()) {
+				feifeiContent = "!"+errorInfo;
+				return "success";
+			}
 			System.out.println("size: "+tableElements.size());
 			for(int tb=0; tb<tableElements.size(); tb++) {
 				String tmp_ = "";
@@ -101,6 +105,10 @@ public class FileUploadToolsAlipay {
 				int tdCnt;
 				
 				Elements trElements = tableElements.get(tb).getElementsByTag("tr");
+				if(trElements.isEmpty()) {
+					feifeiContent = "!"+errorInfo;
+					return "success";
+				}
 				tdCnt = 0;
 				for (int i = 0; i < trElements.size(); i++) {
 					Elements tdElements;
@@ -110,8 +118,16 @@ public class FileUploadToolsAlipay {
 						if(tdElements.size() == 0) {
 							tdElements = trElements.get(i).getElementsByTag("td");
 						}
+						if(tdElements.isEmpty()) {
+							feifeiContent = "!"+errorInfo;
+							return "success";
+						}
 					} else {
 						tdElements = trElements.get(i).getElementsByTag("td");
+						if(tdElements.isEmpty()) {
+							feifeiContent = "!"+errorInfo;
+							return "success";
+						}
 					}
 					
 					tdCnt += tdElements.size();

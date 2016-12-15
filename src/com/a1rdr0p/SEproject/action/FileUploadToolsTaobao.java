@@ -84,6 +84,7 @@ public class FileUploadToolsTaobao {
 		} // 空文件判断
 
 		try {
+			String errorInfo = "您上传的文件格式不正确，请尝试其他的提取模式。"; 
 			File target = uploadFile[0];
 			Document doc = Jsoup.parse(target, "UTF-8", "");
 			String tmp_ = "";
@@ -125,6 +126,10 @@ public class FileUploadToolsTaobao {
 			// System.out.println(fileContent);
 
 			fileContent += "订单号\t下单时间\t商铺名称\t宝贝\t数量\t单价\t实付款\t交易状态\n";
+			if(orderCode.size() == 0) {
+				feifeiContent = "!" + errorInfo;
+				return "success";
+			}
 			for (int i = 0; i < orderCode.size(); i++) {
 				tmp_ = "";
 				byte[] encodeBase64 = Base64.encodeBase64(orderCode.get(i).text().getBytes("UTF-8")); 

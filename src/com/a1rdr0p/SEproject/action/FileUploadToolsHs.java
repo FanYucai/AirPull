@@ -86,13 +86,17 @@ public class FileUploadToolsHs {
 		try {
 			ArrayList<String> feifeiContentArr = new ArrayList<String>();
 			ArrayList<String> fileContentArr = new ArrayList<String>();
-
+			String errorInfo = "您上传的文件格式不正确，请尝试其他的提取模式。"; 
 			int tableIndex = 0, maxTdCnt = 0;
 			
 			File target = uploadFile[0];
 			Document doc = Jsoup.parse(target, "UTF-8", "");
 
 			Elements divElements = doc.getElementsByAttributeValue("id", "standingsBox");
+			if(divElements.isEmpty()) {
+				feifeiContent = "!"+errorInfo;
+				return "success";
+			}
 //			System.out.println("size: "+tableElements.size());
 			byte[] encodeBase64; 
 			String tmp_ = "";
@@ -100,16 +104,44 @@ public class FileUploadToolsHs {
 			fileContent = "";
 			String title = "", subtitle = "";
 //			title += divElements.get(0).getElementsByAttributeValue("data-reactid", ".0.0.0.0").text();
-			title += doc.getElementsByAttributeValue("data-reactid", ".0.0.0.0").text();
-			title += doc.getElementsByAttributeValue("data-reactid", ".0.0.0.1").text();
-			title += doc.getElementsByAttributeValue("data-reactid", ".0.0.0.2").text();
+			if(!doc.getElementsByAttributeValue("data-reactid", ".0.0.0.0").isEmpty())
+				title += doc.getElementsByAttributeValue("data-reactid", ".0.0.0.0").text();
+			else {
+				feifeiContent = "!" + errorInfo;
+				return "success";
+			}
+				
+			if(!doc.getElementsByAttributeValue("data-reactid", ".0.0.0.1").isEmpty())
+				title += doc.getElementsByAttributeValue("data-reactid", ".0.0.0.1").text();
+			else {
+				feifeiContent = "!" + errorInfo;
+				return "success";
+			}
+			
+			if(!doc.getElementsByAttributeValue("data-reactid", ".0.0.0.2").isEmpty())	
+				title += doc.getElementsByAttributeValue("data-reactid", ".0.0.0.2").text();
+			else {
+				feifeiContent = "!" + errorInfo;
+				return "success";
+			}
+			
 			encodeBase64 = Base64.encodeBase64(title.getBytes("UTF-8"));
 			tmp_ += new String(encodeBase64);
 			tmp_ += "{1,3}$";
 			
+			if(!doc.getElementsByAttributeValue("data-reactid", ".0.0.1.0").isEmpty())
+				subtitle += doc.getElementsByAttributeValue("data-reactid", ".0.0.1.0").text();
+			else {
+				feifeiContent = "!" + errorInfo;
+				return "success";
+			}
 			
-			subtitle += doc.getElementsByAttributeValue("data-reactid", ".0.0.1.0").text();
-			subtitle += doc.getElementsByAttributeValue("data-reactid", ".0.0.1.1").text();
+			if(!doc.getElementsByAttributeValue("data-reactid", ".0.0.1.1").isEmpty())	
+				subtitle += doc.getElementsByAttributeValue("data-reactid", ".0.0.1.1").text();
+			else {
+				feifeiContent = "!" + errorInfo;
+				return "success";
+			}
 //			subtitle += doc.getElementsByAttributeValue("data-reactid", ".0.0.0.2").text();
 			encodeBase64 = Base64.encodeBase64(subtitle.getBytes("UTF-8"));
 			tmp_ += new String(encodeBase64);
@@ -118,6 +150,7 @@ public class FileUploadToolsHs {
 			tmp_ += "5o6S5ZCN{1,1}@546p5a62{1,1}@56ev5YiG{1,1}$";
 			
 			Elements liElements = doc.getElementsByAttributeValue("class", "esports-standings__list__item");			
+			
 			System.out.println("hahahshabi:" + String.valueOf(liElements.size()));
 			System.out.println(liElements.size());
 			

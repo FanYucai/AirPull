@@ -36,7 +36,7 @@
             <interceptor name="loginInterceptor" class="com.a1rdr0p.SEproject.action.LoginInterceptor" />  
             <interceptor-stack name="loginStack">  
                    <interceptor-ref name="loginInterceptor">  
-                       <param name="includeMethods">homeLogged</param>  
+                       <param name="excludeMethods">home</param>  
                    </interceptor-ref>  
                    <interceptor-ref name="defaultStack"></interceptor-ref>  
             </interceptor-stack>  
@@ -46,10 +46,6 @@
 		<global-results> 
 			<result name="404">/WEB-INF/content/404.jsp</result> 
 		</global-results> <!-- <global-allowed-methods>login,logout,initAdd,clear,all,list,upload</global-allowed-methods> -->
-		
-		<action name="airpullIteye" class="com.a1rdr0p.SEproject.action.airpullIteye">
-			<result name="success">/WEB-INF/content/afterPull.jsp</result>
-		</action>
 
 		<!-- Login Action -->
 		<action name="login" class="com.a1rdr0p.SEproject.action.login">
