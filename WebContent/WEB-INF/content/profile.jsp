@@ -186,8 +186,11 @@
 								<i class="fa fa-leaf"></i>
 							</div>
 							<div class="media-body">
-								<h4 class="media-heading">Service 5</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
+								<h4 class="media-heading">便捷</h4>
+								<p>你拥有一个你自己独立的仓库，你在这可以查看你之前保存的每一个类别的表格数据。如果你在此分类没有
+								表格内容，你可以点击前往添加去AirPull一个新的表格。如果你已经保存了一张表格，那么你就可以点击相应
+								类别的标题展开进行查看。同时，你若想修改你的表格内容，在表格末尾点击编辑即可。</p>
+								
 							</div>
 						</div>
 						<div class="media">
@@ -195,8 +198,10 @@
 								<i class="fa fa-area-chart"></i>
 							</div>
 							<div class="media-body">
-								<h4 class="media-heading">Service 6</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
+								<h4 class="media-heading">安全</h4>
+								<p>同时我们以保证了你的账户安全问题。你可以在这个个人信息页面查看你的用户名，同时你也可以点击修改密码
+								进行修改，你只需向我们提供你的旧密码即可。修改邮箱即使如此，所以当你担心你的个人信息太过于简单而想改变时，
+								AirPull帮你解决。</p>
 							</div>
 						</div>
 						<div class="media">
@@ -204,19 +209,14 @@
 								<i class="fa fa-child"></i>
 							</div>
 							<div class="media-body">
-								<h4 class="media-heading">Service 7</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
+								<h4 class="media-heading">联系我们</h4>
+								<p>如果你有什么更好的意见，可以随时联系我们，以下是我们的联系方式：<br/></p>
+								<h5><span>FanYucai: fanyucai@126.com</span><br/></h5>
+								<h5><span>lanxuan365: 719464096@qq.com</span><br/></h5>
+								<h5><span>LouYJ: 865227010@qq.com</span></h5>
 							</div>
 						</div>
-						<div class="media">
-							<div class="media-left">
-								<i class="fa fa-codepen"></i>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">Service 8</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure aperiam consequatur quo quis exercitationem reprehenderit dolor vel ducimus, voluptate eaque suscipit iste placeat.</p>
-							</div>
-						</div>
+						
 					</div>
 				</div>
 			</div>
