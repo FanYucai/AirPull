@@ -87,7 +87,7 @@ public class FileUploadToolsJd {
 			int tableIndex = 0, maxTdCnt = 0;
 			String errorInfo = "您上传的文件格式不正确，请尝试其他的提取模式。";
 			File target = uploadFile[0];
-			Document doc = Jsoup.parse(target, "UTF-8", "");
+			Document doc = Jsoup.parse(target, "GBK", "");
 
 //			Elements tableElements = doc.getElementsByAttributeValue("class", "table_a");
 			Elements tableElements = doc.getElementsByTag("table");

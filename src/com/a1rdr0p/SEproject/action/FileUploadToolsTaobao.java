@@ -86,7 +86,7 @@ public class FileUploadToolsTaobao {
 		try {
 			String errorInfo = "您上传的文件格式不正确，请尝试其他的提取模式。"; 
 			File target = uploadFile[0];
-			Document doc = Jsoup.parse(target, "UTF-8", "");
+			Document doc = Jsoup.parse(target, "GBK", "");
 			String tmp_ = "";
 
 			// 错误格式判断
