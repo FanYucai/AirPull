@@ -23,7 +23,9 @@
 	<constant name="struts.multipart.maxSize" value="10701096" />
 	<!-- 设置上传文件的临时文件夹,默认使用javax.servlet.context.tempdir -->
 	<constant name="struts.multipart.saveDir " value="/WEB-INF/upload" />
-	<constant name="struts.allowed.action.names" value="[\s\S]*"></constant>
+	<constant name="struts.multipart.saveDir " value="/WEB-INF/upload" />
+	<constant name="struts.allowed.action.names" value="[\s\S]*" />
+
 	<!--demo12，struts2文件上传与下载 -->
 	<bean type="org.apache.struts2.dispatcher.multipart.MultiPartRequest"
 		name="MyJakartaMultiPartRequestRef" class="com.a1rdr0p.SEproject.action.MyJakartaMultiPartRequest"
@@ -36,7 +38,7 @@
             <interceptor name="loginInterceptor" class="com.a1rdr0p.SEproject.action.LoginInterceptor" />  
             <interceptor-stack name="loginStack">  
                    <interceptor-ref name="loginInterceptor">  
-                       <param name="excludeMethods">home</param>  
+                       <param name="includeMethods">homeLogged</param>  
                    </interceptor-ref>  
                    <interceptor-ref name="defaultStack"></interceptor-ref>  
             </interceptor-stack>  
@@ -46,6 +48,10 @@
 		<global-results> 
 			<result name="404">/WEB-INF/content/404.jsp</result> 
 		</global-results> <!-- <global-allowed-methods>login,logout,initAdd,clear,all,list,upload</global-allowed-methods> -->
+		
+		<action name="airpullIteye" class="com.a1rdr0p.SEproject.action.airpullIteye">
+			<result name="success">/WEB-INF/content/afterPull.jsp</result>
+		</action>
 
 		<!-- Login Action -->
 		<action name="login" class="com.a1rdr0p.SEproject.action.login">
@@ -197,6 +203,10 @@
 			<result>/WEB-INF/content/home.jsp</result>		
 		</action>	
 
+<!-- 		<action name="homeLogged">
+			<result>/WEB-INF/content/homeLogged.jsp</result>		
+		</action>	 -->
+		
 		<action name="exportExcel" class="com.a1rdr0p.SEproject.action.exportExcel">
 			<!-- 导出excel -->
 			<result name="excel" type="stream">
