@@ -106,24 +106,15 @@ public class FileUploadToolsHs {
 //			title += divElements.get(0).getElementsByAttributeValue("data-reactid", ".0.0.0.0").text();
 			if(!doc.getElementsByAttributeValue("data-reactid", ".0.0.0.0").isEmpty())
 				title += doc.getElementsByAttributeValue("data-reactid", ".0.0.0.0").text();
-			else {
-				feifeiContent = "!" + errorInfo;
-				return "success";
-			}
+			
 				
 			if(!doc.getElementsByAttributeValue("data-reactid", ".0.0.0.1").isEmpty())
 				title += doc.getElementsByAttributeValue("data-reactid", ".0.0.0.1").text();
-			else {
-				feifeiContent = "!" + errorInfo;
-				return "success";
-			}
+			
 			
 			if(!doc.getElementsByAttributeValue("data-reactid", ".0.0.0.2").isEmpty())	
 				title += doc.getElementsByAttributeValue("data-reactid", ".0.0.0.2").text();
-			else {
-				feifeiContent = "!" + errorInfo;
-				return "success";
-			}
+			
 			
 			encodeBase64 = Base64.encodeBase64(title.getBytes("UTF-8"));
 			tmp_ += new String(encodeBase64);
@@ -131,17 +122,11 @@ public class FileUploadToolsHs {
 			
 			if(!doc.getElementsByAttributeValue("data-reactid", ".0.0.1.0").isEmpty())
 				subtitle += doc.getElementsByAttributeValue("data-reactid", ".0.0.1.0").text();
-			else {
-				feifeiContent = "!" + errorInfo;
-				return "success";
-			}
+			
 			
 			if(!doc.getElementsByAttributeValue("data-reactid", ".0.0.1.1").isEmpty())	
 				subtitle += doc.getElementsByAttributeValue("data-reactid", ".0.0.1.1").text();
-			else {
-				feifeiContent = "!" + errorInfo;
-				return "success";
-			}
+			
 //			subtitle += doc.getElementsByAttributeValue("data-reactid", ".0.0.0.2").text();
 			encodeBase64 = Base64.encodeBase64(subtitle.getBytes("UTF-8"));
 			tmp_ += new String(encodeBase64);

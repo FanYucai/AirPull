@@ -64,7 +64,7 @@ public class signUp implements Action {
 			ret = SUCCESS;
 			sendEmail mail = new sendEmail();
 			mail.sendSignUpEmail(user.getName(), user.getPassword(), user.getNickname(), user.getEmail());
-			ActionContext.getContext().getSession().put("USERNAME", user.getName());
+			
 		}
 		else if (verify == 110) {
 			ret = "exist";//用户已存在
