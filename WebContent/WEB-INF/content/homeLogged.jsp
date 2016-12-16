@@ -554,7 +554,8 @@ function submitFormTaobao() {
 											<h4 class="modal-title" id="project-3-label">查看哈尔滨工业大学成绩单</h4>
 										</div>
 										<div class="modal-body">
-											<h3>Project Description</h3>
+											<h3>功能：提取出哈尔滨工业大学成绩单</h3>
+											<h3>操作步骤：首先进入到哈尔滨工业大学<a href="jwts.hit.edu.cn">教务处系统</a>，登陆后进入到查询成绩的页面。在此页面下点击右键，选择保存源代码，或者ctrl+S保存网页源代码。然后将得到的文件在此页面上传即可。</h3>
 											<div class="row">
 												<div class="col-md-6">
 													<!-- 上传文件，最近添加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
@@ -909,7 +910,8 @@ function submitFormTaobao() {
 											<h4 class="modal-title" id="project-7-label">查看教务处选课信息</h4>
 										</div>
 										<div class="modal-body">
-											<h3>Project Description</h3>
+											<h3>功能：提取哈尔滨工业大学选课信息</h3>
+											<h3>操作步骤：首先进入到哈尔滨工业大学<a href="jwts.hit.edu.cn">教务处系统</a>，登陆后进入到查询选课信息页面。在此页面下点击右键，选择保存源代码，或者ctrl+S保存网页源代码。然后将得到的文件在此页面上传即可。</h3>
 											<div class="row">
 												<div class="col-md-6">
 													<!-- 上传文件，最近添加的 qqqqqqqqqqqqqqqqqqqqqqqqqqqqwqqqqqqqqqqqqqqqqqqqqqqqqqqqqq -->
