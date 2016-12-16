@@ -55,7 +55,7 @@ public class goEdit implements Action {
 	public String execute() throws Exception {
 		userService us = new userService();
 		user = us.findNickname(name);
-		System.out.println("hahah:"+ fan4dog);
+//		System.out.println("hahah:"+ fan4dog);
 		
 		return SUCCESS;
 	}
