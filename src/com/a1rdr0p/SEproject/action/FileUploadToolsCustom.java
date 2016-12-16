@@ -17,12 +17,9 @@ import org.apache.commons.codec.binary.Base64;
 public class FileUploadToolsCustom {
 	private String username = "qwqdefault";
 	private String fileContent = "";
-//	private String tableClass = "123qweqweqw";
-//	private String trClass = "";
-//	private String tdClass = "";
-//	private String tableId = "";
-//	private String trId = "";
-//	private String tdId = "";
+	private String tableId = "";
+	private String trId = "111";
+	private String tdId = "111";
 	
 	private String feifeiContent = "";
 	private File uploadFile[];// 上传的文件是数组类型
@@ -72,54 +69,30 @@ public class FileUploadToolsCustom {
 	public void setFileContent(String fileContent) {
 		this.fileContent = fileContent;
 	}
-	
-//	public String getTableClass() {
-//		return tableClass;
-//	}
-//
-//	public void setTableClass(String tableClass) {
-//		this.tableClass = tableClass;
-//	}
-//
-//	public String getTrClass() {
-//		return trClass;
-//	}
-//
-//	public void setTrClass(String trClass) {
-//		this.trClass = trClass;
-//	}
-//
-//	public String getTdClass() {
-//		return tdClass;
-//	}
-//
-//	public void setTdClass(String tdClass) {
-//		this.tdClass = tdClass;
-//	}
-//
-//	public String getTableId() {
-//		return tableId;
-//	}
-//
-//	public void setTableId(String tableId) {
-//		this.tableId = tableId;
-//	}
-//
-//	public String getTrId() {
-//		return trId;
-//	}
-//
-//	public void setTrId(String trId) {
-//		this.trId = trId;
-//	}
-//
-//	public String getTdId() {
-//		return tdId;
-//	}
 
-//	public void setTdId(String tdId) {
-//		this.tdId = tdId;
-//	}
+	public String getTableId() {
+		return tableId;
+	}
+
+	public void setTableId(String tableId) {
+		this.tableId = tableId;
+	}
+
+	public String getTrId() {
+		return trId;
+	}
+
+	public void setTrId(String trId) {
+		this.trId = trId;
+	}
+
+	public String getTdId() {
+		return tdId;
+	}
+
+	public void setTdId(String tdId) {
+		this.tdId = tdId;
+	}
 
 	public String getFeifeiContent() {
 		return feifeiContent;
@@ -130,7 +103,6 @@ public class FileUploadToolsCustom {
 	}
 
 	public String beginUpload() throws IOException {
-		System.out.println("qwq: "+uploadFileFileName);
 		
 		if(uploadFileFileName.length() == 0) {
 			feifeiContent = "!您没有选择上传文件！";
@@ -148,13 +120,20 @@ public class FileUploadToolsCustom {
 			
 			File target = uploadFile[0];
 			Document doc = Jsoup.parse(target, "UTF-8", "");
+			
+			Elements tableElements;
+			tableElements = doc.getElementsByTag("table");
+			System.out.println("qwq: "+tableId);
+			
+			if(!tableId.equals("")) {
+				tableElements = doc.getElementsByAttributeValue("id", tableId);
+			}
 
-//			Elements tableElements = doc.getElementsByAttributeValue("class", "table_a");
-			Elements tableElements = doc.getElementsByTag("table");
 			if(tableElements.isEmpty()) {
 				feifeiContent = "!"+errorInfo;
 				return "success";
 			}
+			
 			System.out.println("size: "+tableElements.size());
 			for(int tb=0; tb<tableElements.size(); tb++) {
 				String tmp_ = "";
@@ -163,10 +142,7 @@ public class FileUploadToolsCustom {
 				int tdCnt;
 				
 				Elements trElements = tableElements.get(tb).getElementsByTag("tr");
-				if(trElements.isEmpty()) {
-					feifeiContent = "!"+errorInfo;
-					return "success";
-				}
+
 				tdCnt = 0;
 				for (int i = 0; i < trElements.size(); i++) {
 					Elements tdElements;
@@ -178,11 +154,6 @@ public class FileUploadToolsCustom {
 						}
 					} else {
 						tdElements = trElements.get(i).getElementsByTag("td");
-					}
-					
-					if(tdElements.isEmpty()) {
-						feifeiContent = "!"+errorInfo;
-						return "success";
 					}
 					
 					tdCnt += tdElements.size();

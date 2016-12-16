@@ -103,10 +103,10 @@ public class FileUploadToolsJd {
 				int tdCnt;
 				
 				Elements trElements = tableElements.get(tb).getElementsByTag("tr");
-				if(trElements.isEmpty()) {
-					feifeiContent = "!"+errorInfo;
-					return "success";
-				}
+//				if(trElements.isEmpty()) {
+//					feifeiContent = "!"+errorInfo;
+//					return "success";
+//				}
 				tdCnt = 0;
 				for (int i = 0; i < trElements.size(); i++) {
 					Elements tdElements;
@@ -116,16 +116,16 @@ public class FileUploadToolsJd {
 						if(tdElements.size() == 0) {
 							tdElements = trElements.get(i).getElementsByTag("td");
 						}
-						if(tdElements.isEmpty()) {
-							feifeiContent = "!"+errorInfo;
-							return "success";
-						}
+//						if(tdElements.isEmpty()) {
+//							feifeiContent = "!"+errorInfo;
+//							return "success";
+//						}
 					} else {
 						tdElements = trElements.get(i).getElementsByTag("td");
-						if(tdElements.isEmpty()) {
-							feifeiContent = "!"+errorInfo;
-							return "success";
-						}
+//						if(tdElements.isEmpty()) {
+//							feifeiContent = "!"+errorInfo;
+//							return "success";
+//						}
 					}
 					
 					tdCnt += tdElements.size();
