@@ -655,9 +655,6 @@ function submitFormTaobao() {
 																<td>单元格class</td>
 																<td><input type="text" name="tdClass" ></td>
 															</tr>												
-															<tr>
-																<td>高级</td><input type="text" name="tableCustom" placeholder="table"></td>
-															</tr>
 												
 															<tr>
 																<td>表格ID:</td>
