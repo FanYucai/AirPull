@@ -913,7 +913,9 @@ if (tempstr[0]=='!'){
 		}
 		for (i=0;i<cnt;i++)
 		{
-			sum+=parseInt(tempstr.substring(indexD[i]+1,indexKK[i]));
+			var a=parseInt(tempstr.substring(indexD[i]+1,indexKK[i]));
+			var b=parseInt(tempstr.substring(indexK[i]+1,indexD[i]));
+			sum+=a*b;
 		}
 	col = sum/row;
 	var htmlstr='<table border="1" cellpadding="0" cellspacing="0" id="tabProduct">';
@@ -958,6 +960,15 @@ document.write(htmlstr);
 </script>    
 </form>    
     
+
+<br/>
+
+<form action = saveTable  method="post">
+	<input id="fan3dog" type="hidden" name="fan3dog" value="" >
+	<input type="hidden" name="name" value=${ user.nickname }>
+	<input type="hidden" name="type" value="8">
+	<button type="submit" class="btn btn-sm btn-default" name="Submit" onclick="Strsave(document.getElementById('tabProduct'))">保存</button>
+</form>  
 <script language="javascript">    
 // 设置表格可编辑    
 // 可一次设置多个，例如：EditTables(tb1,tb2,tb2,......)    
@@ -975,14 +986,5 @@ Str(document.getElementById("tabProduct"));
 Strsave(document.getElementById("tabProduct"));
     
 </script>
-<br/>
-
-<form action = saveTable  method="post">
-	<input id="fan3dog" type="hidden" name="fan3dog" value="" >
-	<input type="hidden" name="name" value=${ user.nickname }>
-	<input type="hidden" name="type" value="8">
-	<button type="submit" class="btn btn-sm btn-default" name="Submit" onclick="Strsave(document.getElementById('tabProduct'))">保存</button>
-</form>  
-
 </body>    
 </html>    

@@ -910,10 +910,12 @@ if (tempstr[0]=='!'){
 		{
 			indexKK.push(i);
 		}
-		for (i=0;i<cnt;i++)
-		{
-			sum+=parseInt(tempstr.substring(indexD[i]+1,indexKK[i]));
-		}
+	for (i=0;i<cnt;i++)
+	{
+		var a=parseInt(tempstr.substring(indexD[i]+1,indexKK[i]));
+		var b=parseInt(tempstr.substring(indexK[i]+1,indexD[i]));
+		sum+=a*b;
+	}
 	col = sum/row;
 	var htmlstr='<table border="1" cellpadding="0" cellspacing="0" id="tabProduct">';
 	htmlstr+='<tr><td></td>';
