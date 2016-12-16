@@ -374,7 +374,7 @@ for(var i=table.rows.length - 1; i>=0;i--){
       for (var a=0;a<i;a++){
     	  for (var b=0;b<table.rows[a].cells.length;b++){
         	  var o = parseInt(table.rows[a].cells[b].rowSpan);
-        	  var p = parseInt(table.rows[b].cells[b].colSpan);    		  
+        	  var p = parseInt(table.rows[a].cells[b].colSpan);    		  
     		  if (o+a>i) {
     			  o=o-1;
     			  table.rows[a].cells[b].rowSpan=o.toString();
